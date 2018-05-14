@@ -1,5 +1,5 @@
 <schemalist>
-  <schema id="com.github.alcadica.develop" path="/com/alcadica/develop/" gettext-domain="develop">
+  <schema id="com.github.alcadica.develop" path="/com/github/alcadica/develop/" gettext-domain="develop">
     <key name="is-first-run" type="b">
       <default>true</default>
       <summary>Is your first time.</summary>
