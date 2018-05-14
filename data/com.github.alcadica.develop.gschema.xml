@@ -1,0 +1,29 @@
+<schemalist>
+  <schema id="com.github.alcadica.develop" path="/com/alcadica/develop/" gettext-domain="develop">
+    <key name="is-first-run" type="b">
+      <default>true</default>
+      <summary>Is your first time.</summary>
+      <description>Is your first time.</description>
+    </key>
+    <key name="user-email" type="s">
+      <default>''</default>
+      <summary>Your email address.</summary>
+      <description>Your email address.</description>
+    </key>
+    <key name="user-github-url" type="s">
+      <default>''</default>
+      <summary>Your github page url.</summary>
+      <description>Your github page url.</description>
+    </key>
+    <key name="user-name" type="s">
+      <default>''</default>
+      <summary>Your name.</summary>
+      <description>Your name.</description>
+    </key>
+    <key name="user-website-url" type="s">
+      <default>''</default>
+      <summary>Your website.</summary>
+      <description>Your website.</description>
+    </key>
+  </schema>
+</schemalist>

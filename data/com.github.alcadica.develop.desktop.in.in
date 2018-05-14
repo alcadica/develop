@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Develop
+Comment=Create elementary OS apps
+GenericName=Create elementary OS apps
+Exec=@EXEC_NAME@ %U
+Icon=com.github.alcadica.develop
+Terminal=false
+Categories=Utility;GTK;Development;
+Keywords=Develop
+X-GNOME-Gettext-Domain=com.github.alcadica.develop
+X-GNOME-UsesNotifications=true

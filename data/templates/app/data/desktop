@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=
+Comment=
+GenericName=
+Exec=@EXEC_NAME@ %U
+Icon={{execname}}
+Terminal=false
+Categories=Utility;GTK;Development;
+Keywords=Develop
