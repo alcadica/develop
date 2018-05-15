@@ -33,6 +33,7 @@ namespace Alcadica.Widgets {
             this.secondary_action = new Button.with_label (_("Undo"));
             this.add (this.secondary_action);
             this.add (this.primary_action);
+            this.column_spacing = 12;
             this.set_column_homogeneous (true);
 
             this.primary_action.get_style_context ().add_class (STYLE_CLASS_SUGGESTED_ACTION);

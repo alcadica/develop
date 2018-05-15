@@ -46,7 +46,7 @@ namespace Alcadica.Services {
         }
 
         protected string get_shared_template_dir () {
-            return Path.build_filename (Environment.get_user_data_dir (), APP_ID, "templates", this.template_name);
+            return Path.build_filename ("/", "usr", "share", APP_ID, "templates", this.template_name);
         }
 
         protected bool create_directories () {
