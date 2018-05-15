@@ -126,6 +126,8 @@ namespace Alcadica.Services {
                 this.on_creation_end (without_errors);
                 
                 return without_errors;
+            } else {
+                this.on_creation_end (false);
             }
             
             return false;

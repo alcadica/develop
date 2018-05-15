@@ -32,10 +32,11 @@ namespace Alcadica.Views {
 
             Partials.Settings.UserDataSettingsFirstRun first_run = new Partials.Settings.UserDataSettingsFirstRun ();
             ProjectEditingView project_editing = new ProjectEditingView ();
+            Services.ActionManager manager = Services.ActionManager.instance;
             SettingsView settings = new SettingsView ();
             Stack stack = new Stack ();
-            WelcomeView welcome = new WelcomeView ();
             string? last_visible_child_name;
+            WelcomeView welcome = new WelcomeView ();
             
             orientation = Orientation.HORIZONTAL;
             
@@ -66,21 +67,25 @@ namespace Alcadica.Views {
                 project_editing.show_form_wingpanel ();
             });
 
-            Services.ActionManager.instance.get_action (Actions.Window.FIRST_RUN).activate.connect (() => {
+            manager.get_action (Actions.ProjectEditing.TEMPLATE_DID_COPY).activate.connect(() => {
+                stack.set_visible_child_full(view_welcome, StackTransitionType.CROSSFADE);
+            });
+
+            manager.get_action (Actions.Window.FIRST_RUN).activate.connect (() => {
                 last_visible_child_name = view_welcome;
                 stack.set_visible_child_full(view_first_run, StackTransitionType.CROSSFADE);
             });
 
-            Services.ActionManager.instance.get_action (Actions.Window.FIRST_RUN_END).activate.connect (() => {
+            manager.get_action (Actions.Window.FIRST_RUN_END).activate.connect (() => {
                 stack.set_visible_child_full(last_visible_child_name, StackTransitionType.CROSSFADE);
             });
 
-            Services.ActionManager.instance.get_action (Actions.Window.SETTINGS_OPEN).activate.connect (() => {
+            manager.get_action (Actions.Window.SETTINGS_OPEN).activate.connect (() => {
                 last_visible_child_name = stack.get_visible_child_name ();
                 stack.set_visible_child_full(view_settings, StackTransitionType.CROSSFADE);
             });
 
-            Services.ActionManager.instance.get_action (Actions.Window.SETTINGS_CLOSE).activate.connect (() => {
+            manager.get_action (Actions.Window.SETTINGS_CLOSE).activate.connect (() => {
                 if (last_visible_child_name == null) {
                     last_visible_child_name = view_welcome;
                 }
@@ -90,7 +95,7 @@ namespace Alcadica.Views {
                 last_visible_child_name = null;
             });
 
-            Services.ActionManager.instance.get_action (Actions.Window.SHOW_WELCOME_VIEW).activate.connect (() => {
+            manager.get_action (Actions.Window.SHOW_WELCOME_VIEW).activate.connect (() => {
                 stack.set_visible_child_full(view_welcome, StackTransitionType.SLIDE_RIGHT);
             });
         }

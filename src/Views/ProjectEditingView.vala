@@ -77,11 +77,11 @@ namespace Alcadica.Views {
                 service.add_token ("projectname", projectname);
                 service.add_token ("site", settings.user_website_url);
 
-                service.start ();
-
                 service.on_creation_end.connect (status => {
-                    Services.ActionManager.instance.dispatch (Actions.Window.SHOW_WELCOME_VIEW);
+                    Services.ActionManager.instance.dispatch (Actions.ProjectEditing.TEMPLATE_DID_COPY);
                 });
+
+                service.start ();
             });
 
             form_switchboard.on_validate.connect (() => {
@@ -128,11 +128,11 @@ namespace Alcadica.Views {
                 service.add_token ("projectname", projectname);
                 service.add_token ("site", settings.user_website_url);
 
-                service.start ();
-
                 service.on_creation_end.connect (status => {
-                    Services.ActionManager.instance.dispatch (Actions.Window.SHOW_WELCOME_VIEW);
+                    Services.ActionManager.instance.dispatch (Actions.ProjectEditing.TEMPLATE_DID_COPY);
                 });
+
+                service.start ();
             });
 
             form_wingpanel.on_validate.connect (() => {
@@ -155,11 +155,11 @@ namespace Alcadica.Views {
                 service.add_token ("projectname", projectname);
                 service.add_token ("site", settings.user_website_url);
 
-                service.start ();
-
                 service.on_creation_end.connect (status => {
-                    Services.ActionManager.instance.dispatch (Actions.Window.SHOW_WELCOME_VIEW);
+                    Services.ActionManager.instance.dispatch (Actions.ProjectEditing.TEMPLATE_DID_COPY);
                 });
+
+                service.start ();
             });
 
             actions.primary_action.clicked.connect (() => {

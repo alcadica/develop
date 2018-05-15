@@ -88,6 +88,7 @@ message ('Adds files to build')
 
 code_files = files(
     'src/Application.vala',
+    'src/Actions/ProjectEditing/Actions.vala',
     'src/Actions/Window/Actions.vala',
     'src/CommonRegEx.vala',
     'src/Entities/Generic/KeyValuePair.vala',
