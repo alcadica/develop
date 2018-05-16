@@ -30,5 +30,30 @@ namespace Alcadica.Services {
 		public UserSettings () {
 			base (APP_ID);
 		}
+
+		protected override void verify (string key) {
+			switch (key) {
+				case "user-email": 
+					if (this.user_email == "" || this.user_email == null) {
+						this.user_email = "";
+					}
+				break;
+				case "user-github-url": 
+					if (this.user_github_url == "" || this.user_github_url == null) {
+						this.user_github_url = "http://github.com/";
+					}
+				break;
+				case "user-name": 
+					if (this.user_name == "" || this.user_name == null) {
+						this.user_name = Environment.get_user_name ();
+					}
+				break;
+				case "user-website-url": 
+					if (this.user_website_url == "" || this.user_website_url == null) {
+						this.user_website_url = "";
+					}
+				break;
+			}
+		}
 	}
 }
