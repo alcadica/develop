@@ -127,6 +127,8 @@ code_files = files(
 
 message ('Installing schema')
 
+subdir ('po')
+
 install_data(
     join_paths ('data', meson.project_name() + '.gschema.xml'),
     install_dir: join_paths(get_option('datadir'), 'glib-2.0', 'schemas')

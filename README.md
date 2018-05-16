@@ -38,3 +38,9 @@ meson build --prefix=/usr
 cd build
 sudo ninja install && com.github.alcadica.develop
 ```
+
+## Generating first pot file
+
+```bash
+find . -iname "*.vala" | xargs xgettext --from-code utf-8 -o com.github.alcadica.develop.pot
+```

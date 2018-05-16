@@ -1,0 +1,13 @@
+src/Views/MainView.vala
+src/Views/Partials/Forms/FormBase.vala
+src/Views/Partials/Forms/FormNewApp.vala
+src/Views/Partials/Forms/FormNewSwitchboardWidget.vala
+src/Views/Partials/Forms/FormNewWingpanelWidget.vala
+src/Views/Partials/Forms/FormUserData.vala
+src/Views/Partials/Settings/SettingsBase.vala
+src/Views/Partials/Settings/UserDataSettings.vala
+src/Views/Partials/Settings/UserDataSettingsFirstRun.vala
+src/Views/Partials/Window/HeaderBar.vala
+src/Views/ProjectEditingView.vala
+src/Views/SettingsView.vala
+src/Views/WelcomeView.vala
