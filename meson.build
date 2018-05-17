@@ -29,7 +29,7 @@ dependencies = [
     dependency('gio-unix-2.0', version: '>=2.20'),
     dependency('granite'),
     dependency('switchboard-2.0'),
-    dependency('wingpanel-2.0', version: '>=2'),
+    dependency('wingpanel-2.0'),
 ]
 
 # Adds subfolders specific build system
