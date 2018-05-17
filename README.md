@@ -1,6 +1,8 @@
 Develop
 =======
 
+[![Build Status](https://travis-ci.org/alcadica/develop.svg?branch=master)](https://travis-ci.org/alcadica/develop)
+
 A simple tool to help Elementary OS developers to develop their own apps and widgets.
 
 ![](https://raw.githubusercontent.com/alcadica/develop/master/data/screenshots/screenshot-000.jpeg)
@@ -39,8 +41,10 @@ cd build
 sudo ninja install && com.github.alcadica.develop
 ```
 
-## Generating first pot file
+## Generating or regenerating main pot file
 
 ```bash
 find . -iname "*.vala" | xargs xgettext --from-code utf-8 -o com.github.alcadica.develop.pot
+
+mv com.github.alcadica.develop.pot po/com.github.alcadica.develop.pot
 ```

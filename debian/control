@@ -13,7 +13,6 @@ Build-Depends: meson,
               valac (>= 0.26)
 
 Standards-Version: 3.9.3
-
 Package: com.github.alcadica.develop
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
