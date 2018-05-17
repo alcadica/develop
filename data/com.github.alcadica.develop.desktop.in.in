@@ -2,11 +2,11 @@
 Type=Application
 Name=Develop
 Comment=Create elementary OS apps
-GenericName=Create elementary OS apps
+GenericName=Develop App
 Exec=@EXEC_NAME@ %U
 Icon=com.github.alcadica.develop
 Terminal=false
-Categories=Utility;GTK;Development;
-Keywords=Develop
+Categories=Utility;Development;
+Keywords=Develop;
 X-GNOME-Gettext-Domain=com.github.alcadica.develop
 X-GNOME-UsesNotifications=true
