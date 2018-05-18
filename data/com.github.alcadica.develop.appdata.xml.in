@@ -8,10 +8,23 @@
   <name>Code</name>
   <summary>Creates Elementary OS apps and widgets</summary>
   <description>
-    
+    <p>
+      A simple tool to help Elementary OS developers to develop their own apps and widgets.
+    </p>
+    <p>
+      With this tool you can scaffold:    
+    </p>
+    <ul>
+      <li>an elementary OS App</li>
+      <li>a Switchboard Widget</li>
+      <li>or a Wingpanel Indicator</li>
+    </ul>
+    <p>
+      It creates automatically your project template using meson, ninja under the RDNN naming convention.
+    </p>
   </description>
   <releases>
-    <release version="0.1.0" date="2018-05-05"/>
+    <release version="0.1.0" date="2018-06-02"/>
   </releases>
   <provides>
     <binary>com.github.alcadica.develop</binary>
