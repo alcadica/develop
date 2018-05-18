@@ -31,6 +31,11 @@ namespace Alcadica.Views.Partials.Window {
 			
 			button_back.get_style_context().add_class (STYLE_CLASS_BACK_BUTTON);
 			//  STYLE_CLASS_BACK_BUTTON
+			var css_context = this.get_style_context ();
+			css_context.add_class ("input-header");
+			css_context.add_class ("titlebar");
+			css_context.add_class ("default-decoration");
+			css_context.add_class (Gtk.STYLE_CLASS_FLAT);
 
 			this.pack_start (button_quit);
 			this.pack_start (button_back);
