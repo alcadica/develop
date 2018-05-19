@@ -5,26 +5,22 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_group>Alcadica</project_group>
   <project_license>GPL-3.0+</project_license>
-  <name>Code</name>
+  <name>Develop</name>
   <summary>Creates Elementary OS apps and widgets</summary>
   <description>
     <p>
       A simple tool to help Elementary OS developers to develop their own apps and widgets.
     </p>
     <p>
-      With this tool you can scaffold:    
-    </p>
-    <ul>
-      <li>an elementary OS App</li>
-      <li>a Switchboard Widget</li>
-      <li>or a Wingpanel Indicator</li>
-    </ul>
-    <p>
-      It creates automatically your project template using meson, ninja under the RDNN naming convention.
+      With this app you can scaffold an elementary OS App, a Switchboard Widget or a Wingpanel Indicator
     </p>
   </description>
   <releases>
-    <release version="0.1.0" date="2018-06-02"/>
+    <release version="0.1.0" date="2018-06-02">
+      <description>
+        <p>First release</p>
+      </description>
+    </release>
   </releases>
   <provides>
     <binary>com.github.alcadica.develop</binary>
@@ -65,7 +61,10 @@
   <update_contact>github_AT_alcadica.com</update_contact>
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/alcadica/develop/master/data/screenshots/screenshot.png</image>
+      <image>https://raw.githubusercontent.com/alcadica/develop/master/data/screenshots/screenshot-001.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/alcadica/develop/master/data/screenshots/screenshot-000.png</image>
     </screenshot>
   </screenshots>
   <custom>
