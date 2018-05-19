@@ -90,8 +90,8 @@ namespace Alcadica {
 
             if (settings.is_first_run) {
                 info ("first run, showing settings");
+                manager.dispatch (Actions.Window.FIRST_RUN);
             }
-            manager.dispatch (Actions.Window.FIRST_RUN);
         }
 
         protected override void open (File[] files, string hint) {
