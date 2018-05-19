@@ -18,7 +18,9 @@
   <releases>
     <release version="0.1.0" date="2018-06-02">
       <description>
-        <p>First release</p>
+        <ul>
+          <li>Initial release</li>
+        </ul>
       </description>
     </release>
   </releases>

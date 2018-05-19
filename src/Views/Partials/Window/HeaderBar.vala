@@ -68,6 +68,14 @@ namespace Alcadica.Views.Partials.Window {
 				button_back.hide ();
 				button_settings.show ();
 			});
+
+			manager.get_action (Actions.Window.FIRST_RUN).activate.connect (() => {
+				button_settings.hide ();
+			});
+
+			manager.get_action (Actions.Window.FIRST_RUN_END).activate.connect (() => {
+				button_settings.show ();
+			});
 		}
 	}
 }

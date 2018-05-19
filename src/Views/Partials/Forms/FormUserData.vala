@@ -40,11 +40,12 @@ namespace Alcadica.Views.Partials.Forms {
 			user_email.entry.pattern = Alcadica.CommonRegEx.USER_EMAIL;
 			user_github_url.entry.pattern = Alcadica.CommonRegEx.URL;
 			user_website_url.entry.pattern = Alcadica.CommonRegEx.URL;
+			user_website_url.optional = true;
 
-			add (user_name);
-			add (user_email);
-			add (user_github_url);
-			add (user_website_url);
+			attach (user_name, 0, 0, 1, 1);
+			attach (user_email, 0, 1, 1, 1);
+			attach (user_github_url, 0, 2, 1, 1);
+			attach (user_website_url, 0, 3, 1, 1);
 
 			user_email.changed.connect (() => {
 				validate ();

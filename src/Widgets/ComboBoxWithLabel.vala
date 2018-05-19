@@ -62,6 +62,8 @@ namespace Alcadica.Widgets {
 			this.set_hexpand (true);
 
 			this.label.margin_bottom = 4;
+			this.label.hexpand = true;
+			this.combobox.hexpand = true;
 
 			this.combobox.changed.connect (() => {
 				this.changed (this.value);
