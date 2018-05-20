@@ -6,10 +6,10 @@
   <project_group>Alcadica</project_group>
   <project_license>GPL-3.0+</project_license>
   <name>Develop</name>
-  <summary>Creates Elementary OS apps and widgets</summary>
+  <summary>Creates elementary OS apps and widgets</summary>
   <description>
     <p>
-      A simple tool to help Elementary OS developers to develop their own apps and widgets.
+      A simple tool to help elementary OS developers to develop their own apps and widgets.
     </p>
     <p>
       With this app you can scaffold an elementary OS App, a Switchboard Widget or a Wingpanel Indicator
