@@ -58,8 +58,8 @@
   </content_rating>
   <developer_name>Alcadica</developer_name>
   <url type="homepage">http://www.alcadica.com/</url>
-  <url type="bugtracker">https://github.com/elementary/scratch/issues</url>
-  <url type="help">https://elementaryos.stackexchange.com/questions/tagged/develop</url>
+  <url type="bugtracker">https://github.com/alcadica/develop/issues</url>
+  <url type="help">https://github.com/alcadica/develop/issues</url>
   <update_contact>github_AT_alcadica.com</update_contact>
   <screenshots>
     <screenshot type="default">

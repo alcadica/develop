@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2018 {{name}} <{{email}}> -->
 <component type="desktop">
-  <id>{{execname}}</id>
+  <id>{{execname}}.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_group>{{name}}</project_group>
   <project_license>GPL-3.0+</project_license>
@@ -46,7 +46,7 @@
   <developer_name>{{name}}</developer_name>
   <url type="homepage">{{site}}</url>
   <url type="bugtracker">{{issue_tracker_url}}</url>
-  <url type="help">https://elementaryos.stackexchange.com/questions/tagged/{{name}}</url>
+  <url type="help">{{issue_tracker_url}}</url>
   <update_contact>{{antispammail}}</update_contact>
   <screenshots>
     <screenshot type="default">
