@@ -41,10 +41,15 @@ cd build
 sudo ninja install && com.github.alcadica.develop
 ```
 
-## Generating or regenerating main pot file
+## Generating pot file
 
 ```bash
-find . -iname "*.vala" | xargs xgettext --from-code utf-8 -o com.github.alcadica.develop.pot
+# after setting up meson build
+cd build
 
-mv com.github.alcadica.develop.pot po/com.github.alcadica.develop.pot
+# generates pot file
+sudo ninja com.github.alcadica.develop-pot
+
+# to regenerate and propagate changes to every po file
+sudo ninja com.github.alcadica.develop-update-po
 ```

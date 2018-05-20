@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the com.github.alcadica.develop package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: com.github.alcadica.develop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-17 19:52+0200\n"
+"POT-Creation-Date: 2018-05-21 01:23+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,35 +17,24 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/Widgets/ActionBar.vala:32
-msgid "Create"
-msgstr ""
-
-#: src/Widgets/ActionBar.vala:33
-msgid "Undo"
-msgstr ""
-
-#: src/Views/Partials/Settings/UserDataSettings.vala:27
-#: src/Views/SettingsView.vala:35
-msgid "User settings"
-msgstr ""
-
-#: src/Views/Partials/Settings/UserDataSettingsFirstRun.vala:32
-msgid "First run setup"
-msgstr ""
-
-#: src/Views/Partials/Settings/UserDataSettingsFirstRun.vala:33
-msgid "Before proceeding I'd love to know more about you"
-msgstr ""
-
-#: src/Views/Partials/Settings/UserDataSettingsFirstRun.vala:51
-msgid "Save user data"
-msgstr ""
-
+#: src/Views/Partials/Forms/FormNewApp.vala:34
 #: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:48
 #: src/Views/Partials/Forms/FormNewWingpanelWidget.vala:35
-#: src/Views/Partials/Forms/FormNewApp.vala:34
 msgid "Choose project folder"
+msgstr ""
+
+#: src/Views/Partials/Forms/FormNewApp.vala:38
+msgid "Create a new elementary App"
+msgstr ""
+
+#: src/Views/Partials/Forms/FormNewApp.vala:39
+msgid "App name"
+msgstr ""
+
+#: src/Views/Partials/Forms/FormNewApp.vala:40
+#: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:56
+#: src/Views/Partials/Forms/FormNewWingpanelWidget.vala:42
+msgid "RDNN name"
 msgstr ""
 
 #: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:52
@@ -62,12 +51,6 @@ msgstr ""
 
 #: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:55
 msgid "Plug description"
-msgstr ""
-
-#: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:56
-#: src/Views/Partials/Forms/FormNewWingpanelWidget.vala:42
-#: src/Views/Partials/Forms/FormNewApp.vala:40
-msgid "RDNN name"
 msgstr ""
 
 #: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:61
@@ -134,16 +117,29 @@ msgstr ""
 msgid "https://www.mywebsite.com"
 msgstr ""
 
-#: src/Views/Partials/Forms/FormNewApp.vala:38
-msgid "Create a new elementary App"
+#: src/Views/Partials/Settings/UserDataSettings.vala:27
+#: src/Views/SettingsView.vala:35
+msgid "User settings"
 msgstr ""
 
-#: src/Views/Partials/Forms/FormNewApp.vala:39
-msgid "App name"
+#: src/Views/Partials/Settings/UserDataSettingsFirstRun.vala:32
+msgid "First run setup"
+msgstr ""
+
+#: src/Views/Partials/Settings/UserDataSettingsFirstRun.vala:33
+msgid "Before proceeding I'd love to know more about you"
+msgstr ""
+
+#: src/Views/Partials/Settings/UserDataSettingsFirstRun.vala:51
+msgid "Save user data"
 msgstr ""
 
 #: src/Views/Partials/Window/HeaderBar.vala:29
 msgid "Back"
+msgstr ""
+
+#: src/Views/SettingsView.vala:35
+msgid "Sets your personal developer data"
 msgstr ""
 
 #: src/Views/WelcomeView.vala:33
@@ -176,8 +172,4 @@ msgstr ""
 
 #: src/Views/WelcomeView.vala:41
 msgid "Create a new elementary OS wingpanel indicator."
-msgstr ""
-
-#: src/Views/SettingsView.vala:35
-msgid "Sets your personal developer data"
 msgstr ""
