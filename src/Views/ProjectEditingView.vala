@@ -36,21 +36,23 @@ namespace Alcadica.Views {
         public signal void on_undo ();
         
         construct {
+            Services.ActionManager manager = Services.ActionManager.instance;
             Alcadica.Widgets.ActionBar actions = new Alcadica.Widgets.ActionBar ();
-            Grid grid = new Grid ();
+            Stack stack = new Stack ();
             
-            grid.orientation = Orientation.VERTICAL;
-            grid.row_spacing = 20;
+            //  grid.orientation = Orientation.VERTICAL;
+            //  grid.row_spacing = 20;
             this.orientation = Orientation.VERTICAL;
 
             actions.disable_primary_action ();
-            grid.add (form_app);
-            grid.add (form_switchboard);
-            grid.add (form_wingpanel);
-            grid.add (actions);
-
+            stack.add (form_app);
+            stack.add (form_switchboard);
+            stack.add (form_wingpanel);
+            
             this.set_halign (Align.CENTER);
-            this.set_center_widget (grid);
+            this.set_center_widget (stack);
+            this.pack_end (actions);
+            this.set_spacing (20);
 
             this.on_reset.connect (() => {
                 form_app.reset ();
@@ -171,8 +173,6 @@ namespace Alcadica.Views {
                 this.reset ();
                 this.on_undo ();
             });
-
-            this.hide_all_forms ();
         }
 
         protected void hide_all_forms () {

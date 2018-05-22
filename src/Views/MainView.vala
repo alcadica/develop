@@ -67,10 +67,6 @@ namespace Alcadica.Views {
                 project_editing.show_form_wingpanel ();
             });
 
-            manager.get_action (Actions.ProjectEditing.TEMPLATE_DID_COPY).activate.connect(() => {
-                stack.set_visible_child_full(view_welcome, StackTransitionType.CROSSFADE);
-            });
-
             manager.get_action (Actions.Window.FIRST_RUN).activate.connect (() => {
                 last_visible_child_name = view_welcome;
                 stack.set_visible_child_full(view_first_run, StackTransitionType.CROSSFADE);
@@ -97,6 +93,10 @@ namespace Alcadica.Views {
 
             manager.get_action (Actions.Window.SHOW_WELCOME_VIEW).activate.connect (() => {
                 stack.set_visible_child_full(view_welcome, StackTransitionType.SLIDE_RIGHT);
+            });
+
+            manager.get_action (Actions.ProjectEditing.TEMPLATE_DID_COPY).activate.connect(() => {
+                stack.set_visible_child_full(view_welcome, StackTransitionType.CROSSFADE);
             });
         }
     }
