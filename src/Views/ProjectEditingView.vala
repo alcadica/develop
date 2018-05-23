@@ -73,9 +73,12 @@ namespace Alcadica.Views {
                 service.root_dir_name = form_app.rdnn_name.text;
 
                 service.add_token ("antispammail", settings.user_email.replace("@", "_AT_"));
+                service.add_token ("email", settings.user_email);
                 service.add_token ("execname", form_app.rdnn_name.text);
+                service.add_token ("github_url", settings.user_website_url);
                 service.add_token ("issue_tracker_url", string.join ("/", settings.user_github_url, projectname, "issues"));
                 service.add_token ("name", settings.user_name);
+                service.add_token ("year", new GLib.DateTime.now_utc ().get_year ().to_string());
                 service.add_token ("projectname", projectname);
                 service.add_token ("site", settings.user_website_url);
 

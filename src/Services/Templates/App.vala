@@ -39,6 +39,12 @@ namespace Alcadica.Services.Templates {
 			this.add_file ("data/icons/128/name.svg", get_content_from_shared_file ("data/icons/128/name.svg"));
 			this.add_file ("data/icons/256/name.svg", get_content_from_shared_file ("data/icons/256/name.svg"));
 			this.add_file ("data/icons/name.svg", get_content_from_shared_file ("data/icons/name.svg"));
+			this.add_file ("debian/source/format", get_content_from_shared_file ("debian/source/format"));
+			this.add_file ("debian/changelog", get_content_from_shared_file ("debian/changelog"));
+			this.add_file ("debian/compat", get_content_from_shared_file ("debian/compat"));
+			this.add_file ("debian/control", get_content_from_shared_file ("debian/control"));
+			this.add_file ("debian/copyright", get_content_from_shared_file ("debian/copyright"));
+			this.add_file ("debian/rules", get_content_from_shared_file ("debian/rules"));
 			this.add_file ("meson.build", get_content_from_shared_file ("meson.build"));
 			this.add_file ("src/Application.vala", get_content_from_shared_file ("src/Application.vala"));
 		}
