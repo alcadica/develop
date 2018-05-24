@@ -20,6 +20,42 @@
   <defs
      id="defs4">
     <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4226">
+      <stop
+         style="stop-color:#919191;stop-opacity:1"
+         offset="0"
+         id="stop4228" />
+      <stop
+         id="stop4234"
+         offset="0.2"
+         style="stop-color:#dedede;stop-opacity:1" />
+      <stop
+         style="stop-color:#b1b1b1;stop-opacity:1"
+         offset="0.27849248"
+         id="stop4240" />
+      <stop
+         style="stop-color:#989898;stop-opacity:1"
+         offset="0.29999998"
+         id="stop4236" />
+      <stop
+         id="stop4238"
+         offset="0.34341648"
+         style="stop-color:#fdfdfd;stop-opacity:1" />
+      <stop
+         style="stop-color:#c0c0c0;stop-opacity:1"
+         offset="0.44858667"
+         id="stop4242" />
+      <stop
+         id="stop4244"
+         offset="0.49356601"
+         style="stop-color:#ffffff;stop-opacity:1" />
+      <stop
+         style="stop-color:#d4d4d4;stop-opacity:1"
+         offset="1"
+         id="stop4230" />
+    </linearGradient>
+    <linearGradient
        id="linearGradient5132"
        inkscape:collect="always">
       <stop
@@ -321,6 +357,15 @@
        y1="99.861435"
        x2="-167.74564"
        y2="91.925911" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4226"
+       id="linearGradient4232"
+       x1="-124.02823"
+       y1="100.30308"
+       x2="-114.02761"
+       y2="100.29183"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -329,26 +374,28 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.6568543"
-     inkscape:cx="83.493722"
-     inkscape:cy="44.072448"
+     inkscape:zoom="11.313709"
+     inkscape:cx="97.430437"
+     inkscape:cy="65.35499"
      inkscape:document-units="px"
      inkscape:current-layer="g5038-2"
      showgrid="true"
      units="px"
      showguides="false"
      inkscape:guide-bbox="true"
-     inkscape:window-width="1920"
-     inkscape:window-height="1017"
+     inkscape:window-width="3200"
+     inkscape:window-height="1674"
      inkscape:window-x="0"
-     inkscape:window-y="30"
-     inkscape:window-maximized="1">
+     inkscape:window-y="60"
+     inkscape:window-maximized="1"
+     gridtolerance="2">
     <inkscape:grid
        type="xygrid"
        id="grid5634"
        empspacing="4"
        dotted="false"
-       visible="false" />
+       visible="false"
+       snapvisiblegridlinesonly="true" />
     <sodipodi:guide
        position="12,12"
        orientation="0,1"
@@ -536,7 +583,7 @@
        style="display:inline"
        id="g5038-2">
       <path
-         style="opacity:1;fill:#d4d4d4;fill-opacity:1;stroke:#abacae;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="opacity:1;fill:url(#linearGradient4232);fill-opacity:1;stroke:#abacae;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          d="m -120.46428,64.32334 c 1.32431,0 1.43245,1.014586 1.45296,2.274483 l 0.9375,57.603047 c 0.0205,1.2599 -1.06615,2.27448 -2.39046,2.27448 -1.32432,0 -2.40853,-1.01455 -2.39047,-2.27448 l 0.8259,-57.603047 c 0.0181,-1.259934 0.24025,-2.274483 1.56457,-2.274483 z"
          id="rect4247-0"
          inkscape:connector-curvature="0"

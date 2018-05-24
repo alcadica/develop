@@ -31,7 +31,7 @@ namespace Alcadica.Views {
             string view_project_creation = "view_project_creation";
 
             Partials.Settings.UserDataSettingsFirstRun first_run = new Partials.Settings.UserDataSettingsFirstRun ();
-            ProjectEditingView project_editing = new ProjectEditingView ();
+            TemplateCreationView project_editing = new TemplateCreationView ();
             Services.ActionManager manager = Services.ActionManager.instance;
             SettingsView settings = new SettingsView ();
             Stack stack = new Stack ();

@@ -24,7 +24,7 @@ using Alcadica.Views.Partials;
 using Alcadica.Services;
 
 namespace Alcadica.Views { 
-    public class ProjectEditingView : Box {
+    public class TemplateCreationView : Box {
 
         protected signal void on_reset ();
         public Forms.FormBase current_form { get; set; }

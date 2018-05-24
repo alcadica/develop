@@ -114,7 +114,7 @@ code_files = files(
     'src/Views/Partials/Settings/UserDataSettings.vala',
     'src/Views/Partials/Settings/UserDataSettingsFirstRun.vala',
     'src/Views/Partials/Window/HeaderBar.vala',
-    'src/Views/ProjectEditingView.vala',
+    'src/Views/TemplateCreationView.vala',
     'src/Views/SettingsView.vala',
     'src/Views/WelcomeView.vala',
     'src/Widgets/ActionBar.vala',
