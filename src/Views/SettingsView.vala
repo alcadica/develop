@@ -32,7 +32,7 @@ namespace Alcadica.Views {
 
 		construct {
 			ListBox listbox = new ListBox();
-			SettingItem button_form_user = new SettingItem (_("User settings"), _("Sets your personal developer data"), "vcard");
+			SettingItem button_form_user = new SettingItem (_("User settings"), _("Sets your personal developer data"), "office-contact");
 
 			listbox.selection_mode = Gtk.SelectionMode.SINGLE;
 			
