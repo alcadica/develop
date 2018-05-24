@@ -52,6 +52,11 @@ namespace Alcadica.Views {
                 project_editing.reset ();
             });
 
+            project_editing.on_template_creation_end.connect((path) => {
+                File directory = File.new_for_path (path);
+                Granite.Services.System.open_uri (directory.get_uri ());
+            });
+
             welcome.app.connect(() => {
                 stack.set_visible_child_full(view_project_creation, StackTransitionType.SLIDE_LEFT);
                 project_editing.show_app_form ();
