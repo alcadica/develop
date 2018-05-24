@@ -68,7 +68,7 @@ namespace Alcadica.Views {
                 Alcadica.Services.UserSettings settings = new Alcadica.Services.UserSettings ();
                 string projectname = form_app.project_name.text;
                 string dirpath = form_app.get_full_directory ();
-                var service = new Services.Templates.App (dirpath + form_app.rdnn_name.text);
+                var service = new Services.Templates.App (dirpath);
 
                 service.root_dir_name = form_app.rdnn_name.text;
 
@@ -94,7 +94,7 @@ namespace Alcadica.Views {
                 Alcadica.Services.UserSettings settings = new Alcadica.Services.UserSettings ();
                 string dirpath = form_switchboard.get_full_directory ();
                 string projectname = form_switchboard.project_name.text;
-                var service = new Services.Templates.SwitchboardWidget (dirpath + form_app.rdnn_name.text);
+                var service = new Services.Templates.SwitchboardWidget (dirpath);
 
                 service.root_dir_name = form_switchboard.rdnn_name.text;
 
@@ -145,7 +145,7 @@ namespace Alcadica.Views {
                 Alcadica.Services.UserSettings settings = new Alcadica.Services.UserSettings ();
                 string projectname = form_wingpanel.project_name.text;
                 string dirpath = form_wingpanel.get_full_directory ();
-                var service = new Services.Templates.WingpanelWidget (dirpath + form_app.rdnn_name.text);
+                var service = new Services.Templates.WingpanelWidget (dirpath);
 
                 service.root_dir_name = form_wingpanel.rdnn_name.text;
 
