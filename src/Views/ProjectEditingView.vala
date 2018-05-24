@@ -34,14 +34,13 @@ namespace Alcadica.Views {
         public Forms.FormUserData form_user_data = new Forms.FormUserData ();
         public signal void on_confirm ();
         public signal void on_undo ();
+        public signal void on_template_creation_end (string directory);
         
         construct {
             Services.ActionManager manager = Services.ActionManager.instance;
             Alcadica.Widgets.ActionBar actions = new Alcadica.Widgets.ActionBar ();
             Stack stack = new Stack ();
             
-            //  grid.orientation = Orientation.VERTICAL;
-            //  grid.row_spacing = 20;
             this.orientation = Orientation.VERTICAL;
 
             actions.disable_primary_action ();
@@ -84,6 +83,7 @@ namespace Alcadica.Views {
 
                 service.on_creation_end.connect (status => {
                     Services.ActionManager.instance.dispatch (Actions.ProjectEditing.TEMPLATE_DID_COPY);
+                    this.on_template_creation_end (dirpath);
                 });
 
                 service.start ();
@@ -135,6 +135,7 @@ namespace Alcadica.Views {
 
                 service.on_creation_end.connect (status => {
                     Services.ActionManager.instance.dispatch (Actions.ProjectEditing.TEMPLATE_DID_COPY);
+                    this.on_template_creation_end (dirpath);
                 });
 
                 service.start ();
@@ -162,6 +163,7 @@ namespace Alcadica.Views {
 
                 service.on_creation_end.connect (status => {
                     Services.ActionManager.instance.dispatch (Actions.ProjectEditing.TEMPLATE_DID_COPY);
+                    this.on_template_creation_end (dirpath);
                 });
 
                 service.start ();

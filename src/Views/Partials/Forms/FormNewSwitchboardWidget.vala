@@ -95,11 +95,12 @@ namespace Alcadica.Views.Partials.Forms {
 		}
 
 		public string get_full_directory () {
-			return Path.build_filename (project_directory, project_name.text);
+			return Path.build_filename (project_directory, rdnn_name.entry.text);
 		}
 
 		public override void reset () {
 			is_valid = false;
+			rdnn_name.entry.text = "";
 			project_name.text = "";
 			project_directory = "";
 		}
