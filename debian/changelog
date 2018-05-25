@@ -3,17 +3,17 @@ com.github.alcadica.develop (0.3) precise; urgency=low
   * Opens a folder on success
   * Bug fixes
 
- -- Paolo Roth <github@alcadica.com>  Fri, 25 Maj 2018 12:00:00 -0500
+ -- Paolo Roth <github@alcadica.com>  Fri, 25 May 2018 12:00:00 -0500
 
 com.github.alcadica.develop (0.2) precise; urgency=low
 
   * Improves first run screen
   * Fixes issues with appdata.xml file
 
- -- Paolo Roth <github@alcadica.com>  Sun, 20 Maj 2018 12:00:00 -0500
+ -- Paolo Roth <github@alcadica.com>  Sun, 20 May 2018 12:00:00 -0500
 
 com.github.alcadica.develop (0.1) precise; urgency=low
 
   * Initial Release.
 
- -- Paolo Roth <github@alcadica.com>  Sat, 19 Maj 2018 12:00:00 -0500
+ -- Paolo Roth <github@alcadica.com>  Sat, 19 May 2018 12:00:00 -0500
