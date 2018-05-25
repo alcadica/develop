@@ -82,7 +82,7 @@ namespace Alcadica.Views {
                 service.add_token ("site", settings.user_website_url);
 
                 service.on_creation_end.connect (status => {
-                    Services.ActionManager.instance.dispatch (Actions.ProjectEditing.TEMPLATE_DID_COPY);
+                    Services.ActionManager.instance.dispatch (Actions.TemplateEditing.TEMPLATE_DID_COPY);
                     this.on_template_creation_end (dirpath);
                 });
 
@@ -134,7 +134,7 @@ namespace Alcadica.Views {
                 service.add_token ("site", settings.user_website_url);
 
                 service.on_creation_end.connect (status => {
-                    Services.ActionManager.instance.dispatch (Actions.ProjectEditing.TEMPLATE_DID_COPY);
+                    Services.ActionManager.instance.dispatch (Actions.TemplateEditing.TEMPLATE_DID_COPY);
                     this.on_template_creation_end (dirpath);
                 });
 
@@ -162,7 +162,7 @@ namespace Alcadica.Views {
                 service.add_token ("site", settings.user_website_url);
 
                 service.on_creation_end.connect (status => {
-                    Services.ActionManager.instance.dispatch (Actions.ProjectEditing.TEMPLATE_DID_COPY);
+                    Services.ActionManager.instance.dispatch (Actions.TemplateEditing.TEMPLATE_DID_COPY);
                     this.on_template_creation_end (dirpath);
                 });
 

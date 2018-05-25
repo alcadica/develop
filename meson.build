@@ -89,7 +89,7 @@ appstream_file = i18n.merge_file(
 message ('Adds files to build')
 
 code_files = files(
-    'src/Actions/ProjectEditing/Actions.vala',
+    'src/Actions/TemplateEditing/Actions.vala',
     'src/Actions/Window/Actions.vala',
     'src/Application.vala',
     'src/CommonRegEx.vala',
