@@ -29,12 +29,14 @@
           <li>Welcome View is too big</li>
         </ul>
       </description>
+    </release>
     <release version="0.0.2" date="2018-05-20">
       <description>
         <ul>
           <li>Improves first run screen</li>
         </ul>
       </description>
+    </release>
     <release version="0.0.1" date="2018-05-19">
       <description>
         <p>Features</p>
