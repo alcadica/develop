@@ -16,10 +16,32 @@
     </p>
   </description>
   <releases>
-    <release version="0.1.0" date="2018-06-02">
+    <release version="0.0.3" date="2018-05-25">
+      <description>
+        <p>New features:</p>
+        <ul>
+          <li>Opens a folder on success</li>
+        </ul>
+        <p>Bug fixes:</p>
+        <ul>
+          <li>Don't create folders in home directory</li>
+          <li>Use "office-contact" instead of "vcard" icon</li>
+          <li>Welcome View is too big</li>
+        </ul>
+      </description>
+    <release version="0.0.2" date="2018-05-20">
       <description>
         <ul>
-          <li>Initial release</li>
+          <li>Improves first run screen</li>
+        </ul>
+      </description>
+    <release version="0.0.1" date="2018-05-19">
+      <description>
+        <p>Features</p>
+        <ul>
+          <li>Creates elementary OS app template</li>
+          <li>Creates elementary OS switchboard plug template</li>
+          <li>Creates elementary OS wingpanel indicator template</li>
         </ul>
       </description>
     </release>
