@@ -56,42 +56,7 @@ namespace Alcadica {
         }
 
         protected override void activate () {
-            var window = new Gtk.ApplicationWindow (this);
-            var main = new Alcadica.Views.MainView ();
-            var manager = Services.ActionManager.instance;
-            var settings = new Services.UserSettings ();
-
-            Services.FileSystem.window = window;
-            
-            window.set_titlebar (new Views.Partials.Window.HeaderBar ());
-            
-            window.title = APP_NAME;
-            window.add (main);
-            window.show_all ();
-            window.set_default_size (950, 550);
-
-            manager.get_action (Actions.Window.FIRST_RUN_END).activate.connect (() => {
-                settings.is_first_run = false;
-            });
-
-            manager.get_action (Actions.Window.SETTINGS_CLOSE).activate.connect (() => {
-                window.title = APP_NAME;
-            });
-
-            manager.get_action (Actions.Window.SETTINGS_OPEN).activate.connect (() => {
-                window.title = APP_NAME + " - Preferences";
-            });
-
-            manager.get_action (Actions.Window.QUIT).activate.connect (() => {
-                window.destroy ();
-            });
-
-            manager.dispatch (Actions.Window.START);
-
-            if (settings.is_first_run) {
-                info ("first run, showing settings");
-                manager.dispatch (Actions.Window.FIRST_RUN);
-            }
+            new Alcadica.Window (this);
         }
 
         protected override void open (File[] files, string hint) {
