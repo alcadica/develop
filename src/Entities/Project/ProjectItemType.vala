@@ -18,25 +18,9 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-using Granite;
-using Gtk;
-using Alcadica.Views.Partials.Editor;
-using Alcadica.Services;
-
-namespace Alcadica.Views { 
-	public const string DIRECTORIES_NAME = "DIRECTORIES_NAME";
-	
-	public class ProjectEditingView : Paned { 
-		public Stack aside = new Stack ();
-		public Stack editor = new Stack ();
-
-		construct {
-			DirectoryTreeView treeview = new DirectoryTreeView ();
-			
-			aside.add_named (treeview, DIRECTORIES_NAME);
-
-			this.pack1 (aside, false, false);
-			this.pack2 (editor, false, false);
-		}
+namespace Alcadica.Entities.Project {
+	public enum ProjectItemType {
+		FileDirectory,
+		FileVala
 	}
 }

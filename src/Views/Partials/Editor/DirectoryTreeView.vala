@@ -18,25 +18,20 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-using Granite;
-using Gtk;
-using Alcadica.Views.Partials.Editor;
-using Alcadica.Services;
 
-namespace Alcadica.Views { 
-	public const string DIRECTORIES_NAME = "DIRECTORIES_NAME";
-	
-	public class ProjectEditingView : Paned { 
-		public Stack aside = new Stack ();
-		public Stack editor = new Stack ();
+using Granite.Widgets;
+
+namespace Alcadica.Views.Partials.Editor { 
+	public class DirectoryTreeView : Gtk.Box {
+		public SourceList root = new SourceList ();
+		public SourceList.ExpandableItem sources { get; set; }
 
 		construct {
-			DirectoryTreeView treeview = new DirectoryTreeView ();
-			
-			aside.add_named (treeview, DIRECTORIES_NAME);
+			this.sources = new SourceList.ExpandableItem (_("Sources"));
 
-			this.pack1 (aside, false, false);
-			this.pack2 (editor, false, false);
+			this.root.root.add (this.sources);
+			
+			this.pack_start (this.root);
 		}
 	}
 }

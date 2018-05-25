@@ -18,25 +18,30 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-using Granite;
-using Gtk;
-using Alcadica.Views.Partials.Editor;
-using Alcadica.Services;
+using Xml;
 
-namespace Alcadica.Views { 
-	public const string DIRECTORIES_NAME = "DIRECTORIES_NAME";
+namespace Alcadica.Services { 
+	public const string PROJECT_FILE_NAME = "project.elementaryos";
 	
-	public class ProjectEditingView : Paned { 
-		public Stack aside = new Stack ();
-		public Stack editor = new Stack ();
+	public class ProjectFileService {
 
-		construct {
-			DirectoryTreeView treeview = new DirectoryTreeView ();
+		public Doc project { get; set; }
+		
+		public ProjectFileService () {
+			Xml.Parser.init ();
+		}
+
+		public void close () {
+			Xml.Parser.cleanup ();
+		}
+
+		public void read (string dirname) {
+			string filename = Path.build_name (dirname, Path.DIR_SEPARATOR, PROJECT_FILE_NAME);
+			File file = File.new_for_path (filename);
 			
-			aside.add_named (treeview, DIRECTORIES_NAME);
-
-			this.pack1 (aside, false, false);
-			this.pack2 (editor, false, false);
+			if (file.query_exists ()) {
+				this.project = Xml.Parser.parse_file (filename);
+			}
 		}
 	}
 }

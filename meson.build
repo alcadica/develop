@@ -28,6 +28,7 @@ message ('Listing dependencies')
 dependencies = [
     dependency('gio-unix-2.0', version: '>=2.20'),
     dependency('granite'),
+    dependency('libxml-2.0'),
     dependency('switchboard-2.0'),
     dependency('wingpanel-2.0'),
 ]
@@ -88,9 +89,9 @@ appstream_file = i18n.merge_file(
 message ('Adds files to build')
 
 code_files = files(
-    'src/Application.vala',
     'src/Actions/ProjectEditing/Actions.vala',
     'src/Actions/Window/Actions.vala',
+    'src/Application.vala',
     'src/CommonRegEx.vala',
     'src/Entities/Generic/KeyValuePair.vala',
     'src/Entities/Template/TemplateFile.vala',
@@ -105,6 +106,7 @@ code_files = files(
     'src/Services/TemplateService.vala',
     'src/Services/UserSettings.vala',
     'src/Views/MainView.vala',
+    'src/Views/Partials/Editor/DirectoryTreeView.vala',
     'src/Views/Partials/Forms/FormBase.vala',
     'src/Views/Partials/Forms/FormNewApp.vala',
     'src/Views/Partials/Forms/FormNewSwitchboardWidget.vala',
@@ -116,6 +118,7 @@ code_files = files(
     'src/Views/Partials/Window/HeaderBar.vala',
     'src/Views/ProjectEditingView.vala',
     'src/Views/SettingsView.vala',
+    'src/Views/TemplateCreationView.vala',
     'src/Views/WelcomeView.vala',
     'src/Widgets/ActionBar.vala',
     'src/Widgets/ComboBoxWithLabel.vala',
@@ -123,6 +126,7 @@ code_files = files(
     'src/Widgets/EntryWithLabel.vala',
     'src/Widgets/SettingItem.vala',
     'src/Widgets/SwitchWithLabel.vala',
+    'src/Window.vala',
 )
 
 message ('Installing schema')
