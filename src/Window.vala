@@ -80,8 +80,10 @@ namespace Alcadica {
 
             if (settings.is_first_run) {
                 info ("first run, showing settings");
-                action_manager.dispatch (Actions.Window.FIRST_RUN);
-            }
+				action_manager.dispatch (Actions.Window.FIRST_RUN);
+			}
+			
+			//  action_manager.dispatch (Actions.Window.EDITOR_OPEN);
 		}
 	}
 }

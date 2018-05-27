@@ -18,35 +18,14 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-
-using Granite.Widgets;
-
-namespace Alcadica.Views.Partials.Editor { 
-	public class DirectoryTreeView : Gtk.Grid {
-		public Gtk.Label project_name = new Gtk.Label (null);
-		public SourceList root = new SourceList ();
-		public SourceList.ExpandableItem sources { get; set; }
-
-		construct {
-			this.orientation = Gtk.Orientation.VERTICAL;
-			
-			this.sources = new SourceList.ExpandableItem (_("Sources"));
-
-			this.root.root.add (this.sources);
-			
-			this.add (this.project_name);
-			this.add (this.root);
-
-			this.sources.expanded = true;
+namespace Alcadica.Entities.Project {
+	public class ProjectItemDirectory : ProjectItem { 
+		public ProjectItemDirectory () {
+			this.nodename = "directory";
 		}
-
-		public void show_project (Entities.Project.Project project) {
-			this.project_name.label = project.project_name + " - " + project.version.to_string ();
-
-			foreach (var item in project.sources) {
-				var _item = new SourceList.Item (item.friendlyname);
-				this.sources.add (_item);
-			}
+		
+		public override string get_friendly_name (string value) {
+			return value;
 		}
 	}
 }

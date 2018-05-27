@@ -74,6 +74,10 @@ namespace Alcadica.Views {
                 template_creation.show_form_wingpanel ();
             });
 
+            manager.get_action (Actions.Window.EDITOR_OPEN).activate.connect (() => {
+                stack.set_visible_child_full(view_project_editing, StackTransitionType.CROSSFADE);
+            });
+
             manager.get_action (Actions.Window.FIRST_RUN).activate.connect (() => {
                 last_visible_child_name = view_welcome;
                 stack.set_visible_child_full(view_first_run, StackTransitionType.CROSSFADE);

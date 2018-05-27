@@ -18,35 +18,29 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
+using Gtk;
 
-using Granite.Widgets;
-
-namespace Alcadica.Views.Partials.Editor { 
-	public class DirectoryTreeView : Gtk.Grid {
-		public Gtk.Label project_name = new Gtk.Label (null);
-		public SourceList root = new SourceList ();
-		public SourceList.ExpandableItem sources { get; set; }
+namespace Alcadica.Widgets.Editor {
+	public class Toolbar : Gtk.Toolbar {
+		public ToolButton open_project { get; set; }
+		public signal void project_did_selected (string filepath);
 
 		construct {
-			this.orientation = Gtk.Orientation.VERTICAL;
-			
-			this.sources = new SourceList.ExpandableItem (_("Sources"));
+			this.open_project = new ToolButton (new Image.from_icon_name ("document-open", IconSize.SMALL_TOOLBAR), null);
 
-			this.root.root.add (this.sources);
-			
-			this.add (this.project_name);
-			this.add (this.root);
+			this.add (this.open_project);
 
-			this.sources.expanded = true;
+			this.bind_buttons ();
 		}
 
-		public void show_project (Entities.Project.Project project) {
-			this.project_name.label = project.project_name + " - " + project.version.to_string ();
+		protected void bind_buttons () {
+			this.open_project.clicked.connect (() => {
+				List<string> files = Services.FileSystem.choose_file ("Choose project", "project.elementaryos");
 
-			foreach (var item in project.sources) {
-				var _item = new SourceList.Item (item.friendlyname);
-				this.sources.add (_item);
-			}
+				if (files.length () > 0) {
+					this.project_did_selected (files.nth_data (0));
+				}
+			});
 		}
 	}
 }

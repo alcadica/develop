@@ -19,22 +19,17 @@
 * Authored by: alcadica <github@alcadica.com>
 */
 namespace Alcadica.Entities.Project {
-	public abstract class ProjectItem {
-		protected string _filename { get; set; }
-		public string filename { 
-			get {
-				return this._filename;
-			}
-			set {
-				this.friendlyname = this.get_friendly_name (value);
-				this._filename = value;
-			}
-		}
-		public string friendlyname { get; set; }
-		public string nodename { get; set; }
-		public ProjectItem? parent = null;
-		public List<ProjectItem> children = new List<ProjectItem> ();
+	public class ProjectVersion {
+		public int major { get; set; }
+		public int minor { get; set; }
+		public int patch { get; set; }
 
-		protected abstract string get_friendly_name (string value);
-	}
+		public string to_string () {
+			string _major = this.major.to_string ();
+			string _minor = this.minor.to_string ();
+			string _patch = this.patch.to_string ();
+
+			return string.join (".", _major, _minor, _patch);
+		}
+	} 
 }

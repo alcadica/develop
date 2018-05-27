@@ -19,8 +19,21 @@
 * Authored by: alcadica <github@alcadica.com>
 */
 namespace Alcadica.Entities.Project {
-	public enum ProjectItemType {
-		FileDirectory,
-		FileVala
+	public class ProjectItemSource : ProjectItem {
+		public ProjectItemSource () {
+			this.nodename = "file";
+		}
+
+		protected override string get_friendly_name (string value) {
+			if (value == null || value == "") {
+				return value;
+			}
+			
+			return Path.get_basename (value).replace (".vala", "").to_string ();
+		}
+
+		public string[] get_dirs () {
+			return Path.get_dirname (this.filename).split (Path.DIR_SEPARATOR.to_string ());
+		}
 	}
-}
+} 

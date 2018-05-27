@@ -26,17 +26,28 @@ using Alcadica.Services;
 namespace Alcadica.Views { 
 	public const string DIRECTORIES_NAME = "DIRECTORIES_NAME";
 	
-	public class ProjectEditingView : Paned { 
+	public class ProjectEditingView : Box { 
+		public DirectoryTreeView treeview = new DirectoryTreeView ();
 		public Stack aside = new Stack ();
 		public Stack editor = new Stack ();
+		public Alcadica.Widgets.Editor.Toolbar toolbar = new Alcadica.Widgets.Editor.Toolbar ();
 
 		construct {
-			DirectoryTreeView treeview = new DirectoryTreeView ();
+			Paned paned = new Paned (Orientation.HORIZONTAL);
 			
 			aside.add_named (treeview, DIRECTORIES_NAME);
 
-			this.pack1 (aside, false, false);
-			this.pack2 (editor, false, false);
+			paned.pack1 (aside, false, false);
+			//  paned.pack2 (editor, false, false);
+
+			this.add (toolbar);
+			this.pack_end (paned);
+			this.orientation = Orientation.VERTICAL;
+
+			this.toolbar.project_did_selected.connect (filepath => {
+				Alcadica.Services.ProjectFileService project = Alcadica.Services.ProjectFileService.open (filepath);
+				this.treeview.show_project (project.project);
+			});
 		}
 	}
 }
