@@ -16,6 +16,13 @@
     </p>
   </description>
   <releases>
+    <release version="0.0.4" date="2018-05-29">
+      <description>
+        <ul>
+          <li>Fixes a small bug</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.0.3" date="2018-05-25">
       <description>
         <p>New features:</p>
