@@ -83,7 +83,7 @@ namespace Alcadica {
 				action_manager.dispatch (Actions.Window.FIRST_RUN);
 			}
 			
-			//  action_manager.dispatch (Actions.Window.EDITOR_OPEN);
+			action_manager.dispatch (Actions.Window.EDITOR_OPEN);
 		}
 	}
 }

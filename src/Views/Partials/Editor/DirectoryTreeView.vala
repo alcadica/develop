@@ -19,6 +19,7 @@
 * Authored by: alcadica <github@alcadica.com>
 */
 
+using Alcadica.Entities.Project;
 using Granite.Widgets;
 
 namespace Alcadica.Views.Partials.Editor { 
@@ -40,13 +41,20 @@ namespace Alcadica.Views.Partials.Editor {
 			this.sources.expanded = true;
 		}
 
-		public void show_project (Entities.Project.Project project) {
+		public void show_project (Project project) {
 			this.project_name.label = project.project_name + " - " + project.version.to_string ();
 
-			foreach (var item in project.sources) {
-				var _item = new SourceList.Item (item.friendlyname);
-				this.sources.add (_item);
-			}
+			project.sources.children_foreach (TraverseFlags.ALL, node => {
+				if (node == null) {
+					continue;
+				}
+				
+				if (node.data<ProjectItem>.nodename == "directory") {
+
+				} else if (node.data.nodename == "file") {
+
+				}
+			});
 		}
 	}
 }

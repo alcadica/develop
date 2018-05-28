@@ -25,7 +25,6 @@ namespace Alcadica.Entities.Project {
 		public string rdnn { get; set; }
 		public string project_type { get; set; }
 		public ProjectVersion version { get; set; }
-		public List<ProjectItem> sources = new List<ProjectItem> ();
-		public List<ProjectItem> source_directories = new List<ProjectItem> ();
+		public weak Node<ProjectItem> sources { get; set; }
 	} 
 }

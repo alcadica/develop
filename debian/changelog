@@ -1,3 +1,13 @@
+com.github.alcadica.develop (0.5) precise; urgency=low
+
+  * Adds project file
+  * Adds project treeview
+  * Adds automatic meson build generation
+  * Adds automatic debian build generation
+  * Adds create class command on the project treeview
+
+  -- Paolo Roth <github@alcadica.com>  Tue, 29 May 2018 03:00:00 -0500
+
 com.github.alcadica.develop (0.4) precise; urgency=low
 
   * Fixes a small bug

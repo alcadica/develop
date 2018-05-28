@@ -90,8 +90,8 @@ namespace Alcadica.Services {
 			return entity;
 		}
 
-		protected List<Entities.Project.ProjectItemSource> get_source_list (Xml.Node* nodes) {
-			List<Entities.Project.ProjectItemSource> list = new List<Entities.Project.ProjectItemSource> ();
+		protected List<string> get_source_list (Xml.Node* nodes) {
+			List<string> list = new List<string> ();
 			Xml.Node* sourcenodes = this.get_node_by_name (nodes, "sources");
 
 			if (sourcenodes == null) {
@@ -100,13 +100,10 @@ namespace Alcadica.Services {
 
 			for (Xml.Node* iter = sourcenodes->children; iter != null; iter = iter->next) {
 				if (iter->type == Xml.ElementType.ELEMENT_NODE && iter->name == "source") {
-					var entity = new Entities.Project.ProjectItemSource ();
-
-					string? property_value = iter->get_prop (entity.nodename);
+					string? property_value = iter->get_prop ("file");
 					
 					if (property_value != null) {
-						entity.filename = iter->get_prop (entity.nodename);
-						list.append (entity);
+						list.append (property_value);
 					}
 				}
 			}
@@ -149,8 +146,8 @@ namespace Alcadica.Services {
 			if (rdnn != "" && rdnn != null) {
 				this.project.rdnn = rdnn;
 			}
-
-			this.project.sources = this.get_source_list (rootnode);
+			
+			this.project.sources = Entities.Project.ProjectSourceNode.build_from_files_list (this.get_source_list (rootnode));
 			this.project.version = this.get_project_version (rootnode);
 
 			return true;
