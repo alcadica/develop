@@ -98,6 +98,7 @@ code_files = files(
     'src/Entities/Project/ProjectItem.vala',
     'src/Entities/Project/ProjectItemDirectory.vala',
     'src/Entities/Project/ProjectItemSource.vala',
+    'src/Entities/Project/ProjectSourceNode.vala',
     'src/Entities/Project/ProjectVersion.vala',
     'src/Entities/Template/TemplateFile.vala',
     'src/Entities/Template/TemplateFileType.vala',

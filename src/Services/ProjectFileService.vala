@@ -134,11 +134,16 @@ namespace Alcadica.Services {
 			
 			string? name = this.get_node_content_by_name (rootnode, "name");
 			string? rdnn = this.get_node_content_by_name (rootnode, "rdnn");
+			string? project_type = this.get_node_content_by_name (rootnode, "type");
 			
 			this.get_project_data (rootnode);
 
 			if (name != "" && name != null) {
 				this.project.project_name = name;
+			}
+
+			if (project_type != "" && project_type != null) {
+				this.project.project_type = project_type;
 			}
 
 			if (rdnn != "" && rdnn != null) {

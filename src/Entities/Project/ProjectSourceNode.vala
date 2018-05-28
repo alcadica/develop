@@ -19,13 +19,5 @@
 * Authored by: alcadica <github@alcadica.com>
 */
 namespace Alcadica.Entities.Project {
-	public class Project {
-		public string appdata { get; set; }
-		public string project_name { get; set; }
-		public string rdnn { get; set; }
-		public string project_type { get; set; }
-		public ProjectVersion version { get; set; }
-		public List<ProjectItem> sources = new List<ProjectItem> ();
-		public List<ProjectItem> source_directories = new List<ProjectItem> ();
-	} 
+	
 }

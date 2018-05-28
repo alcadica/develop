@@ -32,8 +32,6 @@ namespace Alcadica.Entities.Project {
 		}
 		public string friendlyname { get; set; }
 		public string nodename { get; set; }
-		public ProjectItem? parent = null;
-		public List<ProjectItem> children = new List<ProjectItem> ();
 
 		protected abstract string get_friendly_name (string value);
 	}
