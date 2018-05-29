@@ -25,7 +25,6 @@ using Gtk;
 namespace Alcadica.Views.Partials.Window {
 	public class HeaderBar : Gtk.HeaderBar {
 		construct {
-			Button button_quit = new Button.from_icon_name ("window-close");
 			Button button_back = new Button.with_label (_("Back"));
 			Button button_settings = new Button.from_icon_name ("open-menu");
 			
@@ -37,7 +36,7 @@ namespace Alcadica.Views.Partials.Window {
 			css_context.add_class ("default-decoration");
 			css_context.add_class (Gtk.STYLE_CLASS_FLAT);
 
-			this.pack_start (button_quit);
+			this.show_close_button = true;
 			this.pack_start (button_back);
 			this.pack_end (button_settings);
 
@@ -45,10 +44,6 @@ namespace Alcadica.Views.Partials.Window {
 
 			button_back.clicked.connect (() => {
 				manager.dispatch (Actions.Window.SETTINGS_CLOSE);
-			});
-			
-			button_quit.clicked.connect (() => {
-				manager.dispatch (Actions.Window.QUIT);
 			});
 
 			button_settings.clicked.connect(() => {
