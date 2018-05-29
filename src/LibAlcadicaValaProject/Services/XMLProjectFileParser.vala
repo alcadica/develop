@@ -20,19 +20,19 @@
 */
 using Xml;
 
-namespace Alcadica.Services { 
-	public class ProjectFileService {
+namespace Alcadica.LibValaProject.Services { 
+	public class XMLProjectFileParser {
 
 		public File project_file { get; set; }
 		public weak Doc project_xml { get; set; }
 		public Entities.Project.Project project { get; set; }
 		
-		public ProjectFileService () {
+		public XMLProjectFileParser () {
 			Xml.Parser.init ();
 		}
 
-		public static ProjectFileService open (string filepath) {
-			ProjectFileService instance = new ProjectFileService ();
+		public static XMLProjectFileParser open (string filepath) {
+			XMLProjectFileParser instance = new XMLProjectFileParser ();
 
 			if (instance.read (filepath)) {
 				instance.parse ();
