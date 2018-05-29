@@ -11,7 +11,7 @@ A simple tool to help Elementary OS developers to develop their own apps and wid
 
 [![Get it on AppCenter](https://appcenter.elementary.io/badge.svg)](https://appcenter.elementary.io/com.github.alcadica.develop)
 
-Develop will be available soon(ish) from the elementary OS AppCenter.
+Develop is available on the elementary OS AppCenter.
 
 # Install it from source
 
