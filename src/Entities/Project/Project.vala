@@ -18,7 +18,13 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-namespace Alcadica.Actions.ProjectEditing {
-	public const string TEMPLATE_DID_COPY = "Alcadica.Actions.ProjectEditing.TEMPLATE_DID_COPY";
-	public const string TEMPLATE_DIDNOT_COPY = "Alcadica.Actions.ProjectEditing.TEMPLATE_DIDNOT_COPY";
+namespace Alcadica.Entities.Project {
+	public class Project {
+		public string appdata { get; set; }
+		public string project_name { get; set; }
+		public string rdnn { get; set; }
+		public string project_type { get; set; }
+		public ProjectVersion version { get; set; }
+		public weak Node<ProjectItem> sources { get; set; }
+	} 
 }

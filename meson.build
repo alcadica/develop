@@ -1,5 +1,5 @@
 # project name and programming language
-project('com.github.alcadica.develop', 'vala', 'c', version: '0.0.4')
+project('com.github.alcadica.develop', 'vala', 'c', version: '0.0.5')
 
 message ('project name and programming language')
 
@@ -28,6 +28,7 @@ message ('Listing dependencies')
 dependencies = [
     dependency('gio-unix-2.0', version: '>=2.20'),
     dependency('granite'),
+    dependency('libxml-2.0'),
     dependency('switchboard-2.0'),
     dependency('wingpanel-2.0'),
 ]
@@ -88,16 +89,23 @@ appstream_file = i18n.merge_file(
 message ('Adds files to build')
 
 code_files = files(
-    'src/Application.vala',
-    'src/Actions/ProjectEditing/Actions.vala',
+    'src/Actions/TemplateEditing/Actions.vala',
     'src/Actions/Window/Actions.vala',
+    'src/Application.vala',
     'src/CommonRegEx.vala',
     'src/Entities/Generic/KeyValuePair.vala',
+    'src/Entities/Project/Project.vala',
+    'src/Entities/Project/ProjectItem.vala',
+    'src/Entities/Project/ProjectItemDirectory.vala',
+    'src/Entities/Project/ProjectItemSource.vala',
+    'src/Entities/Project/ProjectSourceNode.vala',
+    'src/Entities/Project/ProjectVersion.vala',
     'src/Entities/Template/TemplateFile.vala',
     'src/Entities/Template/TemplateFileType.vala',
     'src/Entities/Template/TemplateToken.vala',
     'src/Services/ActionManager.vala',
     'src/Services/FileSystem.vala',
+    'src/Services/ProjectFileService.vala',
     'src/Services/RDNN.vala',
     'src/Services/Templates/App.vala',
     'src/Services/Templates/SwitchboardWidget.vala',
@@ -105,6 +113,7 @@ code_files = files(
     'src/Services/TemplateService.vala',
     'src/Services/UserSettings.vala',
     'src/Views/MainView.vala',
+    'src/Views/Partials/Editor/DirectoryTreeView.vala',
     'src/Views/Partials/Forms/FormBase.vala',
     'src/Views/Partials/Forms/FormNewApp.vala',
     'src/Views/Partials/Forms/FormNewSwitchboardWidget.vala',
@@ -116,13 +125,16 @@ code_files = files(
     'src/Views/Partials/Window/HeaderBar.vala',
     'src/Views/ProjectEditingView.vala',
     'src/Views/SettingsView.vala',
+    'src/Views/TemplateCreationView.vala',
     'src/Views/WelcomeView.vala',
     'src/Widgets/ActionBar.vala',
     'src/Widgets/ComboBoxWithLabel.vala',
+    'src/Widgets/Editor/Toolbar.vala',
     'src/Widgets/Entry.vala',
     'src/Widgets/EntryWithLabel.vala',
     'src/Widgets/SettingItem.vala',
     'src/Widgets/SwitchWithLabel.vala',
+    'src/Window.vala',
 )
 
 message ('Installing schema')

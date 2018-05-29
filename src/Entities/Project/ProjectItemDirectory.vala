@@ -18,14 +18,14 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-namespace Alcadica.Actions.Window {
-	public const string FIRST_RUN = "Alcadica.Actions.Window.FIRST_RUN";
-	public const string FIRST_RUN_END = "Alcadica.Actions.Window.FIRST_RUN_END";
-	public const string QUIT = "Alcadica.Actions.Window.QUIT";
-	public const string EDITOR_CLOSE = "Alcadica.Actions.Window.EDITOR_CLOSE";
-	public const string EDITOR_OPEN = "Alcadica.Actions.Window.EDITOR_OPEN";
-	public const string SETTINGS_CLOSE = "Alcadica.Actions.Window.SETTINGS_CLOSE";
-	public const string SETTINGS_OPEN = "Alcadica.Actions.Window.SETTINGS_OPEN";
-	public const string START = "Alcadica.Actions.Window.START";
-	public const string SHOW_WELCOME_VIEW = "Alcadica.Actions.Window.SHOW_WELCOME_VIEW";
+namespace Alcadica.Entities.Project {
+	public class ProjectItemDirectory : ProjectItem { 
+		public ProjectItemDirectory () {
+			this.nodename = "directory";
+		}
+		
+		public override string get_friendly_name (string value) {
+			return value;
+		}
+	}
 }

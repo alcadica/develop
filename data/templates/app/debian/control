@@ -1,0 +1,17 @@
+Source: {{execname}}.develop
+Section: x11
+Priority: extra
+Maintainer: {{name}} <{{email}}>
+Build-Depends: meson,
+              debhelper (>= 9),
+              gettext,
+              libglib2.0-dev (>= 2.30.0),
+              libgranite-dev,
+              libgtk-3-dev,
+              valac (>= 0.26)
+
+Standards-Version: 3.9.3
+Package: {{execname}}.develop
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: 

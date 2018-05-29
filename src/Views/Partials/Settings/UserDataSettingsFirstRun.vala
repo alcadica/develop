@@ -32,6 +32,8 @@ namespace Alcadica.Views.Partials.Settings {
 			Label welcome_label = new Label (_("First run setup"));
 			Label welcome_label_subtitle = new Label (_("Before proceeding I'd love to know more about you"));
 			Services.ActionManager manager = Services.ActionManager.instance;
+
+			icon.pixel_size = 128;
 			
 			actions.margin_top = 20;
 			grid.orientation = Orientation.VERTICAL;

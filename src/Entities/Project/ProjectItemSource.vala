@@ -18,14 +18,22 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-namespace Alcadica.Actions.Window {
-	public const string FIRST_RUN = "Alcadica.Actions.Window.FIRST_RUN";
-	public const string FIRST_RUN_END = "Alcadica.Actions.Window.FIRST_RUN_END";
-	public const string QUIT = "Alcadica.Actions.Window.QUIT";
-	public const string EDITOR_CLOSE = "Alcadica.Actions.Window.EDITOR_CLOSE";
-	public const string EDITOR_OPEN = "Alcadica.Actions.Window.EDITOR_OPEN";
-	public const string SETTINGS_CLOSE = "Alcadica.Actions.Window.SETTINGS_CLOSE";
-	public const string SETTINGS_OPEN = "Alcadica.Actions.Window.SETTINGS_OPEN";
-	public const string START = "Alcadica.Actions.Window.START";
-	public const string SHOW_WELCOME_VIEW = "Alcadica.Actions.Window.SHOW_WELCOME_VIEW";
-}
+namespace Alcadica.Entities.Project {
+	public class ProjectItemSource : ProjectItem {
+		public ProjectItemSource () {
+			this.nodename = "file";
+		}
+
+		protected override string get_friendly_name (string value) {
+			if (value == null || value == "") {
+				return value;
+			}
+			
+			return Path.get_basename (value).replace (".vala", "").to_string ();
+		}
+
+		public string[] get_dirs () {
+			return Path.get_dirname (this.filename).split (Path.DIR_SEPARATOR.to_string ());
+		}
+	}
+} 

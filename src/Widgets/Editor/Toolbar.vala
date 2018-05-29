@@ -18,14 +18,29 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-namespace Alcadica.Actions.Window {
-	public const string FIRST_RUN = "Alcadica.Actions.Window.FIRST_RUN";
-	public const string FIRST_RUN_END = "Alcadica.Actions.Window.FIRST_RUN_END";
-	public const string QUIT = "Alcadica.Actions.Window.QUIT";
-	public const string EDITOR_CLOSE = "Alcadica.Actions.Window.EDITOR_CLOSE";
-	public const string EDITOR_OPEN = "Alcadica.Actions.Window.EDITOR_OPEN";
-	public const string SETTINGS_CLOSE = "Alcadica.Actions.Window.SETTINGS_CLOSE";
-	public const string SETTINGS_OPEN = "Alcadica.Actions.Window.SETTINGS_OPEN";
-	public const string START = "Alcadica.Actions.Window.START";
-	public const string SHOW_WELCOME_VIEW = "Alcadica.Actions.Window.SHOW_WELCOME_VIEW";
+using Gtk;
+
+namespace Alcadica.Widgets.Editor {
+	public class Toolbar : Gtk.Toolbar {
+		public ToolButton open_project { get; set; }
+		public signal void project_did_selected (string filepath);
+
+		construct {
+			this.open_project = new ToolButton (new Image.from_icon_name ("document-open", IconSize.SMALL_TOOLBAR), null);
+
+			this.add (this.open_project);
+
+			this.bind_buttons ();
+		}
+
+		protected void bind_buttons () {
+			this.open_project.clicked.connect (() => {
+				List<string> files = Services.FileSystem.choose_file ("Choose project", "project.elementaryos");
+
+				if (files.length () > 0) {
+					this.project_did_selected (files.nth_data (0));
+				}
+			});
+		}
+	}
 }

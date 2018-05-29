@@ -63,7 +63,39 @@ namespace Alcadica.Services {
                 SList<string> names = chooser.get_filenames ();
 
                 foreach (unowned string name in names) {
-                list.append (name);
+                    list.append (name);
+                }
+            }
+
+            chooser.close ();
+
+            return list;
+        }
+        
+        public static List<string> choose_file (string title, string pattern = "") {
+            List<string> list = new List<string>();
+
+            Gtk.FileChooserDialog chooser = new Gtk.FileChooserDialog (
+                title, 
+                FileSystem.window, 
+                FileChooserAction.OPEN,
+                        "_Cancel",
+                        Gtk.ResponseType.CANCEL,
+                        "_Open",
+                Gtk.ResponseType.ACCEPT
+            );
+
+            if (pattern != "" && pattern != null) {
+                Gtk.FileFilter filter = new Gtk.FileFilter ();
+                filter.add_pattern (pattern);
+                chooser.set_filter (filter);
+            }
+
+            if (chooser.run () == Gtk.ResponseType.ACCEPT) {
+                SList<string> names = chooser.get_filenames ();
+
+                foreach (unowned string name in names) {
+                    list.append (name);
                 }
             }
 

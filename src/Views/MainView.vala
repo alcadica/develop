@@ -26,14 +26,16 @@ namespace Alcadica.Views {
     public class MainView : Paned {       
         construct {
             string view_first_run = "view_first_run";
+            string view_template_creation = "view_template_creation";
+            string view_project_editing = "view_project_editing";
             string view_settings = "view_settings";
             string view_welcome = "view_welcome";
-            string view_project_creation = "view_project_creation";
 
             Partials.Settings.UserDataSettingsFirstRun first_run = new Partials.Settings.UserDataSettingsFirstRun ();
-            ProjectEditingView project_editing = new ProjectEditingView ();
+            TemplateCreationView template_creation = new TemplateCreationView ();
             Services.ActionManager manager = Services.ActionManager.instance;
             SettingsView settings = new SettingsView ();
+            ProjectEditingView editor = new ProjectEditingView ();
             Stack stack = new Stack ();
             string? last_visible_child_name;
             WelcomeView welcome = new WelcomeView ();
@@ -41,35 +43,39 @@ namespace Alcadica.Views {
             orientation = Orientation.HORIZONTAL;
             
             stack.add_named (welcome, view_welcome);
-            stack.add_named (project_editing, view_project_creation);
-            stack.add_named (settings, view_settings);
+            stack.add_named (editor, view_project_editing);
             stack.add_named (first_run, view_first_run);
+            stack.add_named (settings, view_settings);
+            stack.add_named (template_creation, view_template_creation);
             
             this.pack1(stack, true, false);
 
-            project_editing.on_undo.connect(() => {
+            template_creation.on_undo.connect(() => {
                 stack.set_visible_child_full(view_welcome, StackTransitionType.SLIDE_RIGHT);
-                project_editing.reset ();
+                template_creation.reset ();
             });
 
-            project_editing.on_template_creation_end.connect((path) => {
-                File directory = File.new_for_path (path);
-                Granite.Services.System.open_uri (directory.get_uri ());
+            template_creation.on_template_creation_end.connect((path) => {
+                stack.set_visible_child_full(view_project_editing, StackTransitionType.CROSSFADE);
             });
 
             welcome.app.connect(() => {
-                stack.set_visible_child_full(view_project_creation, StackTransitionType.SLIDE_LEFT);
-                project_editing.show_app_form ();
+                stack.set_visible_child_full(view_template_creation, StackTransitionType.SLIDE_LEFT);
+                template_creation.show_app_form ();
             });
             
             welcome.switchboard.connect(() => {
-                stack.set_visible_child_full(view_project_creation, StackTransitionType.SLIDE_LEFT);
-                project_editing.show_form_switchboard ();
+                stack.set_visible_child_full(view_template_creation, StackTransitionType.SLIDE_LEFT);
+                template_creation.show_form_switchboard ();
             });
             
             welcome.wingpanel.connect(() => {
-                stack.set_visible_child_full(view_project_creation, StackTransitionType.SLIDE_LEFT);
-                project_editing.show_form_wingpanel ();
+                stack.set_visible_child_full(view_template_creation, StackTransitionType.SLIDE_LEFT);
+                template_creation.show_form_wingpanel ();
+            });
+
+            manager.get_action (Actions.Window.EDITOR_OPEN).activate.connect (() => {
+                stack.set_visible_child_full(view_project_editing, StackTransitionType.CROSSFADE);
             });
 
             manager.get_action (Actions.Window.FIRST_RUN).activate.connect (() => {
@@ -98,10 +104,6 @@ namespace Alcadica.Views {
 
             manager.get_action (Actions.Window.SHOW_WELCOME_VIEW).activate.connect (() => {
                 stack.set_visible_child_full(view_welcome, StackTransitionType.SLIDE_RIGHT);
-            });
-
-            manager.get_action (Actions.ProjectEditing.TEMPLATE_DID_COPY).activate.connect(() => {
-                stack.set_visible_child_full(view_welcome, StackTransitionType.CROSSFADE);
             });
         }
     }
