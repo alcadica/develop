@@ -5,7 +5,7 @@ Develop
 
 A simple tool to help Elementary OS developers to develop their own apps and widgets.
 
-![](https://raw.githubusercontent.com/alcadica/develop/master/data/screenshots/screenshot-001.jpeg)
+![](./data/screenshots/screenshot-002.png)
 
 ## Get it from the elementary OS AppCenter!
 
