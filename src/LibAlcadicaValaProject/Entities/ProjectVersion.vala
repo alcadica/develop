@@ -18,7 +18,7 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-namespace Alcadica.Entities.Project {
+namespace Alcadica.LibValaProject.Entities {
 	public class ProjectVersion {
 		public int major { get; set; }
 		public int minor { get; set; }

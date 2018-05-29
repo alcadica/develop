@@ -18,28 +18,38 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-namespace Alcadica.Entities.Project {
-	public class ProjectSourceNode { 
+namespace Alcadica.LibValaProject.Entities {
+	public class ProjectSourceNode {
+	
+		private static ProjectItem get_instance (string chunk) {
+			ProjectItem data;
+				
+			if (chunk.index_of (".vala") > 0) {
+				data = new ProjectItemSource ();
+			} else {
+				data = new ProjectItemDirectory ();
+			}
+
+			data.filename = chunk;
+
+			return data;
+		}
+		
+		private static string[] get_chunks (string path) {
+			return path.split(Path.DIR_SEPARATOR.to_string ());
+		}
+
 		public static Node<ProjectItem>? build_from_filepath (string path) {
 			Node<ProjectItem>? previous = null;
 			Node<ProjectItem>? node = null;
-			string[] chunks = path.split(Path.DIR_SEPARATOR.to_string ());
+			string[] chunks = get_chunks (path);
 
 			if (chunks.length == 0) {
 				return node;
 			}
 
 			foreach (var chunk in chunks) {
-				ProjectItem data;
-				
-				if (chunk.index_of (".vala") > 0) {
-					data = new ProjectItemSource ();
-				} else {
-					data = new ProjectItemDirectory ();
-				}
-
-				data.filename = chunk;
-				
+				ProjectItem data = get_instance (chunk);
 				Node<ProjectItem> _node = new Node<ProjectItem> (data);
 				
 				if (previous == null) {
@@ -55,6 +65,16 @@ namespace Alcadica.Entities.Project {
 
 		public static Node<ProjectItem> build_from_files_list (List<string> list) {
 			Node<ProjectItem> root = new Node<ProjectItem> ();
+
+			foreach (string item in list) {
+				string[] chunks = get_chunks (item);
+
+				if (chunks.length == 0) {
+					continue;
+				}
+
+				/* must create a node tree */
+			}
 
 			return root;
 		}

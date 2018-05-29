@@ -18,7 +18,7 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-namespace Alcadica.Entities.Project {
+namespace Alcadica.LibValaProject.Entities {
 	public class ProjectItemSource : ProjectItem {
 		public ProjectItemSource () {
 			this.nodename = "file";

@@ -18,6 +18,7 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
+using Alcadica.LibValaProject.Entities;
 using Xml;
 
 namespace Alcadica.LibValaProject.Services { 
@@ -25,7 +26,7 @@ namespace Alcadica.LibValaProject.Services {
 
 		public File project_file { get; set; }
 		public weak Doc project_xml { get; set; }
-		public Entities.Project.Project project { get; set; }
+		public Project project { get; set; }
 		
 		public XMLProjectFileParser () {
 			Xml.Parser.init ();
@@ -68,8 +69,8 @@ namespace Alcadica.LibValaProject.Services {
 			return get_node_by_name (nodes, "data");
 		}
 
-		protected Entities.Project.ProjectVersion get_project_version (Xml.Node* nodes) {
-			Entities.Project.ProjectVersion entity = new Entities.Project.ProjectVersion ();
+		protected ProjectVersion get_project_version (Xml.Node* nodes) {
+			ProjectVersion entity = new ProjectVersion ();
 			
 			Xml.Node* versionnodes = get_node_by_name (nodes, "version");
 
@@ -127,7 +128,7 @@ namespace Alcadica.LibValaProject.Services {
 				return false;
 			}
 			
-			this.project = new Entities.Project.Project ();
+			this.project = new Project ();
 			
 			string? name = this.get_node_content_by_name (rootnode, "name");
 			string? rdnn = this.get_node_content_by_name (rootnode, "rdnn");
@@ -147,7 +148,7 @@ namespace Alcadica.LibValaProject.Services {
 				this.project.rdnn = rdnn;
 			}
 			
-			this.project.sources = Entities.Project.ProjectSourceNode.build_from_files_list (this.get_source_list (rootnode));
+			this.project.sources = ProjectSourceNode.build_from_files_list (this.get_source_list (rootnode));
 			this.project.version = this.get_project_version (rootnode);
 
 			return true;

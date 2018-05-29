@@ -18,7 +18,7 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-namespace Alcadica.Entities.Project {
+namespace Alcadica.LibValaProject.Entities {
 	public abstract class ProjectItem {
 		protected string _filename { get; set; }
 		public string filename { 

@@ -19,7 +19,7 @@
 * Authored by: alcadica <github@alcadica.com>
 */
 
-using Alcadica.Entities.Project;
+using Alcadica.LibValaProject.Entities;
 using Granite.Widgets;
 
 namespace Alcadica.Views.Partials.Editor { 
@@ -41,20 +41,29 @@ namespace Alcadica.Views.Partials.Editor {
 			this.sources.expanded = true;
 		}
 
+		protected void render_nodes (Node<ProjectItem> node) {
+			if (node.n_children () == 0) {
+				return;
+			}
+
+			for (int i = 0; i < node.n_children (); i++) {
+				unowned Node<ProjectItem> current = node.nth_child (i);
+
+				if (current != null && current.data.nodename == "directory") {
+					this.sources.add (new SourceList.ExpandableItem (current.data.friendlyname));
+				} else if (current != null && current.data.nodename == "file") {
+					this.sources.add (new SourceList.Item (current.data.friendlyname));
+				}
+
+				print (current.data.friendlyname);
+
+				this.render_nodes (current);
+			}
+		}
+
 		public void show_project (Project project) {
 			this.project_name.label = project.project_name + " - " + project.version.to_string ();
-
-			project.sources.children_foreach (TraverseFlags.ALL, node => {
-				if (node == null) {
-					continue;
-				}
-				
-				if (node.data<ProjectItem>.nodename == "directory") {
-
-				} else if (node.data.nodename == "file") {
-
-				}
-			});
+			this.render_nodes (project.sources);
 		}
 	}
 }

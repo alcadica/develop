@@ -18,6 +18,6 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-namespace Alcadica.LibValaProject { 
-	
+namespace Alcadica.LibValaProject {
+	public const string PROJECT_FILENAME = "*.valaproject.xml";
 }
