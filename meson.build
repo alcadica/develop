@@ -16,6 +16,7 @@ add_project_arguments([
 message('Include the translations module')
 
 i18n = import('i18n')
+pkg = import('pkgconfig')
 
 # Set our translation domain
 message ('Set our translation domain')
@@ -24,14 +25,6 @@ add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format (meson.project_name()), la
 
 # Adding deps
 message ('Listing dependencies')
-
-dependencies = [
-    dependency('gio-unix-2.0', version: '>=2.20'),
-    dependency('granite'),
-    dependency('libxml-2.0'),
-    dependency('switchboard-2.0'),
-    dependency('wingpanel-2.0'),
-]
 
 # Adds subfolders specific build system
 message ('Adds subfolders specific build system')
@@ -94,18 +87,11 @@ code_files = files(
     'src/Develop/Application.vala',
     'src/Develop/CommonRegEx.vala',
     'src/Develop/Entities/Generic/KeyValuePair.vala',
-    'src/Develop/Entities/Project/Project.vala',
-    'src/Develop/Entities/Project/ProjectItem.vala',
-    'src/Develop/Entities/Project/ProjectItemDirectory.vala',
-    'src/Develop/Entities/Project/ProjectItemSource.vala',
-    'src/Develop/Entities/Project/ProjectSourceNode.vala',
-    'src/Develop/Entities/Project/ProjectVersion.vala',
     'src/Develop/Entities/Template/TemplateFile.vala',
     'src/Develop/Entities/Template/TemplateFileType.vala',
     'src/Develop/Entities/Template/TemplateToken.vala',
     'src/Develop/Services/ActionManager.vala',
     'src/Develop/Services/FileSystem.vala',
-    'src/Develop/Services/ProjectFileService.vala',
     'src/Develop/Services/RDNN.vala',
     'src/Develop/Services/Templates/App.vala',
     'src/Develop/Services/Templates/SwitchboardWidget.vala',
@@ -137,6 +123,18 @@ code_files = files(
     'src/Develop/Window.vala',
 )
 
+lib_vala_project_files = files(
+    'src/LibAlcadicaValaProject/Entities/Project.vala',
+    'src/LibAlcadicaValaProject/Entities/ProjectItem.vala',
+    'src/LibAlcadicaValaProject/Entities/ProjectItemDirectory.vala',
+    'src/LibAlcadicaValaProject/Entities/ProjectItemSource.vala',
+    'src/LibAlcadicaValaProject/Entities/ProjectSourceNode.vala',
+    'src/LibAlcadicaValaProject/Entities/ProjectVersion.vala',
+    'src/LibAlcadicaValaProject/Services/XMLProjectFileParser.vala',
+    'src/LibAlcadicaValaProject/Services/XMLProjectFileWriter.vala',
+    'src/LibAlcadicaValaProject/Main.vala',
+)
+
 message ('Installing schema')
 
 subdir ('po')
@@ -153,11 +151,40 @@ install_subdir(
 
 message ('Defines executable')
 
+lib_vala_project = library(
+    'libalcadicavalaproject',
+    lib_vala_project_files,
+    dependencies: [
+        dependency('gio-unix-2.0', version: '>=2.20'),
+        dependency('libxml-2.0')        
+    ],
+    install: true,
+    install_dir: [true, true, true],
+    version: '0.0'
+)
+
 executable(
     meson.project_name(),
     code_files,
-    dependencies: dependencies,
-    install: true
+    dependencies: [
+        dependency('gio-unix-2.0', version: '>=2.20'),
+        dependency('granite'),
+        dependency('libxml-2.0'),
+        dependency('switchboard-2.0'),
+        dependency('wingpanel-2.0')
+    ],
+    install: true,
+    link_with: [
+        lib_vala_project
+    ]
+)
+
+pkg.generate(
+    version: '0.1',
+    libraries: lib_vala_project,
+    description: 'Alcadica Develop Vala project',
+    name: 'libalcadicavalaproject',
+    filebase: 'libalcadicavalaproject'
 )
 
 meson.add_install_script('meson/postinstall.py')

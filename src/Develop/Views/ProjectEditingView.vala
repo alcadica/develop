@@ -22,6 +22,7 @@ using Granite;
 using Gtk;
 using Alcadica.Views.Partials.Editor;
 using Alcadica.Services;
+using Alcadica.LibValaProject.Services;
 
 namespace Alcadica.Views { 
 	public const string DIRECTORIES_NAME = "DIRECTORIES_NAME";
@@ -45,7 +46,7 @@ namespace Alcadica.Views {
 			this.orientation = Orientation.VERTICAL;
 
 			this.toolbar.project_did_selected.connect (filepath => {
-				Alcadica.Services.ProjectFileService project = Alcadica.Services.ProjectFileService.open (filepath);
+				XMLProjectFileParser project = XMLProjectFileParser.open (filepath);
 				this.treeview.show_project (project.project);
 			});
 		}

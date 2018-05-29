@@ -169,7 +169,7 @@ namespace Alcadica.LibValaProject.Services {
 		}
 
 		public void refresh () {
-			ProjectFileService.open (this.project_file.get_path ());
+			XMLProjectFileParser.open (this.project_file.get_path ());
 		}
 	}
 }
