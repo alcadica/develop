@@ -84,7 +84,7 @@ namespace Alcadica.LibValaProject.Services {
 					data.nodepath = current_path;
 
 					if (current_node.has_child (data.nodepath)) {
-						current_node = data;
+						current_node = current_node.get_child_by_pathname (data.nodepath);
 						continue;
 					} else {
 						print ("\n [append] " + data.nodepath + " on [current] " + current_node.nodepath);

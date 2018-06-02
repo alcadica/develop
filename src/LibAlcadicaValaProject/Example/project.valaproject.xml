@@ -13,5 +13,10 @@
   </data>
   <sources>
     <source file="src/MyNewApplication/Application.vala"/>
+    <source file="src/qwe/Application.vala"/>
+    <source file="src/test/Application.vala"/>
+    <source file="src/asd/Application.vala"/>
+    <source file="src/asd/Application.vala"/>
+    <source file="src/test/123.vala"/>
   </sources>
 </project>

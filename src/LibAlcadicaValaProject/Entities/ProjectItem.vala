@@ -116,11 +116,12 @@ namespace Alcadica.LibValaProject.Entities {
 			}
 
 			result = this.children.copy ();
-
+			
 			for (int i = 0; i < result.length (); i++) {
-				result.concat (result.nth_data (i).get_flatterned_children ());	
+				var _r = result.nth_data (i).get_flatterned_children ();
+				
+				result.concat ((owned) _r);
 			}
-
 
 			return result;
 		}

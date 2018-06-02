@@ -95,8 +95,6 @@ namespace Alcadica.Views.Partials.Editor {
 
 			this.project_name.label = project.project_name + " - " + project.version.to_string ();
 
-			print ("\n [count] " + children.length ().to_string ());
-
 			foreach (var child in children) {
 				DirectoryTreeViewItem item = new DirectoryTreeViewItem ();
 
