@@ -16,6 +16,24 @@
     </p>
   </description>
   <releases>
+    <release version="0.0.6" date="2018-06-12">
+      <description>
+        <ul>
+          <li>Adds project file</li>
+          <li>Adds project treeview</li>
+          <li>Adds automatic meson build generation</li>
+          <li>Adds automatic debian build generation</li>
+          <li>Adds create class command on the project treeview</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.0.5" date="2018-06-02">
+      <description>
+        <ul>
+          <li>Adds a small disclaimer about user data consumption (they are not saved on a server)</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.0.4" date="2018-05-29">
       <description>
         <ul>

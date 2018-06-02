@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.alcadica.develop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-25 20:14+0200\n"
+"POT-Creation-Date: 2018-06-02 11:16+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -130,11 +130,15 @@ msgstr ""
 msgid "Before proceeding I'd love to know more about you"
 msgstr ""
 
-#: src/Views/Partials/Settings/UserDataSettingsFirstRun.vala:51
+#: src/Views/Partials/Settings/UserDataSettingsFirstRun.vala:34
+msgid "Your data will not be stored in a server"
+msgstr ""
+
+#: src/Views/Partials/Settings/UserDataSettingsFirstRun.vala:54
 msgid "Save user data"
 msgstr ""
 
-#: src/Views/Partials/Window/HeaderBar.vala:29
+#: src/Views/Partials/Window/HeaderBar.vala:28
 msgid "Back"
 msgstr ""
 
