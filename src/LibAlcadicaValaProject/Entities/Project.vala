@@ -25,6 +25,6 @@ namespace Alcadica.LibValaProject.Entities {
 		public string rdnn { get; set; }
 		public string project_type { get; set; }
 		public ProjectVersion version { get; set; }
-		public unowned Node<ProjectItem> sources { get; set; }
+		public ProjectItem sources { get; set; }
 	} 
 }

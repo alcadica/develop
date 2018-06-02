@@ -19,8 +19,47 @@
 * Authored by: alcadica <github@alcadica.com>
 */
 namespace Alcadica.LibValaProject.Entities {
+	public const string NODE_DIRECTORY = "directory"; 
+	public const string NODE_FILE = "file"; 
+	
 	public abstract class ProjectItem {
 		protected string _filename { get; set; }
+		public List<ProjectItem> children = new List<ProjectItem> ();
+		public ProjectItem? parent = null;
+		public string friendlyname { get; set; }
+		public string nodename { get; set; }
+		public string nodepath { get; set; }
+
+		public bool has_children {
+			get {
+				return this.children.length () > 0;
+			}
+		}
+
+		public bool is_leaf {
+			get {
+				return this.children.length () == 0 && this.parent != null;
+			}
+		}
+
+		public bool is_tree {
+			get {
+				return this.children.length () > 0;
+			}
+		}
+
+		public ProjectItem root {
+			get {
+				weak ProjectItem current = this;
+
+				while (current.parent != null) {
+					current = current.parent;
+				}
+
+				return current;
+			}
+		}
+
 		public string filename { 
 			get {
 				return this._filename;
@@ -30,9 +69,60 @@ namespace Alcadica.LibValaProject.Entities {
 				this._filename = value;
 			}
 		}
-		public string friendlyname { get; set; }
-		public string nodename { get; set; }
+
+		public uint length {
+			get {
+				return this.children.length ();
+			}
+		}
 
 		protected abstract string get_friendly_name (string value);
+
+		public void append (ProjectItem item) {
+			item.parent = this;
+			this.children.append (item);
+		}
+
+		public ProjectItem? get_child (int index) {
+			if (index > this.length) {
+				return null;
+			}
+			
+			return this.children.nth_data (index);
+		}
+
+		public bool has_child (string path) {
+			return this.get_child_by_pathname (path) != null;
+		}
+		
+		public ProjectItem? get_child_by_pathname (string path) {
+			ProjectItem? item = null;
+
+			for (int i = 0; i < children.length (); i++) {
+				if (children.nth_data (i).nodepath == path) {
+					item = children.nth_data (i);
+					break;
+				}
+			}
+
+			return item;
+		}
+
+		public List<ProjectItem> get_flatterned_children () {
+			List<ProjectItem> result = new List<ProjectItem> ();
+
+			if (this.children.length () == 0) {
+				return result;
+			}
+
+			result = this.children.copy ();
+
+			for (int i = 0; i < result.length (); i++) {
+				result.concat (result.nth_data (i).get_flatterned_children ());	
+			}
+
+
+			return result;
+		}
 	}
 }

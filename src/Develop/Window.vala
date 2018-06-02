@@ -36,9 +36,8 @@ namespace Alcadica {
 			Services.FileSystem.window = this as Gtk.ApplicationWindow;
 			
 			this.build_ui ();
-			this.show_all ();
-
 			this.set_default_size (750, 550);
+			this.show_all ();
 			
 			this.init_actions ();
 			this.init_accelerators ();

@@ -12,6 +12,6 @@
     <appdata>com.github.alcadica.MyNewApplication.appdata.xml.in</appdata>
   </data>
   <sources>
-    <source file="src/Application.vala"/>
+    <source file="src/MyNewApplication/Application.vala"/>
   </sources>
 </project>

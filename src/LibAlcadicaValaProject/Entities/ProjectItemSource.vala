@@ -21,7 +21,7 @@
 namespace Alcadica.LibValaProject.Entities {
 	public class ProjectItemSource : ProjectItem {
 		public ProjectItemSource () {
-			this.nodename = "file";
+			this.nodename = NODE_FILE;
 		}
 
 		protected override string get_friendly_name (string value) {

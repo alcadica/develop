@@ -23,10 +23,16 @@ using Alcadica.LibValaProject.Entities;
 using Granite.Widgets;
 
 namespace Alcadica.Views.Partials.Editor { 
+	protected class DirectoryTreeViewItem {
+		public ProjectItem project_item { get; set; }
+		public SourceList.Item source_item { get; set; }
+	}
+	
 	public class DirectoryTreeView : Gtk.Grid {
 		public Gtk.Label project_name = new Gtk.Label (null);
 		public SourceList root = new SourceList ();
 		public SourceList.ExpandableItem sources { get; set; }
+		public List<DirectoryTreeViewItem> project_tree = new List<DirectoryTreeViewItem> ();
 
 		construct {
 			this.orientation = Gtk.Orientation.VERTICAL;
@@ -41,28 +47,70 @@ namespace Alcadica.Views.Partials.Editor {
 			this.sources.expanded = true;
 		}
 
-		protected void render_nodes (Node<ProjectItem> node) {
-			if (node.n_children () == 0) {
+		protected DirectoryTreeViewItem? get_by_name (string? name) {
+			DirectoryTreeViewItem? item = null;
+
+			if (name == null) {
+				return item;
+			}
+
+			for (int a = 0; a < this.project_tree.length (); a++) {
+				var found = this.project_tree.nth_data (a);
+
+				if (found.project_item.nodepath == name) {
+					item = found;
+					break;
+				}
+			}
+			
+			return item;
+		}
+
+		protected void render_nodes (ProjectItem node) {
+			if (node == null || !node.has_children) {
 				return;
 			}
 
-			for (int i = 0; i < node.n_children (); i++) {
-				unowned Node<ProjectItem> current = node.nth_child (i);
+			SourceList.ExpandableItem parent;
+			var _item = this.get_by_name (node.nodepath);
 
-				if (current != null && current.data.nodename == "directory") {
-					this.sources.add (new SourceList.ExpandableItem (current.data.friendlyname));
-				} else if (current != null && current.data.nodename == "file") {
-					this.sources.add (new SourceList.Item (current.data.friendlyname));
+			if (_item != null) {
+				parent = _item.source_item as SourceList.ExpandableItem;				
+			} else {
+				parent = this.sources;
+			}
+			
+			for (int i = 0; i < node.length; i++) {
+				DirectoryTreeViewItem? current = this.get_by_name (node.get_child (i).nodepath);
+
+				if (current != null) {
+					parent.add (current.source_item);
+					this.render_nodes (current.project_item);
 				}
-
-				print (current.data.friendlyname);
-
-				this.render_nodes (current);
 			}
 		}
 
 		public void show_project (Project project) {
+			var children = project.sources.get_flatterned_children ();
+
 			this.project_name.label = project.project_name + " - " + project.version.to_string ();
+
+			print ("\n [count] " + children.length ().to_string ());
+
+			foreach (var child in children) {
+				DirectoryTreeViewItem item = new DirectoryTreeViewItem ();
+
+				item.project_item = child;
+				
+				if (child.nodename == NODE_DIRECTORY) {
+					item.source_item = new SourceList.ExpandableItem (child.friendlyname);
+				} else if (child.nodename == NODE_FILE) {
+					item.source_item = new SourceList.Item (child.friendlyname);
+				}
+
+				this.project_tree.append (item);
+			}
+
 			this.render_nodes (project.sources);
 		}
 	}

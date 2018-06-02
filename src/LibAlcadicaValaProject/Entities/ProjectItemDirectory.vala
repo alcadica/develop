@@ -21,7 +21,7 @@
 namespace Alcadica.LibValaProject.Entities {
 	public class ProjectItemDirectory : ProjectItem { 
 		public ProjectItemDirectory () {
-			this.nodename = "directory";
+			this.nodename = NODE_DIRECTORY;
 		}
 		
 		public override string get_friendly_name (string value) {

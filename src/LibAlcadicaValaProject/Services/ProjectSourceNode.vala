@@ -18,7 +18,9 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-namespace Alcadica.LibValaProject.Entities {
+using Alcadica.LibValaProject.Entities;
+
+namespace Alcadica.LibValaProject.Services {
 	public class ProjectSourceNode {
 	
 		private static ProjectItem get_instance (string chunk) {
@@ -39,9 +41,9 @@ namespace Alcadica.LibValaProject.Entities {
 			return path.split(Path.DIR_SEPARATOR.to_string ());
 		}
 
-		public static Node<ProjectItem>? build_from_filepath (string path) {
-			Node<ProjectItem>? previous = null;
-			Node<ProjectItem>? node = null;
+		public static ProjectItem? build_from_filepath (string path) {
+			ProjectItem? previous = null;
+			ProjectItem? node = null;
 			string[] chunks = get_chunks (path);
 
 			if (chunks.length == 0) {
@@ -50,22 +52,20 @@ namespace Alcadica.LibValaProject.Entities {
 
 			foreach (var chunk in chunks) {
 				ProjectItem data = get_instance (chunk);
-				Node<ProjectItem> _node = new Node<ProjectItem> (data);
 				
 				if (previous == null) {
-					previous = _node.copy ();
+					previous = data;
 					continue;
 				} else {
-					previous.append (_node.copy ());
+					previous.append (data);
 				}
 			}
 
 			return node;
 		}
 
-		public static Node<ProjectItem> build_from_files_list (List<string> list) {
-			HashTable<string, Node<ProjectItem>> hashtable = new HashTable<string, Node<ProjectItem>>(str_hash, direct_equal);
-			Node<ProjectItem> root = new Node<ProjectItem> ();
+		public static ProjectItem build_from_files_list (List<string> list) {
+			ProjectItemDirectory root = new ProjectItemDirectory ();
 
 			foreach (string item in list) {
 				string[] chunks = get_chunks (item);
@@ -74,26 +74,24 @@ namespace Alcadica.LibValaProject.Entities {
 					continue;
 				}
 
-				/* must create a node tree */
 				string current_path = "";
-				bool should_append_to_root = true;
-
+				ProjectItem current_node = root;
+				
 				foreach (string chunk in chunks) {
+					ProjectItem data = get_instance (chunk);
 					current_path = Path.build_filename (current_path, chunk);
 
-					ProjectItem data = get_instance (chunk);
+					data.nodepath = current_path;
 
-					if (hashtable.contains (current_path)) {
-						hashtable.get (current_path).append (new Node<ProjectItem> (data));
+					if (current_node.has_child (data.nodepath)) {
+						current_node = data;
+						continue;
 					} else {
-						hashtable.set (current_path, new Node<ProjectItem> (data));
-
-						if (should_append_to_root) {
-							root.append (hashtable.get (current_path).copy ());
-						}
+						print ("\n [append] " + data.nodepath + " on [current] " + current_node.nodepath);
+						current_node.append (data);
+						current_node = data;
+						continue;
 					}
-
-					should_append_to_root = false;
 				}
 			}
 
