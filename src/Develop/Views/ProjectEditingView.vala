@@ -28,7 +28,7 @@ namespace Alcadica.Views {
 	public const string DIRECTORIES_NAME = "DIRECTORIES_NAME";
 	
 	public class ProjectEditingView : Box { 
-		public DirectoryTreeView treeview = new DirectoryTreeView ();
+		public Granite.Widgets.SourceList treeview = new Granite.Widgets.SourceList ();
 		public Stack aside = new Stack ();
 		public Stack editor = new Stack ();
 		public Alcadica.Widgets.Editor.Toolbar toolbar = new Alcadica.Widgets.Editor.Toolbar ();
@@ -46,8 +46,12 @@ namespace Alcadica.Views {
 			this.orientation = Orientation.VERTICAL;
 
 			this.toolbar.project_did_selected.connect (filepath => {
+				DirectoryTreeView project_treeview = new DirectoryTreeView ();
 				XMLProjectFileParser project = XMLProjectFileParser.open (filepath);
-				this.treeview.show_project (project.project);
+
+				project_treeview.show_project (project.project);
+
+				this.treeview.root.add (project_treeview);
 			});
 		}
 	}

@@ -28,14 +28,10 @@ namespace Alcadica.Views.Partials.Editor {
 		public SourceList.Item source_item { get; set; }
 	}
 	
-	public class DirectoryTreeView : Gtk.Grid {
+	public class DirectoryTreeView : SourceList.ExpandableItem {
+		public Project project { get; set; }
 		public SourceList root = new SourceList ();
-		public SourceList.ExpandableItem sources { get; set; }
 		public List<DirectoryTreeViewItem> project_tree = new List<DirectoryTreeViewItem> ();
-
-		construct {
-			this.orientation = Gtk.Orientation.VERTICAL;
-		}
 
 		protected DirectoryTreeViewItem? get_by_name (string? name) {
 			DirectoryTreeViewItem? item = null;
@@ -67,7 +63,7 @@ namespace Alcadica.Views.Partials.Editor {
 			if (_item != null) {
 				parent = _item.source_item as SourceList.ExpandableItem;				
 			} else {
-				parent = this.sources;
+				parent = this;
 			}
 			
 			for (int i = 0; i < node.length; i++) {
@@ -87,10 +83,8 @@ namespace Alcadica.Views.Partials.Editor {
 		public void show_project (Project project) {
 			var children = project.sources.get_flatterned_children ();
 			
-			this.sources = new SourceList.ExpandableItem (project.project_name + " - " + project.version.to_string ());
-
-			this.root.root.add (this.sources);
-			this.add (this.root);
+			this.project = project;
+			this.name = project.project_name + " - " + project.version.to_string ();
 
 			foreach (var child in children) {
 				DirectoryTreeViewItem item = new DirectoryTreeViewItem ();
