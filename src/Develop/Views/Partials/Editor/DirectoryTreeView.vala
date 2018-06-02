@@ -93,8 +93,10 @@ namespace Alcadica.Views.Partials.Editor {
 				
 				if (child.nodename == NODE_DIRECTORY) {
 					item.source_item = new SourceList.ExpandableItem (child.friendlyname);
+					item.source_item.icon = new Gtk.Image.from_icon_name ("folder", Gtk.IconSize.BUTTON).gicon;
 				} else if (child.nodename == NODE_FILE) {
 					item.source_item = new SourceList.Item (child.friendlyname);
+					item.source_item.icon = new Gtk.Image.from_icon_name ("text-x-vala", Gtk.IconSize.BUTTON).gicon;
 				}
 
 				this.project_tree.append (item);

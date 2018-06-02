@@ -28,10 +28,10 @@ namespace Alcadica.Views {
 	public const string DIRECTORIES_NAME = "DIRECTORIES_NAME";
 	
 	public class ProjectEditingView : Box { 
+		public Alcadica.Widgets.Editor.Toolbar toolbar = new Alcadica.Widgets.Editor.Toolbar ();
 		public Granite.Widgets.SourceList treeview = new Granite.Widgets.SourceList ();
 		public Stack aside = new Stack ();
 		public Stack editor = new Stack ();
-		public Alcadica.Widgets.Editor.Toolbar toolbar = new Alcadica.Widgets.Editor.Toolbar ();
 
 		construct {
 			Paned paned = new Paned (Orientation.HORIZONTAL);
