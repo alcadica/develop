@@ -31,20 +31,23 @@ namespace Alcadica.Views.Partials.Settings {
 			Image icon = new Image.from_icon_name (APP_ID, IconSize.DIALOG);
 			Label welcome_label = new Label (_("First run setup"));
 			Label welcome_label_subtitle = new Label (_("Before proceeding I'd love to know more about you"));
+			Label welcome_label_disclaimer = new Label (_("Your data will not be stored in a server"));
 			Services.ActionManager manager = Services.ActionManager.instance;
 			
 			actions.margin_top = 20;
 			grid.orientation = Orientation.VERTICAL;
 			this.orientation = Orientation.VERTICAL;
 			icon.margin_bottom = 20;
-			welcome_label_subtitle.margin_bottom = 20;
+			welcome_label_disclaimer.margin_bottom = 20;
 
 			welcome_label.get_style_context ().add_class (STYLE_CLASS_H1_LABEL);
 			welcome_label_subtitle.get_style_context ().add_class (STYLE_CLASS_PRIMARY_LABEL);
+			welcome_label_disclaimer.get_style_context ().add_class ("dim-label");
 
 			grid.add (icon);
 			grid.add (welcome_label);
 			grid.add (welcome_label_subtitle);
+			grid.add (welcome_label_disclaimer);
 			grid.add (userdata);
 			grid.add (actions);
 

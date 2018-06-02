@@ -1,5 +1,5 @@
 # project name and programming language
-project('com.github.alcadica.develop', 'vala', 'c', version: '0.0.4')
+project('com.github.alcadica.develop', 'vala', 'c', version: '0.0.5')
 
 message ('project name and programming language')
 
