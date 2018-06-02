@@ -64,6 +64,7 @@ namespace Alcadica.LibValaProject.Entities {
 		}
 
 		public static Node<ProjectItem> build_from_files_list (List<string> list) {
+			HashTable<string, Node<ProjectItem>> hashtable = new HashTable<string, Node<ProjectItem>>(str_hash, direct_equal);
 			Node<ProjectItem> root = new Node<ProjectItem> ();
 
 			foreach (string item in list) {
@@ -74,6 +75,26 @@ namespace Alcadica.LibValaProject.Entities {
 				}
 
 				/* must create a node tree */
+				string current_path = "";
+				bool should_append_to_root = true;
+
+				foreach (string chunk in chunks) {
+					current_path = Path.build_filename (current_path, chunk);
+
+					ProjectItem data = get_instance (chunk);
+
+					if (hashtable.contains (current_path)) {
+						hashtable.get (current_path).append (new Node<ProjectItem> (data));
+					} else {
+						hashtable.set (current_path, new Node<ProjectItem> (data));
+
+						if (should_append_to_root) {
+							root.append (hashtable.get (current_path).copy ());
+						}
+					}
+
+					should_append_to_root = false;
+				}
 			}
 
 			return root;
