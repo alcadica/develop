@@ -22,9 +22,6 @@ using Xml;
 
 namespace Alcadica.LibValaProject.Services { 
 	public class XMLProjectFileWriter {
-
-		public XMLProjectFileWriter () {
-			
-		}
+		
 	}
 }

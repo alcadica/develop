@@ -52,6 +52,10 @@ namespace Alcadica.Views {
 				project_treeview.show_project (project.project);
 
 				this.treeview.root.add (project_treeview);
+
+				if (this.treeview.root.n_children == 1) {
+					project_treeview.expanded = true;
+				}
 			});
 		}
 	}

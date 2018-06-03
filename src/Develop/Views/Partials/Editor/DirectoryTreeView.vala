@@ -88,16 +88,19 @@ namespace Alcadica.Views.Partials.Editor {
 
 			foreach (var child in children) {
 				DirectoryTreeViewItem item = new DirectoryTreeViewItem ();
+				string icon_name = "";
 
 				item.project_item = child;
 				
 				if (child.nodename == NODE_DIRECTORY) {
-					item.source_item = new SourceList.ExpandableItem (child.friendlyname);
-					item.source_item.icon = new Gtk.Image.from_icon_name ("folder", Gtk.IconSize.BUTTON).gicon;
+					item.source_item = new Alcadica.Widgets.Editor.SourceList.ExpandableItem (child.friendlyname);
+					icon_name = "folder";
 				} else if (child.nodename == NODE_FILE) {
-					item.source_item = new SourceList.Item (child.friendlyname);
-					item.source_item.icon = new Gtk.Image.from_icon_name ("text-x-vala", Gtk.IconSize.BUTTON).gicon;
+					item.source_item = new Alcadica.Widgets.Editor.SourceList.Item (child.friendlyname);
+					icon_name = "text-x-vala";
 				}
+
+				item.source_item.icon = new Gtk.Image.from_icon_name (icon_name, Gtk.IconSize.BUTTON).gicon;
 
 				this.project_tree.append (item);
 			}

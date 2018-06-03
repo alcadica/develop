@@ -18,14 +18,10 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-namespace Alcadica.LibValaProject.Entities {
-	public class Project {
-		public string appdata { get; set; }
-		public string project_name { get; set; }
-		public string rdnn { get; set; }
-		public string project_type { get; set; }
-		public string filepath { get; set; }
-		public ProjectVersion version { get; set; }
-		public ProjectItem sources { get; set; }
-	} 
+
+namespace Alcadica.Providers {
+	public abstract class ProviderBase : Object {
+		public abstract void activate();
+		public abstract void deactivate();
+	}
 }

@@ -37,6 +37,7 @@ namespace Alcadica.LibValaProject.Services {
 
 			if (instance.read (filepath)) {
 				instance.parse ();
+				instance.project.filepath = filepath;
 			}
 
 			return instance;
