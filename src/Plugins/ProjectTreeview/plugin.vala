@@ -18,21 +18,19 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-namespace Alcadica.Develop.Infrastructure { 
-	public static T invoke<T>(string name) {
-		Type type = Type.from_name (name);
-		T object;
 
-		debug ("[invoke] instancing type " + name);
-		print ("[invoke] instancing type " + name);
+using Alcadica.Develop.Plugins;
 
-		if (type.is_classed () && type.parent ().name () != "") {
-			unowned TypeClass? from_parent_type = type.class_peek_parent ();
-			object = (T)Object.new (from_parent_type.get_type ());
-		} else {
-			object = (T)Object.new (type);
+namespace Alcadica.Develop.CorePlugins { 
+	public class Treeview : Plugin {
+		public override void activate (Entities.EditorContext context) {
+
 		}
 
-		return object;
+		public override void deactivate (Entities.EditorContext context) {
+
+		}
+
+		public override void dispose () { }
 	}
 }

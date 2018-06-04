@@ -56,9 +56,9 @@ namespace Alcadica {
         }
 
         protected override void activate () {
-            new Alcadica.Window (this);
-
             Providers.ProviderRegistry.register_providers ();
+
+            new Alcadica.Window (this);
         }
 
         protected override void open (File[] files, string hint) {

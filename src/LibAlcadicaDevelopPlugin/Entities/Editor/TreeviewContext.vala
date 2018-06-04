@@ -20,6 +20,8 @@
 */
 namespace Alcadica.Develop.Plugins.Entities.Editor {
 	public class TreeviewContext {
-		
+		public File current_file { get; set; }
+		public signal void on_select ();
+		public signal void on_right_click ();
 	}
 }

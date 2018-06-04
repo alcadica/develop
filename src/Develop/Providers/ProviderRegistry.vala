@@ -58,6 +58,14 @@ namespace Alcadica.Develop.Providers {
 		public static void register_providers () {
 			Type type = typeof (ProviderBase);
 
+			info ("[ProviderRegistry] start registering");
+			
+			if (type.children ().length == 0) {
+				info ("[ProviderRegistry] no providers found");
+			} else {
+				info ("[ProviderRegistry][found] %d providers".printf (type.children ().length));
+			}
+
 			foreach (Type child_type in type.children ()) {
 				info ("[ProviderRegistry]");
 				var provider = Infrastructure.invoke <ProviderBase>(child_type.name ());
