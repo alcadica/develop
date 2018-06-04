@@ -18,11 +18,8 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-
-namespace Alcadica.Develop.Providers {
-	public abstract class ProviderBase : TypeModule {
-		public abstract string get_name ();
-		public abstract void activate ();
-		public abstract void deactivate ();
+namespace Alcadica.Develop.Plugins.Entities.Editor {
+	public class TreeviewContext {
+		
 	}
 }

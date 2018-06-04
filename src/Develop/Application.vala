@@ -27,18 +27,18 @@ namespace Alcadica {
     public const string APP_ID = "com.github.alcadica.develop";
     public const string APP_NAME = "Develop";
 
-    public class Develop : Granite.Application {
-        public static Develop _instance = null;
-        public static Develop instance {
+    public class Develop.DevelopApplication : Granite.Application {
+        public static DevelopApplication _instance = null;
+        public static DevelopApplication instance {
             get {
                 if (_instance == null) {
-                    _instance = new Develop ();
+                    _instance = new DevelopApplication ();
                 }
                 return _instance;
             }
         }
         
-        public Develop () {
+        public DevelopApplication () {
             Object(
                 application_id: APP_ID
             );
@@ -57,6 +57,8 @@ namespace Alcadica {
 
         protected override void activate () {
             new Alcadica.Window (this);
+
+            Providers.ProviderRegistry.register_providers ();
         }
 
         protected override void open (File[] files, string hint) {
@@ -64,7 +66,7 @@ namespace Alcadica {
         }
 
         public static int main (string[] args) {
-            var app = Develop.instance;
+            var app = DevelopApplication.instance;
             return app.run (args);
         }
     }

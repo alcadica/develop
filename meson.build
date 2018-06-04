@@ -90,8 +90,10 @@ code_files = files(
     'src/Develop/Entities/Template/TemplateFile.vala',
     'src/Develop/Entities/Template/TemplateFileType.vala',
     'src/Develop/Entities/Template/TemplateToken.vala',
+    'src/Develop/Infrastructure/Invoker.vala',
+    'src/Develop/Providers/PluginProvider.vala',
     'src/Develop/Providers/ProviderBase.vala',
-    'src/Develop/Providers/Editor/ProviderBase.vala',
+    'src/Develop/Providers/ProviderRegistry.vala',
     'src/Develop/Services/ActionManager.vala',
     'src/Develop/Services/FileSystem.vala',
     'src/Develop/Services/RDNN.vala',
@@ -126,6 +128,14 @@ code_files = files(
     'src/Develop/Window.vala',
 )
 
+lib_develop_plugins = files (
+    'src/LibAlcadicaDevelopPlugin/Entities/Editor/CurrentFileContext.vala',
+    'src/LibAlcadicaDevelopPlugin/Entities/Editor/TreeviewContext.vala',
+    'src/LibAlcadicaDevelopPlugin/Entities/EditorContext.vala',
+    'src/LibAlcadicaDevelopPlugin/Entities/PluginContext.vala',
+    'src/LibAlcadicaDevelopPlugin/Main.vala'
+)
+
 lib_vala_project_files = files(
     'src/LibAlcadicaValaProject/Entities/Project.vala',
     'src/LibAlcadicaValaProject/Entities/ProjectItem.vala',
@@ -154,6 +164,17 @@ install_subdir(
 
 message ('Defines executable')
 
+lib_plugins = library(
+    'libalcadicadevelopplugin',
+    lib_develop_plugins,
+    dependencies: [
+        dependency('gio-unix-2.0', version: '>=2.20')
+    ],
+    install: true,
+    install_dir: [true, true, true],
+    version: '0.0'
+)
+
 lib_vala_project = library(
     'libalcadicavalaproject',
     lib_vala_project_files,
@@ -178,6 +199,7 @@ executable(
     ],
     install: true,
     link_with: [
+        lib_plugins,
         lib_vala_project
     ]
 )
@@ -188,6 +210,14 @@ pkg.generate(
     description: 'Alcadica Develop Vala project',
     name: 'libalcadicavalaproject',
     filebase: 'libalcadicavalaproject'
+)
+
+pkg.generate(
+    version: '0.1',
+    libraries: lib_plugins,
+    description: 'Alcadica Develop Plugins API',
+    name: 'libalcadicadevelopplugin',
+    filebase: 'libalcadicadevelopplugin'
 )
 
 meson.add_install_script('meson/postinstall.py')

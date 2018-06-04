@@ -19,10 +19,12 @@
 * Authored by: alcadica <github@alcadica.com>
 */
 
-namespace Alcadica.Develop.Providers {
-	public abstract class ProviderBase : TypeModule {
+
+namespace Alcadica.Develop.Plugins {
+	public abstract class Plugin {
 		public abstract string get_name ();
-		public abstract void activate ();
-		public abstract void deactivate ();
+		public abstract void activate (Entities.PluginContext context);
+		public abstract void deactivate (Entities.PluginContext context);
+		public abstract void dispose ();
 	}
 }

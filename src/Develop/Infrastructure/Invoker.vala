@@ -18,11 +18,14 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
+namespace Alcadica.Develop.Infrastructure { 
+	public static T invoke<T>(string name) {
+		Type type = Type.from_name (name);
 
-namespace Alcadica.Develop.Providers {
-	public abstract class ProviderBase : TypeModule {
-		public abstract string get_name ();
-		public abstract void activate ();
-		public abstract void deactivate ();
+		debug ("[invoke] instancing type " + name);
+
+		T object = (T)Object.new (type);
+
+		return object;
 	}
 }

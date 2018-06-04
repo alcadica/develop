@@ -18,9 +18,10 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-
-namespace Alcadica.Providers.Editor {
-	public abstract class ProviderBase : Alcadica.Providers.ProviderBase {
-
+namespace Alcadica.Develop.Plugins.Entities.Editor {
+	public class CurrentFileContext {
+		public File file { get; set; }
+		public uint current_column { get; set; }
+		public uint current_line { get; set; }
 	}
 }

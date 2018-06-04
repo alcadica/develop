@@ -18,11 +18,9 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-
-namespace Alcadica.Develop.Providers {
-	public abstract class ProviderBase : TypeModule {
-		public abstract string get_name ();
-		public abstract void activate ();
-		public abstract void deactivate ();
+namespace Alcadica.Develop.Plugins.Entities {
+	public class EditorContext {
+		public Editor.TreeviewContext treeview = new Editor.TreeviewContext ();	
+		public Editor.CurrentFileContext current_file = new Editor.CurrentFileContext ();
 	}
 }
