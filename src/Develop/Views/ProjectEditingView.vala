@@ -25,21 +25,24 @@ using Alcadica.Services;
 using Alcadica.LibValaProject.Services;
 
 namespace Alcadica.Views { 
+	public const string CODE_EDITOR = "CODE_EDITOR";
 	public const string DIRECTORIES_NAME = "DIRECTORIES_NAME";
 	
 	public class ProjectEditingView : Box { 
 		public Alcadica.Widgets.Editor.Toolbar toolbar = new Alcadica.Widgets.Editor.Toolbar ();
 		public Granite.Widgets.SourceList treeview = new Granite.Widgets.SourceList ();
+		public Alcadica.Develop.Views.Partials.Editor.CodeEditor editor = new Alcadica.Develop.Views.Partials.Editor.CodeEditor ();
 		public Stack aside = new Stack ();
-		public Stack editor = new Stack ();
+		public Stack main_content = new Stack ();
 
 		construct {
 			Paned paned = new Paned (Orientation.HORIZONTAL);
 			
 			aside.add_named (treeview, DIRECTORIES_NAME);
+			main_content.add_named (editor, CODE_EDITOR);
 
 			paned.pack1 (aside, false, false);
-			//  paned.pack2 (editor, false, false);
+			paned.pack2 (main_content, false, false);
 
 			this.add (toolbar);
 			this.pack_end (paned);

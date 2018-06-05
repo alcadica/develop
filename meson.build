@@ -103,6 +103,7 @@ code_files = files(
     'src/Develop/Services/TemplateService.vala',
     'src/Develop/Services/UserSettings.vala',
     'src/Develop/Views/MainView.vala',
+    'src/Develop/Views/Partials/Editor/CodeEditor.vala',
     'src/Develop/Views/Partials/Editor/DirectoryTreeView.vala',
     'src/Develop/Views/Partials/Forms/FormBase.vala',
     'src/Develop/Views/Partials/Forms/FormNewApp.vala',
