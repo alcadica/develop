@@ -21,7 +21,7 @@
 using Granite;
 using Gtk;
 
-namespace Alcadica.Views.Partials {
+namespace Alcadica.Develop.Views.Partials {
 	public class SettingsBase : Box {
 		public Grid grid = new Grid ();
 		

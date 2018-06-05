@@ -18,7 +18,7 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-namespace Alcadica.Entities.Template { 
+namespace Alcadica.Develop.Entities.Template { 
     public class TemplateToken : Object { 
 		public static string delimiter_start = "{{";
 		public static string delimiter_end = "}}";

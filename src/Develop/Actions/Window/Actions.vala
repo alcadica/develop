@@ -18,7 +18,7 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-namespace Alcadica.Actions.Window {
+namespace Alcadica.Develop.Actions.Window {
 	public const string FIRST_RUN = "Alcadica.Actions.Window.FIRST_RUN";
 	public const string FIRST_RUN_END = "Alcadica.Actions.Window.FIRST_RUN_END";
 	public const string QUIT = "Alcadica.Actions.Window.QUIT";

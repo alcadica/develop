@@ -22,7 +22,7 @@ using Alcadica.Widgets;
 using Granite;
 using Gtk;
 
-namespace Alcadica.Views.Partials.Forms { 
+namespace Alcadica.Develop.Views.Partials.Forms { 
 	public class FormNewWingpanelWidget : FormBase { 
 		public Button select_directory { get; set; }
 		public EntryWithLabel indicator_description { get; set; }

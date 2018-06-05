@@ -19,7 +19,7 @@
 * Authored by: alcadica <github@alcadica.com>
 */
 
-namespace Alcadica { 
+namespace Alcadica.Develop { 
 	public class Window : Gtk.Window {
 		public Views.Partials.Window.HeaderBar header { get; set; }
 		public Views.MainView content { get; set; }
@@ -44,7 +44,7 @@ namespace Alcadica {
 		}
 
 		protected void build_ui () {
-			this.content = new Alcadica.Views.MainView ();
+			this.content = new Alcadica.Develop.Views.MainView ();
 			this.header = new Views.Partials.Window.HeaderBar ();
 
 			this.set_titlebar (this.header);

@@ -20,7 +20,7 @@
 */
 using Gtk;
 
-namespace Alcadica.Services { 
+namespace Alcadica.Develop.Services { 
 	public class RDNN : GLib.Object {
 		protected string[] chunks { get; set; }
 		protected string domain { get; set; }

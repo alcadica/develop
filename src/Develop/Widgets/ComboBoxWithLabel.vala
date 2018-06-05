@@ -23,7 +23,7 @@ using Granite;
 using Gtk;
 
 namespace Alcadica.Widgets { 
-	public class ComboBoxWithLabelOption : Entities.Generic.KeyValuePair<int, string> {
+	public class ComboBoxWithLabelOption : Develop.Entities.Generic.KeyValuePair<int, string> {
 		public ComboBoxWithLabelOption (int key, string label) {
 			Object(key: key, value: label);
 		}

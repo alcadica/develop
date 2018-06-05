@@ -18,11 +18,11 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-using Alcadica.Entities.Template;
-using Alcadica.Services;
+using Alcadica.Develop.Entities.Template;
+using Alcadica.Develop.Services;
 using Granite.Services;
 
-namespace Alcadica.Services { 
+namespace Alcadica.Develop.Services { 
     public abstract class TemplateService : Object { 
         public unowned List<TemplateFile> directories { get; set; }
         public unowned List<TemplateFile> files { get; set; }

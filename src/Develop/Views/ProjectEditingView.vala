@@ -20,11 +20,11 @@
 */
 using Granite;
 using Gtk;
-using Alcadica.Views.Partials.Editor;
-using Alcadica.Services;
+using Alcadica.Develop.Views.Partials.Editor;
+using Alcadica.Develop.Services;
 using Alcadica.LibValaProject.Services;
 
-namespace Alcadica.Views { 
+namespace Alcadica.Develop.Views { 
 	public const string CODE_EDITOR = "CODE_EDITOR";
 	public const string DIRECTORIES_NAME = "DIRECTORIES_NAME";
 	

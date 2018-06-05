@@ -21,7 +21,7 @@
 using Granite;
 using Gtk;
 
-namespace Alcadica.Views.Partials.Settings { 
+namespace Alcadica.Develop.Views.Partials.Settings { 
 	public class UserDataSettings : SettingsBase {
 		public Forms.FormUserData form = new Forms.FormUserData ();
 		public HeaderLabel title = new HeaderLabel (_("User settings"));

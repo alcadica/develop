@@ -22,7 +22,7 @@ using Alcadica.Widgets;
 using Granite;
 using Gtk;
 
-namespace Alcadica.Views.Partials.Forms { 
+namespace Alcadica.Develop.Views.Partials.Forms { 
 	public class FormNewSwitchboardWidget : FormBase { 
 		//  public Switchboard.Plug.Category category { get; set; }
 		public Button select_directory { get; set; }

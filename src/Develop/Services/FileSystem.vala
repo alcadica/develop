@@ -20,7 +20,7 @@
 */
 using Gtk;
 
-namespace Alcadica.Services { 
+namespace Alcadica.Develop.Services { 
     public class FileSystem : GLib.Object {
 
         public static ApplicationWindow window { get; set; }

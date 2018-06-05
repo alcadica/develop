@@ -21,7 +21,7 @@
 using Granite;
 using Gtk;
 
-namespace Alcadica.Views.Partials.Forms { 
+namespace Alcadica.Develop.Views.Partials.Forms { 
 	public abstract class FormBase : Grid { 
 
 		public bool is_valid = false;

@@ -21,7 +21,7 @@
 using Granite;
 using Gtk;
 
-namespace Alcadica.Views {
+namespace Alcadica.Develop.Views {
     
     public class MainView : Paned {       
         construct {

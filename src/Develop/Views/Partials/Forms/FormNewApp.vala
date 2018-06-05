@@ -22,7 +22,7 @@ using Alcadica.Widgets;
 using Granite;
 using Gtk;
 
-namespace Alcadica.Views.Partials.Forms { 
+namespace Alcadica.Develop.Views.Partials.Forms { 
 	public class FormNewApp : FormBase { 
 		public Button select_directory { get; set; }
 		public EntryWithLabel project_name { get; set; }

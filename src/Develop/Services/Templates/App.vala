@@ -18,10 +18,10 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-using Alcadica.Entities.Template;
-using Alcadica.Services;
+using Alcadica.Develop.Entities.Template;
+using Alcadica.Develop.Services;
 
-namespace Alcadica.Services.Templates { 
+namespace Alcadica.Develop.Services.Templates { 
 	public class App : TemplateService { 
 
 		public unowned string appdata_xml = "appdata.xml.in";

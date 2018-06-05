@@ -18,7 +18,7 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-namespace Alcadica.Actions.TemplateEditing {
+namespace Alcadica.Develop.Actions.TemplateEditing {
 	public const string TEMPLATE_DID_COPY = "Alcadica.Actions.TemplateEditing.TEMPLATE_DID_COPY";
 	public const string TEMPLATE_DIDNOT_COPY = "Alcadica.Actions.TemplateEditing.TEMPLATE_DIDNOT_COPY";
 }

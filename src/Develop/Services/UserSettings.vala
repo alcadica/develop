@@ -19,7 +19,7 @@
 * Authored by: alcadica <github@alcadica.com>
 */
 
-namespace Alcadica.Services {
+namespace Alcadica.Develop.Services {
 	public class UserSettings : Granite.Services.Settings { 
 		public bool is_first_run { get; set; }
 		public string user_email { get; set; }

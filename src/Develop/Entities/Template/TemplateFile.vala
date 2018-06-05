@@ -18,7 +18,7 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-namespace Alcadica.Entities.Template { 
+namespace Alcadica.Develop.Entities.Template { 
     public class TemplateFile : Object { 
         public string content { get; set; }
         public string path { get; set; }

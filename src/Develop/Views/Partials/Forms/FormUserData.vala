@@ -22,7 +22,7 @@ using Alcadica.Widgets;
 using Granite;
 using Gtk;
 
-namespace Alcadica.Views.Partials.Forms { 
+namespace Alcadica.Develop.Views.Partials.Forms { 
 	public class FormUserData : FormBase { 
 		private const string github_url = "https://github.com";
 		public EntryWithLabel user_name { get; set; }

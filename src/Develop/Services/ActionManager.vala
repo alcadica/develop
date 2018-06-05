@@ -18,7 +18,7 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-namespace Alcadica.Services {
+namespace Alcadica.Develop.Services {
 	public class ActionManager : Object {
 		private static ActionManager _instance = null;
 

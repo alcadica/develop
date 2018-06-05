@@ -18,10 +18,10 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-using Alcadica.Entities.Template;
-using Alcadica.Services;
+using Alcadica.Develop.Entities.Template;
+using Alcadica.Develop.Services;
 
-namespace Alcadica.Services.Templates { 
+namespace Alcadica.Develop.Services.Templates { 
 	public class SwitchboardWidget : TemplateService { 
 
 		protected string icon_path {

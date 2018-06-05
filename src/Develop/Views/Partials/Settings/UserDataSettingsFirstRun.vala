@@ -21,7 +21,7 @@
 using Granite;
 using Gtk;
 
-namespace Alcadica.Views.Partials.Settings { 
+namespace Alcadica.Develop.Views.Partials.Settings { 
 	public class UserDataSettingsFirstRun : Gtk.Box {
 		public Alcadica.Widgets.ActionBar actions = new Alcadica.Widgets.ActionBar ();
 		public UserDataSettings userdata = new UserDataSettings ();

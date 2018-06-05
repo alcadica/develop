@@ -22,7 +22,7 @@
 using Alcadica.LibValaProject.Entities;
 using Granite.Widgets;
 
-namespace Alcadica.Views.Partials.Editor { 
+namespace Alcadica.Develop.Views.Partials.Editor { 
 	protected class DirectoryTreeViewItem {
 		public ProjectItem project_item { get; set; }
 		public SourceList.Item source_item { get; set; }

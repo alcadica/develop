@@ -35,7 +35,7 @@ namespace Alcadica.Widgets.Editor {
 
 		protected void bind_buttons () {
 			this.open_project.clicked.connect (() => {
-				List<string> files = Services.FileSystem.choose_file ("Choose project", Alcadica.LibValaProject.PROJECT_FILENAME);
+				List<string> files = Develop.Services.FileSystem.choose_file ("Choose project", Alcadica.LibValaProject.PROJECT_FILENAME);
 
 				if (files.length () > 0) {
 					this.project_did_selected (files.nth_data (0));

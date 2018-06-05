@@ -20,10 +20,10 @@
 */
 using Granite;
 using Gtk;
-using Alcadica.Views.Partials;
-using Alcadica.Services;
+using Alcadica.Develop.Views.Partials;
+using Alcadica.Develop.Services;
 
-namespace Alcadica.Views { 
+namespace Alcadica.Develop.Views { 
     public class TemplateCreationView : Box {
 
         protected signal void on_reset ();
@@ -64,7 +64,7 @@ namespace Alcadica.Views {
             });
 
             form_app.submit.connect (() => {
-                Alcadica.Services.UserSettings settings = new Alcadica.Services.UserSettings ();
+                Alcadica.Develop.Services.UserSettings settings = new Alcadica.Develop.Services.UserSettings ();
                 string projectname = form_app.project_name.text;
                 string dirpath = form_app.get_full_directory ();
                 var service = new Services.Templates.App (dirpath);
@@ -94,7 +94,7 @@ namespace Alcadica.Views {
             });
 
             form_switchboard.submit.connect (() => {
-                Alcadica.Services.UserSettings settings = new Alcadica.Services.UserSettings ();
+                Alcadica.Develop.Services.UserSettings settings = new Alcadica.Develop.Services.UserSettings ();
                 string dirpath = form_switchboard.get_full_directory ();
                 string projectname = form_switchboard.project_name.text;
                 var service = new Services.Templates.SwitchboardWidget (dirpath);
@@ -146,7 +146,7 @@ namespace Alcadica.Views {
             });
 
             form_wingpanel.submit.connect (() => {
-                Alcadica.Services.UserSettings settings = new Alcadica.Services.UserSettings ();
+                Alcadica.Develop.Services.UserSettings settings = new Alcadica.Develop.Services.UserSettings ();
                 string projectname = form_wingpanel.project_name.text;
                 string dirpath = form_wingpanel.get_full_directory ();
                 var service = new Services.Templates.WingpanelWidget (dirpath);

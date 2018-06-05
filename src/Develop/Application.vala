@@ -22,12 +22,12 @@ using Granite;
 using Granite.Widgets;
 using Gtk;
 
-namespace Alcadica {
+namespace Alcadica.Develop {
 
     public const string APP_ID = "com.github.alcadica.develop";
     public const string APP_NAME = "Develop";
 
-    public class Develop.DevelopApplication : Granite.Application {
+    public class DevelopApplication : Granite.Application {
         public static DevelopApplication _instance = null;
         public static DevelopApplication instance {
             get {
@@ -58,7 +58,7 @@ namespace Alcadica {
         protected override void activate () {
             Providers.ProviderRegistry.register_providers ();
 
-            new Alcadica.Window (this);
+            new Alcadica.Develop.Window (this);
         }
 
         protected override void open (File[] files, string hint) {

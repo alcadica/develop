@@ -20,10 +20,10 @@
 */
 using Granite;
 using Gtk;
-using Alcadica.Views.Partials;
+using Alcadica.Develop.Views.Partials;
 using Alcadica.Widgets;
 
-namespace Alcadica.Views {
+namespace Alcadica.Develop.Views {
     
     public class SettingsView : Paned {
 		public Stack stack_content = new Stack ();

@@ -18,7 +18,7 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-namespace Alcadica.Entities.Generic { 
+namespace Alcadica.Develop.Entities.Generic { 
     public class KeyValuePair<TKey, TValue> : Object {
 		public TKey key { get; set; }
 		public TValue value { get; set; }
