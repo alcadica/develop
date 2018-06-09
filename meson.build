@@ -211,16 +211,18 @@ pkg.generate(
     version: '0.1',
     libraries: lib_vala_project,
     description: 'Alcadica Develop Vala project',
-    name: 'libalcadicavalaproject',
-    filebase: 'libalcadicavalaproject'
+    name: 'com.github.alcadica.develop.project',
+    filebase: 'com.github.alcadica.develop.project'
 )
 
 pkg.generate(
     version: '0.1',
     libraries: lib_plugins,
     description: 'Alcadica Develop Plugins API',
-    name: 'libalcadicadevelopplugin',
-    filebase: 'libalcadicadevelopplugin'
+    name: 'com.github.alcadica.develop.plugin',
+    filebase: 'com.github.alcadica.develop.plugin'
 )
 
 meson.add_install_script('meson/postinstall.py')
+
+subdir ('src/Plugins/ProjectTreeview')

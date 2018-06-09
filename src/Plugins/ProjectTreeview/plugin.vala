@@ -23,14 +23,20 @@ using Alcadica.Develop.Plugins;
 
 namespace Alcadica.Develop.CorePlugins { 
 	public class Treeview : Plugin {
-		public override void activate (Entities.EditorContext context) {
-
+		public override string get_name () {
+			return "Treeview";
+		}
+		
+		public override void activate (Entities.PluginContext context) {
+			print ("\nhello world");
 		}
 
-		public override void deactivate (Entities.EditorContext context) {
+		public override void deactivate (Entities.PluginContext context) {
 
 		}
-
+		
 		public override void dispose () { }
+
+		public override void registered () { }
 	}
 }

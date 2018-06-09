@@ -26,5 +26,6 @@ namespace Alcadica.Develop.Plugins {
 		public abstract void activate (Entities.PluginContext context);
 		public abstract void deactivate (Entities.PluginContext context);
 		public abstract void dispose ();
+		public abstract void registered ();
 	}
 }
