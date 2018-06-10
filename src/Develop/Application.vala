@@ -56,9 +56,10 @@ namespace Alcadica.Develop {
         }
 
         protected override void activate () {
-            Providers.ProviderRegistry.register_providers ();
-
             new Alcadica.Develop.Window (this);
+
+            Infrastructure.PluginLoader.init ();
+            Infrastructure.PluginLoader.load_plugins ();
         }
 
         protected override void open (File[] files, string hint) {

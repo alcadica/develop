@@ -92,10 +92,7 @@ code_files = files(
     'src/Develop/Entities/Template/TemplateFileType.vala',
     'src/Develop/Entities/Template/TemplateToken.vala',
     'src/Develop/Infrastructure/Invoker.vala',
-    'src/Develop/Infrastructure/Load_plugin.vala',
-    'src/Develop/Providers/PluginProvider.vala',
-    'src/Develop/Providers/ProviderBase.vala',
-    'src/Develop/Providers/ProviderRegistry.vala',
+    'src/Develop/Infrastructure/PluginLoader.vala',
     'src/Develop/Services/ActionManager.vala',
     'src/Develop/Services/FileSystem.vala',
     'src/Develop/Services/RDNN.vala',
@@ -136,7 +133,7 @@ lib_develop_plugins = files (
     'src/LibAlcadicaDevelopPlugin/Entities/Editor/TreeviewContext.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/EditorContext.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/PluginContext.vala',
-    'src/LibAlcadicaDevelopPlugin/Main.vala'
+    'src/LibAlcadicaDevelopPlugin/Plugin.vala'
 )
 
 lib_vala_project_files = files(

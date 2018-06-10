@@ -24,14 +24,16 @@ namespace Alcadica.Develop.Entities.Plugin {
 		[CCode (has_target = false)]
 		private delegate Type PluginInitFunc (TypeModule module);
 		private GLib.Module module = null;
+		private string directory = null;
 		private string name = null;
 
-		public PluginModule (string name) {
+		public PluginModule (string directory, string name) {
+			this.directory = directory;
 			this.name = name;
 		}
 
 		public override bool load () {
-			this.module = Module.open (Module.build_path (null, name), GLib.ModuleFlags.BIND_LAZY);
+			this.module = Module.open (Module.build_path (directory, name), GLib.ModuleFlags.BIND_LAZY);
 			
 			if (this.module == null) {
 				error (@"Plugin $name not found");

@@ -24,14 +24,9 @@ namespace Alcadica.Develop.Infrastructure {
 		T object;
 
 		debug ("[invoke] instancing type " + name);
-		print ("[invoke] instancing type " + name);
+		print ("\n[invoke] instancing type " + name);
 
-		if (type.is_classed () && type.parent ().name () != "") {
-			unowned TypeClass? from_parent_type = type.class_peek_parent ();
-			object = (T)Object.new (from_parent_type.get_type ());
-		} else {
-			object = (T)Object.new (type);
-		}
+		object = (T)Object.new (type);
 
 		return object;
 	}

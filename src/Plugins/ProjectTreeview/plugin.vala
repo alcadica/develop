@@ -21,7 +21,11 @@
 
 using Alcadica.Develop.Plugins;
 
-namespace Alcadica.Develop.CorePlugins { 
+public static Type plugin_init () {
+	return typeof (com.alcadica.develop.plugins.Treeview);
+}
+
+namespace com.alcadica.develop.plugins {
 	public class Treeview : Plugin {
 		public override string get_name () {
 			return "Treeview";
@@ -37,6 +41,8 @@ namespace Alcadica.Develop.CorePlugins {
 		
 		public override void dispose () { }
 
-		public override void registered () { }
+		public override void registered () {
+			print ("\nRegistered " + this.get_name ());
+		}
 	}
 }
