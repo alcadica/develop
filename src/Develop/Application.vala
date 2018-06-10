@@ -56,10 +56,11 @@ namespace Alcadica.Develop {
         }
 
         protected override void activate () {
+            var plugins_loader = new Infrastructure.PluginLoader ();
+            
             new Alcadica.Develop.Window (this);
 
-            Infrastructure.PluginLoader.init ();
-            Infrastructure.PluginLoader.load_plugins ();
+            plugins_loader.load_modules ();
         }
 
         protected override void open (File[] files, string hint) {

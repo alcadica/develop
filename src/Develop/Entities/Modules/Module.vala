@@ -19,40 +19,42 @@
 * Authored by: alcadica <github@alcadica.com>
 */
 
-namespace Alcadica.Develop.Entities.Plugin { 
-	public class PluginModule : TypeModule {
+namespace Alcadica.Develop.Entities.Modules { 
+	public class Module : TypeModule {
 		[CCode (has_target = false)]
-		private delegate Type PluginInitFunc (TypeModule module);
+		private delegate Type ModuleInitFunc (TypeModule module);
 		private GLib.Module module = null;
 		private string directory = null;
 		private string name = null;
+		private string init_symbol = null;
 
-		public PluginModule (string directory, string name) {
+		public Module (string directory, string name, string init_symbol) {
 			this.directory = directory;
 			this.name = name;
+			this.init_symbol = init_symbol;
 		}
 
 		public override bool load () {
-			this.module = Module.open (Module.build_path (directory, name), GLib.ModuleFlags.BIND_LAZY);
+			this.module = GLib.Module.open (GLib.Module.build_path (directory, name), GLib.ModuleFlags.BIND_LAZY);
 			
 			if (this.module == null) {
-				error (@"Plugin $name not found");
+				error (@"Module $name not found");
 			}
 		
-			void* plugin_init = null;
+			void* module_init_method = null;
 
-			if (!module.symbol ("plugin_init", out plugin_init)) {
+			if (!module.symbol (this.init_symbol, out module_init_method)) {
 				error ("No such symbol");
 			}
 			
-			((PluginInitFunc) plugin_init) (this);
+			((ModuleInitFunc) module_init_method) (this);
 			
 			return true;
 		}
 		
 		public override void unload () {
 			this.module = null;
-			message (@"Plugin $name unloaded");
+			message (@"Module $name unloaded");
 		}
 	}
 }
