@@ -21,7 +21,8 @@
 
 using Alcadica.Develop.Plugins;
 
-public static Type plugin_init () {
+[ModuleInit]
+public static Type plugin_init (GLib.TypeModule type_modul) {
 	return typeof (com.alcadica.develop.plugins.Treeview);
 }
 
@@ -39,10 +40,12 @@ namespace com.alcadica.develop.plugins {
 
 		}
 		
-		public override void dispose () { }
-
 		public override void registered () {
 			print ("\nRegistered " + this.get_name ());
+		}
+
+		public override void unregistered () {
+			
 		}
 	}
 }
