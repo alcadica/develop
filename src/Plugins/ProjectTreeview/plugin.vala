@@ -45,7 +45,7 @@ namespace com.alcadica.develop.plugins {
 		}
 
 		public override void unregistered () {
-			
+			print ("\nUnregistering " + this.get_name ());
 		}
 	}
 }

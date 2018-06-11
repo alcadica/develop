@@ -21,7 +21,7 @@
 
 
 namespace Alcadica.Develop.Plugins {
-	public abstract class Plugin {
+	public abstract class Plugin : Object {
 		public abstract string get_name ();
 		public abstract void activate (Entities.PluginContext context);
 		public abstract void deactivate (Entities.PluginContext context);

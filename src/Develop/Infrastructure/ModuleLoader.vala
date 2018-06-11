@@ -62,15 +62,27 @@ namespace Alcadica.Develop.Infrastructure {
 			}
 		}
 
-		protected T load_module (string modulepath) {
+		protected T? load_module (string modulepath) {
+			Object instance;
 			string directory = Path.get_dirname (modulepath);
 			string name = Path.get_basename (modulepath);
+			Type? type;
 			
-			TypeModule module = new Alcadica.Develop.Entities.Modules.Module (directory, name, this.main_method);
+			Alcadica.Develop.Entities.Modules.Module module = new Alcadica.Develop.Entities.Modules.Module (directory, name, this.main_method);
 
-			module.load ();
+			if (!module.load ()) {
+				return null;
+			}
 
-			return (T) Object.new (Type.from_name (this.type_name));
+			type = module.get_loaded_type ();
+
+			if (type == null) {
+				return null;
+			}
+			
+			instance = Object.new (type);
+
+			return (T) instance;
 		}
 
 		protected abstract void on_module_loaded (T instance);

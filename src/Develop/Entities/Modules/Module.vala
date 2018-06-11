@@ -23,6 +23,7 @@ namespace Alcadica.Develop.Entities.Modules {
 	public class Module : TypeModule {
 		[CCode (has_target = false)]
 		private delegate Type ModuleInitFunc (TypeModule module);
+		private unowned Type? type = null;
 		private GLib.Module module = null;
 		private string directory = null;
 		private string name = null;
@@ -32,6 +33,10 @@ namespace Alcadica.Develop.Entities.Modules {
 			this.directory = directory;
 			this.name = name;
 			this.init_symbol = init_symbol;
+		}
+
+		public Type? get_loaded_type () {
+			return this.type;
 		}
 
 		public override bool load () {
@@ -47,8 +52,8 @@ namespace Alcadica.Develop.Entities.Modules {
 				error ("No such symbol");
 			}
 			
-			((ModuleInitFunc) module_init_method) (this);
-			
+			this.type = ((ModuleInitFunc) module_init_method) (this);
+
 			return true;
 		}
 		
