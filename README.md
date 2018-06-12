@@ -29,16 +29,15 @@ Ensure you have these dependencies installed
 
 ```bash
 # install elementary-sdk, meson and ninja 
-sudo apt install elementary-sdk meson ninja
+sudo apt install elementary-sdk meson
 # clone repository
 git clone https://github.com/alcadica/develop com.github.alcadica.develop
 # cd to dir
 cd com.github.alcadica.develop
 # run meson
 meson build --prefix=/usr
-# cd to build, build and test
-cd build
-sudo ninja install && com.github.alcadica.develop
+# use this to build and run
+sudo ninja -C build/ install && com.github.alcadica.develop
 ```
 
 ## Generating pot file
@@ -52,4 +51,10 @@ sudo ninja com.github.alcadica.develop-pot
 
 # to regenerate and propagate changes to every po file
 sudo ninja com.github.alcadica.develop-update-po
+```
+
+## Uninstall 
+
+```bash
+sudo ninja -C build uninstall
 ```
