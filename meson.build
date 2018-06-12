@@ -188,6 +188,14 @@ lib_vala_project = library(
     version: '0.0'
 )
 
+plugin_dependency = declare_dependency(
+    link_with: lib_plugins,
+    dependencies: [
+        dependency('gio-unix-2.0', version: '>=2.20')
+    ],
+    include_directories: [include_directories('.')]
+)
+
 executable(
     meson.project_name(),
     code_files,
