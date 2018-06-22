@@ -1,20 +1,32 @@
 # {{projectname}}
 
-## Building and Installation
+## Install, build and run
 
-You'll need the following dependencies:
+```bash
+# install elementary-sdk, meson and libswitchboard
+sudo apt install elementary-sdk meson libswitchboard-2.0-dev 
+# clone repository
+git clone {{repourl}} {{projectname}}
+# cd to dir
+cd {{projectname}}
+# run meson
+meson build --prefix=/usr
+# cd to build, build and test
+cd build
+sudo ninja install
+# restart switchboard to load your widget into switchboard
+pkill switchboard -9
+```
 
-* libswitchboard-2.0-dev
-* libgranite-dev
-* meson
-* valac
+## Generating pot file
 
-Run `meson` to configure the build environment and then `ninja` to build
+```bash
+# after setting up meson build
+cd build
 
-    meson build --prefix=/usr
-    cd build
-    ninja
+# generates pot file
+sudo ninja {{projectname}}-pot
 
-To install, use `ninja install`
-
-    sudo ninja install
+# to regenerate and propagate changes to every po file
+sudo ninja {{projectname}}-update-po
+```

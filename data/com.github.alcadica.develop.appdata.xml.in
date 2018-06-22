@@ -16,7 +16,7 @@
     </p>
   </description>
   <releases>
-    <release version="0.0.6" date="2018-06-12">
+    <release version="0.0.7" date="2018-08-10">
       <description>
         <ul>
           <li>Adds project file</li>
@@ -24,6 +24,13 @@
           <li>Adds automatic meson build generation</li>
           <li>Adds automatic debian build generation</li>
           <li>Adds create class command on the project treeview</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.0.6" date="2018-06-23">
+      <description>
+        <ul>
+          <li>Fills generated README.md files with installing and compiling instructions</li>
         </ul>
       </description>
     </release>
