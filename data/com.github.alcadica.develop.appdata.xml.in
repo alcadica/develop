@@ -16,6 +16,13 @@
     </p>
   </description>
   <releases>
+    <release version="0.0.6" date="2018-06-23">
+      <description>
+        <ul>
+          <li>Fills generated README.md files with installing and compiling instructions</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.0.5" date="2018-06-02">
       <description>
         <ul>
