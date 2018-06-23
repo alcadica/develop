@@ -52,6 +52,7 @@ namespace Alcadica.Develop {
 
             flags |= ApplicationFlags.HANDLES_OPEN;
 
+            Services.Editor.PluginContext.initialize ();
             Granite.Services.Logger.initialize (APP_NAME);
             Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.INFO;
         }

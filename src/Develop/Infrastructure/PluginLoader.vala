@@ -39,6 +39,7 @@ namespace Alcadica.Develop.Infrastructure {
 			string name = instance.get_name ();
 			info (@"Registering plugin $name");
 			instance.registered ();
+			instance.activate (Alcadica.Develop.Services.Editor.PluginContext.context);
 		}
 	}
 }

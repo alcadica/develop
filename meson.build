@@ -96,6 +96,7 @@ code_files = files(
     'src/Develop/Infrastructure/PluginLoader.vala',
     'src/Develop/Services/ActionManager.vala',
     'src/Develop/Services/FileSystem.vala',
+    'src/Develop/Services/PluginContext.vala',
     'src/Develop/Services/RDNN.vala',
     'src/Develop/Services/Templates/App.vala',
     'src/Develop/Services/Templates/SwitchboardWidget.vala',

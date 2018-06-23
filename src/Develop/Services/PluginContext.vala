@@ -19,33 +19,15 @@
 * Authored by: alcadica <github@alcadica.com>
 */
 
-using Alcadica.Develop.Plugins;
+namespace Alcadica.Develop.Services.Editor { 
+	public class PluginContext {
 
-[ModuleInit]
-public static Type plugin_init (GLib.TypeModule type_modul) {
-	return typeof (com.alcadica.develop.plugins.Treeview);
-}
+		public static Plugins.Entities.PluginContext context { get; set; }
 
-namespace com.alcadica.develop.plugins {
-	public class Treeview : Plugin {
-		public override string get_name () {
-			return "Treeview";
-		}
-		
-		public override void activate (Entities.PluginContext context) {
-			
-		}
-
-		public override void deactivate (Entities.PluginContext context) {
-
-		}
-		
-		public override void registered () {
-			
-		}
-
-		public override void unregistered () {
-			
+		public static void initialize () {
+			if (context == null) {
+				context = new Plugins.Entities.PluginContext ();
+			}
 		}
 	}
 }
