@@ -19,10 +19,35 @@
 * Authored by: alcadica <github@alcadica.com>
 */
 namespace Alcadica.Develop.Plugins.Entities.Editor {
-	public class TreeviewContext {
-		public signal void on_double_click (TreeviewMenuContext context);
-		public signal void on_file_right_click (TreeviewMenuContext context);
-		public signal void on_folder_right_click (TreeviewMenuContext context);
-		public signal void on_select (TreeviewMenuContext context);
+	protected class TreeviewMenuItemContext {
+		public string label { get; set; }
+		public signal void activate ();
+	}
+
+	public enum TreeviewMenuContextType {
+		Custom,
+		Folder,
+		File,
+		Symbol
+	}
+	
+	public class TreeviewMenuContext {
+
+		public File file { get; set; }
+		
+		public List<TreeviewMenuItemContext> items = new List<TreeviewMenuItemContext> ();
+		
+		public TreeviewMenuContextType item_type { get; set; }
+
+		public TreeviewMenuItemContext add_item (string label) {
+			info (@"TreeviewMenuContext.add_item $label");
+			
+			TreeviewMenuItemContext entity = new TreeviewMenuItemContext ();
+			entity.label = label;
+
+			items.append (entity);
+			
+			return entity;
+		}
 	}
 }

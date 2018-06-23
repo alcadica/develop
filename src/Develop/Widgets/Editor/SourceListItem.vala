@@ -33,14 +33,17 @@ namespace Alcadica.Widgets.Editor.SourceList {
 		public override Gtk.Menu? get_context_menu () {
 			Gtk.Menu menu = new Gtk.Menu ();
 
-			Gtk.MenuItem item_create_class = new Gtk.MenuItem.with_label ("Add new class");
-			Gtk.MenuItem item_rename = new Gtk.MenuItem.with_label ("Rename");
-			Gtk.MenuItem item_remove = new Gtk.MenuItem.with_label ("Remove");
+			var context = new Develop.Plugins.Entities.Editor.TreeviewMenuContext ();
+			
+			Develop.Services.Editor.PluginContext.context.editor.treeview.on_folder_right_click (context);
+			
+			foreach (var item in context.items) {
+				Gtk.MenuItem menu_item = new Gtk.MenuItem.with_label (item.label);
 
-			menu.add (item_create_class);
-			menu.add (new Gtk.SeparatorMenuItem ());
-			menu.add (item_rename);
-			menu.add (item_remove);
+				menu_item.activate.connect (() => item.activate ());
+				
+				menu.add (menu_item);
+			}
 
 			menu.show_all ();
 			
@@ -59,11 +62,17 @@ namespace Alcadica.Widgets.Editor.SourceList {
 		public override Gtk.Menu? get_context_menu () {
 			Gtk.Menu menu = new Gtk.Menu ();
 
-			Gtk.MenuItem item_rename = new Gtk.MenuItem.with_label ("Rename");
-			Gtk.MenuItem item_remove = new Gtk.MenuItem.with_label ("Remove");
+			var context = new Develop.Plugins.Entities.Editor.TreeviewMenuContext ();
+			
+			Develop.Services.Editor.PluginContext.context.editor.treeview.on_file_right_click (context);
+			
+			foreach (var item in context.items) {
+				Gtk.MenuItem menu_item = new Gtk.MenuItem.with_label (item.label);
 
-			menu.add (item_rename);
-			menu.add (item_remove);
+				menu_item.activate.connect (() => item.activate ());
+				
+				menu.add (menu_item);
+			}
 
 			menu.show_all ();
 			

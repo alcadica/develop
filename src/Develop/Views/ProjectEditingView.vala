@@ -22,6 +22,7 @@ using Granite;
 using Gtk;
 using Alcadica.Develop.Views.Partials.Editor;
 using Alcadica.Develop.Services;
+using Alcadica.LibValaProject.Entities;
 using Alcadica.LibValaProject.Services;
 
 namespace Alcadica.Develop.Views { 
@@ -29,6 +30,7 @@ namespace Alcadica.Develop.Views {
 	public const string DIRECTORIES_NAME = "DIRECTORIES_NAME";
 	
 	public class ProjectEditingView : Box { 
+		public Alcadica.Widgets.Editor.BottomBar bottombar = new Alcadica.Widgets.Editor.BottomBar ();
 		public Alcadica.Widgets.Editor.Toolbar toolbar = new Alcadica.Widgets.Editor.Toolbar ();
 		public Granite.Widgets.SourceList treeview = new Granite.Widgets.SourceList ();
 		public Alcadica.Develop.Views.Partials.Editor.CodeEditor editor = new Alcadica.Develop.Views.Partials.Editor.CodeEditor ();
@@ -44,8 +46,11 @@ namespace Alcadica.Develop.Views {
 			paned.pack1 (aside, false, false);
 			paned.pack2 (main_content, false, false);
 
+			paned.set_position (200);
+
 			this.add (toolbar);
-			this.pack_end (paned);
+			this.add (paned);
+			this.add (bottombar);
 			this.orientation = Orientation.VERTICAL;
 
 			this.toolbar.project_did_selected.connect (filepath => {
@@ -59,6 +64,28 @@ namespace Alcadica.Develop.Views {
 				if (this.treeview.root.n_children == 1) {
 					project_treeview.expanded = true;
 				}
+
+				int i = 0;
+				
+				this.treeview.item_selected.connect (item => {
+					var found_item = project_treeview.get_by_source_item_name (item.name);
+					
+					if (found_item != null) {
+						var instance = new Plugins.Entities.Editor.TreeviewMenuContext ();
+
+						if (found_item.project_item.nodename == NODE_DIRECTORY) {
+							instance.item_type = Plugins.Entities.Editor.TreeviewMenuContextType.Folder;
+						} else if (found_item.project_item.nodename == NODE_FILE) {
+							instance.item_type = Plugins.Entities.Editor.TreeviewMenuContextType.File; 
+						}
+
+						instance.file = File.new_for_path (found_item.project_item.filename);
+						
+						Services.Editor.PluginContext.context.editor.treeview.on_select (instance);
+					} else {
+						warning ("Item " + item.name + " not found");
+					}
+				});
 			});
 		}
 	}

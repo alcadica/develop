@@ -18,11 +18,29 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-namespace Alcadica.Develop.Plugins.Entities.Editor {
-	public class TreeviewContext {
-		public signal void on_double_click (TreeviewMenuContext context);
-		public signal void on_file_right_click (TreeviewMenuContext context);
-		public signal void on_folder_right_click (TreeviewMenuContext context);
-		public signal void on_select (TreeviewMenuContext context);
+namespace Alcadica.Develop.Plugins.Entities.Application {
+	public enum BottomToolbarContextStatus {
+		Error,
+		Idle,
+		Loading,
+		RunningTask
+	}
+	
+	public class BottomToolbarContext {
+		private BottomToolbarContextStatus _state = BottomToolbarContextStatus.Loading;
+
+		public BottomToolbarContextStatus state {
+			get {
+				return _state;
+			}
+			set {
+				this.state_will_change (_state, value);
+				this._state = value;
+				this.state_did_change (_state);
+			}
+		}
+		
+		public signal void state_did_change (BottomToolbarContextStatus state);
+		public signal void state_will_change (BottomToolbarContextStatus previous_state, BottomToolbarContextStatus next_state);
 	}
 }

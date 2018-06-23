@@ -22,30 +22,39 @@
 using Alcadica.Develop.Plugins;
 
 [ModuleInit]
-public static Type plugin_init (GLib.TypeModule type_modul) {
+public static Type plugin_init (GLib.TypeModule type_module) {
 	return typeof (com.alcadica.develop.plugins.Treeview);
 }
 
 namespace com.alcadica.develop.plugins {
 	public class Treeview : Plugin {
+		
 		public override string get_name () {
-			return "Treeview";
+			return "com.alcadica.develop.plugins.Treeview";
 		}
 		
 		public override void activate (Entities.PluginContext context) {
-			
+			TreeviewHandlers.plugin_context = context;
+
+			context.editor.treeview.on_double_click.connect (TreeviewHandlers.handle_double_click);
+			context.editor.treeview.on_select.connect (TreeviewHandlers.handle_file_select);
+			context.editor.treeview.on_file_right_click.connect (TreeviewHandlers.handle_menu_file_right_click);
+			context.editor.treeview.on_folder_right_click.connect (TreeviewHandlers.handle_menu_folder_right_click);
 		}
 
 		public override void deactivate (Entities.PluginContext context) {
-
+			context.editor.treeview.on_double_click.disconnect (TreeviewHandlers.handle_double_click);
+			context.editor.treeview.on_file_right_click.disconnect (TreeviewHandlers.handle_menu_file_right_click);
+			context.editor.treeview.on_folder_right_click.disconnect (TreeviewHandlers.handle_menu_folder_right_click);
+			context.editor.treeview.on_select.disconnect (TreeviewHandlers.handle_file_select);
 		}
 		
 		public override void registered () {
-			
+			info ("Hello darkness my old friend...");
 		}
 
 		public override void unregistered () {
-			
+			this.dispose ();
 		}
 	}
 }

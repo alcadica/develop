@@ -19,8 +19,23 @@
 * Authored by: alcadica <github@alcadica.com>
 */
 namespace Alcadica.Develop.Plugins.Entities {
-	public class EditorContext {
+	public class EditorContext : Object {
+		public Editor.EditorList open_editors = new Editor.EditorList ();
 		public Editor.TreeviewContext treeview = new Editor.TreeviewContext ();	
 		public Editor.CurrentFileContext current_file = new Editor.CurrentFileContext ();
+		public signal void request_open_in_new_editor (string path);
+
+		public EditorContext () {
+			request_open_in_new_editor.connect (path => {
+				info (@"Selecting file $path");
+
+				if (!open_editors.is_open_by_filename (path)) {
+					info (@"Opening editor for file $path");
+
+					open_editors.add (path);
+					open_editors.on_list_change ();
+				}
+			});
+		}
 	}
 }

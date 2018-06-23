@@ -18,11 +18,8 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-namespace Alcadica.Develop.Plugins.Entities.Editor {
-	public class TreeviewContext {
-		public signal void on_double_click (TreeviewMenuContext context);
-		public signal void on_file_right_click (TreeviewMenuContext context);
-		public signal void on_folder_right_click (TreeviewMenuContext context);
-		public signal void on_select (TreeviewMenuContext context);
+namespace Alcadica.Develop.Plugins.Entities {
+	public class ApplicationContext {
+		public Application.BottomToolbarContext bottom_toolbar = new Application.BottomToolbarContext ();
 	}
 }

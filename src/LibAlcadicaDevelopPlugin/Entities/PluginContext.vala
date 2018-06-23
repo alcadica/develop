@@ -20,6 +20,7 @@
 */
 namespace Alcadica.Develop.Plugins.Entities {
 	public class PluginContext {
+		public ApplicationContext application = new ApplicationContext ();
 		public EditorContext editor = new EditorContext ();	
 	}
 }

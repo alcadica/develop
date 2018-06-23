@@ -19,7 +19,29 @@
 * Authored by: alcadica <github@alcadica.com>
 */
 namespace Alcadica.Develop.Views.Partials.Editor { 
-	public class CodeEditor : Gtk.TextView {
-		
+	public class CodeEditor : Granite.Widgets.DynamicNotebook {
+		construct {
+			var context = Develop.Services.Editor.PluginContext.context.editor;
+
+			this.force_left = true;
+			this.tabs_closable = true;
+
+			context.open_editors.on_list_change.connect (() => {
+				open_editor (context.open_editors.editors.nth_data (context.open_editors.editors.length () - 1));
+			});
+
+			tab_removed.connect (editor => {
+				context.open_editors.remove (((Widgets.Editor.SourceEditor) editor).editor);
+			});
+		}
+
+		protected void open_editor (Plugins.Entities.Editor.Editor editor) {
+			var editor_widget = new Widgets.Editor.SourceEditor ();
+				
+			editor_widget.editor = editor;
+			editor_widget.label = Path.get_basename (editor.filename);
+
+			this.insert_tab (editor_widget, n_tabs + 1);
+		}
 	}
 }

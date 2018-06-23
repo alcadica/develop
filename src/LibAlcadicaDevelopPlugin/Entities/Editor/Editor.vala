@@ -19,10 +19,10 @@
 * Authored by: alcadica <github@alcadica.com>
 */
 namespace Alcadica.Develop.Plugins.Entities.Editor {
-	public class TreeviewContext {
-		public signal void on_double_click (TreeviewMenuContext context);
-		public signal void on_file_right_click (TreeviewMenuContext context);
-		public signal void on_folder_right_click (TreeviewMenuContext context);
-		public signal void on_select (TreeviewMenuContext context);
+	public class Editor : Object {
+		public File file { get; set; }
+		public string filename { get; set; }
+		public signal void will_close ();
+		public signal void will_open ();
 	}
 }

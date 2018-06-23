@@ -18,11 +18,18 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-namespace Alcadica.Develop.Plugins.Entities.Editor {
-	public class TreeviewContext {
-		public signal void on_double_click (TreeviewMenuContext context);
-		public signal void on_file_right_click (TreeviewMenuContext context);
-		public signal void on_folder_right_click (TreeviewMenuContext context);
-		public signal void on_select (TreeviewMenuContext context);
+using Alcadica.Develop.Plugins.Entities.Application;
+using Alcadica.Develop.Plugins.Entities;
+using Gtk;
+
+namespace Alcadica.Widgets.Editor {
+	public class SourceEditor : Granite.Widgets.Tab {
+		public Develop.Plugins.Entities.Editor.Editor editor { get; set; }
+		
+		construct {
+			this.pinnable = false;
+			this.pinned = false;
+			this.page = new Gtk.SourceView ();
+		}
 	}
 }

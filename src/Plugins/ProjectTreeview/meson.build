@@ -6,7 +6,8 @@ plugin_dependencies = [
 ]
 
 plugin_files = files (
-    'plugin.vala'
+    'plugin.vala',
+    'handlers.vala'
 )
 
 my_plugin = shared_module(

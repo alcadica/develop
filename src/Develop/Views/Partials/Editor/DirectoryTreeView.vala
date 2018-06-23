@@ -80,6 +80,25 @@ namespace Alcadica.Develop.Views.Partials.Editor {
 			this.project_tree = new List<DirectoryTreeViewItem> ();	
 		}
 
+		public DirectoryTreeViewItem? get_by_source_item_name (string? name) {
+			DirectoryTreeViewItem? item = null;
+
+			if (name == null) {
+				return item;
+			}
+
+			for (int a = 0; a < this.project_tree.length (); a++) {
+				var found = this.project_tree.nth_data (a);
+
+				if (found.source_item.name == name) {
+					item = found;
+					break;
+				}
+			}
+			
+			return item;
+		}
+
 		public void show_project (Project project) {
 			var children = project.sources.get_flatterned_children ();
 			
@@ -99,6 +118,20 @@ namespace Alcadica.Develop.Views.Partials.Editor {
 					item.source_item = new Alcadica.Widgets.Editor.SourceList.Item (child.friendlyname);
 					icon_name = "text-x-vala";
 				}
+
+				item.source_item.activated.connect (() => {
+					var context = new Plugins.Entities.Editor.TreeviewMenuContext ();
+
+					context.file = File.new_for_path (child.filename);
+
+					if (child.nodename == NODE_DIRECTORY) {
+						context.item_type = Plugins.Entities.Editor.TreeviewMenuContextType.Folder;
+					} else if (child.nodename == NODE_FILE) {
+						context.item_type = Plugins.Entities.Editor.TreeviewMenuContextType.File;
+					}
+					
+					Services.Editor.PluginContext.context.editor.treeview.on_double_click (context);
+				});
 
 				item.source_item.icon = new Gtk.Image.from_icon_name (icon_name, Gtk.IconSize.BUTTON).gicon;
 

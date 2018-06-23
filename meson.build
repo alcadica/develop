@@ -121,7 +121,9 @@ code_files = files(
     'src/Develop/Views/WelcomeView.vala',
     'src/Develop/Widgets/ActionBar.vala',
     'src/Develop/Widgets/ComboBoxWithLabel.vala',
+    'src/Develop/Widgets/Editor/BottomBar.vala',
     'src/Develop/Widgets/Editor/Toolbar.vala',
+    'src/Develop/Widgets/Editor/SourceEditor.vala',
     'src/Develop/Widgets/Editor/SourceListItem.vala',
     'src/Develop/Widgets/Entry.vala',
     'src/Develop/Widgets/EntryWithLabel.vala',
@@ -131,8 +133,13 @@ code_files = files(
 )
 
 lib_develop_plugins = files (
+    'src/LibAlcadicaDevelopPlugin/Entities/Application/BottomToolbarContext.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/Editor/CurrentFileContext.vala',
+    'src/LibAlcadicaDevelopPlugin/Entities/Editor/Editor.vala',
+    'src/LibAlcadicaDevelopPlugin/Entities/Editor/EditorList.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/Editor/TreeviewContext.vala',
+    'src/LibAlcadicaDevelopPlugin/Entities/Editor/TreeviewMenuContext.vala',
+    'src/LibAlcadicaDevelopPlugin/Entities/ApplicationContext.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/EditorContext.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/PluginContext.vala',
     'src/LibAlcadicaDevelopPlugin/Plugin.vala'
@@ -204,6 +211,7 @@ executable(
         dependency('gio-unix-2.0', version: '>=2.20'),
         dependency('granite'),
         dependency('libxml-2.0'),
+        dependency('gtksourceview-3.0'),
         dependency('switchboard-2.0'),
         dependency('wingpanel-2.0')
     ],
