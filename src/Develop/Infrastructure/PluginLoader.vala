@@ -36,6 +36,8 @@ namespace Alcadica.Develop.Infrastructure {
 		}
 
 		protected override void on_module_loaded (Plugin instance) {
+			string name = instance.get_name ();
+			info (@"Registering plugin $name");
 			instance.registered ();
 		}
 	}

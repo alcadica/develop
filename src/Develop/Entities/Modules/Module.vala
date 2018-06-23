@@ -35,11 +35,13 @@ namespace Alcadica.Develop.Entities.Modules {
 			this.init_symbol = init_symbol;
 		}
 
-		public Type? get_loaded_type () {
+		public unowned Type? get_loaded_type () {
 			return this.type;
 		}
 
 		public override bool load () {
+			info (@"Loading module $name");
+			
 			this.module = GLib.Module.open (GLib.Module.build_path (directory, name), GLib.ModuleFlags.BIND_LAZY);
 			
 			if (this.module == null) {
@@ -49,7 +51,7 @@ namespace Alcadica.Develop.Entities.Modules {
 			void* module_init_method = null;
 
 			if (!module.symbol (this.init_symbol, out module_init_method)) {
-				error ("No such symbol");
+				error (@"Symbol $init_symbol not found");
 			}
 			
 			this.type = ((ModuleInitFunc) module_init_method) (this);
@@ -59,7 +61,7 @@ namespace Alcadica.Develop.Entities.Modules {
 		
 		public override void unload () {
 			this.module = null;
-			message (@"Module $name unloaded");
+			info (@"Module $name unloaded");
 		}
 	}
 }

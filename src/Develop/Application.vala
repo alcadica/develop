@@ -53,6 +53,7 @@ namespace Alcadica.Develop {
             flags |= ApplicationFlags.HANDLES_OPEN;
 
             Granite.Services.Logger.initialize (APP_NAME);
+            Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.INFO;
         }
 
         protected override void activate () {

@@ -67,18 +67,22 @@ namespace Alcadica.Develop.Infrastructure {
 			string directory = Path.get_dirname (modulepath);
 			string name = Path.get_basename (modulepath);
 			Type? type;
+
+			info (@"Loading module from path $modulepath");
 			
 			Alcadica.Develop.Entities.Modules.Module module = new Alcadica.Develop.Entities.Modules.Module (directory, name, this.main_method);
 
 			if (!module.load ()) {
-				return null;
+				error (@"Cannot load module $name");
 			}
 
 			type = module.get_loaded_type ();
 
 			if (type == null) {
-				return null;
+				error (@"$name module type is null");
 			}
+
+			info (module.get_loaded_type ().name ());
 			
 			instance = Object.new (type);
 
