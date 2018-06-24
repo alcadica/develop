@@ -18,16 +18,10 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-namespace Alcadica.Develop.Plugins.Entities.Editor {
-	public class Editor : Object {
-		public uint current_column { get; set; }
-		public uint current_row { get; set; }
-		public File? file = null;
-		public string filename { get; set; }
-		public signal void did_become_current ();
-		public signal void did_close ();
-		public signal void did_open ();
-		public signal void will_close ();
-		public signal void will_open ();
+
+namespace Alcadica.Develop.Plugins.Entities.Project {
+	public abstract class ProjectParser {
+		public abstract string parser_name { get; set; }
+		public abstract Project parse (string project_file_content);
 	}
 }

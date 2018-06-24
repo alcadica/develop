@@ -23,6 +23,7 @@ namespace Alcadica.Develop.Plugins.Entities.Project {
 	public class Project : Object {
 		public ProjectFileSystem file_system = new ProjectFileSystem ();
 		public ProjectSettings settings = new ProjectSettings ();
+		public ProjectSourceTree tree = new ProjectSourceTree ();
 		public string project_file { get; set; }
 		public string project_name { get; set; }
 		public signal void file_did_add (string filename);
@@ -31,10 +32,25 @@ namespace Alcadica.Develop.Plugins.Entities.Project {
 		public signal void request_project_is_closing ();
 		public signal void request_remove_file (string filename);
 
-		public Project (string? name) {
-			this.project_name = name;
-		}
+		public Project (string? project_name, string? project_file) {
+			this.project_name = project_name;
+			this.project_file = project_file;
 
-		public void parse () { }
+			this.file_system.on_add.connect (filename => {
+				this.file_did_add (filename);
+			});
+
+			this.file_system.on_remove.connect (filename => {
+				this.file_did_remove (filename);
+			});
+
+			this.request_add_file.connect (filename => {
+				this.file_system.add (filename);
+			});
+
+			this.request_remove_file.connect (filename => {
+				this.file_system.remove (filename);
+			});
+		}
 	}
 }

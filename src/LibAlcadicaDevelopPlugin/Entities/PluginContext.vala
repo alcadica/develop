@@ -21,7 +21,10 @@
 namespace Alcadica.Develop.Plugins.Entities {
 	public class PluginContext {
 		public ApplicationContext application = new ApplicationContext ();
+		public BuildSystemContext build_system = new BuildSystemContext ();
+		public CommandContext command = new CommandContext ();
 		public EditorContext editor = new EditorContext ();	
 		public TemplateContext template = new TemplateContext ();
+		public ScmContext scm = new ScmContext ();
 	}
 }

@@ -22,13 +22,14 @@
 namespace Alcadica.Develop.Plugins.Entities {
 	public class ProjectContext : Object {
 		public List<Project.Project> open_projects = new List<Project.Project> ();
+		public List<Project.ProjectParser> parsers = new List<Project.ProjectParser> ();
 		public signal void project_did_close ();
 		public signal void project_did_created (Project.Project project);
 		public signal void project_did_open (Project.Project project);
 		public signal void project_is_creating (Project.Project project);
 
-		public Project.Project create (string project_file) {
-			Project.Project project = new Project.Project (project_file);
+		public Project.Project create (string? project_name, string? project_file) {
+			Project.Project project = new Project.Project (project_name, project_file);
 
 			this.project_is_creating (project);
 
@@ -48,7 +49,11 @@ namespace Alcadica.Develop.Plugins.Entities {
 			project.dispose ();
 		}
 
-		public bool is_open (string project_file) {
+		public bool is_open (Project.Project project) {
+			return this.is_open_file (project.project_file);
+		}
+
+		public bool is_open_file (string project_file) {
 			bool result = false;
 
 			for (int i = 0; i < this.open_projects.length (); i++) {
@@ -60,14 +65,30 @@ namespace Alcadica.Develop.Plugins.Entities {
 			
 			return result;
 		}
-		
-		public void open_project (string project_file) {
-			if (this.is_open (project_file)) {
+
+		public void open_project (Project.Project project) {
+			if (this.is_open (project)) {
 				return;
 			}
 
-			Project.Project project = new Project.Project (project_file);
-			project.parse ();
+			this.open_projects.append (project);
+			this.project_did_open (project);
+		}
+		
+		public void open_project_file (string project_file) {
+			if (this.is_open_file (project_file)) {
+				return;
+			}
+
+			Project.Project project;
+			Project.ProjectParser? parser = null;
+
+			if (parser != null) {
+				project = parser.parse (project_file);
+			} else {
+				project = new Project.Project (null, project_file);
+			}
+			
 			this.open_projects.append (project);
 			this.project_did_open (project);
 		}
