@@ -18,36 +18,35 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-namespace Alcadica.Develop.Plugins.Entities.Editor {
-	protected class TreeviewMenuItemContext {
-		public string label { get; set; }
-		public signal void activate ();
-	}
 
-	public enum TreeviewMenuContextType {
-		Custom,
-		Directory,
-		File,
-		Symbol
-	}
-	
-	public class TreeviewMenuContext {
+using Alcadica.Develop.Plugins;
 
-		public File file { get; set; }
+[ModuleInit]
+public static Type plugin_init (GLib.TypeModule type_module) {
+	return typeof (com.alcadica.develop.plugins.LanguageVala);
+}
+
+namespace com.alcadica.develop.plugins {
+	public class LanguageVala : Plugin {
 		
-		public List<TreeviewMenuItemContext> items = new List<TreeviewMenuItemContext> ();
+		public override string get_name () {
+			return "com.alcadica.develop.plugins.LanguageVala";
+		}
 		
-		public TreeviewMenuContextType item_type { get; set; }
-
-		public TreeviewMenuItemContext add_item (string label) {
-			info (@"TreeviewMenuContext.add_item $label");
+		public override void activate (Entities.PluginContext context) {
 			
-			TreeviewMenuItemContext entity = new TreeviewMenuItemContext ();
-			entity.label = label;
+		}
 
-			items.append (entity);
+		public override void deactivate (Entities.PluginContext context) {
 			
-			return entity;
+		}
+		
+		public override void registered () {
+			info ("Let's make Vala great again©");
+		}
+
+		public override void unregistered () {
+			this.dispose ();
 		}
 	}
 }

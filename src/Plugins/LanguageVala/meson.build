@@ -1,13 +1,12 @@
 pkg = import('pkgconfig')
 
-plugin_name = 'com.github.alcadica.develop.plugin-treeview'
+plugin_name = 'com.github.alcadica.develop.plugin-language-vala'
 plugin_dependencies = [
     plugin_dependency
 ]
 
 plugin_files = files (
-    'plugin.vala',
-    'handlers.vala'
+    'plugin.vala'
 )
 
 my_plugin = shared_module(

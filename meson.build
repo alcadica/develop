@@ -248,4 +248,5 @@ pkg.generate(
 
 meson.add_install_script('meson/postinstall.py')
 
+subdir ('src/Plugins/LanguageVala')
 subdir ('src/Plugins/ProjectTreeview')

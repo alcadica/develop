@@ -126,7 +126,7 @@ namespace Alcadica.Develop.Views.Partials.Editor {
 					context.file = File.new_for_path (child.filename);
 
 					if (child.nodename == NODE_DIRECTORY) {
-						context.item_type = Plugins.Entities.Editor.TreeviewMenuContextType.Folder;
+						context.item_type = Plugins.Entities.Editor.TreeviewMenuContextType.Directory;
 					} else if (child.nodename == NODE_FILE) {
 						context.item_type = Plugins.Entities.Editor.TreeviewMenuContextType.File;
 					}

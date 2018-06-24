@@ -42,7 +42,7 @@ namespace com.alcadica.develop.plugins {
 		public static void handle_file_select (Entities.Editor.TreeviewMenuContext context) {
 			if (context.item_type == Entities.Editor.TreeviewMenuContextType.File) {
 				plugin_context.editor.request_open_in_new_editor (context.file.get_path ());
-			} else if (context.item_type == Entities.Editor.TreeviewMenuContextType.Folder) {
+			} else if (context.item_type == Entities.Editor.TreeviewMenuContextType.Directory) {
 				plugin_context.editor.treeview.request_toggle_directory (context.file.get_path ());
 			}
 		}

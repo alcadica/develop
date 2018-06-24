@@ -77,7 +77,7 @@ namespace Alcadica.Develop.Views {
 					var instance = new Plugins.Entities.Editor.TreeviewMenuContext ();
 
 					if (found_item.project_item.nodename == NODE_DIRECTORY) {
-						instance.item_type = Plugins.Entities.Editor.TreeviewMenuContextType.Folder;
+						instance.item_type = Plugins.Entities.Editor.TreeviewMenuContextType.Directory;
 					} else if (found_item.project_item.nodename == NODE_FILE) {
 						instance.item_type = Plugins.Entities.Editor.TreeviewMenuContextType.File; 
 					}
