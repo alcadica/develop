@@ -46,10 +46,6 @@ namespace com.alcadica.develop.plugins {
 		}
 
 		public static void handle_double_click (Entities.Editor.TreeviewMenuContext context) {
-			handle_file_select (context);
-		}
-		
-		public static void handle_file_select (Entities.Editor.TreeviewMenuContext context) {
 			if (context.item_type == Entities.Editor.TreeviewMenuContextType.File) {
 				plugin_context.editor.request_open_in_new_editor (context.file.get_path ());
 			} else if (context.item_type == Entities.Editor.TreeviewMenuContextType.Directory) {
@@ -57,9 +53,16 @@ namespace com.alcadica.develop.plugins {
 			}
 		}
 		
+		public static void handle_file_select (Entities.Editor.TreeviewMenuContext context) {
+			
+		}
+		
 		public static void handle_menu_file_right_click (Entities.Editor.TreeviewMenuContext context) {
 			context.add_item (_("Edit file")).activate.connect (() => { 
 				edit_file (context); 
+			});
+			context.add_item (_("Rename file")).activate.connect (() => { 
+				plugin_context.editor.treeview.request_rename_file (context); 
 			});
 			context.add_item (_("Remove file")).activate.connect (() => { 
 				remove_file (context); 
@@ -72,6 +75,9 @@ namespace com.alcadica.develop.plugins {
 			});
 			context.add_item (_("New file")).activate.connect (() => { 
 				new_file (context); 
+			});
+			context.add_item (_("Rename folder")).activate.connect (() => { 
+				plugin_context.editor.treeview.request_rename_directory (context); 
 			});
 			context.add_item (_("Remove folder")).activate.connect (() => { 
 				remove_directory (context); 

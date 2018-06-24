@@ -28,10 +28,6 @@ public static Type plugin_init (GLib.TypeModule type_module) {
 
 namespace com.alcadica.develop.plugins {
 	public class LanguageVala : Plugin {
-		public override PluginCategory get_category () {
-			return PluginCategory.Plugin;
-		}
-		
 		public override string get_name () {
 			return "com.alcadica.develop.plugins.LanguageVala";
 		}
@@ -45,7 +41,7 @@ namespace com.alcadica.develop.plugins {
 		}
 		
 		public override void registered () {
-			info ("Let's make Vala great again©");
+			info ("Let's make Vala great again");
 		}
 
 		public override void unregistered () {

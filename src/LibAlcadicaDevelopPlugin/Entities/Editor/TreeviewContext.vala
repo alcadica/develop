@@ -30,6 +30,8 @@ namespace Alcadica.Develop.Plugins.Entities.Editor {
 		public signal void request_open_directory (string directory_name);
 		public signal void request_remove_directory (TreeviewMenuContext context);
 		public signal void request_remove_file (TreeviewMenuContext context);
+		public signal void request_rename_directory (TreeviewMenuContext context);
+		public signal void request_rename_file (TreeviewMenuContext context);
 		public signal void request_toggle_directory (string directory_name);
 	}
 }

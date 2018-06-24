@@ -22,6 +22,8 @@
 
 namespace Alcadica.Develop.Plugins {
 	public enum PluginCategory {
+		BuildSystem,
+		Debugger,
 		Plugin,
 		Template,
 		Theme,
@@ -29,7 +31,6 @@ namespace Alcadica.Develop.Plugins {
 	}
 	
 	public abstract class Plugin : Object {
-		public abstract PluginCategory get_category ();
 		public abstract string get_name ();
 		public abstract void activate (Entities.PluginContext context);
 		public abstract void deactivate (Entities.PluginContext context);

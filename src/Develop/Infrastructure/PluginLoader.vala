@@ -29,7 +29,7 @@ namespace Alcadica.Develop.Infrastructure {
 				typeof (Plugin).name (), 
 				"plugin_init", 
 				new string[] {
-					Path.build_filename (Path.DIR_SEPARATOR.to_string (), "usr", "share", APP_ID, "plugins"),
+					Path.build_filename (Path.DIR_SEPARATOR.to_string (), "usr", "local", "share", APP_ID, "plugins"),
 					Path.build_filename (get_home_dir (), ".local", "share", APP_ID, "plugins")
 				}
 			);

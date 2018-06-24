@@ -87,22 +87,6 @@ namespace Alcadica.Develop.Views {
 					plugin_context.editor.treeview.on_select (instance);
 				});
 			});
-
-			plugin_context.editor.did_focus.connect (() => {
-				treeview.selected = null;
-			});
-
-			plugin_context.editor.treeview.request_close_directory.connect (filename => {
-				
-			});
-
-			plugin_context.editor.treeview.request_open_directory.connect (filename => {
-				
-			});
-
-			plugin_context.editor.treeview.request_toggle_directory.connect (filename => {
-				
-			});
 		}
 	}
 }

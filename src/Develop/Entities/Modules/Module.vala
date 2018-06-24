@@ -46,12 +46,16 @@ namespace Alcadica.Develop.Entities.Modules {
 			
 			if (this.module == null) {
 				error (@"Module $name not found");
+			} else {
+				info (@"Module $name found");
 			}
 		
 			void* module_init_method = null;
 
 			if (!module.symbol (this.init_symbol, out module_init_method)) {
 				error (@"Symbol $init_symbol not found");
+			} else {
+				info (@"Symbol $init_symbol found");
 			}
 			
 			this.type = ((ModuleInitFunc) module_init_method) (this);

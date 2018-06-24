@@ -133,7 +133,7 @@ namespace Alcadica.Develop.Views.Partials.Editor {
 					
 					plugin_context.editor.treeview.on_double_click (context);
 				});
-
+				
 				item.source_item.icon = new Gtk.Image.from_icon_name (icon_name, Gtk.IconSize.BUTTON).gicon;
 
 				this.project_tree.append (item);

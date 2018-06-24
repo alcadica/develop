@@ -28,10 +28,6 @@ public static Type plugin_init (GLib.TypeModule type_module) {
 
 namespace com.alcadica.develop.plugins {
 	public class Treeview : Plugin {
-		public override PluginCategory get_category () {
-			return PluginCategory.Plugin;
-		}
-		
 		public override string get_name () {
 			return "com.alcadica.develop.plugins.Treeview";
 		}
