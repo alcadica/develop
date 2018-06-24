@@ -18,10 +18,16 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-namespace Alcadica.Develop.Plugins.Entities.Editor {
-	public class CurrentFileContext {
-		public File file { get; set; }
-		public uint current_column { get; set; }
-		public uint current_line { get; set; }
+using Alcadica.Develop.Plugins.Entities;
+using Alcadica.Develop.Plugins.Entities.Application;
+
+namespace Alcadica.Widgets.Editor {
+	public class EditorTab : Granite.Widgets.Tab {
+		public Develop.Plugins.Entities.Editor.Editor editor { get; set; }
+		
+		construct {
+			this.pinnable = false;
+			this.pinned = false;
+		}
 	}
 }

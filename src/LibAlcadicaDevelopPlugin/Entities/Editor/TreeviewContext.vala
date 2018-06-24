@@ -24,5 +24,8 @@ namespace Alcadica.Develop.Plugins.Entities.Editor {
 		public signal void on_file_right_click (TreeviewMenuContext context);
 		public signal void on_folder_right_click (TreeviewMenuContext context);
 		public signal void on_select (TreeviewMenuContext context);
+		public signal void request_close_directory (string directory_name);
+		public signal void request_open_directory (string directory_name);
+		public signal void request_toggle_directory (string directory_name);
 	}
 }

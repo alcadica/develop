@@ -16,6 +16,7 @@ print('Files copied successfully')
 
 if not os.environ.get('DESTDIR'):
     print('Compiling gsettings schemas...')
+    
     subprocess.call(['glib-compile-schemas', schemadir])
 
     print('Updating icon cache...')
@@ -23,3 +24,8 @@ if not os.environ.get('DESTDIR'):
     if not os.path.exists(iconsdir):
         os.makedirs(iconsdir)
     subprocess.call(['gtk-update-icon-cache', '-qtf', iconsdir])
+
+    print('Updating desktop database...')
+	
+    desktop_database_dir = os.path.join(install_prefix, 'share/applications')
+    subprocess.call(['update-desktop-database', '-q', desktop_database_dir])

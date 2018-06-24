@@ -101,6 +101,7 @@ namespace Alcadica.Develop.Views.Partials.Editor {
 
 		public void show_project (Project project) {
 			var children = project.sources.get_flatterned_children ();
+			var plugin_context = Services.Editor.PluginContext.context;
 			
 			this.project = project;
 			this.name = project.project_name + " - " + project.version.to_string ();
@@ -130,14 +131,14 @@ namespace Alcadica.Develop.Views.Partials.Editor {
 						context.item_type = Plugins.Entities.Editor.TreeviewMenuContextType.File;
 					}
 					
-					Services.Editor.PluginContext.context.editor.treeview.on_double_click (context);
+					plugin_context.editor.treeview.on_double_click (context);
 				});
 
 				item.source_item.icon = new Gtk.Image.from_icon_name (icon_name, Gtk.IconSize.BUTTON).gicon;
 
 				this.project_tree.append (item);
 			}
-
+			
 			this.render_nodes (project.sources);
 		}
 	}

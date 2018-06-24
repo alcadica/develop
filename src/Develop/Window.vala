@@ -44,11 +44,16 @@ namespace Alcadica.Develop {
 		}
 
 		protected void build_ui () {
+			var provider = new Gtk.CssProvider ();
+			
 			this.content = new Alcadica.Develop.Views.MainView ();
 			this.header = new Views.Partials.Window.HeaderBar ();
 
 			this.set_titlebar (this.header);
 			this.add (this.content);
+
+            provider.load_from_resource ("com/github/alcadica/develop/develop.css");
+			Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 		}
 
 		protected void init_accelerators () {

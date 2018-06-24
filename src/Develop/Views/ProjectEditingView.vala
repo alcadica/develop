@@ -38,6 +38,7 @@ namespace Alcadica.Develop.Views {
 		public Stack main_content = new Stack ();
 
 		construct {
+			var plugin_context = Services.Editor.PluginContext.context;
 			Paned paned = new Paned (Orientation.HORIZONTAL);
 			
 			aside.add_named (treeview, DIRECTORIES_NAME);
@@ -65,27 +66,42 @@ namespace Alcadica.Develop.Views {
 					project_treeview.expanded = true;
 				}
 
-				int i = 0;
-				
 				this.treeview.item_selected.connect (item => {
 					var found_item = project_treeview.get_by_source_item_name (item.name);
 					
-					if (found_item != null) {
-						var instance = new Plugins.Entities.Editor.TreeviewMenuContext ();
-
-						if (found_item.project_item.nodename == NODE_DIRECTORY) {
-							instance.item_type = Plugins.Entities.Editor.TreeviewMenuContextType.Folder;
-						} else if (found_item.project_item.nodename == NODE_FILE) {
-							instance.item_type = Plugins.Entities.Editor.TreeviewMenuContextType.File; 
-						}
-
-						instance.file = File.new_for_path (found_item.project_item.filename);
-						
-						Services.Editor.PluginContext.context.editor.treeview.on_select (instance);
-					} else {
+					if (found_item == null) {
 						warning ("Item " + item.name + " not found");
+						return;
 					}
+					
+					var instance = new Plugins.Entities.Editor.TreeviewMenuContext ();
+
+					if (found_item.project_item.nodename == NODE_DIRECTORY) {
+						instance.item_type = Plugins.Entities.Editor.TreeviewMenuContextType.Folder;
+					} else if (found_item.project_item.nodename == NODE_FILE) {
+						instance.item_type = Plugins.Entities.Editor.TreeviewMenuContextType.File; 
+					}
+
+					instance.file = File.new_for_path (found_item.project_item.filename);
+					
+					plugin_context.editor.treeview.on_select (instance);
 				});
+			});
+
+			plugin_context.editor.did_focus.connect (() => {
+				treeview.selected = null;
+			});
+
+			plugin_context.editor.treeview.request_close_directory.connect (filename => {
+				
+			});
+
+			plugin_context.editor.treeview.request_open_directory.connect (filename => {
+				
+			});
+
+			plugin_context.editor.treeview.request_toggle_directory.connect (filename => {
+				
 			});
 		}
 	}

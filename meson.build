@@ -17,6 +17,14 @@ message('Include the translations module')
 
 i18n = import('i18n')
 pkg = import('pkgconfig')
+gnome = import('gnome')
+
+# css and other stuff
+asresources = gnome.compile_resources(
+    'as-resources', 'data/assets.gresource.xml',
+    source_dir: 'data',
+    c_name: 'as'
+)
 
 # Set our translation domain
 message ('Set our translation domain')
@@ -122,9 +130,9 @@ code_files = files(
     'src/Develop/Widgets/ActionBar.vala',
     'src/Develop/Widgets/ComboBoxWithLabel.vala',
     'src/Develop/Widgets/Editor/BottomBar.vala',
-    'src/Develop/Widgets/Editor/Toolbar.vala',
-    'src/Develop/Widgets/Editor/SourceEditor.vala',
+    'src/Develop/Widgets/Editor/EditorTab.vala',
     'src/Develop/Widgets/Editor/SourceListItem.vala',
+    'src/Develop/Widgets/Editor/Toolbar.vala',
     'src/Develop/Widgets/Entry.vala',
     'src/Develop/Widgets/EntryWithLabel.vala',
     'src/Develop/Widgets/SettingItem.vala',
@@ -134,7 +142,6 @@ code_files = files(
 
 lib_develop_plugins = files (
     'src/LibAlcadicaDevelopPlugin/Entities/Application/BottomToolbarContext.vala',
-    'src/LibAlcadicaDevelopPlugin/Entities/Editor/CurrentFileContext.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/Editor/Editor.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/Editor/EditorList.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/Editor/TreeviewContext.vala',
@@ -207,6 +214,7 @@ plugin_dependency = declare_dependency(
 executable(
     meson.project_name(),
     code_files,
+    asresources,
     dependencies: [
         dependency('gio-unix-2.0', version: '>=2.20'),
         dependency('granite'),

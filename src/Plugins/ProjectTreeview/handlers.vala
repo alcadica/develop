@@ -36,14 +36,14 @@ namespace com.alcadica.develop.plugins {
 		protected static void remove_folder () { }
 
 		public static void handle_double_click (Entities.Editor.TreeviewMenuContext context) {
-			if (context.item_type == Entities.Editor.TreeviewMenuContextType.File) {
-				plugin_context.editor.request_open_in_new_editor (context.file.get_path ());
-			}
+			handle_file_select (context);
 		}
 		
 		public static void handle_file_select (Entities.Editor.TreeviewMenuContext context) {
 			if (context.item_type == Entities.Editor.TreeviewMenuContextType.File) {
 				plugin_context.editor.request_open_in_new_editor (context.file.get_path ());
+			} else if (context.item_type == Entities.Editor.TreeviewMenuContextType.Folder) {
+				plugin_context.editor.treeview.request_toggle_directory (context.file.get_path ());
 			}
 		}
 		

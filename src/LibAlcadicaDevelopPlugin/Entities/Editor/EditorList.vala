@@ -20,7 +20,16 @@
 */
 namespace Alcadica.Develop.Plugins.Entities.Editor {
 	public class EditorList : Object {
-		public Editor current { get; set; }
+		private Editor _current = null;
+		public Editor current { 
+			get {
+				return _current;
+			}
+			set {
+				_current = value;
+				_current.did_become_current ();
+			} 
+		}
 		public List<Editor> editors = new List<Editor> ();
 		public signal void on_current_change (Editor editor);
 		public signal void on_list_change ();
@@ -30,8 +39,17 @@ namespace Alcadica.Develop.Plugins.Entities.Editor {
 
 			editor.filename = filename;
 			editor.file = File.new_for_path (filename);
+			editor.will_open ();
+
+			if (_current == null) {
+				current = editor;
+			}
 
 			editors.append (editor);
+		}
+		
+		public bool is_open (Editor editor) {
+			return is_open_by_filename (editor.filename);
 		}
 		
 		public bool is_open_by_filename (string filename) {
@@ -53,6 +71,8 @@ namespace Alcadica.Develop.Plugins.Entities.Editor {
 			}
 
 			uint length_before = editors.length ();
+
+			editor.will_close ();
 
 			editors.remove (editor);
 
