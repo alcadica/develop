@@ -18,38 +18,17 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
+namespace Alcadica.Develop.Plugins.Entities.Template { 
+    public class TemplateToken : Object { 
+		public static string delimiter_start = "{{";
+		public static string delimiter_end = "}}";
 
-using Alcadica.Develop.Plugins;
+		public string token { get; set; }
+		public string token_value { get; set; }
 
-[ModuleInit]
-public static Type plugin_init (GLib.TypeModule type_module) {
-	return typeof (com.alcadica.develop.plugins.LanguageVala);
-}
-
-namespace com.alcadica.develop.plugins {
-	public class LanguageVala : Plugin {
-		public override PluginCategory get_category () {
-			return PluginCategory.Plugin;
-		}
-		
-		public override string get_name () {
-			return "com.alcadica.develop.plugins.LanguageVala";
-		}
-		
-		public override void activate (Entities.PluginContext context) {
-			
-		}
-
-		public override void deactivate (Entities.PluginContext context) {
-			
-		}
-		
-		public override void registered () {
-			info ("Let's make Vala great again©");
-		}
-
-		public override void unregistered () {
-			this.dispose ();
+		public TemplateToken (string name, string token_value) {
+			this.token = TemplateToken.delimiter_start + name + TemplateToken.delimiter_end;
+			this.token_value = token_value;
 		}
 	}
 }

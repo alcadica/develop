@@ -22,18 +22,29 @@ using Gtk;
 
 namespace Alcadica.Widgets.Editor {
 	public class Toolbar : Gtk.Toolbar {
+		public ToolButton create_project { get; set; }
 		public ToolButton open_project { get; set; }
+		public signal void project_did_created (string project_file_path);
 		public signal void project_did_selected (string filepath);
 
 		construct {
+			this.create_project = new ToolButton (new Image.from_icon_name ("document-new", IconSize.SMALL_TOOLBAR), null);
 			this.open_project = new ToolButton (new Image.from_icon_name ("document-open", IconSize.SMALL_TOOLBAR), null);
 
+			this.add (this.create_project);
 			this.add (this.open_project);
 
 			this.bind_buttons ();
 		}
 
 		protected void bind_buttons () {
+			this.create_project.clicked.connect (() => {
+				var window = new Dialogs.DialogCreateProject ();
+
+				window.show ();
+				//  this.project_did_created ();
+			});
+			
 			this.open_project.clicked.connect (() => {
 				List<string> files = Develop.Services.FileSystem.choose_file ("Choose project", Alcadica.LibValaProject.PROJECT_FILENAME);
 

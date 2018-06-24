@@ -129,6 +129,8 @@ code_files = files(
     'src/Develop/Views/WelcomeView.vala',
     'src/Develop/Widgets/ActionBar.vala',
     'src/Develop/Widgets/ComboBoxWithLabel.vala',
+    'src/Develop/Widgets/Dialogs/DialogCreateProject.vala',
+    'src/Develop/Widgets/Dialogs/DialogWindow.vala',
     'src/Develop/Widgets/Editor/BottomBar.vala',
     'src/Develop/Widgets/Editor/EditorTab.vala',
     'src/Develop/Widgets/Editor/SourceListItem.vala',
@@ -142,13 +144,28 @@ code_files = files(
 
 lib_develop_plugins = files (
     'src/LibAlcadicaDevelopPlugin/Entities/Application/BottomToolbarContext.vala',
+    'src/LibAlcadicaDevelopPlugin/Entities/Common/SettingEntry.vala',
+    'src/LibAlcadicaDevelopPlugin/Entities/Common/SettingRegistry.vala',
+    'src/LibAlcadicaDevelopPlugin/Entities/Common/SourceTree.vala',
+    'src/LibAlcadicaDevelopPlugin/Entities/Common/SourceTreeItem.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/Editor/Editor.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/Editor/EditorList.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/Editor/TreeviewContext.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/Editor/TreeviewMenuContext.vala',
+    'src/LibAlcadicaDevelopPlugin/Entities/Project/Project.vala',
+    'src/LibAlcadicaDevelopPlugin/Entities/Project/ProjectFileSystem.vala',
+    'src/LibAlcadicaDevelopPlugin/Entities/Project/ProjectSettings.vala',
+    'src/LibAlcadicaDevelopPlugin/Entities/Project/ProjectSourceTree.vala',
+    'src/LibAlcadicaDevelopPlugin/Entities/Project/ProjectSourceTreeItem.vala',
+    'src/LibAlcadicaDevelopPlugin/Entities/Template/Template.vala',
+    'src/LibAlcadicaDevelopPlugin/Entities/Template/TemplateFile.vala',
+    'src/LibAlcadicaDevelopPlugin/Entities/Template/TemplateFileType.vala',
+    'src/LibAlcadicaDevelopPlugin/Entities/Template/TemplateToken.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/ApplicationContext.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/EditorContext.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/PluginContext.vala',
+    'src/LibAlcadicaDevelopPlugin/Entities/ProjectContext.vala',
+    'src/LibAlcadicaDevelopPlugin/Entities/TemplateContext.vala',
     'src/LibAlcadicaDevelopPlugin/Plugin.vala'
 )
 

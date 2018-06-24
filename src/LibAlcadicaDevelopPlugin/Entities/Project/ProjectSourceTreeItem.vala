@@ -19,37 +19,6 @@
 * Authored by: alcadica <github@alcadica.com>
 */
 
-using Alcadica.Develop.Plugins;
-
-[ModuleInit]
-public static Type plugin_init (GLib.TypeModule type_module) {
-	return typeof (com.alcadica.develop.plugins.LanguageVala);
-}
-
-namespace com.alcadica.develop.plugins {
-	public class LanguageVala : Plugin {
-		public override PluginCategory get_category () {
-			return PluginCategory.Plugin;
-		}
-		
-		public override string get_name () {
-			return "com.alcadica.develop.plugins.LanguageVala";
-		}
-		
-		public override void activate (Entities.PluginContext context) {
-			
-		}
-
-		public override void deactivate (Entities.PluginContext context) {
-			
-		}
-		
-		public override void registered () {
-			info ("Let's make Vala great again©");
-		}
-
-		public override void unregistered () {
-			this.dispose ();
-		}
-	}
+namespace Alcadica.Develop.Plugins.Entities.Project {
+	public class ProjectSourceTreeItem : Common.SourceTreeItem { }
 }

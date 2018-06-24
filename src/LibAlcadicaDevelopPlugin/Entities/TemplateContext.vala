@@ -19,37 +19,29 @@
 * Authored by: alcadica <github@alcadica.com>
 */
 
-using Alcadica.Develop.Plugins;
+namespace Alcadica.Develop.Plugins.Entities {
+	public class TemplateContext : Object {
+		protected List<Template.Template> subscribed_templates = new List<Template.Template> ();
 
-[ModuleInit]
-public static Type plugin_init (GLib.TypeModule type_module) {
-	return typeof (com.alcadica.develop.plugins.LanguageVala);
-}
+		public bool is_subscribed (Template.Template template) {
+			bool result = false;
 
-namespace com.alcadica.develop.plugins {
-	public class LanguageVala : Plugin {
-		public override PluginCategory get_category () {
-			return PluginCategory.Plugin;
-		}
-		
-		public override string get_name () {
-			return "com.alcadica.develop.plugins.LanguageVala";
-		}
-		
-		public override void activate (Entities.PluginContext context) {
+			for (int i = 0; i < subscribed_templates.length (); i++) {
+				if (subscribed_templates.nth_data (i).template_name == template.template_name) {
+					result = true;
+					break;
+				}
+			}
 			
-		}
-
-		public override void deactivate (Entities.PluginContext context) {
-			
+			return result;
 		}
 		
-		public override void registered () {
-			info ("Let's make Vala great again©");
-		}
+		public void subscribe (Template.Template template) {
+			if (this.is_subscribed (template)) {
+				return;
+			}
 
-		public override void unregistered () {
-			this.dispose ();
+			this.subscribed_templates.append (template);
 		}
 	}
 }

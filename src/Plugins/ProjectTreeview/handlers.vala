@@ -25,15 +25,25 @@ namespace com.alcadica.develop.plugins {
 	public class TreeviewHandlers : Object {
 		public static Entities.PluginContext plugin_context { get; set; }
 
-		protected static void add_folder () { }
+		protected static void add_directory (Entities.Editor.TreeviewMenuContext context) {
+			plugin_context.editor.treeview.request_add_new_directory (context);
+		}
 
-		protected static void edit_file () { }
+		protected static void edit_file (Entities.Editor.TreeviewMenuContext context) {
+			handle_file_select (context);			
+		}
 
-		protected static void new_file () { }
+		protected static void new_file (Entities.Editor.TreeviewMenuContext context) {
+			plugin_context.editor.treeview.request_add_new_file (context);
+		}
 
-		protected static void remove_file () { }
+		protected static void remove_directory (Entities.Editor.TreeviewMenuContext context) {
+			plugin_context.editor.treeview.request_remove_directory (context);
+		}
 
-		protected static void remove_folder () { }
+		protected static void remove_file (Entities.Editor.TreeviewMenuContext context) {
+			plugin_context.editor.treeview.request_remove_file (context);
+		}
 
 		public static void handle_double_click (Entities.Editor.TreeviewMenuContext context) {
 			handle_file_select (context);
@@ -48,14 +58,24 @@ namespace com.alcadica.develop.plugins {
 		}
 		
 		public static void handle_menu_file_right_click (Entities.Editor.TreeviewMenuContext context) {
-			context.add_item ("Edit file").activate.connect (edit_file);
-			context.add_item ("Remove file").activate.connect (remove_file);
+			context.add_item (_("Edit file")).activate.connect (() => { 
+				edit_file (context); 
+			});
+			context.add_item (_("Remove file")).activate.connect (() => { 
+				remove_file (context); 
+			});
 		}
 
 		public static void handle_menu_folder_right_click (Entities.Editor.TreeviewMenuContext context) {
-			context.add_item ("Add folder").activate.connect (add_folder);
-			context.add_item ("New file").activate.connect (new_file);
-			context.add_item ("Remove folder").activate.connect (remove_folder);
+			context.add_item (_("Add folder")).activate.connect (() => { 
+				add_directory (context); 
+			});
+			context.add_item (_("New file")).activate.connect (() => { 
+				new_file (context); 
+			});
+			context.add_item (_("Remove folder")).activate.connect (() => { 
+				remove_directory (context); 
+			});
 		}
 	}
 }

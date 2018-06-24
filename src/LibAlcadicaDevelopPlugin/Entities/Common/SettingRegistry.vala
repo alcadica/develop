@@ -19,37 +19,37 @@
 * Authored by: alcadica <github@alcadica.com>
 */
 
-using Alcadica.Develop.Plugins;
+namespace Alcadica.Develop.Plugins.Entities.Common {
+	public class SettingRegistry {
+		public List<SettingEntry> settings = new List<SettingEntry> ();
 
-[ModuleInit]
-public static Type plugin_init (GLib.TypeModule type_module) {
-	return typeof (com.alcadica.develop.plugins.LanguageVala);
-}
+		public SettingEntry create<TValue> (string name, TValue value) {
+			return new SettingEntry<TValue> (name, value);
+		}
 
-namespace com.alcadica.develop.plugins {
-	public class LanguageVala : Plugin {
-		public override PluginCategory get_category () {
-			return PluginCategory.Plugin;
+		public SettingEntry<TValue>? get_setting <TValue> (string name) {
+			SettingEntry? entry = null;
+			string _name = name.down ();
+
+			for (int i = 0; i < settings.length (); i++) {
+				if (settings.nth_data (i).key == _name) {
+					entry = settings.nth_data (i);
+					break;
+				}
+			}
+
+			return entry;
 		}
-		
-		public override string get_name () {
-			return "com.alcadica.develop.plugins.LanguageVala";
-		}
-		
-		public override void activate (Entities.PluginContext context) {
+
+		public void update_entry <TValue>(string name, TValue value) {
+			SettingEntry? entry = get_setting<TValue> (name);
+
+			if (entry == null) {
+				entry = create<TValue> (name, value);
+				return;
+			}
 			
-		}
-
-		public override void deactivate (Entities.PluginContext context) {
-			
-		}
-		
-		public override void registered () {
-			info ("Let's make Vala great again©");
-		}
-
-		public override void unregistered () {
-			this.dispose ();
+			//  entry.set_value (value);
 		}
 	}
 }

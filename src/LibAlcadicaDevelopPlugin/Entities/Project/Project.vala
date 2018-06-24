@@ -19,37 +19,22 @@
 * Authored by: alcadica <github@alcadica.com>
 */
 
-using Alcadica.Develop.Plugins;
+namespace Alcadica.Develop.Plugins.Entities.Project {
+	public class Project : Object {
+		public ProjectFileSystem file_system = new ProjectFileSystem ();
+		public ProjectSettings settings = new ProjectSettings ();
+		public string project_file { get; set; }
+		public string project_name { get; set; }
+		public signal void file_did_add (string filename);
+		public signal void file_did_remove (string filename);
+		public signal void request_add_file (string filename);
+		public signal void request_project_is_closing ();
+		public signal void request_remove_file (string filename);
 
-[ModuleInit]
-public static Type plugin_init (GLib.TypeModule type_module) {
-	return typeof (com.alcadica.develop.plugins.LanguageVala);
-}
-
-namespace com.alcadica.develop.plugins {
-	public class LanguageVala : Plugin {
-		public override PluginCategory get_category () {
-			return PluginCategory.Plugin;
-		}
-		
-		public override string get_name () {
-			return "com.alcadica.develop.plugins.LanguageVala";
-		}
-		
-		public override void activate (Entities.PluginContext context) {
-			
+		public Project (string? name) {
+			this.project_name = name;
 		}
 
-		public override void deactivate (Entities.PluginContext context) {
-			
-		}
-		
-		public override void registered () {
-			info ("Let's make Vala great again©");
-		}
-
-		public override void unregistered () {
-			this.dispose ();
-		}
+		public void parse () { }
 	}
 }

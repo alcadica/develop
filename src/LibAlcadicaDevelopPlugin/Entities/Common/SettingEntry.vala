@@ -19,37 +19,14 @@
 * Authored by: alcadica <github@alcadica.com>
 */
 
-using Alcadica.Develop.Plugins;
+namespace Alcadica.Develop.Plugins.Entities.Common {
+	public class SettingEntry<TValue> {
+		public string key { get; private set; }
+		public TValue value { get; set; }
 
-[ModuleInit]
-public static Type plugin_init (GLib.TypeModule type_module) {
-	return typeof (com.alcadica.develop.plugins.LanguageVala);
-}
-
-namespace com.alcadica.develop.plugins {
-	public class LanguageVala : Plugin {
-		public override PluginCategory get_category () {
-			return PluginCategory.Plugin;
-		}
-		
-		public override string get_name () {
-			return "com.alcadica.develop.plugins.LanguageVala";
-		}
-		
-		public override void activate (Entities.PluginContext context) {
-			
-		}
-
-		public override void deactivate (Entities.PluginContext context) {
-			
-		}
-		
-		public override void registered () {
-			info ("Let's make Vala great again©");
-		}
-
-		public override void unregistered () {
-			this.dispose ();
+		public SettingEntry (string key, TValue value) {
+			this.key = key.down ();
+			this.value = value;
 		}
 	}
 }

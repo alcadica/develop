@@ -19,37 +19,19 @@
 * Authored by: alcadica <github@alcadica.com>
 */
 
-using Alcadica.Develop.Plugins;
+namespace Alcadica.Develop.Plugins.Entities.Common {
+	public class SourceTree : Object {
+		public SourceTreeItem root { get; private set; }
+		public signal void item_did_add (SourceTreeItem item);
+		public signal void item_did_remove (SourceTreeItem item);
+		public signal void tree_did_change ();
 
-[ModuleInit]
-public static Type plugin_init (GLib.TypeModule type_module) {
-	return typeof (com.alcadica.develop.plugins.LanguageVala);
-}
+		public SourceTree () {
+			this.root = new SourceTreeItem ();
+			this.root.tree = this;
 
-namespace com.alcadica.develop.plugins {
-	public class LanguageVala : Plugin {
-		public override PluginCategory get_category () {
-			return PluginCategory.Plugin;
-		}
-		
-		public override string get_name () {
-			return "com.alcadica.develop.plugins.LanguageVala";
-		}
-		
-		public override void activate (Entities.PluginContext context) {
-			
-		}
-
-		public override void deactivate (Entities.PluginContext context) {
-			
-		}
-		
-		public override void registered () {
-			info ("Let's make Vala great again©");
-		}
-
-		public override void unregistered () {
-			this.dispose ();
+			this.item_did_add.connect (() => { this.tree_did_change (); });
+			this.item_did_remove.connect (() => { this.tree_did_change (); });
 		}
 	}
 }
