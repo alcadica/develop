@@ -143,12 +143,17 @@ code_files = files(
 )
 
 lib_develop_plugins = files (
+    'src/LibAlcadicaDevelopPlugin/Context/ApplicationContext.vala',
+    'src/LibAlcadicaDevelopPlugin/Context/BuildSystemContext.vala',
+    'src/LibAlcadicaDevelopPlugin/Context/CommandContext.vala',
+    'src/LibAlcadicaDevelopPlugin/Context/EditorContext.vala',
+    'src/LibAlcadicaDevelopPlugin/Context/PluginContext.vala',
+    'src/LibAlcadicaDevelopPlugin/Context/ProjectContext.vala',
+    'src/LibAlcadicaDevelopPlugin/Context/ScmContext.vala',
+    'src/LibAlcadicaDevelopPlugin/Context/TemplateContext.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/Application/BottomToolbarContext.vala',
-    'src/LibAlcadicaDevelopPlugin/Entities/ApplicationContext.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/BuildSystem/BuildSystem.vala',
-    'src/LibAlcadicaDevelopPlugin/Entities/BuildSystemContext.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/Command/Command.vala',
-    'src/LibAlcadicaDevelopPlugin/Entities/CommandContext.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/Common/SettingEntry.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/Common/SettingRegistry.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/Common/SourceTree.vala',
@@ -157,22 +162,17 @@ lib_develop_plugins = files (
     'src/LibAlcadicaDevelopPlugin/Entities/Editor/EditorList.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/Editor/TreeviewContext.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/Editor/TreeviewMenuContext.vala',
-    'src/LibAlcadicaDevelopPlugin/Entities/EditorContext.vala',
-    'src/LibAlcadicaDevelopPlugin/Entities/PluginContext.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/Project/Project.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/Project/ProjectFileSystem.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/Project/ProjectParser.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/Project/ProjectSettings.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/Project/ProjectSourceTree.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/Project/ProjectSourceTreeItem.vala',
-    'src/LibAlcadicaDevelopPlugin/Entities/ProjectContext.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/Scm/Scm.vala',
-    'src/LibAlcadicaDevelopPlugin/Entities/ScmContext.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/Template/Template.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/Template/TemplateFile.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/Template/TemplateFileType.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/Template/TemplateToken.vala',
-    'src/LibAlcadicaDevelopPlugin/Entities/TemplateContext.vala',
     'src/LibAlcadicaDevelopPlugin/Plugin.vala'
 )
 
