@@ -82,8 +82,8 @@ namespace Alcadica.Develop.Infrastructure {
 				error (@"$name module type is null");
 			}
 
-			info (module.get_loaded_type ().name ());
-			
+			info (type.name ());
+
 			instance = Object.new (type);
 
 			return (T) instance;
@@ -98,8 +98,7 @@ namespace Alcadica.Develop.Infrastructure {
 
 			foreach (var modulepath in modules) {
 				var module = load_module (modulepath);
-
-				on_module_loaded (module);
+				this.on_module_loaded (module);
 			}
 		}
 	}
