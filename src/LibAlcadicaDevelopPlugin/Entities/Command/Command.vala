@@ -20,6 +20,8 @@
 */
 namespace Alcadica.Develop.Plugins.Entities.Command {
 	public class Command : Object {
-
+		public string command_name { get; set; }
+		public string shortcut { get; set; }
+		public signal void activate ();
 	}
 }
