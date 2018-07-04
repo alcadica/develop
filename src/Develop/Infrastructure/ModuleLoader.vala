@@ -66,7 +66,7 @@ namespace Alcadica.Develop.Infrastructure {
 			Object instance;
 			string directory = Path.get_dirname (modulepath);
 			string name = Path.get_basename (modulepath);
-			Type? type;
+			Type type;
 
 			info (@"Loading module from path $modulepath");
 			
@@ -78,11 +78,9 @@ namespace Alcadica.Develop.Infrastructure {
 
 			type = module.get_loaded_type ();
 
-			if (type == null) {
-				error (@"$name module type is null");
+			if (!type.is_instantiatable ()) {
+				error (@"$name module type is not instantiable");
 			}
-
-			info (type.name ());
 
 			instance = Object.new (type);
 
@@ -98,6 +96,7 @@ namespace Alcadica.Develop.Infrastructure {
 
 			foreach (var modulepath in modules) {
 				var module = load_module (modulepath);
+				
 				this.on_module_loaded (module);
 			}
 		}

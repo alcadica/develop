@@ -15,5 +15,5 @@ my_plugin = shared_module(
     plugin_files,
     dependencies: plugin_dependencies,
     install: true,
-    install_dir: join_paths ('share', 'com.github.alcadica.develop', 'plugins')
+    install_dir: join_paths ('local', 'share', 'com.github.alcadica.develop', 'plugins')
 )

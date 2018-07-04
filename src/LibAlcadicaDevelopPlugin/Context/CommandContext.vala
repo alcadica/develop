@@ -19,17 +19,15 @@
 * Authored by: alcadica <github@alcadica.com>
 */
 
-using Alcadica.Develop.Plugins.Entities.Command;
-
 namespace Alcadica.Develop.Plugins.Entities {
 	public class CommandContext : Object {
-		public List<Command> commands { get; private set; }
+		public unowned List<Command.Command> commands { get; private set; }
 
 		public CommandContext () {
-			this.commands = new List<Command> ();
+			this.commands = new List<Command.Command> ();
 		}
 
-		public void add (Command command) {
+		public void add (Command.Command command) {
 			if (this.is_set (command)) {
 				return;
 			}
@@ -37,20 +35,20 @@ namespace Alcadica.Develop.Plugins.Entities {
 			this.commands.append (command);
 		}
 
-		public void dispatch (Command command) {
+		public void dispatch (Command.Command command) {
 			command.activate ();
 		}
 
 		public void dispatch_by_name (string command_name) {
-			Command? command = this.get_by_name (command_name);
+			Command.Command? command = this.get_by_name (command_name);
 
 			if (command != null) {
 				this.dispatch (command);
 			}
 		}
 
-		public Command? get_by_name (string command_name) {
-			Command? command = null;
+		public Command.Command? get_by_name (string command_name) {
+			Command.Command? command = null;
 
 			for (int i = 0; i < this.commands.length (); i++) {
 				if (this.commands.nth_data (i). command_name == command_name) {
@@ -62,8 +60,8 @@ namespace Alcadica.Develop.Plugins.Entities {
 			return command;
 		}
 
-		public Command? get_by_shortcut (string shortcut) {
-			Command? command = null;
+		public Command.Command? get_by_shortcut (string shortcut) {
+			Command.Command? command = null;
 
 			for (int i = 0; i < this.commands.length (); i++) {
 				if (this.commands.nth_data (i). shortcut == shortcut) {
@@ -75,7 +73,7 @@ namespace Alcadica.Develop.Plugins.Entities {
 			return command;
 		}
 		
-		public bool is_set (Command command) {
+		public bool is_set (Command.Command command) {
 			return this.commands.find (command).length () > 0;
 		}
 
@@ -83,12 +81,16 @@ namespace Alcadica.Develop.Plugins.Entities {
 			return this.get_by_shortcut (shortcut) != null;
 		}
 
-		public bool remove (Command command) {
+		public bool remove (Command.Command command) {
 			if (!this.is_set (command)) {
-				return;
+				return false;
 			}
 
-			this.command.remove (command);
+			uint initial_length = this.commands.length ();
+
+			this.commands.remove (command);
+
+			return this.commands.length () == initial_length;
 		}
 	}
 }

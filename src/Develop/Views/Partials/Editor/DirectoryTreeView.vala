@@ -135,7 +135,7 @@ namespace Alcadica.Develop.Views.Partials.Editor {
 				});
 				
 				item.source_item.icon = new Gtk.Image.from_icon_name (icon_name, Gtk.IconSize.BUTTON).gicon;
-
+				
 				this.project_tree.append (item);
 			}
 			

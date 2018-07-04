@@ -23,7 +23,7 @@ namespace Alcadica.Develop.Entities.Modules {
 	public class Module : TypeModule {
 		[CCode (has_target = false)]
 		private delegate Type ModuleInitFunc (TypeModule module);
-		private unowned Type? type = null;
+		private unowned Type type;
 		private GLib.Module module = null;
 		private string directory = null;
 		private string name = null;
@@ -35,19 +35,19 @@ namespace Alcadica.Develop.Entities.Modules {
 			this.init_symbol = init_symbol;
 		}
 
-		public unowned Type? get_loaded_type () {
+		public unowned Type get_loaded_type () {
 			return this.type;
 		}
 
 		public override bool load () {
-			info (@"Loading module $name");
+			debug (@"Loading module $name");
 			
 			this.module = GLib.Module.open (GLib.Module.build_path (directory, name), GLib.ModuleFlags.BIND_LAZY);
 			
 			if (this.module == null) {
 				error (@"Module $name not found");
 			} else {
-				info (@"Module $name found");
+				debug (@"Module $name found");
 			}
 		
 			void* module_init_method = null;
@@ -55,17 +55,18 @@ namespace Alcadica.Develop.Entities.Modules {
 			if (!module.symbol (this.init_symbol, out module_init_method)) {
 				error (@"Symbol $init_symbol not found");
 			} else {
-				info (@"Symbol $init_symbol found");
+				debug (@"Symbol $init_symbol found");
 			}
 			
 			this.type = ((ModuleInitFunc) module_init_method) (this);
+			this.use ();
 
 			return true;
 		}
 		
 		public override void unload () {
 			this.module = null;
-			info (@"Module $name unloaded");
+			debug (@"Module $name unloaded");
 		}
 	}
 }

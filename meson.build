@@ -99,7 +99,6 @@ code_files = files(
     'src/Develop/Entities/Template/TemplateFile.vala',
     'src/Develop/Entities/Template/TemplateFileType.vala',
     'src/Develop/Entities/Template/TemplateToken.vala',
-    'src/Develop/Infrastructure/Invoker.vala',
     'src/Develop/Infrastructure/ModuleLoader.vala',
     'src/Develop/Infrastructure/PluginLoader.vala',
     'src/Develop/Services/ActionManager.vala',
@@ -272,5 +271,6 @@ pkg.generate(
 
 meson.add_install_script('meson/postinstall.py')
 
+subdir ('src/Plugins/ElementaryTemplates')
 subdir ('src/Plugins/LanguageVala')
 subdir ('src/Plugins/ProjectTreeview')

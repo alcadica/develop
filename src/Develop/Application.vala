@@ -54,7 +54,7 @@ namespace Alcadica.Develop {
 
             Services.Editor.PluginContext.initialize ();
             Granite.Services.Logger.initialize (APP_NAME);
-            Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.INFO;
+            Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.DEBUG;
         }
 
         protected override void activate () {
@@ -62,6 +62,7 @@ namespace Alcadica.Develop {
             
             new Alcadica.Develop.Window (this);
 
+            info ("Loading Develop plugins");
             plugins_loader.load_modules ();
         }
 
@@ -70,6 +71,7 @@ namespace Alcadica.Develop {
         }
 
         public static int main (string[] args) {
+            info ("Starting Develop");
             var app = DevelopApplication.instance;
             return app.run (args);
         }

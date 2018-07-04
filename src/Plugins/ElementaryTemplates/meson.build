@@ -1,6 +1,6 @@
 pkg = import('pkgconfig')
 
-plugin_name = 'com.github.alcadica.develop.plugin-language-vala'
+plugin_name = 'com.github.alcadica.develop.plugin-elementary-os-templates'
 plugin_dependencies = [
     plugin_dependency
 ]

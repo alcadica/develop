@@ -41,7 +41,7 @@ namespace com.alcadica.develop.plugins {
 		}
 		
 		public override void registered () {
-			info ("Let's make Vala great again");
+			welcome_log_message ("Let's make Vala great again");
 		}
 
 		public override void unregistered () {

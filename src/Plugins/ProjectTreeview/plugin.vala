@@ -49,7 +49,7 @@ namespace com.alcadica.develop.plugins {
 		}
 		
 		public override void registered () {
-			info ("Hello darkness my old friend...");
+			welcome_log_message ("Hello darkness my old friend...");
 		}
 
 		public override void unregistered () {

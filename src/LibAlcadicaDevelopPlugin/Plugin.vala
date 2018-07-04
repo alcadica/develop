@@ -36,5 +36,9 @@ namespace Alcadica.Develop.Plugins {
 		public abstract void deactivate (Entities.PluginContext context);
 		public abstract void registered ();
 		public abstract void unregistered ();
+		public void welcome_log_message(string message) {
+			string name = this.get_name ();
+			info (@"$name welcomes you! $message");
+		}
 	}
 }

@@ -18,16 +18,35 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-namespace Alcadica.Develop.Infrastructure { 
-	public static T invoke<T>(string name) {
-		Type type = Type.from_name (name);
-		T object;
 
-		debug ("[invoke] instancing type " + name);
-		print ("\n[invoke] instancing type " + name);
+using Alcadica.Develop.Plugins;
 
-		object = (T)Object.new (type);
+[ModuleInit]
+public static Type plugin_init (GLib.TypeModule type_module) {
+	return typeof (com.alcadica.develop.plugins.ElementaryTemplates);
+}
 
-		return object;
+namespace com.alcadica.develop.plugins {
+	public class ElementaryTemplates : Plugin {
+		public override string get_name () {
+			return "com.alcadica.develop.plugins.ElementaryTemplates";
+		}
+		
+		public override void activate (Entities.PluginContext context) {
+			info ("Elementary Templates are activated");
+		}
+		
+		public override void deactivate (Entities.PluginContext context) {
+			info ("Elementary Templates are deactivated");
+		}
+		
+		public override void registered () {
+			info ("Elementary Templates are registered");
+		}
+		
+		public override void unregistered () {
+			info ("Elementary Templates are unregistered");
+			this.dispose ();
+		}
 	}
 }
