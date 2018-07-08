@@ -21,7 +21,7 @@
 using Alcadica.Develop.Plugins.Entities.Application;
 using Gtk;
 
-namespace Alcadica.Widgets.Editor {
+namespace Alcadica.Develop.Widgets.Editor {
 	public class BottomBar : Gtk.Toolbar {
 		construct {
 			var appcontext = Develop.Services.Editor.PluginContext.context.application;

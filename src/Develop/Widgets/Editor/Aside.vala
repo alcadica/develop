@@ -19,31 +19,9 @@
 * Authored by: alcadica <github@alcadica.com>
 */
 
-namespace Alcadica.Develop.Views { 
-	public class Editor : Gtk.Box {
+namespace Alcadica.Develop.Widgets.Editor {
+	public class Aside : Gtk.Grid {
 		construct {
-			var aside = new Alcadica.Develop.Widgets.Editor.Aside ();
-			var bottom_bar = new Alcadica.Develop.Widgets.Editor.BottomBar ();
-			var paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-			var scrolled_window = new Gtk.ScrolledWindow (null, null);
-			var source_grid = new Gtk.Grid ();
-			var source_view = new Alcadica.Develop.Widgets.Editor.SourceView ();
-			var toolbar = new Alcadica.Develop.Widgets.Editor.Toolbar ();
-
-			scrolled_window.add (source_view);
-			scrolled_window.vscrollbar_policy = Gtk.PolicyType.AUTOMATIC;
-
-			source_grid.add(scrolled_window);
-
-			paned.pack1 (aside, false, true);
-			paned.pack2 (source_grid, false, false);
-			paned.set_position (200);
-
-			source_grid.add(source_view);
-
-			this.pack_start (toolbar, false, false);
-			this.add (paned);
-			this.pack_end (bottom_bar, false, false);
 			this.orientation = Gtk.Orientation.VERTICAL;
 		}
 	}

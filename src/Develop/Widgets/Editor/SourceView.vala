@@ -18,9 +18,20 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
+using Gtk;
 
-namespace Alcadica.Develop.Views { 
-	public class FirstRun : Gtk.Box {
-		
+namespace Alcadica.Develop.Widgets.Editor {
+	public class SourceView : Gtk.SourceView {
+		construct {
+			var source_buffer = new Gtk.SourceBuffer (null);
+
+			expand = true;
+			highlight_current_line = true;
+			show_line_numbers = true;
+			smart_home_end = Gtk.SourceSmartHomeEndType.AFTER;
+			wrap_mode = Gtk.WrapMode.WORD;
+
+			set_buffer (source_buffer);
+		}
 	}
 }

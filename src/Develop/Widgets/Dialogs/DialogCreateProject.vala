@@ -21,7 +21,7 @@
 using Alcadica.Develop.Plugins.Entities.Application;
 using Gtk;
 
-namespace Alcadica.Widgets.Dialogs {
+namespace Alcadica.Develop.Widgets.Dialogs {
 	public class DialogCreateProject : DialogWindow {
 		construct {
 			set_default_size (700, 500);

@@ -19,8 +19,8 @@
 * Authored by: alcadica <github@alcadica.com>
 */
 
-namespace Alcadica.Develop.Views { 
-	public class FirstRun : Gtk.Box {
+namespace Alcadica.Develop.Widgets.Editor {
+	public class Treeview : Gtk.Box {
 		
 	}
 }

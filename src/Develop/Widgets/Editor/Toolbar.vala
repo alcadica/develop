@@ -20,7 +20,7 @@
 */
 using Gtk;
 
-namespace Alcadica.Widgets.Editor {
+namespace Alcadica.Develop.Widgets.Editor {
 	public class Toolbar : Gtk.Toolbar {
 		public ToolButton create_project { get; set; }
 		public ToolButton open_project { get; set; }

@@ -18,9 +18,12 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
+using Granite;
+using Granite.Widgets;
+using Gtk;
 
-namespace Alcadica.Develop.Views { 
-	public class FirstRun : Gtk.Box {
+namespace Alcadica.Develop.Widgets.Window {
+	public class QuickPrompt : Gtk.HeaderBar {
 		
 	}
 }

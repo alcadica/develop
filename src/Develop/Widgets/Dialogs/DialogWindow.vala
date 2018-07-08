@@ -21,8 +21,8 @@
 using Alcadica.Develop.Plugins.Entities.Application;
 using Gtk;
 
-namespace Alcadica.Widgets.Dialogs {
-	public class DialogWindow : Window {
+namespace Alcadica.Develop.Widgets.Dialogs {
+	public class DialogWindow : Gtk.Window {
 		
 	}
 }
