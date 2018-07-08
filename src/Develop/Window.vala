@@ -21,8 +21,8 @@
 
 namespace Alcadica.Develop { 
 	public class Window : Gtk.Window {
-		public Views.Partials.Window.HeaderBar header { get; set; }
-		public Views.MainView content { get; set; }
+		public Widgets.Window.HeaderBar header { get; set; }
+		public Views.Editor content { get; set; }
 		
 		public Window (Gtk.Application app) {
 			Object (
@@ -46,8 +46,8 @@ namespace Alcadica.Develop {
 		protected void build_ui () {
 			var provider = new Gtk.CssProvider ();
 			
-			this.content = new Alcadica.Develop.Views.MainView ();
-			this.header = new Views.Partials.Window.HeaderBar ();
+			this.content = new Views.Editor ();
+			this.header = new Widgets.Window.HeaderBar ();
 
 			this.set_titlebar (this.header);
 			this.add (this.content);

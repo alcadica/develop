@@ -22,7 +22,7 @@ using Granite;
 using Granite.Widgets;
 using Gtk;
 
-namespace Alcadica.Develop.Views.Partials.Window {
+namespace Alcadica.Develop.Widgets.Window {
 	public class HeaderBar : Gtk.HeaderBar {
 		construct {
 			Button button_back = new Button.with_label (_("Back"));

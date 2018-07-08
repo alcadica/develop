@@ -20,7 +20,7 @@
 */
 using Granite;
 using Gtk;
-using Alcadica.Develop.Views.Partials;
+//  using Alcadica.Develop.Views.Partials;
 
 namespace Alcadica.Widgets {
 	public class SettingItem : ListBox { 

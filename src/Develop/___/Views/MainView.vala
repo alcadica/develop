@@ -26,10 +26,8 @@ namespace Alcadica.Develop.Views {
     public class MainView : Paned {       
         construct {
             string view_first_run = "view_first_run";
-            string view_template_creation = "view_template_creation";
-            string view_project_editing = "view_project_editing";
+            string view_editor = "view_editor";
             string view_settings = "view_settings";
-            string view_welcome = "view_welcome";
 
             Partials.Settings.UserDataSettingsFirstRun first_run = new Partials.Settings.UserDataSettingsFirstRun ();
             TemplateCreationView template_creation = new TemplateCreationView ();
@@ -42,44 +40,18 @@ namespace Alcadica.Develop.Views {
             
             orientation = Orientation.HORIZONTAL;
             
-            stack.add_named (welcome, view_welcome);
-            stack.add_named (editor, view_project_editing);
+            stack.add_named (editor, view_editor);
             stack.add_named (first_run, view_first_run);
             stack.add_named (settings, view_settings);
-            stack.add_named (template_creation, view_template_creation);
             
             this.pack1(stack, true, false);
 
-            template_creation.on_undo.connect(() => {
-                stack.set_visible_child_full(view_welcome, StackTransitionType.SLIDE_RIGHT);
-                template_creation.reset ();
-            });
-
-            template_creation.on_template_creation_end.connect((path) => {
-                stack.set_visible_child_full(view_project_editing, StackTransitionType.CROSSFADE);
-            });
-
-            welcome.app.connect(() => {
-                stack.set_visible_child_full(view_template_creation, StackTransitionType.SLIDE_LEFT);
-                template_creation.show_app_form ();
-            });
-            
-            welcome.switchboard.connect(() => {
-                stack.set_visible_child_full(view_template_creation, StackTransitionType.SLIDE_LEFT);
-                template_creation.show_form_switchboard ();
-            });
-            
-            welcome.wingpanel.connect(() => {
-                stack.set_visible_child_full(view_template_creation, StackTransitionType.SLIDE_LEFT);
-                template_creation.show_form_wingpanel ();
-            });
-
             manager.get_action (Actions.Window.EDITOR_OPEN).activate.connect (() => {
-                stack.set_visible_child_full(view_project_editing, StackTransitionType.CROSSFADE);
+                stack.set_visible_child_full(view_editor, StackTransitionType.CROSSFADE);
             });
 
             manager.get_action (Actions.Window.FIRST_RUN).activate.connect (() => {
-                last_visible_child_name = view_welcome;
+                last_visible_child_name = view_editor;
                 stack.set_visible_child_full(view_first_run, StackTransitionType.CROSSFADE);
             });
 
@@ -94,16 +66,12 @@ namespace Alcadica.Develop.Views {
 
             manager.get_action (Actions.Window.SETTINGS_CLOSE).activate.connect (() => {
                 if (last_visible_child_name == null) {
-                    last_visible_child_name = view_welcome;
+                    last_visible_child_name = view_editor;
                 }
                 
                 stack.set_visible_child_full(last_visible_child_name, StackTransitionType.CROSSFADE);
 
                 last_visible_child_name = null;
-            });
-
-            manager.get_action (Actions.Window.SHOW_WELCOME_VIEW).activate.connect (() => {
-                stack.set_visible_child_full(view_welcome, StackTransitionType.SLIDE_RIGHT);
             });
         }
     }
