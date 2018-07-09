@@ -45,6 +45,7 @@ namespace Alcadica.Develop.Views {
 			this.add (paned);
 			this.pack_end (bottom_bar, false, false);
 			this.orientation = Gtk.Orientation.VERTICAL;
+			this.show_all ();
 		}
 	}
 }

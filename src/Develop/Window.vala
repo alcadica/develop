@@ -22,7 +22,7 @@
 namespace Alcadica.Develop { 
 	public class Window : Gtk.Window {
 		public Widgets.Window.HeaderBar header { get; set; }
-		public Views.Editor content { get; set; }
+		public Views.MainView content { get; set; }
 		
 		public Window (Gtk.Application app) {
 			Object (
@@ -46,7 +46,7 @@ namespace Alcadica.Develop {
 		protected void build_ui () {
 			var provider = new Gtk.CssProvider ();
 			
-			this.content = new Views.Editor ();
+			this.content = new Views.MainView ();
 			this.header = new Widgets.Window.HeaderBar ();
 
 			this.set_titlebar (this.header);
@@ -83,11 +83,11 @@ namespace Alcadica.Develop {
             action_manager.dispatch (Actions.Window.START);
 
             if (settings.is_first_run) {
-                info ("first run, showing settings");
+                info ("Develop first run, showing settings");
 				action_manager.dispatch (Actions.Window.FIRST_RUN);
 			}
 			
-			action_manager.dispatch (Actions.Window.EDITOR_OPEN);
+			action_manager.dispatch (Actions.Window.SHOW_EDITOR);
 		}
 	}
 }

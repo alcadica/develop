@@ -39,10 +39,7 @@ namespace Alcadica.Develop.Widgets.Editor {
 
 		protected void bind_buttons () {
 			this.create_project.clicked.connect (() => {
-				var window = new Dialogs.DialogCreateProject ();
-
-				window.show ();
-				//  this.project_did_created ();
+				Services.ActionManager.instance.dispatch (Actions.Window.SHOW_PROJECT_CREATION);
 			});
 			
 			this.open_project.clicked.connect (() => {

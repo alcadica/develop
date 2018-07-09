@@ -18,14 +18,20 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-using Alcadica.Develop.Plugins.Entities.Application;
 using Gtk;
 
-namespace Alcadica.Develop.Widgets.Dialogs {
-	public class DialogCreateProject : DialogWindow {
+namespace Alcadica.Develop.Views { 
+	public class ProjectCreator : Paned {
+		private Stack aside_stack;
+		private Stack content_stack;
+		
 		construct {
-			set_default_size (700, 500);
-			set_title (_("Create a new project"));
+			this.orientation = Orientation.HORIZONTAL;
+			this.aside_stack = new Stack ();
+			this.content_stack = new Stack ();
+
+			this.pack1 (aside_stack, false, false);
+			this.pack1 (content_stack, false, false);
 		}
 	}
 }

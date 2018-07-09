@@ -18,9 +18,52 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
+using Granite;
+using Gtk;
 
 namespace Alcadica.Develop.Views { 
-	public class FirstRun : Gtk.Box {
+	public class FirstRun : Box {
+		public Alcadica.Widgets.ActionBar actions = new Alcadica.Widgets.ActionBar ();
+		//  public UserDataSettings userdata = new UserDataSettings ();
 		
+		construct {
+			Grid grid = new Grid ();
+			Image icon = new Image.from_icon_name (APP_ID, IconSize.DIALOG);
+			Label welcome_label = new Label (_("First run setup"));
+			Label welcome_label_subtitle = new Label (_("Before proceeding I'd love to know more about you"));
+			Label welcome_label_disclaimer = new Label (_("Your data will be stored locally on your computer"));
+			Services.ActionManager manager = Services.ActionManager.instance;
+
+			icon.pixel_size = 128;
+			
+			actions.margin_top = 20;
+			grid.orientation = Orientation.VERTICAL;
+			this.orientation = Orientation.VERTICAL;
+			icon.margin_bottom = 20;
+			welcome_label_disclaimer.margin_bottom = 20;
+
+			welcome_label.get_style_context ().add_class (STYLE_CLASS_H1_LABEL);
+			welcome_label_subtitle.get_style_context ().add_class (STYLE_CLASS_PRIMARY_LABEL);
+			welcome_label_disclaimer.get_style_context ().add_class ("dim-label");
+
+			grid.add (icon);
+			grid.add (welcome_label);
+			grid.add (welcome_label_subtitle);
+			grid.add (welcome_label_disclaimer);
+			//  grid.add (userdata);
+			grid.add (actions);
+
+			this.actions.primary_action.label = _("Save your data");
+			this.set_halign (Align.CENTER);
+			this.set_center_widget (grid);
+
+			this.actions.primary_action.clicked.connect (() => {
+				manager.dispatch (Actions.Window.FIRST_RUN_END);
+			});
+						
+			manager.get_action (Actions.Window.START).activate.connect (() => {
+				
+			});
+		}
 	}
 }
