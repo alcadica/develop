@@ -23,6 +23,24 @@ namespace Alcadica.Develop.Plugins.Entities {
 	public class TemplateContext : Object {
 		protected List<Template.Template> subscribed_templates = new List<Template.Template> ();
 
+		public List<string> get_subscribed_templates_names () {
+			List<string> list = new List<string> ();
+
+			debug ("Getting " + subscribed_templates.length ().to_string () + " templates");
+
+			foreach (var subscription in subscribed_templates) {
+				list.append (subscription.template_name);
+			}
+			
+			return list;
+		}
+
+		public Template.Template? get_template_by_name (string template_name) {
+			Template.Template? template = null;
+
+			return template;
+		}
+		
 		public bool is_subscribed (Template.Template template) {
 			bool result = false;
 
@@ -32,16 +50,23 @@ namespace Alcadica.Develop.Plugins.Entities {
 					break;
 				}
 			}
+
+			debug ("Template " + template.template_name + " is " + (result ? "" : "not") + " subscribed");
 			
 			return result;
 		}
 		
 		public void subscribe (Template.Template template) {
+			debug ("Subscribing template " + template.template_name);
+
 			if (this.is_subscribed (template)) {
+				info ("Template " + template.template_name + " is already subscribed, aborting");
 				return;
 			}
-
+			
 			this.subscribed_templates.append (template);
+
+			debug ("Template " + template.template_name + " subscribed");
 		}
 	}
 }

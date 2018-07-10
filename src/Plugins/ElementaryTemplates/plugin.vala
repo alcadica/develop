@@ -34,6 +34,9 @@ namespace com.alcadica.develop.plugins {
 		
 		public override void activate (Entities.PluginContext context) {
 			info ("Elementary Templates are activated");
+			context.template.subscribe (new entities.ApplicationTemplate ());
+			context.template.subscribe (new entities.SwitchboardWidgetTemplate ());
+			context.template.subscribe (new entities.WingpanelIndicatorTemplate ());
 		}
 		
 		public override void deactivate (Entities.PluginContext context) {

@@ -18,24 +18,13 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-using Gtk;
 
-using Alcadica.Develop.Services.Editor;
+using Alcadica.Develop.Plugins.Entities.Template;
 
-namespace Alcadica.Develop.Views { 
-	public class ProjectCreator : Grid {
+namespace com.alcadica.develop.plugins.entities { 
+	public class SwitchboardWidgetTemplate : Template {
 		construct {
-			this.populate_template_list ();
-		}
-
-		private void populate_template_list () {
-			List<string> subscribed_templates = PluginContext.context.template.get_subscribed_templates_names ();
-
-			foreach (var template_name in subscribed_templates) {
-				debug (@"Adding template $template_name to templates list.");
-				
-				this.add (new Label (template_name));
-			}
+			template_name = "Switchboard widget";
 		}
 	}
 }

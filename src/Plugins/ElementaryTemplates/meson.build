@@ -6,7 +6,10 @@ plugin_dependencies = [
 ]
 
 plugin_files = files (
-    'plugin.vala'
+    'plugin.vala',
+    'Entities/ApplicationTemplate.vala',
+    'Entities/SwitchboardWidgetTemplate.vala',
+    'Entities/WingpanelIndicatorTemplate.vala'
 )
 
 my_plugin = shared_module(

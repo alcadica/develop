@@ -52,14 +52,13 @@ namespace Alcadica.Develop {
 
             flags |= ApplicationFlags.HANDLES_OPEN;
 
-            Services.Editor.PluginContext.initialize ();
             Granite.Services.Logger.initialize (APP_NAME);
             Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.DEBUG;
         }
 
         protected override void activate () {
             var plugins_loader = new Infrastructure.PluginLoader ();
-            
+
             new Alcadica.Develop.Window (this);
 
             info ("Loading Develop plugins");

@@ -22,11 +22,14 @@
 namespace Alcadica.Develop.Services.Editor { 
 	public class PluginContext {
 
-		public static Plugins.Entities.PluginContext context { get; set; }
+		private static Plugins.Entities.PluginContext _context;
+		public static Plugins.Entities.PluginContext context {
+			get {
+				if (_context == null) {
+					_context = new Plugins.Entities.PluginContext ();
+				}
 
-		public static void initialize () {
-			if (context == null) {
-				context = new Plugins.Entities.PluginContext ();
+				return _context;
 			}
 		}
 	}
