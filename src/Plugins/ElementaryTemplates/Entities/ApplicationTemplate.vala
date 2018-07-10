@@ -24,6 +24,8 @@ using Alcadica.Develop.Plugins.Entities.Template;
 namespace com.alcadica.develop.plugins.entities { 
 	public class ApplicationTemplate : Template {
 		construct {
+			template_description = "Creates an elementary OS application from scratch";
+			template_icon_name = "distributor-logo";
 			template_name = "elementary OS Application";
 		}
 	}

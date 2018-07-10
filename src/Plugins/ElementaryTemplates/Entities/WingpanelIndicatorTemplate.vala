@@ -25,6 +25,8 @@ namespace com.alcadica.develop.plugins.entities {
 	public class WingpanelIndicatorTemplate : Template {
 		construct {
 			template_name = "Wingpanel indicator";
+			template_icon_name = "package-x-generic";
+			template_description = "Creates an elementary OS application from scratch";
 		}
 	}
 }

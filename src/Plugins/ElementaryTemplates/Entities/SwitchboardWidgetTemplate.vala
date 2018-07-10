@@ -24,6 +24,8 @@ using Alcadica.Develop.Plugins.Entities.Template;
 namespace com.alcadica.develop.plugins.entities { 
 	public class SwitchboardWidgetTemplate : Template {
 		construct {
+			template_description = "Creates a Switchboard (the settings App) widget";
+			template_icon_name = "preferences-desktop";
 			template_name = "Switchboard widget";
 		}
 	}

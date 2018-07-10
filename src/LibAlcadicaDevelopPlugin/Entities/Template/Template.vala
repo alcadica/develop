@@ -21,6 +21,8 @@
 namespace Alcadica.Develop.Plugins.Entities.Template { 
     public class Template : Object {
 		public List<string> files = new List<string> ();
+		public string template_description { get; set; }
+		public string template_icon_name { get; set; }
 		public string template_dir { get; set; }
 		public string template_name { get; set; }
 	}

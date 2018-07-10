@@ -38,18 +38,18 @@ namespace Alcadica.Develop.Plugins.Entities {
 		public Template.Template? get_template_by_name (string template_name) {
 			Template.Template? template = null;
 
+			for (int i = 0; i < subscribed_templates.length (); i++) {
+				if (subscribed_templates.nth_data (i).template_name == template_name) {
+					template = subscribed_templates.nth_data (i);
+					break;
+				}
+			}
+
 			return template;
 		}
 		
 		public bool is_subscribed (Template.Template template) {
-			bool result = false;
-
-			for (int i = 0; i < subscribed_templates.length (); i++) {
-				if (subscribed_templates.nth_data (i).template_name == template.template_name) {
-					result = true;
-					break;
-				}
-			}
+			bool result = this.get_template_by_name (template.template_name) != null;
 
 			debug ("Template " + template.template_name + " is " + (result ? "" : "not") + " subscribed");
 			

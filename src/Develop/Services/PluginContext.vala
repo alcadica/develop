@@ -26,6 +26,8 @@ namespace Alcadica.Develop.Services.Editor {
 		public static Plugins.Entities.PluginContext context {
 			get {
 				if (_context == null) {
+					debug ("Instancing Plugins.Entities.PluginContext");
+					
 					_context = new Plugins.Entities.PluginContext ();
 				}
 
