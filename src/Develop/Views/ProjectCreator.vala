@@ -23,36 +23,45 @@ using Gtk;
 using Alcadica.Develop.Services.Editor;
 
 namespace Alcadica.Develop.Views { 
-	public class ProjectCreator : Grid {
-		private Grid templates_grid;
-		private int _rows_num = 0;
+	public class ProjectCreator : Paned {
+		private ListBox category_list;
+		private ListBox template_list;
 		
 		construct {
 			var manager = Services.ActionManager.instance;
+			var category_stack = new Stack ();
+			var template_stack = new Stack ();
 
-			this.column_homogeneous = true;
-			this.column_spacing = 12;
-			this.row_spacing = 12;
-			this.orientation = Orientation.VERTICAL;
-			this.templates_grid = new Grid ();
-			this.add (this.templates_grid);
+			this.category_list = new ListBox ();
+			this.template_list = new ListBox ();
+
+			this.orientation = Orientation.HORIZONTAL;
+
+			template_stack.add (this.template_list);
+
+			this.pack1 (category_stack, true, false);
+			this.pack2 (template_stack, true, false);
 
 			manager.get_action (Actions.Window.SHOW_PROJECT_CREATION).activate.connect (() => {
+				this.empty_category ();
 				this.empty_grid ();
+				this.populate_category_list ();
 				this.populate_template_list ();
 				this.show_all ();
 			});
 		}
 
+		private void empty_category () {
+
+		}
+
 		private void empty_grid () {
-			int removed_rows = 0;
+			
+		}
 
-			while (removed_rows < _rows_num) {
-				this.templates_grid.remove_row (removed_rows);
-				removed_rows += 1;
-			}
-
-			this._rows_num = 0;
+		private Widget? get_category_item(string category_name) {
+			var category_list_box = new ListBox ();
+			return category_list_box;
 		}
 
 		private Widget? get_list_item (string item_name) {
@@ -72,9 +81,12 @@ namespace Alcadica.Develop.Views {
 			}
 			
 			var grid = new Grid ();
+			var list_box = new ListBox ();
 			var template_description = new Label (template.template_description);
 			var template_icon = new Image.from_icon_name (template_icon_name, IconSize.DIALOG);
 			var template_name = new Label (template.template_name);
+
+			list_box.add (grid);
 
 			template_name.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
 			template_name.ellipsize = Pango.EllipsizeMode.END;
@@ -89,7 +101,11 @@ namespace Alcadica.Develop.Views {
 
 			debug (@"Created template list item $item_name");
 
-			return grid;
+			return list_box;
+		}
+
+		private void populate_category_list () {
+
 		}
 
 		private void populate_template_list () {
@@ -104,8 +120,7 @@ namespace Alcadica.Develop.Views {
 					continue;
 				}
 				
-				this.templates_grid.attach (item, 0, this._rows_num);
-				this._rows_num += 1;
+				this.template_list.add (item);
 			}
 		}
 	}
