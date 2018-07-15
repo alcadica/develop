@@ -21,9 +21,18 @@
 namespace Alcadica.Develop.Plugins.Entities.Template { 
     public class Template : Object {
 		public List<string> files = new List<string> ();
+		public List<TemplateToken> tokens = new List<TemplateToken> ();
 		public string template_description { get; set; }
 		public string template_icon_name { get; set; }
 		public string template_dir { get; set; }
 		public string template_name { get; set; }
+
+		protected TemplateToken add_token (string token_label, string token_name, string token_value) {
+			TemplateToken token = new TemplateToken (token_label, token_name, token_value);
+
+			this.tokens.append (token);
+
+			return token;
+		}
 	}
 }

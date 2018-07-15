@@ -27,6 +27,12 @@ namespace com.alcadica.develop.plugins.entities {
 			template_description = "Creates an elementary OS application from scratch";
 			template_icon_name = "distributor-logo";
 			template_name = "elementary OS Application";
+
+			var title = this.add_token ("App name", "appname", "");
+
+			title.validate.connect (value => {
+				return true;
+			});
 		}
 	}
 }
