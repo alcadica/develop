@@ -20,6 +20,7 @@
 */
 using Gtk;
 
+using Alcadica.Develop.Plugins.Entities.Common;
 using Alcadica.Develop.Plugins.Entities.Template;
 using Alcadica.Develop.Services.Editor;
 
@@ -121,16 +122,16 @@ namespace Alcadica.Develop.Views {
 
 			detail_grid.add (template_title);
 
-			foreach (TemplateToken token in template.tokens) {
-				var field = new Alcadica.Widgets.EntryWithLabel (token.token_label);
+			foreach (FormField field in template.form.fields) {
+				var entry = new Alcadica.Widgets.EntryWithLabel (field.field_label);
 
-				field.changed.connect(value => {
-					token.validate (value);
+				entry.changed.connect(value => {
+					field.validate (value);
 				});
 				
-				debug (@"Adding token field " + token.token_label + " to form");
+				debug (@"Adding field field " + field.field_label + " to form");
 
-				detail_grid.add (field);
+				detail_grid.add (entry);
 			}
 			
 			return detail_grid;

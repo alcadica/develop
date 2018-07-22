@@ -19,30 +19,9 @@
 * Authored by: alcadica <github@alcadica.com>
 */
 
-using Alcadica.Develop.Plugins.Entities.Template;
-
-namespace com.alcadica.develop.plugins.entities { 
-	public class ApplicationTemplate : Template {
-		construct {
-			template_description = "Creates an elementary OS application from scratch";
-			template_icon_name = "distributor-logo";
-			template_name = "elementary OS Application";
-
-			var title = this.add_token ("App name", "appname");
-			var rdnn = this.add_token ("RDNN name", "rdnn_appname");
-			var folder = this.add_folder_selector_token ("App folder", "app_folder");
-
-			folder.validate.connect (value => {
-
-			});
-
-			rdnn.validate.connect (value => {
-				return true;
-			});
-			
-			title.validate.connect (value => {
-				return true;
-			});
-		}
+namespace Alcadica.Widgets {
+	public class FileSelector : Gtk.Grid {
+		public Gtk.Button button { get; set; }
+		public Gtk.Label current_file { get; set; }
 	}
 }

@@ -40,6 +40,16 @@ meson build --prefix=/usr
 sudo ninja -C build/ install && com.github.alcadica.develop
 ```
 
+## Running with GTK debugger/inspector
+
+```bash
+# note, enable the debugger if you have not done it yet
+gsettings set org.gtk.Settings.Debug enable-inspector-keybinding true
+
+# run with the debugger
+sudo ninja -C build/ install && GTK_DEBUG=interactive build/com.github.alcadica.develop
+```
+
 ## Generating pot file
 
 ```bash

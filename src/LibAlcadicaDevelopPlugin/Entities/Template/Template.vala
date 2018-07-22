@@ -20,6 +20,7 @@
 */
 namespace Alcadica.Develop.Plugins.Entities.Template { 
     public class Template : Object {
+		public Common.Form form = new Common.Form ();
 		public List<string> files = new List<string> ();
 		public List<TemplateToken> tokens = new List<TemplateToken> ();
 		public string template_description { get; set; }
@@ -27,9 +28,34 @@ namespace Alcadica.Develop.Plugins.Entities.Template {
 		public string template_dir { get; set; }
 		public string template_name { get; set; }
 
-		protected TemplateToken add_token (string token_label, string token_name, string token_value) {
+		protected TemplateToken add_file_selector_token (string token_label, string token_name) {
+			TemplateToken token = new TemplateToken (token_label, token_name, "");
+
+			this.form.add_file (token_name, token_label).on_change.connect (file => {
+				token.token_value = ((File) file).get_path ();
+			});
+			this.tokens.append (token);
+
+			return token;
+		}
+
+		protected TemplateToken add_folder_selector_token (string token_label, string token_name) {
+			TemplateToken token = new TemplateToken (token_label, token_name, "");
+
+			this.form.add_directory (token_name, token_label).on_change.connect (file => {
+				token.token_value = ((File) file).get_path ();
+			});
+			this.tokens.append (token);
+
+			return token;
+		}
+		
+		protected TemplateToken add_token (string token_label, string token_name, string token_value = "") {
 			TemplateToken token = new TemplateToken (token_label, token_name, token_value);
 
+			this.form.add_text (token_name, token_label).on_change.connect (text => {
+				token.token_value = (string) text;
+			});
 			this.tokens.append (token);
 
 			return token;
