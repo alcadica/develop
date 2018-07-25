@@ -20,6 +20,10 @@
 */
 
 namespace Alcadica.Widgets {
+	public interface IEntryWidget<T> : Gtk.Widget { 
+		public signal void changed(T value);
+	}
+	
 	public class Entry : Gtk.Entry { 
 
 		private bool _hide_icon = false;

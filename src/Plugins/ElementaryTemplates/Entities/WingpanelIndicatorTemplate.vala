@@ -27,6 +27,12 @@ namespace com.alcadica.develop.plugins.entities {
 			template_name = "Wingpanel indicator";
 			template_icon_name = "package-x-generic";
 			template_description = "Creates an elementary OS application from scratch";
+
+			var indicator_name = this.add_token ("Indicator name", "indicatorname");
+
+			indicator_name.validate.connect(value => {
+				return true;
+			});
 		}
 	}
 }

@@ -20,7 +20,7 @@
 */
 
 namespace Alcadica.Widgets {
-	public class EntryWithLabel : Gtk.Grid {
+	public class EntryWithLabel : Gtk.Grid, IEntryWidget<string> {
 		protected bool _is_optional = false;
 		public Entry entry { get; set; }
 		public Gtk.Label? label_optional = null;
@@ -33,7 +33,7 @@ namespace Alcadica.Widgets {
 				this.entry.input_purpose = value;
 			}
 		}
-		public signal void changed (string text);
+
 		public bool editable {
 			get {
 				return this.entry.editable;

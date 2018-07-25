@@ -19,9 +19,18 @@
 * Authored by: alcadica <github@alcadica.com>
 */
 
+using Gtk;
+
 namespace Alcadica.Widgets {
-	public class FileSelector : Gtk.Grid {
-		public Gtk.Button button { get; set; }
-		public Gtk.Label current_file { get; set; }
+	public class FileSelector : Grid, IEntryWidget<File> {
+		public FileChooserButton button { get; set; }
+
+		construct {
+			this.button = new FileChooserButton (_("Select a file"), FileChooserAction.OPEN);
+
+			this.attach (this.button, 0, 0);
+			this.orientation = Orientation.VERTICAL;
+			this.hexpand = true;
+		}
 	}
 }

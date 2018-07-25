@@ -75,6 +75,27 @@ namespace Alcadica.Develop.Views {
 			debug ("Emptying template detail");
 		}
 
+		private Alcadica.Widgets.IEntryWidget? get_field (FormField field) {
+			Alcadica.Widgets.IEntryWidget? widget = null;
+			
+			switch (field.field_type) {
+				case FormFieldType.Directory:
+					widget = new Alcadica.Widgets.FileSelector ();
+				break;
+				case FormFieldType.File:
+					widget = new Alcadica.Widgets.FileSelector ();
+				break;
+				case FormFieldType.Number:
+
+				break;
+				case FormFieldType.Text:
+					widget = new Alcadica.Widgets.EntryWithLabel (field.field_label);
+				break;
+			}
+			
+			return widget;
+		}
+		
 		private Widget? get_template_list_item (string item_name) {
 			var template = PluginContext.context.template.get_template_by_name (item_name);
 			
@@ -123,7 +144,11 @@ namespace Alcadica.Develop.Views {
 			detail_grid.add (template_title);
 
 			foreach (FormField field in template.form.fields) {
-				var entry = new Alcadica.Widgets.EntryWithLabel (field.field_label);
+				var entry = this.get_field (field);
+
+				if (entry == null) {
+					continue;
+				}
 
 				entry.changed.connect(value => {
 					field.validate (value);

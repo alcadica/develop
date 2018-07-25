@@ -28,19 +28,19 @@ namespace com.alcadica.develop.plugins.entities {
 			template_icon_name = "distributor-logo";
 			template_name = "elementary OS Application";
 
-			var title = this.add_token ("App name", "appname");
-			var rdnn = this.add_token ("RDNN name", "rdnn_appname");
-			var folder = this.add_folder_selector_token ("App folder", "app_folder");
-
-			folder.validate.connect (value => {
-
-			});
-
-			rdnn.validate.connect (value => {
+			var app_name = this.add_token ("App name", "appname");
+			var app_folder = this.add_folder_selector_token ("App folder", "app_folder");
+			var app_rdnn = this.add_token ("RDNN name", "rdnn_appname");
+			
+			app_name.validate.connect (value => {
 				return true;
 			});
-			
-			title.validate.connect (value => {
+
+			app_folder.validate.connect (value => {
+
+			});
+
+			app_rdnn.validate.connect (value => {
 				return true;
 			});
 		}
