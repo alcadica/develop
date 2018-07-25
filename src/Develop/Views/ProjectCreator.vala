@@ -80,10 +80,10 @@ namespace Alcadica.Develop.Views {
 			
 			switch (field.field_type) {
 				case FormFieldType.Directory:
-					widget = new Alcadica.Widgets.FileSelector ();
+					widget = new Alcadica.Widgets.DirectorySelectorWithLabel (_("Choose a directory"), field.field_label);
 				break;
 				case FormFieldType.File:
-					widget = new Alcadica.Widgets.FileSelector ();
+					widget = new Alcadica.Widgets.FileSelectorWithLabel (_("Choose a file"), field.field_label);
 				break;
 				case FormFieldType.Number:
 
@@ -154,7 +154,7 @@ namespace Alcadica.Develop.Views {
 					field.validate (value);
 				});
 				
-				debug (@"Adding field field " + field.field_label + " to form");
+				debug (@"Adding field " + field.field_label + " of type to form");
 
 				detail_grid.add (entry);
 			}

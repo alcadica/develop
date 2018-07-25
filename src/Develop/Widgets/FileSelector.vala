@@ -22,15 +22,79 @@
 using Gtk;
 
 namespace Alcadica.Widgets {
-	public class FileSelector : Grid, IEntryWidget<File> {
-		public FileChooserButton button { get; set; }
+	protected class SelectorWithLabelBase : Grid, IEntryWidget<File> {
+		protected bool is_directory_picker { get; set; }
+		protected Button button { get; set; }
+		protected Label label { get; set; }
+		protected string button_label { get; set; }
+		protected string file_path { get; set; }
+		protected string _file_pattern { get; set; }
 
-		construct {
-			this.button = new FileChooserButton (_("Select a file"), FileChooserAction.OPEN);
+		protected SelectorWithLabelBase (string button_label, string label) {
+			this.button = new Button.with_label (button_label);
+			this.button_label = button_label;
+			
+			this.label = new Label (label);
+			this.label.margin_bottom = 4;
+			this.label.set_xalign (0);
+			this.label.get_style_context ().add_class (Granite.STYLE_CLASS_PRIMARY_LABEL);
 
-			this.attach (this.button, 0, 0);
 			this.orientation = Orientation.VERTICAL;
-			this.hexpand = true;
+			this.row_spacing = 0;
+			
+			this.attach (this.label, 0, 0, 1);
+			this.attach (this.button, 0, 1, 2);
+			this.set_column_homogeneous (true);
+
+			this.button.clicked.connect (this.open_file_chooser);
+		}
+
+		protected void open_file_chooser () {
+			string? path = null;
+			string label = this.button.label;
+
+			if (this.is_directory_picker) {
+				Alcadica.Develop.Services.FileSystem.choose_directory (label);
+			} else {
+				Alcadica.Develop.Services.FileSystem.choose_file (label, this._file_pattern);
+			}
+
+			if (path == null) {
+				return;
+			}
+			
+			this.button.label = path;
+			this.file_path = path;
+
+			File file = File.new_for_path (path);
+			this.changed (file);
+		}
+
+		public void reset () {
+			this.button.label = button_label;
+			this.file_path = "";
+		}
+	}
+	
+	public class DirectorySelectorWithLabel : SelectorWithLabelBase {
+		public DirectorySelectorWithLabel (string button_label, string label) {
+			base (button_label, label);
+			this.is_directory_picker = true;
+		}
+	}
+	
+	public class FileSelectorWithLabel : SelectorWithLabelBase {
+		public string file_pattern { 
+			get {
+				return _file_pattern;
+			}
+			set {
+				_file_pattern = value;
+			}
+		}
+		
+		public FileSelectorWithLabel (string button_label, string label) {
+			base (button_label, label);
 		}
 	}
 }

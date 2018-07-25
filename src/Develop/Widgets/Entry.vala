@@ -20,7 +20,7 @@
 */
 
 namespace Alcadica.Widgets {
-	public interface IEntryWidget<T> : Gtk.Widget { 
+	public interface IEntryWidget<T> : Gtk.Grid { 
 		public signal void changed(T value);
 	}
 	
