@@ -49,25 +49,42 @@ namespace Alcadica.Widgets {
 			this.button.clicked.connect (this.open_file_chooser);
 		}
 
-		protected void open_file_chooser () {
-			string? path = null;
-			string label = this.button.label;
-
-			if (this.is_directory_picker) {
-				Alcadica.Develop.Services.FileSystem.choose_directory (label);
-			} else {
-				Alcadica.Develop.Services.FileSystem.choose_file (label, this._file_pattern);
-			}
+		private void handle_directory_picker () {
+			string? path = Alcadica.Develop.Services.FileSystem.choose_directory (label.label);
 
 			if (path == null) {
 				return;
 			}
-			
+
 			this.button.label = path;
 			this.file_path = path;
 
 			File file = File.new_for_path (path);
 			this.changed (file);
+		}
+
+		private void handle_files_picker () {
+			List<string> paths = Alcadica.Develop.Services.FileSystem.choose_file (label.label, this._file_pattern);
+
+			if (paths.length () == 0) {
+				return;
+			}
+
+			this.button.label = paths.nth_data (0);
+			this.file_path = paths.nth_data (0);
+
+			foreach (string path in paths) {
+				File file = File.new_for_path (path);
+				this.changed (file);
+			}
+		}
+
+		protected void open_file_chooser () {
+			if (this.is_directory_picker) {
+				this.handle_directory_picker ();
+			} else {
+				this.handle_files_picker ();
+			}
 		}
 
 		public void reset () {

@@ -66,6 +66,11 @@ namespace Alcadica.Develop.Views {
 				this.template_did_select (this.subscribed_templates.nth_data (row.get_index ()));
 			});
 
+			this.detail_action_bar.secondary_action.clicked.connect(() => {
+				this.populate_template_detail (this.current_template.template_name);
+				this.detail_action_bar.disable ();
+			});
+
 			this.template_did_select.connect (this.populate_template_detail);
 		}
 
@@ -164,6 +169,8 @@ namespace Alcadica.Develop.Views {
 			detail_grid.orientation = Orientation.VERTICAL;
 			template_title.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
 			template_title.justify = Justification.CENTER;
+
+			this.detail_action_bar.disable ();
 			this.detail_action_bar.primary_action.clicked.disconnect (this.on_click_request_create);
 			this.detail_action_bar.primary_action.clicked.connect (this.on_click_request_create);
 
@@ -172,6 +179,16 @@ namespace Alcadica.Develop.Views {
 			foreach (FormField field in template.form.fields) {
 				this.create_form_item(field, detail_grid);
 			}
+
+			template.template_property_did_change.connect (() => {
+				this.detail_action_bar.enable_secondary_action ();
+				
+				if (template.is_valid) {
+					this.detail_action_bar.enable_primary_action ();
+				} else {
+					this.detail_action_bar.disable_primary_action ();
+				}
+			});		
 			
 			return detail_grid;
 		}

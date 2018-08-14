@@ -27,7 +27,7 @@ namespace Alcadica.Develop.Plugins.Entities.Template {
 
 				for (int i = 0; i < length; i++) {
 					if (this.tokens.nth_data (i).is_valid) {
-						count += 1;
+						count = count + 1;
 					}
 				}
 
@@ -41,10 +41,12 @@ namespace Alcadica.Develop.Plugins.Entities.Template {
 		public string template_icon_name { get; set; }
 		public string template_dir { get; set; }
 		public string template_name { get; set; }
+		public signal void template_property_did_change (string name, TemplateToken token);
 
 		private void set_form_element_validation_state (Common.FormField item, TemplateToken token) {
 			token.validation_state_did_change.connect (state => {
 				item.validity_state_did_change (state);
+				this.template_property_did_change (token.token_name, token);
 			});
 		}
 

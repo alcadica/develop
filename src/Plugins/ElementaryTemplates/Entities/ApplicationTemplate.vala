@@ -33,15 +33,19 @@ namespace com.alcadica.develop.plugins.entities {
 			var app_rdnn = this.add_token (_("RDNN name"), "rdnn_appname");
 			
 			app_name.validate.connect (value => {
-				app_rdnn.is_valid = true;
+				string _value = value.chomp ();
+				
+				app_name.is_valid = _value.len () > 3;
 			});
 
 			app_folder.validate.connect (value => {
-
+				app_folder.is_valid = value != null; 
 			});
 
 			app_rdnn.validate.connect (value => {
-				app_rdnn.is_valid = false;
+				string _value = value.chomp ();
+				
+				app_rdnn.is_valid = _value.len () > 3;
 			});
 		}
 
