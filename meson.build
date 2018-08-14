@@ -161,6 +161,8 @@ lib_develop_plugins = files (
     'src/LibAlcadicaDevelopPlugin/Entities/Template/TemplateFile.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/Template/TemplateFileType.vala',
     'src/LibAlcadicaDevelopPlugin/Entities/Template/TemplateToken.vala',
+    'src/LibAlcadicaDevelopPlugin/Services/FileSystemService.vala',
+    'src/LibAlcadicaDevelopPlugin/Services/RDNNService.vala',
     'src/LibAlcadicaDevelopPlugin/Plugin.vala'
 )
 

@@ -18,6 +18,8 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
+using Alcadica.Develop.Plugins.Services;
+
 namespace Alcadica.Develop.Plugins.Entities.Template { 
     public abstract class Template : Object {
 		public bool is_valid {
@@ -39,7 +41,6 @@ namespace Alcadica.Develop.Plugins.Entities.Template {
 		public List<TemplateToken> tokens = new List<TemplateToken> ();
 		public string template_description { get; set; }
 		public string template_icon_name { get; set; }
-		public string template_dir { get; set; }
 		public string template_name { get; set; }
 		public signal void template_property_did_change (string name, TemplateToken token);
 
@@ -87,6 +88,22 @@ namespace Alcadica.Develop.Plugins.Entities.Template {
 			this.set_form_element_validation_state(field, token);
 
 			return token;
+		}
+
+		protected List<File> parse_files_with_tokens () {
+			List<File> parsed_files = new List<File> ();
+
+			foreach (var filepath in this.files) {
+				File file = File.new_for_path (filepath);
+
+				if (FileSystemService.is_file (file)) {
+					
+				}
+
+				parsed_files.append (file);
+			}
+
+			return parsed_files;
 		}
 		
 		public abstract void on_request_create ();

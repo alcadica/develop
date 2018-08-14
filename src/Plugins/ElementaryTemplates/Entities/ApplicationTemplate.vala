@@ -19,6 +19,7 @@
 * Authored by: alcadica <github@alcadica.com>
 */
 
+using Alcadica.Develop.Plugins.Services;
 using Alcadica.Develop.Plugins.Entities.Template;
 
 namespace com.alcadica.develop.plugins.entities { 
@@ -35,7 +36,7 @@ namespace com.alcadica.develop.plugins.entities {
 			app_name.validate.connect (value => {
 				string _value = value.chomp ();
 				
-				app_name.is_valid = _value.len () > 3;
+				app_name.is_valid = _value.len () >= 3;
 			});
 
 			app_folder.validate.connect (value => {
@@ -45,13 +46,16 @@ namespace com.alcadica.develop.plugins.entities {
 			app_rdnn.validate.connect (value => {
 				string _value = value.chomp ();
 				
-				app_rdnn.is_valid = _value.len () > 3;
+				app_rdnn.is_valid = RDNNService.is_valid_name (_value);
 			});
 		}
 
-		public override void on_request_create () 
-		{
-			
+		public override void on_request_create () {
+			List<File> files = this.parse_files_with_tokens ();
+
+			foreach (var file in files) {
+				FileSystemService.write_file (file);
+			}
 		}
 	}
 }
