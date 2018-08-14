@@ -26,11 +26,12 @@ using Alcadica.Develop.Services.Editor;
 
 namespace Alcadica.Develop.Views { 
 	public class ProjectCreator : Paned {
-		private signal void template_did_select (string name);
-		private List<string> subscribed_templates;
+		private Alcadica.Develop.Plugins.Entities.Template.Template? current_template { get; set; }
 		private Alcadica.Widgets.ActionBar detail_action_bar;
-		private ListBox category_list;
 		private Box template_detail;
+		private List<string> subscribed_templates;
+		private ListBox category_list;
+		private signal void template_did_select (string name);
 		
 		construct {
 			var manager = Services.ActionManager.instance;
@@ -42,6 +43,7 @@ namespace Alcadica.Develop.Views {
 			this.subscribed_templates = new List<string> ();
 			this.template_detail = new Box (Orientation.VERTICAL, 0);
 			this.template_detail.pack_end (this.detail_action_bar);
+			this.template_detail.set_homogeneous (false);
 
 			this.category_list.selection_mode = SelectionMode.SINGLE;
 			this.orientation = Orientation.HORIZONTAL;
@@ -65,6 +67,26 @@ namespace Alcadica.Develop.Views {
 			});
 
 			this.template_did_select.connect (this.populate_template_detail);
+		}
+
+		private void create_form_item (FormField field, Grid detail_grid) {
+			var entry = this.get_field (field);
+
+			if (entry == null) {
+				return;
+			}
+
+			entry.changed.connect(value => {
+				field.on_change (value);
+			});
+
+			field.validity_state_did_change.connect(state => {
+				entry.validity_state_did_change (state);
+			});
+			
+			debug (@"Adding field " + field.field_label + " to form");
+
+			detail_grid.add (entry);
 		}
 
 		private void empty_list () {
@@ -137,29 +159,25 @@ namespace Alcadica.Develop.Views {
 			var detail_grid = new Grid ();
 			var template_title = new Label (template.template_name);
 
+			this.current_template = template;
+
 			detail_grid.orientation = Orientation.VERTICAL;
 			template_title.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
 			template_title.justify = Justification.CENTER;
+			this.detail_action_bar.primary_action.clicked.disconnect (this.on_click_request_create);
+			this.detail_action_bar.primary_action.clicked.connect (this.on_click_request_create);
 
 			detail_grid.add (template_title);
 
 			foreach (FormField field in template.form.fields) {
-				var entry = this.get_field (field);
-
-				if (entry == null) {
-					continue;
-				}
-
-				entry.changed.connect(value => {
-					field.validate (value);
-				});
-				
-				debug (@"Adding field " + field.field_label + " of type to form");
-
-				detail_grid.add (entry);
+				this.create_form_item(field, detail_grid);
 			}
 			
 			return detail_grid;
+		}
+
+		private void on_click_request_create () {
+			this.current_template.on_request_create ();
 		}
 
 		private void populate_category_list () {

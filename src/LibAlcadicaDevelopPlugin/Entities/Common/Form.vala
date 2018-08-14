@@ -30,7 +30,7 @@ namespace Alcadica.Develop.Plugins.Entities.Common {
 	public class FormField<T> : Object {
 		public FormFieldType field_type { get; set; }
 		public signal void on_change (T value);
-		public signal bool validate (T value);
+		public signal void validity_state_did_change (bool state);
 		public string field_label { get; set; }
 		public string field_name { get; set; }
 		public T default_value { get; set; }

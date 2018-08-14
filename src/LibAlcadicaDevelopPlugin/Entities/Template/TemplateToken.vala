@@ -23,11 +23,31 @@ namespace Alcadica.Develop.Plugins.Entities.Template {
 		public static string delimiter_start = "{{";
 		public static string delimiter_end = "}}";
 
-		public signal bool validate (string value);
+		private bool _is_valid = false;
+		private string _token_value { get; set; }
+		public bool is_valid { 
+			get {
+				return this._is_valid;
+			} 
+			set {
+				this._is_valid = value;
+				this.validation_state_did_change (value);
+			}
+		}
+		public signal void validate (string value);
+		public signal void validation_state_did_change (bool state);
 		public string token { get; set; }
 		public string token_label { get; set; }
 		public string token_name { get; set; }
-		public string token_value { get; set; }
+		public string token_value {
+			get {
+				return _token_value;
+			}
+			set {
+				_token_value = value;
+				validate(_token_value);
+			}
+		}
 
 		public TemplateToken (string token_label, string token_name, string token_value) {
 			this.token = TemplateToken.delimiter_start + token_name + TemplateToken.delimiter_end;

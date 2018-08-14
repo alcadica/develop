@@ -22,6 +22,7 @@
 namespace Alcadica.Widgets {
 	public interface IEntryWidget<T> : Gtk.Grid { 
 		public signal void changed(T value);
+		public signal void validity_state_did_change (bool state);
 	}
 	
 	public class Entry : Gtk.Entry { 

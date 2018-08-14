@@ -24,16 +24,16 @@ using Alcadica.Develop.Plugins.Entities.Template;
 namespace com.alcadica.develop.plugins.entities { 
 	public class ApplicationTemplate : Template {
 		construct {
-			template_description = "Creates an elementary OS application from scratch";
+			template_description = _("Creates an elementary OS application from scratch");
 			template_icon_name = "distributor-logo";
-			template_name = "elementary OS Application";
+			template_name = _("elementary OS Application");
 
-			var app_name = this.add_token ("App name", "appname");
-			var app_folder = this.add_folder_selector_token ("App folder", "app_folder");
-			var app_rdnn = this.add_token ("RDNN name", "rdnn_appname");
+			var app_name = this.add_token (_("App name"), "appname");
+			var app_folder = this.add_folder_selector_token (_("App folder"), "app_folder");
+			var app_rdnn = this.add_token (_("RDNN name"), "rdnn_appname");
 			
 			app_name.validate.connect (value => {
-				return true;
+				app_rdnn.is_valid = true;
 			});
 
 			app_folder.validate.connect (value => {
@@ -41,8 +41,13 @@ namespace com.alcadica.develop.plugins.entities {
 			});
 
 			app_rdnn.validate.connect (value => {
-				return true;
+				app_rdnn.is_valid = false;
 			});
+		}
+
+		public override void on_request_create () 
+		{
+			
 		}
 	}
 }

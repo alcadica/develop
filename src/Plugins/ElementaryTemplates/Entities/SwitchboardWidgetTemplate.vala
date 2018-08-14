@@ -28,5 +28,10 @@ namespace com.alcadica.develop.plugins.entities {
 			template_icon_name = "preferences-desktop";
 			template_name = "Switchboard widget";
 		}
+
+		public override void on_request_create () 
+		{
+			
+		}
 	}
 }

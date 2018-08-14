@@ -22,32 +22,40 @@
 using Alcadica.Develop.Plugins;
 
 [ModuleInit]
-public static Type plugin_init (GLib.TypeModule type_module) {
+public static Type plugin_init (GLib.TypeModule type_module)
+{
 	return typeof (com.alcadica.develop.plugins.ElementaryTemplates);
 }
 
-namespace com.alcadica.develop.plugins {
-	public class ElementaryTemplates : Plugin {
-		public override string get_name () {
+namespace com.alcadica.develop.plugins
+{
+	public class ElementaryTemplates : Plugin
+	{
+		public override string get_name ()
+		{
 			return "com.alcadica.develop.plugins.ElementaryTemplates";
 		}
 		
-		public override void activate (Entities.PluginContext context) {
+		public override void activate (Entities.PluginContext context)
+		{
 			info ("Elementary Templates are activated");
 			context.template.subscribe (new entities.ApplicationTemplate ());
 			context.template.subscribe (new entities.SwitchboardWidgetTemplate ());
 			context.template.subscribe (new entities.WingpanelIndicatorTemplate ());
 		}
 		
-		public override void deactivate (Entities.PluginContext context) {
+		public override void deactivate (Entities.PluginContext context)
+		{
 			info ("Elementary Templates are deactivated");
 		}
 		
-		public override void registered () {
+		public override void registered ()
+		{
 			info ("Elementary Templates are registered");
 		}
 		
-		public override void unregistered () {
+		public override void unregistered ()
+		{
 			info ("Elementary Templates are unregistered");
 			this.dispose ();
 		}

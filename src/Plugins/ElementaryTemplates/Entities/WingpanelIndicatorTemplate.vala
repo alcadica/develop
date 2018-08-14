@@ -24,15 +24,20 @@ using Alcadica.Develop.Plugins.Entities.Template;
 namespace com.alcadica.develop.plugins.entities { 
 	public class WingpanelIndicatorTemplate : Template {
 		construct {
-			template_name = "Wingpanel indicator";
+			template_name = _("Wingpanel indicator");
 			template_icon_name = "package-x-generic";
-			template_description = "Creates an elementary OS application from scratch";
+			template_description = _("Creates an elementary OS application from scratch");
 
-			var indicator_name = this.add_token ("Indicator name", "indicatorname");
+			var indicator_name = this.add_token (_("Indicator name"), "indicatorname");
 
 			indicator_name.validate.connect(value => {
-				return true;
+				indicator_name.is_valid = true;
 			});
+		}
+
+		public override void on_request_create () 
+		{
+			
 		}
 	}
 }

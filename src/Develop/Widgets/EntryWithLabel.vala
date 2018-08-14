@@ -117,6 +117,10 @@ namespace Alcadica.Widgets {
 			this.entry.changed.connect (() => {
 				this.changed (this.entry.text);
 			});
+
+			this.validity_state_did_change.connect (state => {
+				this.valid = state;
+			});
 		}
 
 		public void focusin () {
