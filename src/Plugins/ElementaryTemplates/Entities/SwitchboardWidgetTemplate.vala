@@ -60,11 +60,14 @@ namespace com.alcadica.develop.plugins.entities {
 		}
 
 		public override void on_request_create () {
-			List<File> files = this.parse_files_with_tokens ();
-
-			foreach (var file in files) {
-				FileSystemService.write_file (file);
-			}
+			string path = Path.build_filename (ElementaryTemplates.TEMPLATE_BASE_DIR, "app");
+			var token = this.get_token ("source_folder");
+			
+			this.set_files_from_directory (File.new_for_path (path));
+			
+			List<File> files = FileSystemService.change_files_directory (path, token.token_value, this.parse_files_with_tokens (), true);
+			
+			this.write_parsed_files (files);
 		}
 	}
 }

@@ -108,20 +108,54 @@ namespace Alcadica.Develop.Plugins.Entities.Template {
 			return token;
 		}
 
+		protected TemplateToken? get_token (string token_name) {
+			TemplateToken? result = null;
+
+			for (int i = 0; i < this.tokens.length (); i++) {
+				var _item = this.tokens.nth_data (i);
+
+				if (_item.token_name == token_name) {
+					result = _item;
+					break;
+				}
+			}
+
+			return result;
+		}
+
 		protected List<File> parse_files_with_tokens () {
 			List<File> parsed_files = new List<File> ();
 
 			foreach (var filepath in this.files) {
 				File file = File.new_for_path (filepath);
-
+				
 				if (FileSystemService.is_file (file)) {
-					
+					string content = FileSystemService.read_file_content (filepath);
+	
+					foreach (var token in this.tokens) {
+						content = content.replace (token.token, token.token_value);
+						FileSystemService.replace_file_content (file, content);
+					}
 				}
 
 				parsed_files.append (file);
 			}
 
 			return parsed_files;
+		}
+
+		protected void set_files_from_directory (File directory) {
+			List<string> filepaths = FileSystemService.read_dir_recursive (directory);
+
+			foreach (string filepath in filepaths) {
+				this.files.append (filepath);
+			}
+		}
+
+		protected void write_parsed_files (List<File> files) {
+			foreach (File file in files) {
+				FileSystemService.write (file);
+			}
 		}
 		
 		public abstract void on_request_create ();

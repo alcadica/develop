@@ -31,6 +31,8 @@ namespace com.alcadica.develop.plugins
 {
 	public class ElementaryTemplates : Plugin
 	{
+		public const string TEMPLATE_BASE_DIR = "/usr/share/com.github.alcadica.develop.plugin-elementary-os-templates/templates/";
+		
 		public override string get_name ()
 		{
 			return "com.alcadica.develop.plugins.ElementaryTemplates";
