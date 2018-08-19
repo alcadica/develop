@@ -29,12 +29,10 @@ namespace Alcadica.Widgets {
 		}
 	}
 	
-	public class ComboBoxWithLabel : Gtk.Grid {
+	public class ComboBoxWithLabel : Gtk.Grid, IEntryWidget<int> {
 		public ComboBoxText combobox { get; set; }
 		public Gtk.Label label { get; set; }
 		public List<ComboBoxWithLabelOption> options = new List<ComboBoxWithLabelOption> ();
-		public signal void changed(int key);
-
 		public int value {
 			get {
 				int index = this.combobox.get_active ();

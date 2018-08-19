@@ -20,6 +20,7 @@
 */
 
 using Alcadica.Develop.Plugins.Entities.Template;
+using Alcadica.Develop.Plugins.Services;
 
 namespace com.alcadica.develop.plugins.entities { 
 	public class WingpanelIndicatorTemplate : Template {
@@ -29,15 +30,19 @@ namespace com.alcadica.develop.plugins.entities {
 			template_description = _("Creates an elementary OS application from scratch");
 
 			var indicator_name = this.add_token (_("Indicator name"), "indicatorname");
+			var indicator_folder = this.add_folder_selector_token (_("Source code folder"), "source_folder");
 
 			indicator_name.validate.connect(value => {
 				indicator_name.is_valid = true;
 			});
 		}
 
-		public override void on_request_create () 
-		{
-			
+		public override void on_request_create () {
+			List<File> files = this.parse_files_with_tokens ();
+
+			foreach (var file in files) {
+				FileSystemService.write_file (file);
+			}
 		}
 	}
 }

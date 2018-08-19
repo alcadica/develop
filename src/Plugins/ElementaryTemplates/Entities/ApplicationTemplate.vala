@@ -30,8 +30,8 @@ namespace com.alcadica.develop.plugins.entities {
 			template_name = _("elementary OS Application");
 
 			var app_name = this.add_token (_("App name"), "appname");
-			var app_folder = this.add_folder_selector_token (_("App folder"), "app_folder");
 			var app_rdnn = this.add_token (_("RDNN name"), "rdnn_appname");
+			var app_folder = this.add_folder_selector_token (_("Source code folder"), "source_folder");
 			
 			app_name.validate.connect (value => {
 				string _value = value.chomp ();

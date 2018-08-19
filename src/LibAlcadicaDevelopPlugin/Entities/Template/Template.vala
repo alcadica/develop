@@ -90,6 +90,24 @@ namespace Alcadica.Develop.Plugins.Entities.Template {
 			return token;
 		}
 
+		protected TemplateToken add_token_list (string token_label, string token_name, List<Common.KeyValuePair<int, string>> token_values) {
+			TemplateToken token = new TemplateToken (token_label, token_name, "");
+			var field = this.form.add_select (token_name, token_label);
+
+			foreach (Common.KeyValuePair<int, string> kvp in token_values) {
+				field.add_option (kvp.key, kvp.value);
+			}
+
+			field.on_change.connect (value => {
+				token.token_value = ((int) value).to_string ();
+			});
+
+			this.tokens.append (token);
+			this.set_form_element_validation_state (field, token);
+
+			return token;
+		}
+
 		protected List<File> parse_files_with_tokens () {
 			List<File> parsed_files = new List<File> ();
 

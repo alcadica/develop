@@ -34,6 +34,7 @@ namespace Alcadica.Develop.Views {
 		private signal void template_did_select (string name);
 		
 		construct {
+			var actions_box = new Box (Orientation.HORIZONTAL, 36);
 			var manager = Services.ActionManager.instance;
 			var category_stack = new Stack ();
 			var template_stack = new Stack ();
@@ -41,8 +42,11 @@ namespace Alcadica.Develop.Views {
 			this.category_list = new ListBox ();
 			this.detail_action_bar = new Alcadica.Widgets.ActionBar ();
 			this.subscribed_templates = new List<string> ();
-			this.template_detail = new Box (Orientation.VERTICAL, 0);
-			this.template_detail.pack_end (this.detail_action_bar);
+			this.template_detail = new Box (Orientation.VERTICAL, 36);
+
+			actions_box.set_center_widget (this.detail_action_bar);
+			
+			this.template_detail.pack_end (actions_box);
 			this.template_detail.set_homogeneous (false);
 
 			this.category_list.selection_mode = SelectionMode.SINGLE;
@@ -55,14 +59,12 @@ namespace Alcadica.Develop.Views {
 			this.pack2 (template_stack, true, false);
 
 			manager.get_action (Actions.Window.SHOW_PROJECT_CREATION).activate.connect (() => {
-				this.empty_detail ();
 				this.empty_list ();
 				this.populate_category_list ();
 				this.show_all ();
 			});
 			
 			this.category_list.row_selected.connect (row => {
-				this.empty_detail ();
 				this.template_did_select (this.subscribed_templates.nth_data (row.get_index ()));
 			});
 
@@ -96,10 +98,12 @@ namespace Alcadica.Develop.Views {
 
 		private void empty_list () {
 			debug ("Emptying templates list");
-		}
 
-		private void empty_detail () {
-			debug ("Emptying template detail");
+			List<weak Gtk.Widget> children = this.category_list.get_children ();
+			
+			foreach (Gtk.Widget element in children) {
+				this.category_list.remove (element);
+			}
 		}
 
 		private Alcadica.Widgets.IEntryWidget? get_field (FormField field) {
@@ -117,6 +121,18 @@ namespace Alcadica.Develop.Views {
 				break;
 				case FormFieldType.Text:
 					widget = new Alcadica.Widgets.EntryWithLabel (field.field_label);
+				break;
+				case FormFieldType.TextMultiple:
+					FormFieldSelect _field = (FormFieldSelect) field; 
+					widget = new Alcadica.Widgets.ComboBoxWithLabel (field.field_label);
+
+					foreach (var option in _field.options) {
+						((Alcadica.Widgets.ComboBoxWithLabel) widget).add_option (option.key, option.value);
+					}
+
+					if (_field.options.length () > 0) {
+						((Alcadica.Widgets.ComboBoxWithLabel) widget).value = _field.options.nth_data (0).key;
+					}
 				break;
 			}
 			
@@ -163,17 +179,19 @@ namespace Alcadica.Develop.Views {
 		private Widget? get_template_detail(Template template) {
 			var detail_grid = new Grid ();
 			var template_title = new Label (template.template_name);
+			var icon = new Image.from_icon_name (template.template_icon_name, IconSize.DIALOG);
 
 			this.current_template = template;
 
 			detail_grid.orientation = Orientation.VERTICAL;
 			template_title.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
 			template_title.justify = Justification.CENTER;
-
+			
 			this.detail_action_bar.disable ();
 			this.detail_action_bar.primary_action.clicked.disconnect (this.on_click_request_create);
 			this.detail_action_bar.primary_action.clicked.connect (this.on_click_request_create);
-
+			
+			detail_grid.add (icon);
 			detail_grid.add (template_title);
 
 			foreach (FormField field in template.form.fields) {
@@ -223,6 +241,7 @@ namespace Alcadica.Develop.Views {
 				return;
 			}
 
+			var box = new Box (Orientation.HORIZONTAL, 36);
 			var detail_form = this.get_template_detail (template);
 			var previous_widget = this.template_detail.get_center_widget ();
 
@@ -231,7 +250,10 @@ namespace Alcadica.Develop.Views {
 				previous_widget.dispose ();
 			}
 
-			this.template_detail.set_center_widget (detail_form);
+			box.set_center_widget (detail_form);
+			box.set_hexpand (false);
+
+			this.template_detail.set_center_widget (box);
 			this.show_all ();
 		}
 	}

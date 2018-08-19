@@ -43,7 +43,8 @@ namespace Alcadica.Develop.Widgets.Window {
 			var manager = Alcadica.Develop.Services.ActionManager.instance;
 
 			button_back.clicked.connect (() => {
-				manager.dispatch (Actions.Window.SETTINGS_CLOSE);
+				manager.dispatch (Actions.Window.SHOW_EDITOR);
+				button_back.hide ();
 			});
 
 			button_settings.clicked.connect(() => {
@@ -52,6 +53,10 @@ namespace Alcadica.Develop.Widgets.Window {
 
 			manager.get_action (Actions.Window.START).activate.connect (() => {
 				button_back.hide ();
+			});
+
+			manager.get_action (Actions.Window.SHOW_PROJECT_CREATION).activate.connect (() => {
+				button_back.show ();
 			});
 
 			manager.get_action (Actions.Window.SETTINGS_OPEN).activate.connect (() => {

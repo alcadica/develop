@@ -24,6 +24,7 @@ namespace Alcadica.Develop.Plugins.Entities.Common {
 		Directory,
 		File,
 		Number,
+		TextMultiple,
 		Text
 	}
 	
@@ -56,19 +57,19 @@ namespace Alcadica.Develop.Plugins.Entities.Common {
 	}
 
 	public class FormFieldSelect : FormField<string> {
-		public List<KeyValuePair<string, string>> options = new List<KeyValuePair<string, string>> ();
+		public List<KeyValuePair<int, string>> options = new List<KeyValuePair<int, string>> ();
 		
 		public FormFieldSelect (string field_name, string field_label) {
 			base (field_name, field_label);
-			this.field_type = FormFieldType.Text;
+			this.field_type = FormFieldType.TextMultiple;
 		}
 
-		public void add_option (string key, string value) {
-			this.options.append (new KeyValuePair<string, string> (key, value));
+		public void add_option (int key, string value) {
+			this.options.append (new KeyValuePair<int, string> (key, value));
 		}
 
-		public KeyValuePair<string, string>? get_option (string key) {
-			KeyValuePair<string, string>? option = null;
+		public KeyValuePair<int, string>? get_option (int key) {
+			KeyValuePair<int, string>? option = null;
 
 			for (int i = 0; i < this.options.length (); i++) {
 				var current = this.options.nth_data (i);
@@ -82,7 +83,7 @@ namespace Alcadica.Develop.Plugins.Entities.Common {
 			return option;
 		}
 
-		public bool remove_option (string key) {
+		public bool remove_option (int key) {
 			var current = this.get_option (key);
 
 			if (current == null) {
@@ -131,8 +132,8 @@ namespace Alcadica.Develop.Plugins.Entities.Common {
 			return item;
 		}
 
-		public FormField add_select (string name, string label) {
-			FormField item = new FormFieldSelect (name, label);
+		public FormFieldSelect add_select (string name, string label) {
+			FormFieldSelect item = new FormFieldSelect (name, label);
 			this.fields.append (item);
 
 			item.on_change.connect(() => {
