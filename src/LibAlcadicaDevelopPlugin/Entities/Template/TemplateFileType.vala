@@ -20,7 +20,7 @@
 */
 namespace Alcadica.Develop.Plugins.Entities.Template { 
     public enum TemplateFileType {
-        Directory,
-        File
+        DIRECTORY,
+        FILE
 	}
 }

@@ -69,6 +69,10 @@ namespace Alcadica.Develop.Views {
 			});
 
 			this.detail_action_bar.secondary_action.clicked.connect(() => {
+				if (this.current_template.form != null) {
+					this.current_template.form.reset ();
+				}
+				
 				this.populate_template_detail (this.current_template.template_name);
 				this.detail_action_bar.disable ();
 			});
@@ -198,15 +202,17 @@ namespace Alcadica.Develop.Views {
 				this.create_form_item(field, detail_grid);
 			}
 
-			template.template_property_did_change.connect (() => {
+			template.form.on_item_change.connect (() => {
 				this.detail_action_bar.enable_secondary_action ();
-				
-				if (template.is_valid) {
+			});		
+
+			template.form.on_field_validity_state_change.connect (() => {
+				if (template.form.is_valid) {
 					this.detail_action_bar.enable_primary_action ();
 				} else {
 					this.detail_action_bar.disable_primary_action ();
 				}
-			});		
+			});
 			
 			return detail_grid;
 		}

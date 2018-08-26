@@ -22,142 +22,93 @@ using Alcadica.Develop.Plugins.Services;
 
 namespace Alcadica.Develop.Plugins.Entities.Template { 
     public abstract class Template : Object {
-		public bool is_valid {
-			get {
-				var count = 0;
-				var length = this.tokens.length ();
-
-				for (int i = 0; i < length; i++) {
-					if (this.tokens.nth_data (i).is_valid) {
-						count = count + 1;
-					}
-				}
-
-				return count == length;
-			}
-		}
-		public Common.Form form = new Common.Form ();
-		public List<string> files = new List<string> ();
+		public Alcadica.Develop.Plugins.Entities.Common.Form form = new Alcadica.Develop.Plugins.Entities.Common.Form ();
+		public List<TemplateFile> files = new List<TemplateFile> ();
 		public List<TemplateToken> tokens = new List<TemplateToken> ();
 		public string template_description { get; set; }
 		public string template_icon_name { get; set; }
 		public string template_name { get; set; }
-		public signal void template_property_did_change (string name, TemplateToken token);
 
-		private void set_form_element_validation_state (Common.FormField item, TemplateToken token) {
-			token.validation_state_did_change.connect (state => {
-				item.validity_state_did_change (state);
-				this.template_property_did_change (token.token_name, token);
-			});
-		}
+		public abstract void on_request_create ();
 
-		protected TemplateToken add_file_selector_token (string token_label, string token_name) {
-			TemplateToken token = new TemplateToken (token_label, token_name, "");
-			var field = this.form.add_file (token_name, token_label);
+		public void add_file (File file) {
+			TemplateFile template_file = new TemplateFile ();
+			
+			template_file.path = file.get_path ();
 
-			field.on_change.connect (file => {
-				token.token_value = ((File) file).get_path ();
-			});
-			this.tokens.append (token);
-			this.set_form_element_validation_state(field, token);
-
-			return token;
-		}
-
-		protected TemplateToken add_folder_selector_token (string token_label, string token_name) {
-			TemplateToken token = new TemplateToken (token_label, token_name, "");
-			var field = this.form.add_directory (token_name, token_label);
-
-			field.on_change.connect (file => {
-				token.token_value = ((File) file).get_path ();
-			});
-			this.tokens.append (token);
-			this.set_form_element_validation_state(field, token);
-
-			return token;
-		}
-		
-		protected TemplateToken add_token (string token_label, string token_name, string token_value = "") {
-			TemplateToken token = new TemplateToken (token_label, token_name, token_value);
-			var field = this.form.add_text (token_name, token_label);
-
-			field.on_change.connect (text => {
-				token.token_value = (string) text;
-			});
-			this.tokens.append (token);
-			this.set_form_element_validation_state(field, token);
-
-			return token;
-		}
-
-		protected TemplateToken add_token_list (string token_label, string token_name, List<Common.KeyValuePair<int, string>> token_values) {
-			TemplateToken token = new TemplateToken (token_label, token_name, "");
-			var field = this.form.add_select (token_name, token_label);
-
-			foreach (Common.KeyValuePair<int, string> kvp in token_values) {
-				field.add_option (kvp.key, kvp.value);
+			if (FileSystemService.is_file (file)) {
+				template_file.content = FileSystemService.read_file_content (template_file.path);
+				template_file.file_type = TemplateFileType.FILE;
+			} else {
+				template_file.file_type = TemplateFileType.DIRECTORY;
 			}
+			
+			this.files.append (template_file);
+		}
 
-			field.on_change.connect (value => {
-				token.token_value = ((int) value).to_string ();
-			});
+		public void add_files_from_directory (string path) {
+			List<string> _files = FileSystemService.read_dir_recursive (File.new_for_path (path));
+			
+			foreach (string file_path in _files) {
+				this.add_file (File.new_for_path (file_path));
+			}
+		}
+
+		public TemplateToken add_token (string name) {
+			TemplateToken token = new TemplateToken (name);
 
 			this.tokens.append (token);
-			this.set_form_element_validation_state (field, token);
 
 			return token;
 		}
 
-		protected TemplateToken? get_token (string token_name) {
+		public void change_files_directory (string from, string to) {
+			foreach (TemplateFile file in this.files) {
+				file.path = file.path.replace (from, to);
+			}
+		}
+
+		public TemplateToken? get_token (string token_name) {
 			TemplateToken? result = null;
 
 			for (int i = 0; i < this.tokens.length (); i++) {
-				var _item = this.tokens.nth_data (i);
+				var _token = this.tokens.nth_data (i);
 
-				if (_item.token_name == token_name) {
-					result = _item;
+				if (_token.token_name == token_name) {
+					result = _token;
 					break;
 				}
 			}
 
 			return result;
 		}
-
-		protected List<File> parse_files_with_tokens () {
-			List<File> parsed_files = new List<File> ();
-
-			foreach (var filepath in this.files) {
-				File file = File.new_for_path (filepath);
-				
-				if (FileSystemService.is_file (file)) {
-					string content = FileSystemService.read_file_content (filepath);
-	
-					foreach (var token in this.tokens) {
-						content = content.replace (token.token, token.token_value);
-						FileSystemService.replace_file_content (file, content);
-					}
-				}
-
-				parsed_files.append (file);
-			}
-
-			return parsed_files;
-		}
-
-		protected void set_files_from_directory (File directory) {
-			List<string> filepaths = FileSystemService.read_dir_recursive (directory);
-
-			foreach (string filepath in filepaths) {
-				this.files.append (filepath);
-			}
-		}
-
-		protected void write_parsed_files (List<File> files) {
-			foreach (File file in files) {
-				FileSystemService.write (file);
-			}
-		}
 		
-		public abstract void on_request_create ();
+		public string parse_content (string content) {
+			string result = content;
+
+			foreach (var token in tokens) {
+				result = result.replace (token.token, token.token_value);
+			}
+
+			return result;
+		}
+
+		public void parse_files_content () {
+			foreach (TemplateFile file in this.files) {
+				if (file.file_type == TemplateFileType.FILE) {
+					file.content = parse_content (file.content);
+				}
+			}
+		}
+
+		public void unset_files () {
+			this.files = new List<TemplateFile> ();
+		}
+
+		public void write_files () {
+			foreach (TemplateFile file in this.files) {
+				FileSystemService.write_file (file.path, file.content);
+			}
+		}
 	}
 }

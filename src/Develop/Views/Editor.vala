@@ -36,7 +36,7 @@ namespace Alcadica.Develop.Views {
 			source_grid.add(scrolled_window);
 
 			paned.pack1 (aside, false, true);
-			paned.pack2 (source_grid, false, false);
+			//  paned.pack2 (source_grid, false, false);
 			paned.set_position (200);
 
 			source_grid.add(source_view);

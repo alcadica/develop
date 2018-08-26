@@ -6,4 +6,6 @@ fi
 
 sudo ninja -C build/ install
 
-com.github.alcadica.develop
+if [ $? -eq 0 ]; then
+  com.github.alcadica.develop
+fi

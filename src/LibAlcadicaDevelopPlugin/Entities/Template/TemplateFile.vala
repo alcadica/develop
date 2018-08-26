@@ -23,5 +23,15 @@ namespace Alcadica.Develop.Plugins.Entities.Template {
         public string content { get; set; }
         public string path { get; set; }
         public TemplateFileType file_type { get; set; }
+
+        public TemplateFile copy () {
+            TemplateFile new_file = new TemplateFile ();
+
+            new_file.content = this.content;
+            new_file.path = this.path;
+            new_file.file_type = this.file_type;
+
+            return new_file; 
+        }
     }
 }

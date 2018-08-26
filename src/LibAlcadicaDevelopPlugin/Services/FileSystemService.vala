@@ -20,42 +20,35 @@
 */
 namespace Alcadica.Develop.Plugins.Services { 
 	public class FileSystemService {
-		public static List<File> change_files_directory (string fromdir, string todir, List<File> files, bool keep_original = false) {
-			List<File> results = new List<File> ();
-
-			foreach (File file in files) {
-				string filepath = file.get_path ().replace (fromdir, todir);
-				
-				try {
-					if (!file.copy (File.new_for_path (filepath), FileCopyFlags.OVERWRITE)) {
-						continue;
-					}
-				} catch (Error error) {
-					warning (error.message);
-				}
-
-				File newfile = File.new_for_path (filepath);
-
-				info (file.get_path ());
-				
-				if (is_file (file)) {
-					try {
-						string content = read_file_content (file.get_path ());
-						newfile.replace_contents (content.data, null, false, FileCreateFlags.NONE, null);
-					} catch (Error _error) {
-						warning (_error.message);
-					}
-				}
-
-				results.append (newfile);
-
-				if (!keep_original) {
-					file.delete_async ();
-				}
-			}
-			
-			return results;
-		}
+		public static bool dir_exists (string path) {
+            var file = File.new_for_path (path);
+        
+            if (file.query_exists ()) {
+                return file.query_file_type (FileQueryInfoFlags.NOFOLLOW_SYMLINKS, null) == FileType.DIRECTORY;
+            }
+        
+            return false;
+        }
+        
+        public static bool file_exists (string path) {
+            var file = File.new_for_path (path);
+        
+            if (file.query_exists ()) {
+                switch (file.query_file_type (0)) {
+                    case FileType.MOUNTABLE:
+                    case FileType.REGULAR:
+                    case FileType.SHORTCUT:
+                    case FileType.SPECIAL:
+                    case FileType.SYMBOLIC_LINK:
+                    case FileType.UNKNOWN:
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+        
+            return false;
+        }
 		
 		public static bool is_directory (File file) {
 			return file.query_file_type (FileQueryInfoFlags.NOFOLLOW_SYMLINKS) == FileType.DIRECTORY;
@@ -63,6 +56,19 @@ namespace Alcadica.Develop.Plugins.Services {
 
 		public static bool is_file (File file) {
 			return file.query_file_type (FileQueryInfoFlags.NOFOLLOW_SYMLINKS) == FileType.REGULAR;
+		}
+
+		public static bool mkdir (string path) {
+			if (dir_exists (path)) {
+                return false;
+            }
+            try {
+                File.new_for_path (path).make_directory_with_parents ();
+                return dir_exists (path);
+            } catch (Error error) {
+                warning ("mkdir: " + error.message + "\n path=" + path);
+                return false;
+            }
 		}
 
 		public static List<string> read_dir_recursive (File file) {
@@ -143,6 +149,12 @@ namespace Alcadica.Develop.Plugins.Services {
             }
             
             try {
+                File directories = File.new_for_path (Path.get_dirname (path));
+                
+                if (!directories.query_exists ()) {
+                    directories.make_directory_with_parents ();
+                }
+                
                 var dos = new DataOutputStream (file.create (FileCreateFlags.REPLACE_DESTINATION));
 
                 uint8[] data = content.data;

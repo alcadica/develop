@@ -29,9 +29,24 @@ namespace Alcadica.Develop.Plugins.Entities.Common {
 	}
 	
 	public class FormField<T> : Object {
+		protected bool _is_valid { get; set; }
+		public Form parent_form = null;
 		public FormFieldType field_type { get; set; }
 		public signal void on_change (T value);
 		public signal void validity_state_did_change (bool state);
+		public bool is_valid {
+			get {
+				return _is_valid;
+			}
+			set {
+				_is_valid = value;
+				validity_state_did_change (_is_valid);
+				
+				if (parent_form != null) {
+					parent_form.on_field_validity_state_change (this.field_name, this);
+				}
+			}
+		}
 		public string field_label { get; set; }
 		public string field_name { get; set; }
 		public T default_value { get; set; }
@@ -39,6 +54,15 @@ namespace Alcadica.Develop.Plugins.Entities.Common {
 		public FormField (string field_name, string field_label) {
 			this.field_name = field_name;
 			this.field_label = field_label;
+		}
+
+		public void subscribe_to_form (Form form) {
+			this.parent_form = form;
+			form.fields.append (this);
+		}
+
+		public void reset () {
+			this.is_valid = false;
 		}
 	}
 
@@ -107,15 +131,29 @@ namespace Alcadica.Develop.Plugins.Entities.Common {
 	
 	public class Form : Object {
 		public List<FormField> fields = new List<FormField> ();
+		public bool is_valid {
+			get {
+				int count = 0;
+
+				foreach (var field in fields) {
+					if (field.is_valid) {
+						count += 1;
+					}
+				}
+				return count == fields.length ();
+			}
+		}
 		public string title { get; set; }
-		public signal void on_item_change (string name);
+		public signal void on_item_change (string name, FormField instance);
+		public signal void on_field_validity_state_change (string field_name, FormField instance);
 
 		public FormField add_directory (string name, string label) {
 			FormField item = new FormFieldDirectory (name, label);
-			this.fields.append (item);
+			
+			item.subscribe_to_form (this);
 
 			item.on_change.connect(() => {
-				this.on_item_change (name);
+				this.on_item_change (name, item);
 			});
 			
 			return item;
@@ -123,10 +161,11 @@ namespace Alcadica.Develop.Plugins.Entities.Common {
 
 		public FormField add_file (string name, string label) {
 			FormField item = new FormFieldFile (name, label);
-			this.fields.append (item);
+			
+			item.subscribe_to_form (this);
 
 			item.on_change.connect(() => {
-				this.on_item_change (name);
+				this.on_item_change (name, item);
 			});
 
 			return item;
@@ -134,10 +173,11 @@ namespace Alcadica.Develop.Plugins.Entities.Common {
 
 		public FormFieldSelect add_select (string name, string label) {
 			FormFieldSelect item = new FormFieldSelect (name, label);
-			this.fields.append (item);
+			
+			item.subscribe_to_form (this);
 
 			item.on_change.connect(() => {
-				this.on_item_change (name);
+				this.on_item_change (name, item);
 			});
 
 			return item;
@@ -145,10 +185,11 @@ namespace Alcadica.Develop.Plugins.Entities.Common {
 
 		public FormField add_text (string name, string label) {
 			FormField item = new FormFieldText (name, label);
-			this.fields.append (item);
+			
+			item.subscribe_to_form (this);
 
 			item.on_change.connect(() => {
-				this.on_item_change (name);
+				this.on_item_change (name, item);
 			});
 
 			return item;
@@ -167,6 +208,12 @@ namespace Alcadica.Develop.Plugins.Entities.Common {
 			}
 
 			return item;
+		}
+
+		public void reset () {
+			foreach (var field in fields) {
+				field.reset ();
+			}
 		}
 	}
 }

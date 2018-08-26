@@ -29,45 +29,19 @@ namespace com.alcadica.develop.plugins.entities {
 			template_icon_name = "preferences-desktop";
 			template_name = _("Switchboard widget");
 
-			List<Common.KeyValuePair<int, string>> widget_types = new List<Common.KeyValuePair<int, string>> ();
+			var widget_type = this.form.add_select (_("Widget type"), "widget_type");
 
-			widget_types.append (new Common.KeyValuePair<int, string> (1, _("Personal")));
-			widget_types.append (new Common.KeyValuePair<int, string> (2, _("Hardware")));
-			widget_types.append (new Common.KeyValuePair<int, string> (3, _("Network & Wireless")));
-			widget_types.append (new Common.KeyValuePair<int, string> (4, _("Administration")));
-
-			var widget_type = this.add_token_list (_("Widget type"), "widget_type", widget_types);
-			var widget_name = this.add_token (_("Widget name"), "widget_name", "");
-			var widget_folder = this.add_folder_selector_token (_("Source code folder"), "source_folder");
-
-			this.form.get_by_name (widget_type.token_name).on_change.connect (value => {
-				int _value = (int) value;
-				
-				print (_value.to_string ());
-			});
-
-			widget_name.validate.connect (value => {
-				string _value = value.chomp ();
-
-				widget_name.is_valid = _value.length >= 3;
-			});
-
-			widget_type.is_valid = true;
+			widget_type.add_option (1, _("Personal"));
+			widget_type.add_option (2, _("Hardware"));
+			widget_type.add_option (3, _("Network & Wireless"));
+			widget_type.add_option (4, _("Administration"));
 			
-			widget_type.validate.connect (value => {
-				widget_type.is_valid = true;
-			});
+			var widget_name = this.form.add_text (_("Widget name"), "widget_name");
+			var widget_folder = this.form.add_directory (_("Source code folder"), "source_folder");
 		}
 
 		public override void on_request_create () {
-			string path = Path.build_filename (ElementaryTemplates.TEMPLATE_BASE_DIR, "app");
-			var token = this.get_token ("source_folder");
 			
-			this.set_files_from_directory (File.new_for_path (path));
-			
-			List<File> files = FileSystemService.change_files_directory (path, token.token_value, this.parse_files_with_tokens (), true);
-			
-			this.write_parsed_files (files);
 		}
 	}
 }

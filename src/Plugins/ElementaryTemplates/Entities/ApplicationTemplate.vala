@@ -29,40 +29,49 @@ namespace com.alcadica.develop.plugins.entities {
 			template_icon_name = "distributor-logo";
 			template_name = _("elementary OS Application");
 
-			var app_name = this.add_token (_("App name"), "appname");
-			var app_rdnn = this.add_token (_("RDNN name"), "rdnn_appname");
-			var app_folder = this.add_folder_selector_token (_("Source code folder"), "source_folder");
+			var app_name = this.form.add_text (_("App name"), "appname");
+			var app_name_token = this.add_token ("appname");
+			var app_rdnn = this.form.add_text (_("RDNN name"), "rdnn_appname");
+			var app_rdnn_token = this.add_token ("rdnn_appname");
+			var app_folder = this.form.add_directory (_("Source code folder"), "source_folder");
+			var app_folder_token = this.add_token ("source_folder");
 			
-			app_name.validate.connect (value => {
-				string _value = value.chomp ();
-				
-				app_name.is_valid = _value.len () >= 3;
+			app_name.on_change.connect (value => {
+				string _value = (string) value;
+				app_name.is_valid = _value.chomp ().length >= 3;
+				app_name_token.token_value = _value.chomp ();
 			});
 
-			app_folder.validate.connect (value => {
-				app_folder.is_valid = value != null; 
+			app_folder.on_change.connect (value => {
+				File file = (File) value;
+				
+				app_folder.is_valid = file != null; 
+
+				if (file != null) {
+					app_folder_token.token_value = file.get_path ();
+				}
 			});
 
-			app_rdnn.validate.connect (value => {
-				string _value = value.chomp ();
-				
-				app_rdnn.is_valid = RDNNService.is_valid_name (_value);
+			app_rdnn.on_change.connect (value => {
+				string _value = (string) value;
+				app_rdnn.is_valid = RDNNService.is_valid_name (_value.chomp ());
+				app_rdnn_token.token_value = _value.chomp ();
 			});
 		}
 
 		public override void on_request_create () {
-			string path = Path.build_filename (ElementaryTemplates.TEMPLATE_BASE_DIR, "app");
-			var token = this.get_token ("source_folder");
+			string source_folder = this.get_token ("source_folder").token_value;
+			string rdnn_appname = this.get_token ("rdnn_appname").token_value;
+			string root_dir = Path.build_filename (source_folder, rdnn_appname);
 			
-			this.set_files_from_directory (File.new_for_path (path));
+			this.add_files_from_directory (ElementaryTemplatesDirectory.APP);
+			this.change_files_directory (ElementaryTemplatesDirectory.APP, root_dir);
+			this.parse_files_content ();
+
+			FileSystemService.mkdir (root_dir);
 			
-			List<File> files = FileSystemService.change_files_directory (path, token.token_value, this.parse_files_with_tokens (), true);
-			
-			foreach (var file in files) {
-				info (file.get_path ());
-			}
-			
-			//  this.write_parsed_files (files);
+			this.write_files ();
+			this.unset_files ();
 		}
 	}
 }
