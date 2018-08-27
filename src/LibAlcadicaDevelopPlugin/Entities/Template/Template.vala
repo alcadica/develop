@@ -28,6 +28,7 @@ namespace Alcadica.Develop.Plugins.Entities.Template {
 		public string template_description { get; set; }
 		public string template_icon_name { get; set; }
 		public string template_name { get; set; }
+		public signal void on_template_created (string project_file_path);
 
 		public abstract void on_request_create ();
 

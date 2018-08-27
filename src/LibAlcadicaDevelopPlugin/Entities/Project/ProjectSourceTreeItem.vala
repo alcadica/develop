@@ -20,5 +20,7 @@
 */
 
 namespace Alcadica.Develop.Plugins.Entities.Project {
-	public class ProjectSourceTreeItem : Common.SourceTreeItem { }
+	public class ProjectSourceTreeItem : Common.SourceTreeItem {
+		
+	}
 }

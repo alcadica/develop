@@ -18,14 +18,26 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-namespace Alcadica.Develop.Plugins.Entities {
-	public class PluginContext {
-		public ApplicationContext application = new ApplicationContext ();
-		public BuildSystemContext build_system = new BuildSystemContext ();
-		public CommandContext command = new CommandContext ();
-		public EditorContext editor = new EditorContext ();	
-		public TemplateContext template = new TemplateContext ();
-		public ProjectContext project = new ProjectContext ();
-		public ScmContext scm = new ScmContext ();
+
+using Alcadica.Develop.Plugins;
+using Alcadica.Develop.Plugins.Entities.Project;
+
+namespace com.alcadica.develop.plugins.LanguageVala.entities { 
+	public class ValaProjectParser : ProjectParser {
+		public override string parser_name {
+			get {
+				return "valaproject";
+			}
+		}
+		public override string project_file_name {
+			get {
+				return "valaproject.json";
+			}
+		}
+		public override Project parse (string project_file_content) {
+			Project project = new Project (null, null);
+
+			return project;
+		}
 	}
 }

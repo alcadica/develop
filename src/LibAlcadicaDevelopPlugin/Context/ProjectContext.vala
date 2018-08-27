@@ -83,6 +83,15 @@ namespace Alcadica.Develop.Plugins.Entities {
 			Project.Project project;
 			Project.ProjectParser? parser = null;
 
+			for (int i = 0; i < this.parsers.length (); i++) {
+				var _parser = this.parsers.nth_data (i);
+
+				if (_parser.project_file_name == project_file) {
+					parser = _parser;
+					break;
+				}
+			}
+
 			if (parser != null) {
 				project = parser.parse (project_file);
 			} else {

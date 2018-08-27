@@ -23,17 +23,17 @@ using Alcadica.Develop.Plugins;
 
 [ModuleInit]
 public static Type plugin_init (GLib.TypeModule type_module) {
-	return typeof (com.alcadica.develop.plugins.LanguageVala);
+	return typeof (com.alcadica.develop.plugins.LanguageVala.LanguageValaPlugin);
 }
 
-namespace com.alcadica.develop.plugins {
-	public class LanguageVala : Plugin {
+namespace com.alcadica.develop.plugins.LanguageVala {
+	public class LanguageValaPlugin : Plugin {
 		public override string get_name () {
-			return "com.alcadica.develop.plugins.LanguageVala";
+			return "com.alcadica.develop.plugins.LanguageVala.LanguageValaPlugin";
 		}
 		
 		public override void activate (Entities.PluginContext context) {
-			
+			context.project.parsers.append (new entities.ValaProjectParser ());
 		}
 
 		public override void deactivate (Entities.PluginContext context) {

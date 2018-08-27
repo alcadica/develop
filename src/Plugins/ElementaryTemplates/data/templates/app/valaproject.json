@@ -1,0 +1,21 @@
+{
+  "name": "{{rdnn_appname}}",
+  "dependencies": [
+    {
+      "name": "granite",
+      "version": "latest"
+    },
+    {
+      "name": "gio-unix-2.0",
+      "version": "^2.20"
+    }
+  ],
+  "build": {
+    "build_system": "meson",
+    "directory": "build",
+    "type": "application"
+  },
+  "vala": {
+    "version": "^0.50"
+  }
+}

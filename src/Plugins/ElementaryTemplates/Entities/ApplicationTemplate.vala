@@ -63,6 +63,7 @@ namespace com.alcadica.develop.plugins.entities {
 			string source_folder = this.get_token ("source_folder").token_value;
 			string rdnn_appname = this.get_token ("rdnn_appname").token_value;
 			string root_dir = Path.build_filename (source_folder, rdnn_appname);
+			string project_file = Path.build_filename (root_dir, "valaproject.json");
 			
 			this.add_files_from_directory (ElementaryTemplatesDirectory.APP);
 			this.change_files_directory (ElementaryTemplatesDirectory.APP, root_dir);
@@ -72,6 +73,7 @@ namespace com.alcadica.develop.plugins.entities {
 			
 			this.write_files ();
 			this.unset_files ();
+			this.on_template_created (project_file);
 		}
 	}
 }

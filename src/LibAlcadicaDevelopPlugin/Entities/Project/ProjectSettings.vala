@@ -20,5 +20,7 @@
 */
 
 namespace Alcadica.Develop.Plugins.Entities.Project {
-	public class ProjectSettings : Common.SettingRegistry { }
+	public class ProjectSettings : Common.SettingRegistry {
+		
+	}
 }

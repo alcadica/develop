@@ -6,7 +6,10 @@ plugin_dependencies = [
 ]
 
 plugin_files = files (
-    'plugin.vala'
+    'plugin.vala',
+    'entities/Project/ValaProject.vala',
+    'entities/Project/ValaProjectJSON.vala',
+    'entities/Project/ValaProjectParser.vala'
 )
 
 my_plugin = shared_module(

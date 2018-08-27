@@ -18,14 +18,12 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-namespace Alcadica.Develop.Plugins.Entities {
-	public class PluginContext {
-		public ApplicationContext application = new ApplicationContext ();
-		public BuildSystemContext build_system = new BuildSystemContext ();
-		public CommandContext command = new CommandContext ();
-		public EditorContext editor = new EditorContext ();	
-		public TemplateContext template = new TemplateContext ();
-		public ProjectContext project = new ProjectContext ();
-		public ScmContext scm = new ScmContext ();
+
+using Alcadica.Develop.Plugins;
+using Alcadica.Develop.Plugins.Entities.Project;
+
+namespace com.alcadica.develop.plugins.LanguageVala.entities { 
+	public class ValaProjectJSON : Object {
+
 	}
 }
