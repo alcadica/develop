@@ -25,12 +25,11 @@ using Alcadica.Develop.Plugins.Entities.Project;
 namespace com.alcadica.develop.plugins.LanguageVala.entities { 
 	public class ValaProjectJSON : Object {
 		public string name { get; set; }
-		public ValaProjectJSONDependency[] dependencies { get; set; }
+		public List<ValaProjectJSONDependency> dependencies = new List<ValaProjectJSONDependency> ();
 		public ValaProjectJSONBuild build { get; set; }
 		public ValaProjectJSONVala vala { get; set; }
 
 		public ValaProjectJSON () {
-			this.dependencies = {};
 			this.build = new ValaProjectJSONBuild ();
 			this.vala = new ValaProjectJSONVala ();
 		}
@@ -51,13 +50,23 @@ namespace com.alcadica.develop.plugins.LanguageVala.entities {
 						project.name = object.get_string_member (member);
 					break;
 					case "build": 
-					
+						var build = object.get_object_member ("build");
+						
+						project.build.build_directory =  build.get_string_member ("build_directory");
+						project.build.build_system =  build.get_string_member ("build_system");
+						project.build.build_type =  build.get_string_member ("build_type");
 					break;
 					case "dependencies": 
-					
+   						object.get_array_member ("dependencies").foreach_element ((array, index, node) => {
+   							ValaProjectJSONDependency instance = new ValaProjectJSONDependency ();
+   							
+   							project.dependencies.append (instance);
+   						});
 					break;
 					case "vala": 
-					
+						var vala = object.get_object_member ("vala");
+						
+						project.vala.version = vala.get_string_member ("version");
 					break;
 				}
 			}
