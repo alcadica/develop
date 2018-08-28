@@ -34,8 +34,9 @@ namespace com.alcadica.develop.plugins.LanguageVala.entities {
 				return "valaproject.json";
 			}
 		}
-		public override Project parse (string project_file_content) {
+		public override Project parse (string project_file_content) throws Error {
 			Project project = new Project (null, null);
+			ValaProjectJSON project_json = ValaProjectJSON.from_json (project_file_content);
 
 			return project;
 		}

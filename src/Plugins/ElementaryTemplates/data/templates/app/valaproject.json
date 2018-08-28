@@ -11,9 +11,9 @@
     }
   ],
   "build": {
+    "build_directory": "build",
     "build_system": "meson",
-    "directory": "build",
-    "type": "application"
+    "build_type": "application"
   },
   "vala": {
     "version": "^0.50"

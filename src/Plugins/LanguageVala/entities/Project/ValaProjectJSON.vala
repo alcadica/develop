@@ -24,6 +24,60 @@ using Alcadica.Develop.Plugins.Entities.Project;
 
 namespace com.alcadica.develop.plugins.LanguageVala.entities { 
 	public class ValaProjectJSON : Object {
+		public string name { get; set; }
+		public ValaProjectJSONDependency[] dependencies { get; set; }
+		public ValaProjectJSONBuild build { get; set; }
+		public ValaProjectJSONVala vala { get; set; }
 
+		public ValaProjectJSON () {
+			this.dependencies = {};
+			this.build = new ValaProjectJSONBuild ();
+			this.vala = new ValaProjectJSONVala ();
+		}
+
+		public static ValaProjectJSON from_json (string content) throws Error {
+			var project = new ValaProjectJSON ();
+			Json.Parser parser = new Json.Parser ();
+			Json.Node node = parser.get_root ();
+			Json.Object object = node.get_object ();
+
+			if (node.get_node_type () != Json.NodeType.OBJECT) {
+				throw new ProjectParserError.INVALID_FORMAT ("Unexpected element type %s", node.type_name ());
+			}
+
+			foreach (var member in object.get_members ()) {
+				switch (member) {
+					case "name": 
+						project.name = object.get_string_member (member);
+					break;
+					case "build": 
+					
+					break;
+					case "dependencies": 
+					
+					break;
+					case "vala": 
+					
+					break;
+				}
+			}
+
+			return project;
+		}
+	}
+
+	public class ValaProjectJSONBuild : Object {
+		public string build_directory { get; set; }
+		public string build_system { get; set; }
+		public string build_type { get; set; }
+	}
+	
+	public class ValaProjectJSONDependency : Object {
+		public string name { get; set; }
+		public string version { get; set; }
+	}
+
+	public class ValaProjectJSONVala : Object {
+		public string version { get; set; }
 	}
 }
