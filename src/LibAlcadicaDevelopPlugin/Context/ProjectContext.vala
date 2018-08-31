@@ -80,26 +80,35 @@ namespace Alcadica.Develop.Plugins.Entities {
 				return;
 			}
 
+			string project_file_name = Path.get_basename (project_file);
+
 			Project.Project project;
 			Project.ProjectParser? parser = null;
 
 			for (int i = 0; i < this.parsers.length (); i++) {
 				var _parser = this.parsers.nth_data (i);
 
-				if (_parser.project_file_name == project_file) {
+				if (_parser.project_file_name == project_file_name) {
+					string parser_name = _parser.parser_name;
+					
 					parser = _parser;
+					debug (@"Found parser $parser_name for project file $project_file");
 					break;
 				}
 			}
 
-			if (parser != null) {
-				project = parser.parse (project_file);
-			} else {
-				project = new Project.Project (null, project_file);
+			try {
+				if (parser != null) {
+					project = parser.parse (project_file, Services.FileSystemService.read_file_content (project_file));
+				} else {
+					project = new Project.Project (project_file, null);
+				}
+				
+				this.open_projects.append (project);
+				this.project_did_open (project);
+			} catch (Error error) {
+				warning (error.message);
 			}
-			
-			this.open_projects.append (project);
-			this.project_did_open (project);
 		}
 	}
 }

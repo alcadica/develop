@@ -29,14 +29,33 @@ namespace com.alcadica.develop.plugins.LanguageVala.entities {
 				return "valaproject";
 			}
 		}
+		
 		public override string project_file_name {
 			get {
 				return "valaproject.json";
 			}
 		}
-		public override Project parse (string project_file_content) throws Error {
-			Project project = new Project (null, null);
+
+		public override Project parse (string filename, string project_file_content) throws Error {
 			ValaProjectJSON project_json = ValaProjectJSON.from_json (project_file_content);
+			string root_dir = Path.get_dirname (filename);
+
+			Project project = new Project (project_json.name, filename);
+
+			project.file_system.root_dir = root_dir;
+
+			foreach (string file in project_json.files.source) {
+				if (!project.file_system.has_file (file)) {
+					project.file_system.add (file);
+				}
+			}
+
+			project.tree.root_string_path = root_dir;
+			project.tree.root.node_name = project.project_name;
+
+			foreach (string file in project.file_system.files) {
+				project.tree.add_path (file);
+			}
 
 			return project;
 		}

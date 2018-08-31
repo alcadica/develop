@@ -27,6 +27,6 @@ namespace Alcadica.Develop.Plugins.Entities.Project {
 	public abstract class ProjectParser {
 		public abstract string parser_name { get; }
 		public abstract string project_file_name { get; }
-		public abstract Project parse (string project_file_content) throws Error;
+		public abstract Project parse (string project_file_path, string project_file_content) throws Error;
 	}
 }

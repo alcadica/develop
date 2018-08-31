@@ -21,5 +21,9 @@
 namespace Alcadica.Develop.Plugins.Entities {
 	public class ApplicationContext {
 		public Application.BottomToolbarContext bottom_toolbar = new Application.BottomToolbarContext ();
+		
+		public signal void show_editors ();
+		public signal void show_settings ();
+		public signal void show_templates ();
 	}
 }

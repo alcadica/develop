@@ -26,6 +26,7 @@ namespace Alcadica.Develop.Views {
 		
 		construct {
 			var action_manager = Services.ActionManager.instance;
+			var application_context = Services.Editor.PluginContext.context.application;
 			var editor = new Editor ();
 			var paned = new Paned (Orientation.HORIZONTAL);
 			var project_creator = new ProjectCreator ();
@@ -41,6 +42,18 @@ namespace Alcadica.Develop.Views {
 			this.show_child_on_activate (Actions.Window.SHOW_EDITOR);
 			this.show_child_on_activate (Actions.Window.SHOW_PROJECT_CREATION);
 			this.show_child_on_activate (Actions.Window.SHOW_SETTINGS);
+
+			application_context.show_editors.connect (() => {
+				show_child_on_activate (Actions.Window.SHOW_EDITOR);
+			});
+
+			application_context.show_settings.connect (() => {
+				show_child_on_activate (Actions.Window.SHOW_SETTINGS);
+			});
+
+			application_context.show_templates.connect (() => {
+				show_child_on_activate (Actions.Window.SHOW_PROJECT_CREATION);
+			});
 		}
 
 		private void show_child_on_activate (string child) {

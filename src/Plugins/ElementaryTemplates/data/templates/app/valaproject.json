@@ -1,5 +1,5 @@
 {
-  "name": "{{rdnn_appname}}",
+  "name": "{{appname}}",
   "dependencies": [
     {
       "name": "granite",
@@ -11,9 +11,36 @@
     }
   ],
   "build": {
-    "build_directory": "build",
-    "build_system": "meson",
-    "build_type": "application"
+    "directory": "build",
+    "output": "{{rdnn_appname}}",
+    "system": "meson",
+    "type": "application"
+  },
+  "files": {
+    "assets": [
+      {
+        "files": [
+          "data/icons"
+        ],
+        "type": "icons"
+      },
+      {
+        "files": [
+          "data/appdata.xml"
+        ],
+        "type": "appdata_xml"
+      },
+      {
+        "files": [
+          "data/{{rdnn_appname}}.desktop"
+        ],
+        "type": "desktop_entry"
+      }
+    ],
+    "source": [
+      "config.vala",
+      "src/Application.vala"
+    ]
   },
   "vala": {
     "version": "^0.50"

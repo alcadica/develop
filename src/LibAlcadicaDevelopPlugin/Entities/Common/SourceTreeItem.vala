@@ -34,6 +34,7 @@ namespace Alcadica.Develop.Plugins.Entities.Common {
 		public SourceTreeItem? parent = null;
 		public SourceTreeItem? root = null;
 		public SourceTree tree { get; set; }
+		public string node_name { get; set; }
 		public List<SourceTreeItem> children = new List<SourceTreeItem> ();
 
 		public void append_child (SourceTreeItem child) {
@@ -41,6 +42,8 @@ namespace Alcadica.Develop.Plugins.Entities.Common {
 				return;
 			}
 			
+			child.parent = this;
+			child.root = this.root;
 			this.children.append (child);
 			this.tree.item_did_add (child);
 		}

@@ -22,6 +22,7 @@
 namespace Alcadica.Develop.Plugins.Entities.Common {
 	public class SourceTree : Object {
 		public SourceTreeItem root { get; private set; }
+		public string root_string_path { get; set; }
 		public signal void item_did_add (SourceTreeItem item);
 		public signal void item_did_remove (SourceTreeItem item);
 		public signal void tree_did_change ();

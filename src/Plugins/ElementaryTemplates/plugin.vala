@@ -55,15 +55,21 @@ namespace com.alcadica.develop.plugins
 			context.template.subscribe (wingpanelIndicatorTemplate);
 
 			applicationTemplate.on_template_created.connect (project_file_path => {
+				info (@"Opening project $project_file_path");
 				context.project.open_project_file (project_file_path);
+				context.application.show_editors ();
 			});
 
 			switchboardWidgetTemplate.on_template_created.connect (project_file_path => {
+				info (@"Opening project $project_file_path");
 				context.project.open_project_file (project_file_path);
+				context.application.show_editors ();
 			});
 
 			wingpanelIndicatorTemplate.on_template_created.connect (project_file_path => {
+				info (@"Opening project $project_file_path");
 				context.project.open_project_file (project_file_path);
+				context.application.show_editors ();
 			});
 		}
 		

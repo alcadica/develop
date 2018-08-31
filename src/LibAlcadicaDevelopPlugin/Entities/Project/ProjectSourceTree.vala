@@ -21,6 +21,23 @@
 
 namespace Alcadica.Develop.Plugins.Entities.Project {
 	public class ProjectSourceTree : Common.SourceTree {
-		
+		public bool add_path (string path) {
+			string[] chunks = path.split ("/");
+			Common.SourceTreeItem current_node = root;
+
+			for (int i = 0; i < chunks.length; i++) {
+				Common.SourceTreeItem new_node = new Common.SourceTreeItem ();
+				string chunk = chunks[i];
+
+				debug ("[ProjectSourceTree] adding new node with path " + chunk);
+
+				new_node.node_name = chunk;
+
+				current_node.append_child (new_node);
+				current_node = new_node;
+			}
+			
+			return true;
+		}
 	}
 }
