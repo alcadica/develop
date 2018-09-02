@@ -1,5 +1,5 @@
-{{execname}} (0.1) precise; urgency=low
+{{rdnn_appname}} (0.1) precise; urgency=low
 
   * Initial Release.
 
- -- {{name}} <{{email}}>  Sat, 1 Jan 1970 00:00:00 -0500
+ -- {{user_name}} <{{user_email}}>  Sat, 1 Jan 1970 00:00:00 -0500

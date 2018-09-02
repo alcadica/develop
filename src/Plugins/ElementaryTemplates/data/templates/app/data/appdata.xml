@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2018 {{name}} <{{email}}> -->
+<!-- Copyright 2018 {{user_name}} <{{email}}> -->
 <component type="desktop">
-  <id>{{execname}}.desktop</id>
+  <id>{{rdnn_appname}}.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
-  <project_group>{{name}}</project_group>
+  <project_group>{{user_name}}</project_group>
   <project_license>GPL-3.0+</project_license>
   <name></name>
   <summary></summary>
@@ -12,7 +12,7 @@
     <release version="0.0.1" date="2018-05-05"/>
   </releases>
   <provides>
-    <binary>{{execname}}</binary>
+    <binary>{{rdnn_appname}}</binary>
   </provides>
   <content_rating type="oars-1.1">
     <content_attribute id="violence-cartoon">none</content_attribute>
@@ -43,11 +43,11 @@
     <content_attribute id="money-purchasing">none</content_attribute>
     <content_attribute id="money-gambling">none</content_attribute>
   </content_rating>
-  <developer_name>{{name}}</developer_name>
-  <url type="homepage">{{site}}</url>
-  <url type="bugtracker">{{issue_tracker_url}}</url>
-  <url type="help">{{issue_tracker_url}}</url>
-  <update_contact>{{antispammail}}</update_contact>
+  <developer_name>{{user_name}}</developer_name>
+  <url type="homepage">{{user_site}}</url>
+  <url type="bugtracker">{{user_issue_tracker_url}}</url>
+  <url type="help">{{user_issue_tracker_url}}</url>
+  <update_contact>{{user_antispam_mail}}</update_contact>
   <screenshots>
     <screenshot type="default">
     </screenshot>

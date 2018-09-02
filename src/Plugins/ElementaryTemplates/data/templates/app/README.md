@@ -1,4 +1,4 @@
-# {{projectname}} 
+# {{rdnn_appname}} 
 
 Adds your awesome app description here!
 
@@ -6,7 +6,7 @@ Adds your awesome app description here!
 
 ## Get it from the elementary OS AppCenter!
 
-[![Get it on AppCenter](https://appcenter.elementary.io/badge.svg)](https://appcenter.elementary.io/{{projectname}})
+[![Get it on AppCenter](https://appcenter.elementary.io/badge.svg)](https://appcenter.elementary.io/{{rdnn_appname}})
 
 This app is available on the elementary OS AppCenter.
 
@@ -28,14 +28,14 @@ Ensure you have these dependencies installed
 # install elementary-sdk, meson and ninja 
 sudo apt install elementary-sdk meson ninja
 # clone repository
-git clone {{repository_url}} {{projectname}}
+git clone {{repository_url}} {{rdnn_appname}}
 # cd to dir
-cd {{projectname}}
+cd {{rdnn_appname}}
 # run meson
 meson build --prefix=/usr
 # cd to build, build and test
 cd build
-sudo ninja install && {{projectname}}
+sudo ninja install && {{rdnn_appname}}
 ```
 
 ## Generating pot file
@@ -45,8 +45,8 @@ sudo ninja install && {{projectname}}
 cd build
 
 # generates pot file
-sudo ninja {{projectname}}-pot
+sudo ninja {{rdnn_appname}}-pot
 
 # to regenerate and propagate changes to every po file
-sudo ninja {{projectname}}-update-po
+sudo ninja {{rdnn_appname}}-update-po
 ```

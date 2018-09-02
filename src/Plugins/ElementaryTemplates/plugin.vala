@@ -29,13 +29,6 @@ public static Type plugin_init (GLib.TypeModule type_module)
 
 namespace com.alcadica.develop.plugins
 {
-	public class ElementaryTemplatesDirectory {
-		public const string BASE = "/usr/share/com.github.alcadica.develop.plugin-elementary-os-templates/templates/";
-		public const string APP = "/usr/share/com.github.alcadica.develop.plugin-elementary-os-templates/templates/app";
-		public const string SWITCHBOARD = "/usr/share/com.github.alcadica.develop.plugin-elementary-os-templates/templates/switchboard-widget";
-		public const string WINGPANEL = "/usr/share/com.github.alcadica.develop.plugin-elementary-os-templates/templates/wingpanel-widget";
-	}
-
 	public class ElementaryTemplates : Plugin
 	{
 		public override string get_name ()

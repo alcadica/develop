@@ -60,9 +60,7 @@ namespace com.alcadica.develop.plugins.entities {
 		}
 
 		public override void on_request_create () {
-			string source_folder = this.get_token ("source_folder").token_value;
-			string rdnn_appname = this.get_token ("rdnn_appname").token_value;
-			string root_dir = Path.build_filename (source_folder, rdnn_appname);
+			string root_dir = Path.build_filename (this.get_token ("source_folder").token_value, this.get_token ("rdnn_appname").token_value);
 			string project_file = Path.build_filename (root_dir, "valaproject.json");
 			
 			this.add_files_from_directory (ElementaryTemplatesDirectory.APP);

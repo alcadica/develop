@@ -73,7 +73,11 @@ namespace com.alcadica.develop.plugins.LanguageVala.entities {
 					break;
 					case "dependencies": 
    						object.get_array_member ("dependencies").foreach_element ((array, index, node) => {
-   							ValaProjectJSONDependency instance = new ValaProjectJSONDependency ();
+							ValaProjectJSONDependency instance = new ValaProjectJSONDependency ();
+							var array_item = array.get_object_element (index);
+							   
+							instance.name = array_item.get_string_member ("name");
+							instance.version = array_item.get_string_member ("version");
    							
    							project.dependencies.append (instance);
    						});

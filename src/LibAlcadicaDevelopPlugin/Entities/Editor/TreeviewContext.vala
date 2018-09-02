@@ -20,10 +20,14 @@
 */
 namespace Alcadica.Develop.Plugins.Entities.Editor {
 	public class TreeviewContext {
+		public List<Common.SourceTree> treeview = new List<Common.SourceTree> ();
 		public signal void on_double_click (TreeviewMenuContext context);
+		public signal void on_right_click (TreeviewMenuContext context);
 		public signal void on_file_right_click (TreeviewMenuContext context);
 		public signal void on_folder_right_click (TreeviewMenuContext context);
 		public signal void on_select (TreeviewMenuContext context);
+		public signal void on_treeview_subscribe (Common.SourceTree treeview);
+		public signal void on_treeview_unsubscribe (Common.SourceTree treeview);
 		public signal void request_add_new_directory (TreeviewMenuContext context);
 		public signal void request_add_new_file (TreeviewMenuContext context);
 		public signal void request_close_directory (string directory_name);
@@ -33,5 +37,15 @@ namespace Alcadica.Develop.Plugins.Entities.Editor {
 		public signal void request_rename_directory (TreeviewMenuContext context);
 		public signal void request_rename_file (TreeviewMenuContext context);
 		public signal void request_toggle_directory (string directory_name);
+
+		public void subscribe_treeview (Common.SourceTree treeview) {
+			this.treeview.append (treeview);
+			this.on_treeview_subscribe (treeview);
+		}
+
+		public void unsubscribe_treeview (Common.SourceTree treeview) {
+			this.treeview.remove (treeview);
+			this.on_treeview_unsubscribe (treeview);
+		}
 	}
 }

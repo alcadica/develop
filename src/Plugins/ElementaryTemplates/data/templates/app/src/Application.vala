@@ -1,5 +1,5 @@
 /*
-* Copyright (c) {{yearrange}} {{name}} ({{site}})
+* Copyright (c) {{yearrange}} {{user_name}} ({{user_site}})
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -16,18 +16,18 @@
 * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301 USA
 *
-* Authored by: {{name}} <{{site}}>
+* Authored by: {{user_name}} <{{user_site}}>
 */
 using Granite;
 using Granite.Widgets;
 using Gtk;
 
-namespace {{projectname}} {
+namespace {{rdnn_appname}} {
     public class Application : Granite.Application {
 
         public Application () {
             Object(
-                application_id: "{{execname}}", 
+                application_id: "{{rdnn_appname}}", 
                 flags: ApplicationFlags.FLAGS_NONE
             );
         }
@@ -36,8 +36,8 @@ namespace {{projectname}} {
             var window = new Gtk.ApplicationWindow (this);
             var main = new Gtk.Grid ();
 
-            window.title = "{{projectname}}";
-            window.set_default_size (900, 640);
+            window.title = "{{appname}}";
+            window.set_default_size (400, 300);
             window.add (main);
             window.show_all ();
         }

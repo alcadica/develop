@@ -21,7 +21,24 @@
 
 namespace Alcadica.Develop.Plugins.Entities.Common {
 	public class SourceTree : Object {
+		protected string _domain { get; set; }
 		public SourceTreeItem root { get; private set; }
+		public string domain {
+			get {
+				return _domain;
+			}
+			set {
+				_domain = value;
+
+				debug (@"Setting domain to $_domain");
+				
+				foreach (var child in this.root.get_flatterned_children ()) {
+					if (child != null) {
+						child.domain = _domain;
+					}
+				}
+			}
+		}
 		public string root_string_path { get; set; }
 		public signal void item_did_add (SourceTreeItem item);
 		public signal void item_did_remove (SourceTreeItem item);
@@ -33,6 +50,14 @@ namespace Alcadica.Develop.Plugins.Entities.Common {
 
 			this.item_did_add.connect (() => { this.tree_did_change (); });
 			this.item_did_remove.connect (() => { this.tree_did_change (); });
+		}
+
+		public SourceTreeItem create_item (string node_name) {
+			SourceTreeItem item = new SourceTreeItem ();
+
+			item.node_name = node_name;
+
+			return item;
 		}
 	}
 }

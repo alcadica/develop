@@ -20,10 +20,26 @@
 */
 
 namespace Alcadica.Develop.Plugins.Entities.Common {
+	public enum SourceTreeItemType {
+		Custom,
+		Directory,
+		File
+	}
+	
 	public class SourceTreeItem : Object {
+		public bool has_domain {
+			get {
+				return this.domain.chomp () != "";
+			}
+		}
 		public bool has_parent {
 			get {
 				return this.parent != null;
+			}
+		}
+		public bool has_type {
+			get {
+				return this.node_type != null;
 			}
 		}
 		public bool is_leaf { 
@@ -34,7 +50,9 @@ namespace Alcadica.Develop.Plugins.Entities.Common {
 		public SourceTreeItem? parent = null;
 		public SourceTreeItem? root = null;
 		public SourceTree tree { get; set; }
+		public string domain { get; set; }
 		public string node_name { get; set; }
+		public SourceTreeItemType? node_type = null;
 		public List<SourceTreeItem> children = new List<SourceTreeItem> ();
 
 		public void append_child (SourceTreeItem child) {
@@ -55,7 +73,9 @@ namespace Alcadica.Develop.Plugins.Entities.Common {
 				return result;
 			}
 
-			result = this.children.copy ();
+			foreach (var item in this.children) {
+				result.append (item);
+			}
 			
 			for (int i = 0; i < result.length (); i++) {
 				var _r = result.nth_data (i).get_flatterned_children ();

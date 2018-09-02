@@ -1,5 +1,5 @@
 # project name and programming language
-project('{{execname}}', 'vala', 'c', version: '0.1.0')
+project('{{rdnn_appname}}', 'vala', 'c', version: '0.1.0')
 
 message ('project name and programming language')
 

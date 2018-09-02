@@ -19,37 +19,12 @@
 * Authored by: alcadica <github@alcadica.com>
 */
 
-namespace Alcadica.Develop.Plugins.Entities.Editor {
-	protected class TreeviewMenuItemContext {
-		public List<TreeviewMenuItemContext> children = new List<TreeviewMenuItemContext> ();
-		public string label { get; set; }
-		public signal void activate ();
-	}
-
-	public enum TreeviewMenuContextType {
-		Custom,
-		Directory,
-		File,
-		Symbol
-	}
-	
-	public class TreeviewMenuContext {
-
-		public File file { get; set; }
-		
-		public List<TreeviewMenuItemContext> items = new List<TreeviewMenuItemContext> ();
-		
-		public TreeviewMenuContextType item_type { get; set; }
-
-		public TreeviewMenuItemContext add_item (string label) {
-			info (@"TreeviewMenuContext.add_item $label");
-			
-			TreeviewMenuItemContext entity = new TreeviewMenuItemContext ();
-			entity.label = label;
-
-			items.append (entity);
-			
-			return entity;
-		}
-	}
+namespace com.alcadica.develop.plugins.entities
+{
+	public class ElementaryTemplatesDirectory {
+		public const string BASE = "/usr/share/com.github.alcadica.develop.plugin-elementary-os-templates/templates/";
+		public const string APP = "/usr/share/com.github.alcadica.develop.plugin-elementary-os-templates/templates/app";
+		public const string SWITCHBOARD = "/usr/share/com.github.alcadica.develop.plugin-elementary-os-templates/templates/switchboard-widget";
+		public const string WINGPANEL = "/usr/share/com.github.alcadica.develop.plugin-elementary-os-templates/templates/wingpanel-widget";
+    }
 }

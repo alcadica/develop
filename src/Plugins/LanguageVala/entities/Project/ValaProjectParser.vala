@@ -37,12 +37,24 @@ namespace com.alcadica.develop.plugins.LanguageVala.entities {
 		}
 
 		public override Project parse (string filename, string project_file_content) throws Error {
+			debug (@"Parsing $filename");
+			
 			ValaProjectJSON project_json = ValaProjectJSON.from_json (project_file_content);
+
+			debug (@"Project parsed");
+			
 			string root_dir = Path.get_dirname (filename);
+
+			debug ("Instancing project " + project_json.name);
 
 			Project project = new Project (project_json.name, filename);
 
+			debug ("Done");
+			debug (@"Setting project.file_system.root_dir to $root_dir");
+
 			project.file_system.root_dir = root_dir;
+
+			debug ("Setting project source files (" + project_json.files.source.length ().to_string () + " files)");
 
 			foreach (string file in project_json.files.source) {
 				if (!project.file_system.has_file (file)) {
@@ -50,12 +62,39 @@ namespace com.alcadica.develop.plugins.LanguageVala.entities {
 				}
 			}
 
+			debug (@"Setting project.tree.root_string_path to $root_dir");
+			
 			project.tree.root_string_path = root_dir;
-			project.tree.root.node_name = project.project_name;
+			
+			debug ("Setting project.tree.root.node_name to " + project.project_name);
 
-			foreach (string file in project.file_system.files) {
-				project.tree.add_path (file);
+			project.tree.root.node_name = project.project_name;
+			
+			debug ("Creating dependencies tree");
+			
+			var dependencies_tree = project.tree.create_item (_("Dependencies"));
+
+			project.tree.root.append_child (dependencies_tree);
+
+			foreach (var dependency in project_json.dependencies) {
+				project.tree.add_path (dependency.name + " " + dependency.version, dependencies_tree);
 			}
+
+			var sources_tree = project.tree.create_item (_ ("Sources"));
+
+			project.tree.root.append_child (sources_tree);
+			
+			debug ("Setting project.tree path items (" + project.file_system.files.length ().to_string () + " items)");
+			
+			foreach (string file in project.file_system.files) {
+				if (!project.tree.add_path (file, sources_tree)) {
+					warning (@"Cannot add file $file");
+				}
+			}
+
+			project.tree.domain = LanguageValaPlugin.PluginDomain;
+
+			debug ("Done, returning instance");
 
 			return project;
 		}

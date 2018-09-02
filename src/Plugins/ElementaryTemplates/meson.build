@@ -8,6 +8,7 @@ plugin_dependencies = [
 plugin_files = files (
     'plugin.vala',
     'Entities/ApplicationTemplate.vala',
+    'Entities/ElementaryTemplatesDirectory.vala',
     'Entities/SwitchboardWidgetTemplate.vala',
     'Entities/WingpanelIndicatorTemplate.vala'
 )

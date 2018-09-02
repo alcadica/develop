@@ -1,7 +1,7 @@
-Source: {{execname}}.develop
+Source: {{rdnn_appname}}
 Section: x11
 Priority: extra
-Maintainer: {{name}} <{{email}}>
+Maintainer: {{user_name}} <{{user_email}}>
 Build-Depends: meson,
               debhelper (>= 9),
               gettext,
@@ -11,7 +11,7 @@ Build-Depends: meson,
               valac (>= 0.26)
 
 Standards-Version: 3.9.3
-Package: {{execname}}.develop
+Package: {{rdnn_appname}}.develop
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: 

@@ -43,30 +43,15 @@ namespace Alcadica.Develop.Widgets.Window {
 			var manager = Alcadica.Develop.Services.ActionManager.instance;
 
 			button_back.clicked.connect (() => {
-				manager.dispatch (Actions.Window.SHOW_EDITOR);
-				button_back.hide ();
+				Services.Editor.PluginContext.context.application.show_editors();
 			});
 
 			button_settings.clicked.connect(() => {
-				manager.dispatch (Actions.Window.SETTINGS_OPEN);
+				Services.Editor.PluginContext.context.application.show_settings ();
 			});
 
 			manager.get_action (Actions.Window.START).activate.connect (() => {
 				button_back.hide ();
-			});
-
-			manager.get_action (Actions.Window.SHOW_PROJECT_CREATION).activate.connect (() => {
-				button_back.show ();
-			});
-
-			manager.get_action (Actions.Window.SETTINGS_OPEN).activate.connect (() => {
-				button_settings.hide ();
-				button_back.show ();
-			});
-			
-			manager.get_action (Actions.Window.SETTINGS_CLOSE).activate.connect (() => {
-				button_back.hide ();
-				button_settings.show ();
 			});
 
 			manager.get_action (Actions.Window.FIRST_RUN).activate.connect (() => {
@@ -75,6 +60,18 @@ namespace Alcadica.Develop.Widgets.Window {
 
 			manager.get_action (Actions.Window.FIRST_RUN_END).activate.connect (() => {
 				button_settings.show ();
+			});
+			
+			Services.Editor.PluginContext.context.application.show_editors.connect (() => {
+				button_back.hide ();
+			});
+
+			Services.Editor.PluginContext.context.application.show_settings.connect (() => {
+				button_back.show ();
+			});
+
+			Services.Editor.PluginContext.context.application.show_templates.connect (() => {
+				button_back.show ();
 			});
 		}
 	}

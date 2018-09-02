@@ -35,7 +35,6 @@ namespace Alcadica.Develop.Views {
 		
 		construct {
 			var actions_box = new Box (Orientation.HORIZONTAL, 36);
-			var manager = Services.ActionManager.instance;
 			var category_stack = new Stack ();
 			var template_stack = new Stack ();
 
@@ -58,7 +57,7 @@ namespace Alcadica.Develop.Views {
 			this.pack1 (category_stack, true, false);
 			this.pack2 (template_stack, true, false);
 
-			manager.get_action (Actions.Window.SHOW_PROJECT_CREATION).activate.connect (() => {
+			PluginContext.context.application.show_templates.connect (() => {
 				this.empty_list ();
 				this.populate_category_list ();
 				this.show_all ();

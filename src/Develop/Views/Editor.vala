@@ -23,6 +23,7 @@ namespace Alcadica.Develop.Views {
 	public class Editor : Gtk.Box {
 		construct {
 			var aside = new Alcadica.Develop.Widgets.Editor.Aside ();
+			var aside_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 			var bottom_bar = new Alcadica.Develop.Widgets.Editor.BottomBar ();
 			var paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
 			var scrolled_window = new Gtk.ScrolledWindow (null, null);
@@ -35,11 +36,12 @@ namespace Alcadica.Develop.Views {
 
 			source_grid.add(scrolled_window);
 
-			paned.pack1 (aside, false, true);
+			aside_box.add (toolbar);
+			aside_box.add (aside);
+
+			paned.pack1 (aside_box, false, true);
 			//  paned.pack2 (source_grid, false, false);
 			paned.set_position (200);
-
-			source_grid.add(source_view);
 
 			this.pack_start (toolbar, false, false);
 			this.add (paned);

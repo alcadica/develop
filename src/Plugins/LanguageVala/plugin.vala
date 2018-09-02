@@ -28,16 +28,21 @@ public static Type plugin_init (GLib.TypeModule type_module) {
 
 namespace com.alcadica.develop.plugins.LanguageVala {
 	public class LanguageValaPlugin : Plugin {
+		protected entities.ValaProjectParser parser { get; set; }
+
+		public static string PluginDomain = "com.alcadica.develop.plugins.LanguageVala.LanguageValaPlugin";
+		
 		public override string get_name () {
 			return "com.alcadica.develop.plugins.LanguageVala.LanguageValaPlugin";
 		}
 		
 		public override void activate (Entities.PluginContext context) {
-			context.project.parsers.append (new entities.ValaProjectParser ());
+			parser = new entities.ValaProjectParser ();
+			context.project.subscribe_parser (parser);
 		}
 
 		public override void deactivate (Entities.PluginContext context) {
-			
+			context.project.unsubscribe_parser (parser);
 		}
 		
 		public override void registered () {

@@ -103,12 +103,49 @@ namespace Alcadica.Develop.Plugins.Entities {
 				} else {
 					project = new Project.Project (project_file, null);
 				}
-				
-				this.open_projects.append (project);
-				this.project_did_open (project);
+
+				if (project != null) {
+					this.open_projects.append (project);
+					this.project_did_open (project);
+				}
 			} catch (Error error) {
-				warning (error.message);
+				warning ("[open_project_file]" + error.message);
 			}
+		}
+
+		public bool is_parser_subscribed (Project.ProjectParser parser) {
+			bool result = false;
+
+			for (int i = 0; i < this.parsers.length (); i++) {
+				if (parser.parser_name == this.parsers.nth_data (i).parser_name) {
+					result = true;
+					break;
+				}
+			}
+
+			return result;
+		}
+
+		public bool subscribe_parser (Project.ProjectParser parser) {
+			bool result = false;
+
+			if (!this.is_parser_subscribed (parser)) {
+				this.parsers.append (parser);
+				result = true;
+			}
+
+			return result;
+		}
+
+		public bool unsubscribe_parser (Project.ProjectParser parser) {
+			bool result = false;
+
+			if (this.is_parser_subscribed (parser)) {
+				this.parsers.remove (parser);
+				result = true;
+			}
+			
+			return result;
 		}
 	}
 }

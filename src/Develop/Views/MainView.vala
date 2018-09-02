@@ -44,21 +44,25 @@ namespace Alcadica.Develop.Views {
 			this.show_child_on_activate (Actions.Window.SHOW_SETTINGS);
 
 			application_context.show_editors.connect (() => {
-				show_child_on_activate (Actions.Window.SHOW_EDITOR);
+				show_child (Actions.Window.SHOW_EDITOR);
 			});
 
 			application_context.show_settings.connect (() => {
-				show_child_on_activate (Actions.Window.SHOW_SETTINGS);
+				show_child (Actions.Window.SHOW_SETTINGS);
 			});
 
 			application_context.show_templates.connect (() => {
-				show_child_on_activate (Actions.Window.SHOW_PROJECT_CREATION);
+				show_child (Actions.Window.SHOW_PROJECT_CREATION);
 			});
+		}
+
+		private void show_child (string child) {
+			stack.set_visible_child_full (child, StackTransitionType.CROSSFADE);
 		}
 
 		private void show_child_on_activate (string child) {
 			Services.ActionManager.instance.get_action (child).activate.connect (() => {
-				stack.set_visible_child_full (child, StackTransitionType.CROSSFADE);
+				show_child (child);
 			});
 		}
 	}

@@ -1,0 +1,1 @@
+sudo ninja -C build/ install && GTK_DEBUG=interactive com.github.alcadica.develop
