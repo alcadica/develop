@@ -14,7 +14,11 @@ plugin_files = files (
     'plugin.vala',
     'entities/Project/ValaProject.vala',
     'entities/Project/ValaProjectJSON.vala',
-    'entities/Project/ValaProjectParser.vala'
+    'entities/Project/ValaProjectParser.vala',
+    'treeview/AssetsHandler.vala',
+    'treeview/DependenciesHandler.vala',
+    'treeview/SourceHandler.vala',
+    'TreeviewHandler.vala'
 )
 
 my_plugin = shared_module(

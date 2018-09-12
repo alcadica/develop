@@ -37,8 +37,12 @@ namespace com.alcadica.develop.plugins.LanguageVala {
 		}
 		
 		public override void activate (Entities.PluginContext context) {
+			TreeviewHandlers.plugin_context = context;
+			
 			parser = new entities.ValaProjectParser ();
 			context.project.subscribe_parser (parser);
+
+			context.editor.treeview.on_folder_right_click.connect (TreeviewHandlers.handle_menu_folder_right_click);
 		}
 
 		public override void deactivate (Entities.PluginContext context) {
