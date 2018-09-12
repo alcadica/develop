@@ -110,13 +110,32 @@ namespace com.alcadica.develop.plugins.LanguageVala.entities {
 								});
 							}
 
-							if (asset_object.has_member ("dest")) {
+							if (!asset_object.has_member ("dest") && !asset_object.has_member ("type")) {
+								throw new ProjectParserError.INVALID_FORMAT ("Missing dest member on index %s", index.to_string ());
+							} else if (!asset_object.has_member ("dest") && asset_object.has_member ("type")) {
+								switch (asset_object.get_string_member ("type").up ()) {
+									case ValaProjectJSONFilesAssetType.APP_DATA_XML:
+										asset.asset_dest = "/usr/share/metainfo";
+										break;
+									case ValaProjectJSONFilesAssetType.DESKTOP_ENTRY:
+										asset.asset_dest = "/usr/share/applications";
+										break;
+									case ValaProjectJSONFilesAssetType.ICONS:
+										asset.asset_dest = "/usr/share/icons/hicolor";
+										break;
+									default:
+										throw new ProjectParserError.INVALID_FORMAT ("Missing dest member on index %s", index.to_string ());
+										break;
+								}
+							} else {
 								asset.asset_dest = asset_object.get_string_member ("dest");
 							}
 
 							if (asset_object.has_member ("type")) {
 								asset.asset_type = asset_object.get_string_member ("type");
 							}
+
+							project.files.assets.append (asset);
 						});
 
 						files.get_array_member ("source").foreach_element ((array, index) => {
@@ -157,7 +176,7 @@ namespace com.alcadica.develop.plugins.LanguageVala.entities {
 	}
 
 	public class ValaProjectJSONFilesAsset : Object {
-		public string? asset_dest { get; set; }
+		public string asset_dest { get; set; }
 		public string? asset_type { get; set; }
 		public List<string> asset_files = new List<string> ();
 	}

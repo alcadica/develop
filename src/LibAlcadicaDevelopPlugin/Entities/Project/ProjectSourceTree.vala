@@ -37,6 +37,15 @@ namespace Alcadica.Develop.Plugins.Entities.Project {
 				Common.SourceTreeItem new_node = new Common.SourceTreeItem ();
 				string chunk = chunks[i];
 
+				if (chunk == "") {
+					continue;
+				}
+
+				if (current_node.has_child_by_name (chunk)) {
+					current_node = current_node.get_child_by_name (chunk);
+					continue;
+				}
+
 				debug ("[ProjectSourceTree] adding new node with path " + chunk);
 
 				new_node.node_name = chunk;

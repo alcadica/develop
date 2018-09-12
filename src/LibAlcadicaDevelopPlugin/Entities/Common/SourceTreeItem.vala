@@ -86,9 +86,28 @@ namespace Alcadica.Develop.Plugins.Entities.Common {
 			return result;
 		}
 
+		public SourceTreeItem? get_child_by_name (string name) {
+			SourceTreeItem? result = null;
+
+			for (int i = 0; i < this.children.length (); i++) {
+				var item = this.children.nth_data (i);
+
+				if (item.node_name == name) {
+					result = item;
+					break;
+				}
+			}
+
+			return result;
+		}
+
 		public bool has_child (SourceTreeItem child) {
 			return this.children.find (child).length () > 0;
 		}
+
+		public bool has_child_by_name (string name) {
+			return get_child_by_name (name) != null;
+		}		
 
 		public void remove_child (SourceTreeItem child) {
 			if (!this.has_child (child)) {

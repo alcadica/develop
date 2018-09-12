@@ -19,8 +19,7 @@
 * Authored by: alcadica <github@alcadica.com>
 */
 using Gtk;
-//  using Granite.Widgets;
-using Alcadica.Widgets.Editor.SourceList;
+using Granite.Widgets;
 using Alcadica.Develop.Services.Editor;
 
 namespace Alcadica.Develop.Widgets.Editor {
@@ -33,56 +32,47 @@ namespace Alcadica.Develop.Widgets.Editor {
 			this.add (this.source_list);
 		}
 
-		private void bind_events (Item item, Plugins.Entities.Common.SourceTreeItem source_item) {
-			var treeview_context = PluginContext.context.editor.treeview;
-			
-			item.action_activated.connect (() => {
-				var context = this.create_context ();
-				treeview_context.on_select (context);
-			});
-			
-			item.activated.connect (() => {
-				var context = this.create_context ();
-				treeview_context.on_double_click (context);
-			});
-		}
-
-		private Alcadica.Develop.Plugins.Entities.Editor.TreeviewMenuContext create_context () {
-			return new Alcadica.Develop.Plugins.Entities.Editor.TreeviewMenuContext ();
-		}
-
-		private Item create_item (Plugins.Entities.Common.SourceTreeItem item) {
-			Item source_list_item;
-
-			if (item.is_leaf) {
-				debug ("[create_item] creating leaf item " + item.node_name);
-				source_list_item = new Item (item.node_name);
-			} else {
-				debug ("[create_item] creating folder item " + item.node_name);
-				source_list_item = ((Item) new ExpandableItem (item.node_name));
-
-				foreach (var child in item.children) {
-					((ExpandableItem) source_list_item).add (this.create_item (child));
-				}
-			}
+		private SourceList.ExpandableItem create_parent_item (Plugins.Entities.Common.SourceTreeItem item) {
+			debug ("[create_item] creating folder item " + item.node_name);
+			SourceList.ExpandableItem source_list_item = new SourceList.ExpandableItem ();
 
 			source_list_item.name = item.node_name;
 
-			this.bind_events ((Item) source_list_item, item);
-			
+			if (item.children.length () > 0) {
+				foreach (var child in item.children) {
+					if (child.is_leaf) {
+						source_list_item.add (this.create_leaf_item (child));
+					} else {
+						source_list_item.add (this.create_parent_item (child));
+					}
+				}
+			}
+
 			return source_list_item;
+		}
+
+		private SourceList.Item create_leaf_item (Plugins.Entities.Common.SourceTreeItem item) {
+			debug ("[create_item] creating leaf item " + item.node_name);
+			var list_item = new SourceList.Item ();
+
+			list_item.name = item.node_name;
+			
+			return list_item;
 		}
  
 		public void render () {
-			ExpandableItem root = new ExpandableItem (source_tree.root.node_name);
+			SourceList.ExpandableItem root = new SourceList.ExpandableItem (source_tree.root.node_name);
 			
 			debug ("Adding items to source_list.root");
 
 			foreach (var node in source_tree.root.children) {
-				root.add (create_item (node));
+				if (node.is_leaf) {
+					root.add (create_leaf_item (node));
+				} else {
+					root.add (create_parent_item (node));
+				}
 			}
 
-			this.bind_events ((Item) root, source_tree.root);
 			this.source_list.root.add (root);
 		}
 	}

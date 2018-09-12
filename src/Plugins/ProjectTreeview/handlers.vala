@@ -24,6 +24,7 @@ using Alcadica.Develop.Plugins;
 namespace com.alcadica.develop.plugins {
 	public class TreeviewHandlers : Object {
 		public static Entities.PluginContext plugin_context { get; set; }
+		public static string domain = "filesystem";
 
 		protected static void add_directory (Entities.Editor.TreeviewMenuContext context) {
 			plugin_context.editor.treeview.request_add_new_directory (context);
@@ -46,6 +47,10 @@ namespace com.alcadica.develop.plugins {
 		}
 
 		public static void handle_double_click (Entities.Editor.TreeviewMenuContext context) {
+			if (!context.is_domain_acceptable (domain)) {
+				return;
+			}
+			
 			if (context.item_type == Entities.Editor.TreeviewMenuContextType.File) {
 				plugin_context.editor.request_open_in_new_editor (context.file.get_path ());
 			} else if (context.item_type == Entities.Editor.TreeviewMenuContextType.Directory) {
@@ -54,10 +59,18 @@ namespace com.alcadica.develop.plugins {
 		}
 		
 		public static void handle_file_select (Entities.Editor.TreeviewMenuContext context) {
-			
+			if (!context.is_domain_acceptable (domain)) {
+				return;
+			}
 		}
 		
 		public static void handle_menu_file_right_click (Entities.Editor.TreeviewMenuContext context) {
+			debug (context.domain);
+
+			if (!context.is_domain_acceptable (domain)) {
+				return;
+			}
+			
 			context.add_item (_("Edit file")).activate.connect (() => { 
 				edit_file (context); 
 			});
@@ -70,6 +83,12 @@ namespace com.alcadica.develop.plugins {
 		}
 
 		public static void handle_menu_folder_right_click (Entities.Editor.TreeviewMenuContext context) {
+			debug (context.domain);
+			
+			if (!context.is_domain_acceptable (domain)) {
+				return;
+			}
+			
 			context.add_item (_("Add folder")).activate.connect (() => { 
 				add_directory (context); 
 			});

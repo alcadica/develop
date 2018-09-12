@@ -34,7 +34,7 @@ namespace Alcadica.Widgets.Editor.SourceList {
 			Gtk.Menu menu = new Gtk.Menu ();
 
 			var context = new Develop.Plugins.Entities.Editor.TreeviewMenuContext ();
-			
+
 			Develop.Services.Editor.PluginContext.context.editor.treeview.on_folder_right_click (context);
 			
 			foreach (var item in context.items) {
@@ -65,7 +65,7 @@ namespace Alcadica.Widgets.Editor.SourceList {
 			var context = new Develop.Plugins.Entities.Editor.TreeviewMenuContext ();
 			
 			Develop.Services.Editor.PluginContext.context.editor.treeview.on_file_right_click (context);
-			
+
 			foreach (var item in context.items) {
 				Gtk.MenuItem menu_item = new Gtk.MenuItem.with_label (item.label);
 

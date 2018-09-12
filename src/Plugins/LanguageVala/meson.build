@@ -12,6 +12,7 @@ plugin_dependencies = [
 
 plugin_files = files (
     'plugin.vala',
+    'entities/Project/ValaProject.vala',
     'entities/Project/ValaProjectJSON.vala',
     'entities/Project/ValaProjectParser.vala'
 )

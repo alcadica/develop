@@ -36,40 +36,7 @@ namespace com.alcadica.develop.plugins.LanguageVala.entities {
 			}
 		}
 
-		public override Project parse (string filename, string project_file_content) throws Error {
-			debug (@"Parsing $filename");
-			
-			ValaProjectJSON project_json = ValaProjectJSON.from_json (project_file_content);
-
-			debug (@"Project parsed");
-			
-			string root_dir = Path.get_dirname (filename);
-
-			debug ("Instancing project " + project_json.name);
-
-			Project project = new Project (project_json.name, filename);
-
-			debug ("Done");
-			debug (@"Setting project.file_system.root_dir to $root_dir");
-
-			project.file_system.root_dir = root_dir;
-
-			debug ("Setting project source files (" + project_json.files.source.length ().to_string () + " files)");
-
-			foreach (string file in project_json.files.source) {
-				if (!project.file_system.has_file (file)) {
-					project.file_system.add (file);
-				}
-			}
-
-			debug (@"Setting project.tree.root_string_path to $root_dir");
-			
-			project.tree.root_string_path = root_dir;
-			
-			debug ("Setting project.tree.root.node_name to " + project.project_name);
-
-			project.tree.root.node_name = project.project_name;
-			
+		protected void set_dependencies (ValaProject project, ValaProjectJSON project_json) {
 			debug ("Creating dependencies tree");
 			
 			var dependencies_tree = project.tree.create_item (_("Dependencies"));
@@ -79,8 +46,64 @@ namespace com.alcadica.develop.plugins.LanguageVala.entities {
 			foreach (var dependency in project_json.dependencies) {
 				project.tree.add_path (dependency.name + " " + dependency.version, dependencies_tree);
 			}
+		}
 
-			var sources_tree = project.tree.create_item (_ ("Sources"));
+		protected void set_source_files (ValaProject project, ValaProjectJSON project_json) {
+
+			debug ("Setting project source files (" + project_json.files.source.length ().to_string () + " files)");
+
+			foreach (string file in project_json.files.source) {
+				if (!project.file_system.has_file (file)) {
+					project.file_system.add (file);
+				}
+			}
+		}
+
+		public override Project parse (string filename, string project_file_content) throws Error {
+			debug (@"Parsing $filename");
+			
+			ValaProjectJSON project_json = ValaProjectJSON.from_json (project_file_content);
+
+			debug (@"Project parsed");
+			
+			string root_dir = Path.get_dirname (filename);
+
+			debug ("Instancing ValaProject " + project_json.name);
+
+			ValaProject project = new ValaProject (project_json.name, filename);
+
+			debug ("Done");
+			debug (@"Setting project.file_system.root_dir to $root_dir");
+
+			project.file_system.root_dir = root_dir;
+
+			this.set_source_files (project, project_json);
+
+			debug (@"Setting project.tree.root_string_path to $root_dir");
+			
+			project.tree.root_string_path = root_dir;
+			
+			debug ("Setting project.tree.root.node_name to " + project.project_name);
+
+			project.tree.root.node_name = project.project_name;
+			
+			this.set_dependencies (project, project_json);
+
+			debug ("Creating assets tree");
+
+			var assets_tree = project.tree.create_item (_("Assets"));
+
+			project.tree.root.append_child (assets_tree);
+
+			foreach (var asset in project_json.files.assets) {
+				foreach (var asset_item in asset.asset_files) {
+					string destpath = Path.build_filename (asset.asset_dest, asset_item);
+
+					project.tree.add_path (destpath, assets_tree);
+				}
+			}
+
+			var sources_tree = project.tree.create_item (_("Sources"));
 
 			project.tree.root.append_child (sources_tree);
 			

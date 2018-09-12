@@ -43,7 +43,11 @@ namespace Alcadica.Develop.Widgets.Editor {
 			});
 			
 			this.open_project.clicked.connect (() => {
-				List<string> files = Develop.Services.FileSystem.choose_file ("Choose project", Alcadica.LibValaProject.PROJECT_FILENAME);
+				string[] registered_parsable_project_files = project_context.get_registered_parsable_project_files ();
+
+				string pattern = string.joinv("|", registered_parsable_project_files);
+				
+				List<string> files = Develop.Services.FileSystem.choose_file ("Choose project", pattern);
 
 				if (files.length () > 0) {
 					project_context.open_project_file (files.nth_data (0));

@@ -27,6 +27,15 @@ namespace Alcadica.Develop.Plugins.Entities {
 		public signal void project_did_created (Project.Project project);
 		public signal void project_did_open (Project.Project project);
 		public signal void project_is_creating (Project.Project project);
+		public string[] get_registered_parsable_project_files () {
+			string[] list = new string[] {};
+
+			foreach (var parser in parsers) {
+				list += parser.project_file_name;
+			}
+
+			return list;
+		}
 
 		public Project.Project create (string? project_name, string? project_file) {
 			Project.Project project = new Project.Project (project_name, project_file);

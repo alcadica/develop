@@ -40,7 +40,7 @@ namespace Alcadica.Develop.Views {
 			aside_box.add (aside);
 
 			paned.pack1 (aside_box, false, true);
-			//  paned.pack2 (source_grid, false, false);
+			paned.pack2 (source_grid, false, false);
 			paned.set_position (200);
 
 			this.pack_start (toolbar, false, false);

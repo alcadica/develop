@@ -35,6 +35,14 @@ namespace Alcadica.Develop.Plugins.Entities.Editor {
 	
 	public class TreeviewMenuContext {
 
+		public bool has_domain {
+			get {
+				return domain != "";
+			}
+		}
+
+		public unowned string domain { get; set; }
+		
 		public File file { get; set; }
 		
 		public List<TreeviewMenuItemContext> items = new List<TreeviewMenuItemContext> ();
@@ -50,6 +58,10 @@ namespace Alcadica.Develop.Plugins.Entities.Editor {
 			items.append (entity);
 			
 			return entity;
+		}
+
+		public bool is_domain_acceptable (string querying_domain) {
+			return domain == querying_domain;
 		}
 	}
 }
