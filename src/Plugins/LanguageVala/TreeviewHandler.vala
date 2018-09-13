@@ -25,12 +25,10 @@ using Alcadica.Develop.Plugins.Entities.Editor;
 namespace com.alcadica.develop.plugins.LanguageVala { 
     public class TreeviewHandlers : Object {
         public static Entities.PluginContext plugin_context { get; set; }
-        public static string domain = "filesystem";
+        public static string domain = LanguageValaPlugin.PluginDomain;
 
         public static void handle_menu_folder_right_click (Entities.Editor.TreeviewMenuContext context) {
-            debug (context.domain);
-            
-            if (!context.is_domain_acceptable (domain)) {
+            if (!context.is_domain_acceptable (LanguageValaPlugin.PluginDomain)) {
 				return;
             }
             

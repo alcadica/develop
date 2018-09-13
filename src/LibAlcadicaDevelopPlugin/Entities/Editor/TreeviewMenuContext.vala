@@ -23,7 +23,7 @@ namespace Alcadica.Develop.Plugins.Entities.Editor {
 	protected class TreeviewMenuItemContext {
 		public List<TreeviewMenuItemContext> children = new List<TreeviewMenuItemContext> ();
 		public string label { get; set; }
-		public signal void activate ();
+		public signal void activate (Common.SourceTreeItem? item = null);
 	}
 
 	public enum TreeviewMenuContextType {

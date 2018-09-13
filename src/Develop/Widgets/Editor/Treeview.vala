@@ -20,9 +20,54 @@
 */
 using Gtk;
 using Granite.Widgets;
-using Alcadica.Develop.Services.Editor;
+using Alcadica.Develop.Plugins.Entities;
 
 namespace Alcadica.Develop.Widgets.Editor {
+	public static Gtk.Menu? _get_context_menu (bool is_directory, string item_domain) {
+		var menu_context = new Alcadica.Develop.Plugins.Entities.Editor.TreeviewMenuContext ();
+		var treeview_context = Services.Editor.PluginContext.context.editor.treeview;
+
+		menu_context.domain = item_domain;
+
+		if (is_directory) {
+			treeview_context.on_folder_right_click (menu_context);
+		} else {
+			treeview_context.on_file_right_click (menu_context);
+		}
+
+		if (menu_context.items.length () == 0) {
+			return null;
+		}
+
+		var menu = new Gtk.Menu();
+
+		foreach (var item in menu_context.items) {
+			Gtk.MenuItem menu_item = new Gtk.MenuItem.with_label (item.label);
+
+			menu_item.activate.connect (() => item.activate());
+
+			menu.add (menu_item);
+		}
+
+		menu.show_all ();
+		
+		return menu;
+	}
+	
+	protected class TreeviewItem : Granite.Widgets.SourceList.Item {
+		public string item_domain { get; set; }
+		public override Gtk.Menu? get_context_menu () {
+			return _get_context_menu (false, item_domain);
+		}
+	}
+
+	protected class TreeviewParentItem : SourceList.ExpandableItem {
+		public string item_domain { get; set; }
+		public override Gtk.Menu? get_context_menu () {
+			return _get_context_menu (true, item_domain);
+		}
+	}
+	
 	public class Treeview : Box {
 		public Granite.Widgets.SourceList source_list { get; set; }
 		public Alcadica.Develop.Plugins.Entities.Common.SourceTree source_tree { get; set; }
@@ -34,9 +79,10 @@ namespace Alcadica.Develop.Widgets.Editor {
 
 		private SourceList.ExpandableItem create_parent_item (Plugins.Entities.Common.SourceTreeItem item) {
 			debug ("[create_item] creating folder item " + item.node_name);
-			SourceList.ExpandableItem source_list_item = new SourceList.ExpandableItem ();
+			var source_list_item = new TreeviewParentItem ();
 
 			source_list_item.name = item.node_name;
+			source_list_item.item_domain = item.domain;
 
 			if (item.children.length () > 0) {
 				foreach (var child in item.children) {
@@ -53,9 +99,10 @@ namespace Alcadica.Develop.Widgets.Editor {
 
 		private SourceList.Item create_leaf_item (Plugins.Entities.Common.SourceTreeItem item) {
 			debug ("[create_item] creating leaf item " + item.node_name);
-			var list_item = new SourceList.Item ();
+			var list_item = new TreeviewItem ();
 
 			list_item.name = item.node_name;
+			list_item.item_domain = item.domain;
 			
 			return list_item;
 		}
