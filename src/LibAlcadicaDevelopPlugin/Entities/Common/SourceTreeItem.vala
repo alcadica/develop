@@ -53,6 +53,7 @@ namespace Alcadica.Develop.Plugins.Entities.Common {
 		public string domain { get; set; }
 		public string node_name { get; set; }
 		public SourceTreeItemType? node_type = null;
+		public List<string> node_attributes = new List<string> ();
 		public List<SourceTreeItem> children = new List<SourceTreeItem> ();
 
 		public void append_child (SourceTreeItem child) {
@@ -94,6 +95,19 @@ namespace Alcadica.Develop.Plugins.Entities.Common {
 
 				if (item.node_name == name) {
 					result = item;
+					break;
+				}
+			}
+
+			return result;
+		}
+
+		public bool has_attribute (string attribute_name) {
+			bool result = false;
+
+			for (int i = 0; i < this.node_attributes.length (); i++) {
+				if (this.node_attributes.nth_data (i) == attribute_name) {
+					result = true;
 					break;
 				}
 			}

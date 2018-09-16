@@ -41,10 +41,16 @@ namespace com.alcadica.develop.plugins.LanguageVala.entities {
 			
 			var dependencies_tree = project.tree.create_item (_("Dependencies"));
 
+			dependencies_tree.node_attributes.append (ValaProjectTreeAttributes.TYPE_DEPENDENCY);
+
 			project.tree.root.append_child (dependencies_tree);
 
 			foreach (var dependency in project_json.dependencies) {
 				project.tree.add_path (dependency.name + " " + dependency.version, dependencies_tree);
+			}
+
+			foreach (var child in dependencies_tree.get_flatterned_children ()) {
+				child.node_attributes.append (ValaProjectTreeAttributes.TYPE_DEPENDENCY);
 			}
 		}
 
@@ -93,6 +99,8 @@ namespace com.alcadica.develop.plugins.LanguageVala.entities {
 
 			var assets_tree = project.tree.create_item (_("Assets"));
 
+			assets_tree.node_attributes.append (ValaProjectTreeAttributes.TYPE_ASSET);
+
 			project.tree.root.append_child (assets_tree);
 
 			foreach (var asset in project_json.files.assets) {
@@ -103,7 +111,13 @@ namespace com.alcadica.develop.plugins.LanguageVala.entities {
 				}
 			}
 
+			foreach (var child in assets_tree.get_flatterned_children ()) {
+				child.node_attributes.append (ValaProjectTreeAttributes.TYPE_ASSET);
+			}
+
 			var sources_tree = project.tree.create_item (_("Sources"));
+
+			sources_tree.node_attributes.append (ValaProjectTreeAttributes.TYPE_SOURCE);
 
 			project.tree.root.append_child (sources_tree);
 			
@@ -113,6 +127,10 @@ namespace com.alcadica.develop.plugins.LanguageVala.entities {
 				if (!project.tree.add_path (file, sources_tree)) {
 					warning (@"Cannot add file $file");
 				}
+			}
+
+			foreach (var child in sources_tree.get_flatterned_children ()) {
+				child.node_attributes.append (ValaProjectTreeAttributes.TYPE_SOURCE);
 			}
 
 			project.tree.domain = LanguageValaPlugin.PluginDomain;

@@ -23,11 +23,12 @@ using Granite.Widgets;
 using Alcadica.Develop.Plugins.Entities;
 
 namespace Alcadica.Develop.Widgets.Editor {
-	public static Gtk.Menu? _get_context_menu (bool is_directory, string item_domain) {
+	public static Gtk.Menu? _get_context_menu (bool is_directory, string item_domain, Plugins.Entities.Common.SourceTreeItem tree_item) {
 		var menu_context = new Alcadica.Develop.Plugins.Entities.Editor.TreeviewMenuContext ();
 		var treeview_context = Services.Editor.PluginContext.context.editor.treeview;
 
 		menu_context.domain = item_domain;
+		menu_context.source_tree_item = tree_item;
 
 		if (is_directory) {
 			treeview_context.on_folder_right_click (menu_context);
@@ -56,15 +57,17 @@ namespace Alcadica.Develop.Widgets.Editor {
 	
 	protected class TreeviewItem : Granite.Widgets.SourceList.Item {
 		public string item_domain { get; set; }
+		public Plugins.Entities.Common.SourceTreeItem source_tree_item { get; set; }
 		public override Gtk.Menu? get_context_menu () {
-			return _get_context_menu (false, item_domain);
+			return _get_context_menu (false, item_domain, source_tree_item);
 		}
 	}
 
 	protected class TreeviewParentItem : SourceList.ExpandableItem {
 		public string item_domain { get; set; }
+		public Plugins.Entities.Common.SourceTreeItem source_tree_item { get; set; }
 		public override Gtk.Menu? get_context_menu () {
-			return _get_context_menu (true, item_domain);
+			return _get_context_menu (true, item_domain, source_tree_item);
 		}
 	}
 	
@@ -83,6 +86,7 @@ namespace Alcadica.Develop.Widgets.Editor {
 
 			source_list_item.name = item.node_name;
 			source_list_item.item_domain = item.domain;
+			source_list_item.source_tree_item = item;
 
 			if (item.children.length () > 0) {
 				foreach (var child in item.children) {
@@ -103,6 +107,7 @@ namespace Alcadica.Develop.Widgets.Editor {
 
 			list_item.name = item.node_name;
 			list_item.item_domain = item.domain;
+			list_item.source_tree_item = item;
 			
 			return list_item;
 		}

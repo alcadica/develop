@@ -42,11 +42,15 @@ namespace com.alcadica.develop.plugins.LanguageVala {
 			parser = new entities.ValaProjectParser ();
 			context.project.subscribe_parser (parser);
 
+			context.editor.treeview.on_file_right_click.connect (TreeviewHandlers.handle_menu_file_right_click);
 			context.editor.treeview.on_folder_right_click.connect (TreeviewHandlers.handle_menu_folder_right_click);
 		}
 
 		public override void deactivate (Entities.PluginContext context) {
 			context.project.unsubscribe_parser (parser);
+
+			context.editor.treeview.on_file_right_click.disconnect (TreeviewHandlers.handle_menu_file_right_click);
+			context.editor.treeview.on_folder_right_click.disconnect (TreeviewHandlers.handle_menu_folder_right_click);
 		}
 		
 		public override void registered () {

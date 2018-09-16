@@ -42,6 +42,7 @@ namespace Alcadica.Develop.Plugins.Entities.Editor {
 		}
 
 		public unowned string domain { get; set; }
+		public unowned Plugins.Entities.Common.SourceTreeItem source_tree_item { get; set; }
 		
 		public File file { get; set; }
 		
