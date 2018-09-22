@@ -52,6 +52,7 @@ namespace Alcadica.Develop.Plugins.Entities.Common {
 		public SourceTree tree { get; set; }
 		public string domain { get; set; }
 		public string node_name { get; set; }
+		public string node_path { get; set; }
 		public SourceTreeItemType? node_type = null;
 		public List<string> node_attributes = new List<string> ();
 		public List<SourceTreeItem> children = new List<SourceTreeItem> ();
@@ -85,6 +86,31 @@ namespace Alcadica.Develop.Plugins.Entities.Common {
 			}
 
 			return result;
+		}
+
+		public List<SourceTreeItem> get_flatterned_leaves () {
+			List<SourceTreeItem> result = new List<SourceTreeItem> ();
+			List<SourceTreeItem> leaves = new List<SourceTreeItem> ();
+
+			if (this.children.length () == 0) {
+				return result;
+			}
+
+			foreach (var item in this.children) {
+				if (item.is_leaf) {
+					leaves.append (item);
+				} else {
+					result.append (item);
+				}
+			}
+			
+			for (int i = 0; i < result.length (); i++) {
+				var _r = result.nth_data (i).get_flatterned_leaves ();
+				
+				leaves.concat ((owned) _r);
+			}
+
+			return leaves;
 		}
 
 		public SourceTreeItem? get_child_by_name (string name) {

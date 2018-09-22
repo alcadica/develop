@@ -45,7 +45,7 @@ namespace Alcadica.Develop.Widgets.Editor {
 		foreach (var item in menu_context.items) {
 			Gtk.MenuItem menu_item = new Gtk.MenuItem.with_label (item.label);
 
-			menu_item.activate.connect (() => item.activate());
+			menu_item.activate.connect (() => item.activate(tree_item));
 
 			menu.add (menu_item);
 		}

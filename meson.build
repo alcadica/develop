@@ -112,6 +112,8 @@ code_files = files(
     'src/Develop/Widgets/ComboBoxWithLabel.vala',
     'src/Develop/Widgets/Dialogs/DialogWindow.vala',
     'src/Develop/Widgets/Editor/Aside.vala',
+    'src/Develop/Widgets/Editor/Assets.vala',
+    'src/Develop/Widgets/Editor/EmptyEditor.vala',
     'src/Develop/Widgets/Editor/BottomBar.vala',
     'src/Develop/Widgets/Editor/EditorTab.vala',
     'src/Develop/Widgets/Editor/SourceListItem.vala',

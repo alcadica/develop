@@ -22,7 +22,8 @@
 namespace Alcadica.Develop.Plugins.Entities.Project {
 	public class ProjectSourceTree : Common.SourceTree {
 		public bool add_path (string path, Common.SourceTreeItem? add_to_node = null) {
-			string[] chunks = path.split ("/");
+			string split_char = "/";
+			string[] chunks = path.split (split_char);
 			Common.SourceTreeItem current_node;
 
 			if (add_to_node == null) {
@@ -34,8 +35,14 @@ namespace Alcadica.Develop.Plugins.Entities.Project {
 			debug ("[ProjectSourceTree] adding " + chunks.length.to_string () + " nodes");
 
 			for (int i = 0; i < chunks.length; i++) {
+				string[] path_chunks = {};
 				Common.SourceTreeItem new_node = new Common.SourceTreeItem ();
 				string chunk = chunks[i];
+				int path_chunks_cursor = 0;
+
+				for (int j = 0; j < i; j++) {
+					path_chunks += chunks[j];
+				}
 
 				if (chunk == "") {
 					continue;
@@ -49,6 +56,7 @@ namespace Alcadica.Develop.Plugins.Entities.Project {
 				debug ("[ProjectSourceTree] adding new node with path " + chunk);
 
 				new_node.node_name = chunk;
+				new_node.node_path = string.joinv (split_char, path_chunks);
 
 				current_node.append_child (new_node);
 				current_node = new_node;

@@ -53,7 +53,7 @@ namespace com.alcadica.develop.plugins.LanguageVala {
             }
 
             if (tree_item.has_attribute (ValaProjectTreeAttributes.TYPE_SOURCE)) {
-                context.add_item (_("Edit file"));
+                //  context.add_item (_("Edit file"));
                 context.add_item (_("Remove file"));
                 context.add_item (_("Rename file"));
                 return;
@@ -68,7 +68,16 @@ namespace com.alcadica.develop.plugins.LanguageVala {
             var tree_item = context.source_tree_item;
 
             if (tree_item.has_attribute (ValaProjectTreeAttributes.TYPE_ASSET)) {
-                context.add_item (_("Manage assets"));
+                context.add_item (_("Manage assets")).activate.connect (node => {
+                    List<string> assets = new List<string> ();
+
+                    foreach (var asset in node.get_flatterned_leaves ()) {
+                        debug ("Adding asset " + asset.node_path);
+                        assets.append (asset.node_path);
+                    }
+                    
+                    plugin_context.editor.show_assets (_("Assets"), assets);
+                });
                 return;
             }
 
@@ -80,6 +89,10 @@ namespace com.alcadica.develop.plugins.LanguageVala {
             if (tree_item.has_attribute (ValaProjectTreeAttributes.TYPE_SOURCE)) {
                 context.add_item (_("Add folder")).activate.connect (() => { 
                     plugin_context.editor.treeview.request_add_new_directory (context);
+                });
+
+                context.add_item(_("Add file")).activate.connect (() => {
+                    plugin_context.editor.treeview.request_add_new_file (context);
                 });
                 
                 context.add_item (_("Add existing folder")).activate.connect (() => { 

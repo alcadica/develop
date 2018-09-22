@@ -18,24 +18,12 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-using Granite;
 using Gtk;
+using Alcadica.Develop.Services.Editor;
+using Alcadica.Develop.Plugins.Entities.Common;
 
-namespace Alcadica.Develop.Views.Partials.Forms { 
-	public abstract class FormBase : Grid { 
-
-		public bool is_valid = false;
-		public signal void on_validate ();
-		public signal void focusin ();
-		public signal void submit ();
-		
-		construct {
-			this.column_homogeneous = true;
-			this.orientation = Orientation.VERTICAL;
-			this.row_spacing = 8;
-		}
-
-		public abstract void reset ();
-		public abstract void validate ();
-	}
+namespace Alcadica.Develop.Widgets.Editor {
+    public class EmptyEditor : Widget {
+        
+    }
 }

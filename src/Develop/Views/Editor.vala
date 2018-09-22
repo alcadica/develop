@@ -21,26 +21,34 @@
 
 namespace Alcadica.Develop.Views { 
 	public class Editor : Gtk.Box {
+		private string assets_name = "assets";
+		private string empty_name = "empty_editor";
+		private string editor_name = "editor";
+		
 		construct {
 			var aside = new Alcadica.Develop.Widgets.Editor.Aside ();
+			var assets = new Alcadica.Develop.Widgets.Editor.Assets ();
 			var aside_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 			var bottom_bar = new Alcadica.Develop.Widgets.Editor.BottomBar ();
 			var paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
 			var scrolled_window = new Gtk.ScrolledWindow (null, null);
-			var source_grid = new Gtk.Grid ();
+			var empty_editor = new Alcadica.Develop.Widgets.Editor.EmptyEditor ();
+			var source_stack = new Gtk.Stack ();
 			var source_view = new Alcadica.Develop.Widgets.Editor.SourceView ();
 			var toolbar = new Alcadica.Develop.Widgets.Editor.Toolbar ();
 
 			scrolled_window.add (source_view);
 			scrolled_window.vscrollbar_policy = Gtk.PolicyType.AUTOMATIC;
 
-			source_grid.add(scrolled_window);
+			source_stack.add_named(assets, assets_name);
+			source_stack.add_named(empty_editor, empty_name);
+			//  source_stack.add_named(scrolled_window, editor_name);
 
 			aside_box.add (toolbar);
 			aside_box.add (aside);
 
 			paned.pack1 (aside_box, false, true);
-			paned.pack2 (source_grid, false, false);
+			paned.pack2 (source_stack, false, false);
 			paned.set_position (200);
 
 			this.pack_start (toolbar, false, false);

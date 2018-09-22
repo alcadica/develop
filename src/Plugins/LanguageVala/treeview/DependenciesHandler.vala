@@ -23,5 +23,7 @@ using Alcadica.Develop.Plugins;
 using Alcadica.Develop.Plugins.Entities.Editor;
 
 namespace com.alcadica.develop.plugins.LanguageVala.Treeview { 
-
+    public class DependenciesHandler : Object {
+        
+    }
 }
