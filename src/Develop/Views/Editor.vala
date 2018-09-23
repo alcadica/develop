@@ -27,22 +27,23 @@ namespace Alcadica.Develop.Views {
 		
 		construct {
 			var aside = new Alcadica.Develop.Widgets.Editor.Aside ();
-			var assets = new Alcadica.Develop.Widgets.Editor.Assets ();
 			var aside_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+			var assets = new Alcadica.Develop.Widgets.Editor.Assets ();
 			var bottom_bar = new Alcadica.Develop.Widgets.Editor.BottomBar ();
-			var paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-			var scrolled_window = new Gtk.ScrolledWindow (null, null);
+			var editor_scrolled_window = new Gtk.ScrolledWindow (null, null);
 			var empty_editor = new Alcadica.Develop.Widgets.Editor.EmptyEditor ();
+			var paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
 			var source_stack = new Gtk.Stack ();
 			var source_view = new Alcadica.Develop.Widgets.Editor.SourceView ();
 			var toolbar = new Alcadica.Develop.Widgets.Editor.Toolbar ();
 
-			scrolled_window.add (source_view);
-			scrolled_window.vscrollbar_policy = Gtk.PolicyType.AUTOMATIC;
+			editor_scrolled_window.add (source_view);
+			editor_scrolled_window.vscrollbar_policy = Gtk.PolicyType.AUTOMATIC;
 
-			source_stack.add_named(assets, assets_name);
 			source_stack.add_named(empty_editor, empty_name);
-			//  source_stack.add_named(scrolled_window, editor_name);
+			source_stack.add_named(assets, assets_name);
+			source_stack.add_named(editor_scrolled_window, editor_name);
+			source_stack.set_homogeneous (true);
 
 			aside_box.add (toolbar);
 			aside_box.add (aside);
@@ -52,10 +53,18 @@ namespace Alcadica.Develop.Views {
 			paned.set_position (200);
 
 			this.pack_start (toolbar, false, false);
-			this.add (paned);
+			this.pack_start (paned, false, true);
 			this.pack_end (bottom_bar, false, false);
 			this.orientation = Gtk.Orientation.VERTICAL;
 			this.show_all ();
+
+			Services.ActionManager.instance.get_action (Actions.Window.SHOW_ASSETS_MANAGER).activate.connect (() => {
+				source_stack.set_visible_child_full (assets_name, Gtk.StackTransitionType.OVER_DOWN);
+			});
+
+			Services.ActionManager.instance.get_action (Actions.Window.SHOW_PREVIOUS_EDITOR_VIEW).activate.connect (() => {
+				source_stack.set_visible_child_full (empty_name, Gtk.StackTransitionType.UNDER_UP);
+			});
 		}
 	}
 }

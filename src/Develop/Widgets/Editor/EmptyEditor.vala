@@ -23,7 +23,7 @@ using Alcadica.Develop.Services.Editor;
 using Alcadica.Develop.Plugins.Entities.Common;
 
 namespace Alcadica.Develop.Widgets.Editor {
-    public class EmptyEditor : Widget {
+    public class EmptyEditor : Grid {
         
     }
 }

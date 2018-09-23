@@ -32,5 +32,7 @@ namespace Alcadica.Develop.Actions.Window {
 	public const string SHOW_WELCOME_VIEW = "Alcadica.Actions.Window.SHOW_WELCOME_VIEW";
 	public const string START = "Alcadica.Actions.Window.START";
 	public const string SHOW_ASSETS_MANAGER = "Alcadica.Actions.Window.SHOW_ASSETS_MANAGER";
+	public const string SHOW_PREVIOUS_EDITOR_VIEW = "Alcadica.Actions.Window.SHOW_PREVIOUS_EDITOR_VIEW";
+	public const string SHOW_EMPTY_EDITOR = "Alcadica.Actions.Window.SHOW_EMPTY_EDITOR";
 	public const string SHOW_DEPENDENCIES_MANAGER = "Alcadica.Actions.Window.SHOW_DEPENDENCIES_MANAGER";
 }

@@ -21,7 +21,7 @@ gnome = import('gnome')
 
 # css and other stuff
 asresources = gnome.compile_resources(
-    'as-resources', 'data/assets.gresource.xml',
+    'as-resources', 'data/com.github.alcadica.develop.gresource.xml',
     source_dir: 'data',
     c_name: 'as'
 )
