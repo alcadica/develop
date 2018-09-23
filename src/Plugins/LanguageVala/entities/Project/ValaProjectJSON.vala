@@ -125,7 +125,6 @@ namespace com.alcadica.develop.plugins.LanguageVala.entities {
 										break;
 									default:
 										throw new ProjectParserError.INVALID_FORMAT ("Missing dest member on index %s", index.to_string ());
-										break;
 								}
 							} else {
 								asset.asset_dest = asset_object.get_string_member ("dest");

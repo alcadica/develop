@@ -110,6 +110,7 @@ code_files = files(
     'src/Develop/Views/Settings.vala',
     'src/Develop/Widgets/ActionBar.vala',
     'src/Develop/Widgets/ComboBoxWithLabel.vala',
+    'src/Develop/Widgets/Dialogs/ConfirmRemove.vala',
     'src/Develop/Widgets/Dialogs/DialogWindow.vala',
     'src/Develop/Widgets/Editor/Aside.vala',
     'src/Develop/Widgets/Editor/Assets.vala',

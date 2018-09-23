@@ -38,7 +38,6 @@ namespace Alcadica.Develop.Plugins.Entities.Project {
 				string[] path_chunks = {};
 				Common.SourceTreeItem new_node = new Common.SourceTreeItem ();
 				string chunk = chunks[i];
-				int path_chunks_cursor = 0;
 
 				for (int j = 0; j < i; j++) {
 					path_chunks += chunks[j];

@@ -67,7 +67,7 @@ namespace com.alcadica.develop.plugins.LanguageVala.entities {
 
 		public override Project parse (string filename, string project_file_content) throws Error {
 			debug (@"Parsing $filename");
-			
+
 			ValaProjectJSON project_json = ValaProjectJSON.from_json (project_file_content);
 
 			debug (@"Project parsed");

@@ -24,7 +24,7 @@ namespace Alcadica.Develop.Plugins.Entities {
 		public Editor.TreeviewContext treeview = new Editor.TreeviewContext ();	
 		public signal void did_focus ();
 		public signal void request_open_in_new_editor (string path);
-		public signal void show_assets (string assets_title, List<string> assets);
+		public signal void show_assets (string assets_title, List<string> assets, Common.SourceTreeItem item);
 		public signal void show_editors ();
 
 		public EditorContext () {

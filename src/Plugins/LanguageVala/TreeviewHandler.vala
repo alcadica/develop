@@ -76,7 +76,7 @@ namespace com.alcadica.develop.plugins.LanguageVala {
                         assets.append (asset.node_path);
                     }
                     
-                    plugin_context.editor.show_assets (_("Assets"), assets);
+                    plugin_context.editor.show_assets (_("Assets"), assets, tree_item);
                 });
                 return;
             }

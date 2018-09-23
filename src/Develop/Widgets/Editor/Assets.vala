@@ -27,6 +27,7 @@ namespace Alcadica.Develop.Widgets.Editor {
         private Alcadica.Widgets.ActionBar actions;
         private ListBox list_box;
         private List<CheckButton> checkbox_list = new List<CheckButton> ();
+        private SourceTreeItem tree_item;
         
         construct {
             var action_box = new Box (Orientation.HORIZONTAL, 0);
@@ -64,7 +65,17 @@ namespace Alcadica.Develop.Widgets.Editor {
             plugin_context.editor.show_assets.connect (show_assets);
 
             this.actions.primary_action.clicked.connect (() => {
-                this.get_selected_assets ();
+                string title = _("Confirm removal");
+                string text = _("You are going to remove these assets permanentely, this action cannot be undone.");
+
+                var window  = new Dialogs.ConfirmRemove (title, text);
+
+                window.on_confirm.connect (() => {
+                    var assets = this.get_selected_assets ();
+                    tree_item.remove_leaves ();
+                });
+
+                window.run ();
             });
 
             this.actions.secondary_action.clicked.connect (() => {
@@ -139,8 +150,9 @@ namespace Alcadica.Develop.Widgets.Editor {
             return result;
         }
 
-        private void show_assets (string assets_title, List<string> assets) {
+        private void show_assets (string assets_title, List<string> assets, SourceTreeItem tree_item) {
             this.empty_assets ();
+            this.tree_item = tree_item;
             
             foreach (var asset in assets) {
                 var element = this.create_asset_row (asset);

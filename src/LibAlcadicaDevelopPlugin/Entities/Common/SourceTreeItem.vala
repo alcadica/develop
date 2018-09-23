@@ -157,5 +157,9 @@ namespace Alcadica.Develop.Plugins.Entities.Common {
 			this.children.remove (child);
 			this.tree.item_did_remove (child);
 		}
+
+		public void remove_leaves () {
+			
+		}
 	}
 }
