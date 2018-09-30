@@ -1,3 +1,9 @@
+com.github.alcadica.develop (0.6.1) xenial; urgency=low
+
+  * Publish the app on Juno
+
+  -- Paolo Roth <github@alcadica.com>  Tue, 30 Sep 2018 03:00:00 -0500
+  
 com.github.alcadica.develop (0.6) precise; urgency=low
 
   * Fills generated README.md files with installing and compiling instructions
