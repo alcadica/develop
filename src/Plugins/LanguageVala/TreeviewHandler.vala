@@ -82,7 +82,9 @@ namespace com.alcadica.develop.plugins.LanguageVala {
             }
 
             if (tree_item.has_attribute (ValaProjectTreeAttributes.TYPE_DEPENDENCY)) {
-                context.add_item (_("Manage dependencies"));
+                context.add_item (_("Manage dependencies")).activate.connect (node => {
+                    
+                });
                 return;
             }
 

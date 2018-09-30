@@ -249,14 +249,6 @@ executable(
 
 pkg.generate(
     version: '0.1',
-    libraries: lib_vala_project,
-    description: 'Alcadica Develop Vala project',
-    name: 'com.github.alcadica.develop.project',
-    filebase: 'com.github.alcadica.develop.project'
-)
-
-pkg.generate(
-    version: '0.1',
     libraries: lib_plugins,
     description: 'Alcadica Develop Plugins API',
     name: 'com.github.alcadica.develop.plugin',

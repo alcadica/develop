@@ -68,3 +68,9 @@ sudo ninja com.github.alcadica.develop-update-po
 ```bash
 sudo ninja -C build uninstall
 ```
+
+## Contributing
+
+All contributions are welcome! From bug reporting, to feature request, to code contribution.
+
+If you feel you could contribute, you are absolutely welcome!

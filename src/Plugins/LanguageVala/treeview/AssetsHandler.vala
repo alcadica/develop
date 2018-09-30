@@ -24,6 +24,22 @@ using Alcadica.Develop.Plugins.Entities.Editor;
 
 namespace com.alcadica.develop.plugins.LanguageVala.Treeview { 
     public class AssetsHandler : Object {
+        protected Entities.PluginContext context { get; set; }
+
+        public AssetsHandler (Entities.PluginContext context) {
+            this.context = context;
+        }
         
+        public void add_assets (TreeviewMenuContext context, List<string> assets) {
+            
+        }
+
+        public void get_assets (TreeviewMenuContext context) {
+
+        }
+        
+        public void remove_assets (TreeviewMenuContext context, List<string> assets) {
+            
+        }
     }
 }
