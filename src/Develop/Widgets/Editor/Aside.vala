@@ -50,10 +50,19 @@ namespace Alcadica.Develop.Widgets.Editor {
 
 				treeview_widget.render ();
 
+				treeview.tree_did_change.connect (() => {
+					treeview_widget.empty ();
+					treeview_widget.render ();
+				});
+
 				debug (@"Adding $treename tree to view");
 
 				this.add (treeview_widget);
 				this.show_all ();
+
+				if (this.treeview_table.size () == 1) {
+					treeview_widget.source_list.root.expand_all (false, false);
+				}
 			});
 
 			treeview_context.on_treeview_unsubscribe.connect (treeview => {

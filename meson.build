@@ -112,6 +112,7 @@ code_files = files(
     'src/Develop/Widgets/ComboBoxWithLabel.vala',
     'src/Develop/Widgets/Dialogs/ConfirmRemove.vala',
     'src/Develop/Widgets/Dialogs/DialogWindow.vala',
+    'src/Develop/Widgets/Dialogs/EditableValuePrompt.vala',
     'src/Develop/Widgets/Editor/Aside.vala',
     'src/Develop/Widgets/Editor/Assets.vala',
     'src/Develop/Widgets/Editor/EmptyEditor.vala',
@@ -169,18 +170,6 @@ lib_develop_plugins = files (
     'src/LibAlcadicaDevelopPlugin/Plugin.vala'
 )
 
-lib_vala_project_files = files(
-    'src/LibAlcadicaValaProject/Entities/Project.vala',
-    'src/LibAlcadicaValaProject/Entities/ProjectItem.vala',
-    'src/LibAlcadicaValaProject/Entities/ProjectItemDirectory.vala',
-    'src/LibAlcadicaValaProject/Entities/ProjectItemSource.vala',
-    'src/LibAlcadicaValaProject/Entities/ProjectVersion.vala',
-    'src/LibAlcadicaValaProject/Services/ProjectSourceNode.vala',
-    'src/LibAlcadicaValaProject/Services/XMLProjectFileParser.vala',
-    'src/LibAlcadicaValaProject/Services/XMLProjectFileWriter.vala',
-    'src/LibAlcadicaValaProject/Main.vala',
-)
-
 message ('Installing schema')
 
 subdir ('po')
@@ -190,11 +179,6 @@ install_data(
     install_dir: join_paths(get_option('datadir'), 'glib-2.0', 'schemas')
 )
 
-# install_subdir(
-#     join_paths ('data', 'templates'),
-#     install_dir: join_paths(get_option('datadir'), meson.project_name())
-# )
-
 message ('Defines executable')
 
 lib_plugins = shared_library(
@@ -202,18 +186,6 @@ lib_plugins = shared_library(
     lib_develop_plugins,
     dependencies: [
         dependency('gio-unix-2.0', version: '>=2.20')
-    ],
-    install: true,
-    install_dir: [true, true, true],
-    version: '0.0'
-)
-
-lib_vala_project = shared_library(
-    'libalcadicavalaproject',
-    lib_vala_project_files,
-    dependencies: [
-        dependency('gio-unix-2.0', version: '>=2.20'),
-        dependency('libxml-2.0')        
     ],
     install: true,
     install_dir: [true, true, true],
@@ -242,8 +214,7 @@ executable(
     ],
     install: true,
     link_with: [
-        lib_plugins,
-        lib_vala_project
+        lib_plugins
     ]
 )
 
@@ -259,4 +230,3 @@ meson.add_install_script('meson/postinstall.py')
 
 subdir ('src/Plugins/ElementaryTemplates')
 subdir ('src/Plugins/LanguageVala')
-subdir ('src/Plugins/ProjectTreeview')

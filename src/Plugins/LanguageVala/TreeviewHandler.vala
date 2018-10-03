@@ -41,7 +41,10 @@ namespace com.alcadica.develop.plugins.LanguageVala {
             var tree_item = context.source_tree_item;
 
             if (tree_item.has_attribute (ValaProjectTreeAttributes.TYPE_ASSET)) {
-                context.add_item (_("Remove asset file"));
+                context.add_item (_("Remove asset file")).activate.connect (node => {
+                    node.dispose ();
+                    node.tree.tree_did_change ();
+                });
                 context.add_item (_("Rename asset file"));
                 return;
             }
@@ -68,15 +71,8 @@ namespace com.alcadica.develop.plugins.LanguageVala {
             var tree_item = context.source_tree_item;
 
             if (tree_item.has_attribute (ValaProjectTreeAttributes.TYPE_ASSET)) {
-                context.add_item (_("Manage assets")).activate.connect (node => {
-                    List<string> assets = new List<string> ();
-
-                    foreach (var asset in node.get_flatterned_leaves ()) {
-                        debug ("Adding asset " + asset.node_path);
-                        assets.append (asset.node_path);
-                    }
-                    
-                    plugin_context.editor.show_assets (_("Assets"), assets, tree_item);
+                context.add_item (_("Manage assets")).activate.connect (() => {
+                    new Treeview.AssetsHandler(plugin_context).manage_assets (context);
                 });
                 return;
             }

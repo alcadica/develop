@@ -73,6 +73,7 @@ namespace Alcadica.Develop.Widgets.Editor {
                 window.on_confirm.connect (() => {
                     var assets = this.get_selected_assets ();
                     tree_item.remove_leaves ();
+                    this.empty_assets ();
                 });
 
                 window.run ();

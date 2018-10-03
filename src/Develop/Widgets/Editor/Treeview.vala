@@ -76,8 +76,18 @@ namespace Alcadica.Develop.Widgets.Editor {
 		public Alcadica.Develop.Plugins.Entities.Common.SourceTree source_tree { get; set; }
 		
 		construct {
+			var treeview_context = Services.Editor.PluginContext.context.editor.treeview;
+
 			this.source_list = new Granite.Widgets.SourceList ();
 			this.add (this.source_list);
+
+			treeview_context.request_add_new_directory.connect (context => {
+
+			});
+
+			treeview_context.request_add_new_file.connect (context => {
+
+			});
 		}
 
 		private SourceList.ExpandableItem create_parent_item (Plugins.Entities.Common.SourceTreeItem item) {
@@ -110,6 +120,11 @@ namespace Alcadica.Develop.Widgets.Editor {
 			list_item.source_tree_item = item;
 			
 			return list_item;
+		}
+
+		public void empty () {
+			debug ("Clearing treeview");
+			this.source_list.root.clear ();
 		}
  
 		public void render () {

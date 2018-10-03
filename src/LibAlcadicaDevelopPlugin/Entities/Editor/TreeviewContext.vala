@@ -37,6 +37,15 @@ namespace Alcadica.Develop.Plugins.Entities.Editor {
 		public signal void request_rename_directory (TreeviewMenuContext context);
 		public signal void request_rename_file (TreeviewMenuContext context);
 		public signal void request_toggle_directory (string directory_name);
+		public signal void refresh ();
+
+		public TreeviewContext () {
+			this.refresh.connect (() => {
+				foreach (var treeview in this.treeview) {
+					treeview.tree_did_change ();
+				}
+			});
+		}
 		
 		public void subscribe_treeview (Common.SourceTree treeview) {
 			this.treeview.append (treeview);

@@ -159,7 +159,9 @@ namespace Alcadica.Develop.Plugins.Entities.Common {
 		}
 
 		public void remove_leaves () {
-			
+			foreach (var leaf in this.get_flatterned_leaves()) {
+				leaf.dispose ();
+			}
 		}
 	}
 }
