@@ -11,3 +11,5 @@ src/Views/Partials/Window/HeaderBar.vala
 src/Views/ProjectEditingView.vala
 src/Views/SettingsView.vala
 src/Views/WelcomeView.vala
+data/com.github.alcadica.develop.appdata.xml.in
+data/com.github.alcadica.develop.desktop.in
