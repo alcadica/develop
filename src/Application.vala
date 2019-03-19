@@ -79,7 +79,7 @@ namespace Alcadica {
             });
 
             manager.get_action (Actions.Window.SETTINGS_OPEN).activate.connect (() => {
-                window.title = APP_NAME + " - " + _( + "Preferences" + );
+                window.title = APP_NAME + (" - " + (_("Preferences")));
             });
 
             manager.get_action (Actions.Window.QUIT).activate.connect (() => {
