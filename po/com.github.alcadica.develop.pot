@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.alcadica.develop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-19 18:01+0100\n"
+"POT-Creation-Date: 2019-03-19 19:06+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -176,6 +176,18 @@ msgstr ""
 
 #: src/Views/WelcomeView.vala:41
 msgid "Create a new elementary OS wingpanel indicator."
+msgstr ""
+
+#: src/Widgets/ActionBar.vala:32
+msgid "Create"
+msgstr ""
+
+#: src/Widgets/ActionBar.vala:33
+msgid "Undo"
+msgstr ""
+
+#: src/Widgets/EntryWithLabel.vala:61
+msgid "Optional"
 msgstr ""
 
 #: data/com.github.alcadica.develop.appdata.xml.in:8

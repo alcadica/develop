@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.alcadica.develop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-19 18:01+0100\n"
+"POT-Creation-Date: 2019-03-19 19:06+0100\n"
 "PO-Revision-Date: 2019-03-19 18:28+0100\n"
 "Last-Translator: NathanBnm\n"
 "Language-Team: Français\n"
@@ -178,6 +178,18 @@ msgstr "Indicateur Wingpanel"
 msgid "Create a new elementary OS wingpanel indicator."
 msgstr "Créer un nouvel indicateur Wingppanel pour elementary OS."
 
+#: src/Widgets/ActionBar.vala:32
+msgid "Create"
+msgstr "Créer"
+
+#: src/Widgets/ActionBar.vala:33
+msgid "Undo"
+msgstr "Annuler"
+
+#: src/Widgets/EntryWithLabel.vala:61
+msgid "Optional"
+msgstr "Facultatif"
+
 #: data/com.github.alcadica.develop.appdata.xml.in:8
 #: data/com.github.alcadica.develop.desktop.in:4
 msgid "Develop"
@@ -192,16 +204,16 @@ msgid ""
 "A simple tool to help elementary OS developers to develop their own apps and "
 "widgets."
 msgstr ""
-"Un simple outil pour aider les développeurs d'elementary OS à développer leurs "
-"propres applications et widgets."
+"Un simple outil pour aider les développeurs d'elementary OS à développer "
+"leurs propres applications et widgets."
 
 #: data/com.github.alcadica.develop.appdata.xml.in:14
 msgid ""
 "With this app you can scaffold an elementary OS App, a Switchboard Widget or "
 "a Wingpanel Indicator"
 msgstr ""
-"Avec cette application vous pouvez échaffauder une application pour elementary OS, un plug Switchboard ou "
-"un indicateur Wingpanel"
+"Avec cette application vous pouvez échaffauder une application pour "
+"elementary OS, un plug Switchboard ou un indicateur Wingpanel"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:22
 msgid "Publish the app on Juno"
@@ -218,8 +230,8 @@ msgid ""
 "Adds a small disclaimer about user data consumption (they are not saved on a "
 "server)"
 msgstr ""
-"Ajout d'un petit avertissement concernant l'utilisation des données des utilisateurs"
-"(elles ne sont pas sauvegardées sur un serveur)"
+"Ajout d'un petit avertissement concernant l'utilisation des données des "
+"utilisateurs(elles ne sont pas sauvegardées sur un serveur)"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:43
 msgid "Fixes a small bug"
