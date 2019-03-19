@@ -1,3 +1,4 @@
+src/Application.vala
 src/Views/MainView.vala
 src/Views/Partials/Forms/FormBase.vala
 src/Views/Partials/Forms/FormNewApp.vala
