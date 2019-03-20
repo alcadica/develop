@@ -1,7 +1,7 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# French translations fot the com.github.alcadica.develop package.
+# Copyright (C) 2019 THE com.github.alcadica.develop'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.alcadica.develop package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# NathanBnm, 2019.
 #
 #, fuzzy
 msgid ""
@@ -9,291 +9,298 @@ msgstr ""
 "Project-Id-Version: com.github.alcadica.develop\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-19 19:17+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2019-03-19 18:28+0100\n"
+"Last-Translator: NathanBnm\n"
+"Language-Team: Français\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: src/Application.vala:28 data/com.github.alcadica.develop.appdata.xml.in:8
 #: data/com.github.alcadica.develop.desktop.in:4
 msgid "Develop"
-msgstr ""
+msgstr "Develop"
 
 #: src/Application.vala:82
 msgid "Preferences"
-msgstr ""
+msgstr "Préférences"
 
 #: src/Views/Partials/Forms/FormNewApp.vala:34
 #: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:48
 #: src/Views/Partials/Forms/FormNewWingpanelWidget.vala:35
 msgid "Choose project folder"
-msgstr ""
+msgstr "Choisir le dossier de projet"
 
 #: src/Views/Partials/Forms/FormNewApp.vala:38
 msgid "Create a new elementary App"
-msgstr ""
+msgstr "Créer une nouvelle application elementary"
 
 #: src/Views/Partials/Forms/FormNewApp.vala:39
 msgid "App name"
-msgstr ""
+msgstr "Nom de l'application"
 
 #: src/Views/Partials/Forms/FormNewApp.vala:40
 #: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:56
 #: src/Views/Partials/Forms/FormNewWingpanelWidget.vala:42
 msgid "RDNN name"
-msgstr ""
+msgstr "Nom RDNN"
 
 #: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:52
 msgid "Switchboard category"
-msgstr ""
+msgstr "Catégorie Switchboard"
 
 #: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:53
 msgid "Create a new Switchboard Plug"
-msgstr ""
+msgstr "Créer un nouveau plug Switchboard"
 
 #: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:54
 msgid "Plug name"
-msgstr ""
+msgstr "Nom du plug"
 
 #: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:55
 msgid "Plug description"
-msgstr ""
+msgstr "Description du plug"
 
 #: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:61
 msgid "Personal"
-msgstr ""
+msgstr "Personnel"
 
 #: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:62
 msgid "Hardware"
-msgstr ""
+msgstr "Matériel"
 
 #: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:63
 msgid "Network"
-msgstr ""
+msgstr "Réseau"
 
 #: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:64
 msgid "System"
-msgstr ""
+msgstr "Système"
 
 #: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:65
 msgid "Other"
-msgstr ""
+msgstr "Autre"
 
 #: src/Views/Partials/Forms/FormNewWingpanelWidget.vala:39
 msgid "Create a new Wingpanel Indicator"
-msgstr ""
+msgstr "Créer un nouvel indicateur Wingpanel"
 
 #: src/Views/Partials/Forms/FormNewWingpanelWidget.vala:40
 msgid "Indicator description"
-msgstr ""
+msgstr "Description de l'indicateur"
 
 #: src/Views/Partials/Forms/FormNewWingpanelWidget.vala:41
 msgid "Indicator name"
-msgstr ""
+msgstr "Nom de l'indicateur"
 
 #: src/Views/Partials/Forms/FormUserData.vala:34
 msgid "Name:"
-msgstr ""
+msgstr "Nom :"
 
 #: src/Views/Partials/Forms/FormUserData.vala:34
 msgid "John Doe"
-msgstr ""
+msgstr "Jean Dupont"
 
 #: src/Views/Partials/Forms/FormUserData.vala:35
 msgid "Email:"
-msgstr ""
+msgstr "E-mail :"
 
 #: src/Views/Partials/Forms/FormUserData.vala:35
 msgid "myemail@gmail.com"
-msgstr ""
+msgstr "monemail@gmail.com"
 
 #: src/Views/Partials/Forms/FormUserData.vala:36
 msgid "Personal github address:"
-msgstr ""
+msgstr "Adresse Github personnelle :"
 
 #: src/Views/Partials/Forms/FormUserData.vala:36
 msgid "https://github.com/yourname"
-msgstr ""
+msgstr "https://github.com/votrenom"
 
 #: src/Views/Partials/Forms/FormUserData.vala:37
 msgid "Personal website:"
-msgstr ""
+msgstr "Site web personnel :"
 
 #: src/Views/Partials/Forms/FormUserData.vala:37
 msgid "https://www.mywebsite.com"
-msgstr ""
+msgstr "https://www.monsite.com"
 
 #: src/Views/Partials/Settings/UserDataSettings.vala:27
 #: src/Views/SettingsView.vala:35
 msgid "User settings"
-msgstr ""
+msgstr "Paramètres utilisateur"
 
 #: src/Views/Partials/Settings/UserDataSettingsFirstRun.vala:32
 msgid "First run setup"
-msgstr ""
+msgstr "Configuration"
 
 #: src/Views/Partials/Settings/UserDataSettingsFirstRun.vala:33
 msgid "Before proceeding I'd love to know more about you"
-msgstr ""
+msgstr "Avant de commencer j'aimerai en savoir un peu plus sur vous"
 
 #: src/Views/Partials/Settings/UserDataSettingsFirstRun.vala:34
 msgid "Your data will not be stored in a server"
-msgstr ""
+msgstr "Vos données ne seront pas stockées sur un serveur"
 
 #: src/Views/Partials/Settings/UserDataSettingsFirstRun.vala:54
 msgid "Save user data"
-msgstr ""
+msgstr "Enregistrer les données utilisateur"
 
 #: src/Views/Partials/Window/HeaderBar.vala:28
 msgid "Back"
-msgstr ""
+msgstr "Retour"
 
 #: src/Views/SettingsView.vala:35
 msgid "Sets your personal developer data"
-msgstr ""
+msgstr "Définit vos données personnelles de développeur"
 
 #: src/Views/WelcomeView.vala:33
 msgid "Develop for elementary"
-msgstr ""
+msgstr "Développez pour elementary"
 
 #: src/Views/WelcomeView.vala:34
 msgid "Choose what you wish to develop"
-msgstr ""
+msgstr "Choisissez ce que vous souhaitez développer"
 
 #: src/Views/WelcomeView.vala:39
 msgid "App"
-msgstr ""
+msgstr "Application"
 
 #: src/Views/WelcomeView.vala:39
 msgid "Create a new elementary OS application."
-msgstr ""
+msgstr "Créer une nouvelle application pour elementary OS."
 
 #: src/Views/WelcomeView.vala:40
 msgid "Switchboard plug"
-msgstr ""
+msgstr "Plug Switchboard"
 
 #: src/Views/WelcomeView.vala:40
 msgid "Create a new elementary OS switchboard plug."
-msgstr ""
+msgstr "Créer un nouveau plug Switchboard pour elementary OS."
 
 #: src/Views/WelcomeView.vala:41
 msgid "Wingpanel indicator"
-msgstr ""
+msgstr "Indicateur Wingpanel"
 
 #: src/Views/WelcomeView.vala:41
 msgid "Create a new elementary OS wingpanel indicator."
-msgstr ""
+msgstr "Créer un nouvel indicateur Wingppanel pour elementary OS."
 
 #: src/Widgets/ActionBar.vala:32
 msgid "Create"
-msgstr ""
+msgstr "Créer"
 
 #: src/Widgets/ActionBar.vala:33
 msgid "Undo"
-msgstr ""
+msgstr "Annuler"
 
 #: src/Widgets/EntryWithLabel.vala:61
 msgid "Optional"
-msgstr ""
+msgstr "Facultatif"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:9
 msgid "Creates elementary OS apps and widgets"
-msgstr ""
+msgstr "Créez des applications et widgets pour elementary OS"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:11
 msgid ""
 "A simple tool to help elementary OS developers to develop their own apps and "
 "widgets."
 msgstr ""
+"Un simple outil pour aider les développeurs d'elementary OS à développer "
+"leurs propres applications et widgets."
 
 #: data/com.github.alcadica.develop.appdata.xml.in:14
 msgid ""
 "With this app you can scaffold an elementary OS App, a Switchboard Widget or "
 "a Wingpanel Indicator"
 msgstr ""
+"Avec cette application vous pouvez échaffauder une application pour "
+"elementary OS, un plug Switchboard ou un indicateur Wingpanel"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:22
 msgid "Publish the app on Juno"
-msgstr ""
+msgstr "Publication de l'application pour Juno"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:29
 msgid ""
 "Fills generated README.md files with installing and compiling instructions"
 msgstr ""
+"Ajout du fichier README.md avec instructions d'installation et de compilation"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:36
 msgid ""
 "Adds a small disclaimer about user data consumption (they are not saved on a "
 "server)"
 msgstr ""
+"Ajout d'un petit avertissement concernant l'utilisation des données des "
+"utilisateurs(elles ne sont pas sauvegardées sur un serveur)"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:43
 msgid "Fixes a small bug"
-msgstr ""
+msgstr "Correction d'un léger bug"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:49
 msgid "New features:"
-msgstr ""
+msgstr "Nouvelles fonctionnalités :"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:51
 msgid "Opens a folder on success"
-msgstr ""
+msgstr "Ouvre le dossier en cas de succès"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:53
 msgid "Bug fixes:"
-msgstr ""
+msgstr "Correction de bugs :"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:55
 msgid "Don't create folders in home directory"
-msgstr ""
+msgstr "Ne créée pas de dossiers dans le répertoire home"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:56
 msgid "Use \"office-contact\" instead of \"vcard\" icon"
-msgstr ""
+msgstr "Utilise l'icône « office-contact » au lieu de « vcard »"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:57
 msgid "Welcome View is too big"
-msgstr ""
+msgstr "L'écran de bienvenue était trop grand"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:64
 msgid "Improves first run screen"
-msgstr ""
+msgstr "Amélioration de l'écran de configuration"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:70
 msgid "Features"
-msgstr ""
+msgstr "Fonctionnalités"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:72
 msgid "Creates elementary OS app template"
-msgstr ""
+msgstr "Créée la structure d'une application elementary OS"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:73
 msgid "Creates elementary OS switchboard plug template"
-msgstr ""
+msgstr "Créée la structure d'un plug Switchboard elementary OS"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:74
 msgid "Creates elementary OS wingpanel indicator template"
-msgstr ""
+msgstr "Créée la structure d'un indicateur Wingpanel elementary OS"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:111
 msgid "Alcadica"
-msgstr ""
+msgstr "Alcadica"
 
 #: data/com.github.alcadica.develop.desktop.in:5
 msgid "Create elementary OS apps"
-msgstr ""
+msgstr "Créez des applications pour elementary OS"
 
 #: data/com.github.alcadica.develop.desktop.in:6
 msgid "Develop App"
-msgstr ""
+msgstr "Application Develop"
 
 #: data/com.github.alcadica.develop.desktop.in:8
 msgid "com.github.alcadica.develop"
-msgstr ""
+msgstr "com.github.alcadica.develop"
 
 #: data/com.github.alcadica.develop.desktop.in:11
 msgid "Develop;"
-msgstr ""
+msgstr "Develop;"

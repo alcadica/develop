@@ -58,7 +58,7 @@ namespace Alcadica.Widgets {
 				this._is_optional = value;
 
 				if (this.label_optional == null) {
-					this.label_optional = new Gtk.Label ("Optional");
+					this.label_optional = new Gtk.Label (_("Optional"));
 					this.label_optional.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
 					this.attach_next_to (this.label_optional, this.label, Gtk.PositionType.RIGHT);
 				}

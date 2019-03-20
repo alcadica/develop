@@ -1,3 +1,4 @@
+src/Application.vala
 src/Views/MainView.vala
 src/Views/Partials/Forms/FormBase.vala
 src/Views/Partials/Forms/FormNewApp.vala
@@ -11,3 +12,7 @@ src/Views/Partials/Window/HeaderBar.vala
 src/Views/ProjectEditingView.vala
 src/Views/SettingsView.vala
 src/Views/WelcomeView.vala
+src/Widgets/ActionBar.vala
+src/Widgets/EntryWithLabel.vala
+data/com.github.alcadica.develop.appdata.xml.in
+data/com.github.alcadica.develop.desktop.in

@@ -25,7 +25,7 @@ using Gtk;
 namespace Alcadica {
 
     public const string APP_ID = "com.github.alcadica.develop";
-    public const string APP_NAME = "Develop";
+    public const string APP_NAME = (_("Develop"));
 
     public class Develop : Granite.Application {
         public static Develop _instance = null;
@@ -79,7 +79,7 @@ namespace Alcadica {
             });
 
             manager.get_action (Actions.Window.SETTINGS_OPEN).activate.connect (() => {
-                window.title = APP_NAME + " - Preferences";
+                window.title = APP_NAME + (" - " + (_("Preferences")));
             });
 
             manager.get_action (Actions.Window.QUIT).activate.connect (() => {
