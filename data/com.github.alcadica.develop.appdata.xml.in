@@ -16,6 +16,15 @@
     </p>
   </description>
   <releases>
+      <release version="0.0.8" date="2019-03-21">
+      <description>
+        <p>Updates translations</p>
+        <ul>
+          <li>Updates translations files</li>
+          <li>Adds French translations (@NathanBnm)</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.0.7" date="2018-09-30">
       <description>
         <ul>
