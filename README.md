@@ -53,3 +53,8 @@ sudo ninja com.github.alcadica.develop-pot
 # to regenerate and propagate changes to every po file
 sudo ninja com.github.alcadica.develop-update-po
 ```
+
+## Contributors
+
+* [OctoD](https://github.com/octod) (author 🐧)
+* [NathanBnm](https://github.com/NathanBnm) (contributor/french translator)
