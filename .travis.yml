@@ -17,21 +17,12 @@ addons:
     packages:
       - libstdc++-5-dev
 
-cache:
-  directories:
-    - /tmp/liftoff
-
-matrix:
-  include:
-    - env: DIST=juno
-
 install:
-  - npm install @elementaryos/houston
+  - npm install -g @elementaryos/houston
 
 script:
   - houston ci
-    --distribution $DIST
+    --type system-app
+    --name-domain com.github.alcadica.develop
+    --name-human Develop
 
-branches:
-  only:
-  - master
