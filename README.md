@@ -58,3 +58,5 @@ sudo ninja com.github.alcadica.develop-update-po
 
 * [OctoD](https://github.com/octod) (author 🐧)
 * [NathanBnm](https://github.com/NathanBnm) (contributor/french translator)
+* [iuninefrendor](https://github.com/iuninefrendor) (contributor/spanish translator/build system)
+* [aimproxy](https://github.com/aimproxy) (contributor/portuguese translator)
