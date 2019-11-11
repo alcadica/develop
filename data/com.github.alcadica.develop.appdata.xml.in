@@ -16,6 +16,17 @@
     </p>
   </description>
   <releases>
+      <release version="0.20.1" date="2019-11-11">
+        <description>
+          <p>Updates translations</p>
+          <ul>
+            <li>Updates translations files</li>
+            <li>Adds French translations (@NathanBnm)</li>
+            <li>Adds Spanish translations (@iuninefrendor)</li>
+            <li>Adds Portuguese translations (@aimproxy)</li>
+          </ul>
+        </description>
+      </release>
       <release version="0.20.0" date="2019-07-13">
         <description>
           <p>Updates translations</p>
