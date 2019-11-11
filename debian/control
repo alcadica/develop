@@ -16,5 +16,5 @@ Standards-Version: 3.9.3
 Package: com.github.alcadica.develop
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Description: Simplify elementary os development
- This is a tool which creates elementary os projects from scratch with few clicks
+Description: Simplify apps development
+ This is a tool which creates apps projects from scratch with few clicks

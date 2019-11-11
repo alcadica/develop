@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=Develop
-Comment=Create elementary OS apps
+Comment=Create apps and widgets
 GenericName=Develop App
 Exec=com.github.alcadica.develop %U
 Icon=com.github.alcadica.develop
