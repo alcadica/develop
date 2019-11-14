@@ -60,3 +60,4 @@ sudo ninja com.github.alcadica.develop-update-po
 * [NathanBnm](https://github.com/NathanBnm) (contributor/french translator)
 * [iuninefrendor](https://github.com/iuninefrendor) (contributor/spanish translator/build system)
 * [aimproxy](https://github.com/aimproxy) (contributor/portuguese translator)
+* [meisenzahl](https://github.com/meisenzahl) (for fixing the build system and preventing lots of headaches)
