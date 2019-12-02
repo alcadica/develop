@@ -7,142 +7,155 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-02 15:57+0100\n"
+"POT-Creation-Date: 2019-12-02 16:09+0100\n"
 "PO-Revision-Date: 2019-12-02 15:57+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: data/com.github.alcadica.develop.desktop.in:4
 #: data/com.github.alcadica.develop.appdata.xml.in:8
 msgid "Develop"
-msgstr ""
+msgstr "Develop"
 
 #: data/com.github.alcadica.develop.desktop.in:5
+#, fuzzy
 msgid "Create apps and widgets"
-msgstr ""
+msgstr "Créez des applications et widgets pour elementary OS"
 
 #: data/com.github.alcadica.develop.desktop.in:6
 msgid "Develop App"
-msgstr ""
+msgstr "Application Develop"
 
 #: data/com.github.alcadica.develop.desktop.in:8
 msgid "com.github.alcadica.develop"
-msgstr ""
+msgstr "com.github.alcadica.develop"
 
 #: data/com.github.alcadica.develop.desktop.in:11
 msgid "Develop;"
-msgstr ""
+msgstr "Develop;"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:9
+#, fuzzy
 msgid "Creates easily apps and widgets"
-msgstr ""
+msgstr "Créez des applications et widgets pour elementary OS"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:11
+#, fuzzy
 msgid "A simple tool to help developers to develop their own apps and widgets."
 msgstr ""
+"Un simple outil pour aider les développeurs d'elementary OS à développer "
+"leurs propres applications et widgets."
 
 #: data/com.github.alcadica.develop.appdata.xml.in:14
+#, fuzzy
 msgid ""
 "With this app you can scaffold an App, a Switchboard Widget or a Wingpanel "
 "Indicator"
 msgstr ""
+"Avec cette application vous pouvez échaffauder une application pour "
+"elementary OS, un plug Switchboard ou un indicateur Wingpanel"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:21
 #: data/com.github.alcadica.develop.appdata.xml.in:32
 #: data/com.github.alcadica.develop.appdata.xml.in:43
 msgid "Updates translations"
-msgstr ""
+msgstr "Mise à jour des traductions"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:23
 #: data/com.github.alcadica.develop.appdata.xml.in:34
 #: data/com.github.alcadica.develop.appdata.xml.in:45
 msgid "Updates translations files"
-msgstr ""
+msgstr "Mise à jour des fichiers de traduction"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:24
 #: data/com.github.alcadica.develop.appdata.xml.in:35
 #: data/com.github.alcadica.develop.appdata.xml.in:46
 msgid "Adds French translations (@NathanBnm)"
-msgstr ""
+msgstr "Ajout de traductions françaises"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:25
 #: data/com.github.alcadica.develop.appdata.xml.in:36
+#, fuzzy
 msgid "Adds Spanish translations (@iuninefrendor)"
-msgstr ""
+msgstr "Ajout de traductions françaises"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:26
 #: data/com.github.alcadica.develop.appdata.xml.in:37
+#, fuzzy
 msgid "Adds Portuguese translations (@aimproxy)"
-msgstr ""
+msgstr "Ajout de traductions françaises"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:53
 msgid "Publish the app on Juno"
-msgstr ""
+msgstr "Publication de l'application pour Juno"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:60
 msgid ""
 "Fills generated README.md files with installing and compiling instructions"
 msgstr ""
+"Ajout du fichier README.md avec instructions d'installation et de compilation"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:67
 msgid ""
 "Adds a small disclaimer about user data consumption (they are not saved on a "
 "server)"
 msgstr ""
+"Ajout d'un petit avertissement concernant l'utilisation des données des "
+"utilisateurs(elles ne sont pas sauvegardées sur un serveur)"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:74
 msgid "Fixes a small bug"
-msgstr ""
+msgstr "Correction d'un léger bug"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:80
 msgid "New features:"
-msgstr ""
+msgstr "Nouvelles fonctionnalités :"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:82
 msgid "Opens a folder on success"
-msgstr ""
+msgstr "Ouvre le dossier en cas de succès"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:84
 msgid "Bug fixes:"
-msgstr ""
+msgstr "Correction de bugs :"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:86
 msgid "Don't create folders in home directory"
-msgstr ""
+msgstr "Ne créée pas de dossiers dans le répertoire home"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:87
 msgid "Use \"office-contact\" instead of \"vcard\" icon"
-msgstr ""
+msgstr "Utilise l'icône « office-contact » au lieu de « vcard »"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:88
 msgid "Welcome View is too big"
-msgstr ""
+msgstr "L'écran de bienvenue était trop grand"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:95
 msgid "Improves first run screen"
-msgstr ""
+msgstr "Amélioration de l'écran de configuration"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:101
 msgid "Features"
-msgstr ""
+msgstr "Fonctionnalités"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:103
 msgid "Creates elementary OS app template"
-msgstr ""
+msgstr "Créée la structure d'une application elementary OS"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:104
 msgid "Creates elementary OS switchboard plug template"
-msgstr ""
+msgstr "Créée la structure d'un plug Switchboard elementary OS"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:105
 msgid "Creates elementary OS wingpanel indicator template"
-msgstr ""
+msgstr "Créée la structure d'un indicateur Wingpanel elementary OS"
 
 #: data/com.github.alcadica.develop.appdata.xml.in:142
 msgid "Alcadica"
-msgstr ""
+msgstr "Alcadica"
