@@ -27,6 +27,8 @@ namespace Alcadica.Views.Partials.Window {
 		construct {
 			Button button_back = new Button.with_label (_("Back"));
 			Button button_settings = new Button.from_icon_name ("open-menu");
+			button_back.valign = Gtk.Align.CENTER;
+			button_settings.valign = Gtk.Align.CENTER;
 			
 			button_back.get_style_context().add_class (STYLE_CLASS_BACK_BUTTON);
 			//  STYLE_CLASS_BACK_BUTTON
