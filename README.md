@@ -61,3 +61,4 @@ sudo ninja com.github.alcadica.develop-update-po
 * [iuninefrendor](https://github.com/iuninefrendor) (contributor/spanish translator/build system)
 * [aimproxy](https://github.com/aimproxy) (contributor/portuguese translator)
 * [meisenzahl](https://github.com/meisenzahl) (for fixing the build system and preventing lots of headaches)
+* [maze-n](https://github.com/maze-n) (for UI tweaks)
