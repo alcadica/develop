@@ -16,6 +16,14 @@
     </p>
   </description>
   <releases>
+      <release version="0.21.0" date="2020-01-15">
+        <description>
+          <p>UI improvements</p>
+          <ul>
+            <li>Improves UI</li>
+          </ul>
+        </description>
+      </release>
       <release version="0.20.1" date="2019-11-11">
         <description>
           <p>Updates translations</p>
