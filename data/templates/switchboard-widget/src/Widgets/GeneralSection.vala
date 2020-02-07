@@ -22,13 +22,13 @@
 namespace {{projectname}}.Widgets {
     public class GeneralSection : Gtk.Grid {
         public {{projectname}}.Backend.Settings settings { get; construct; }
-    
+
         public GeneralSection ({{projectname}}.Backend.Settings settings) {
             Object (settings: settings);
         }
-    
+
         construct {
-    
+            // TODO
         }
     }
 }

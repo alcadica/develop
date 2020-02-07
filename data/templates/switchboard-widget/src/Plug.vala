@@ -37,7 +37,7 @@ namespace {{projectname}} {
             var widget = new {{projectname}}.Widgets.GeneralSection (settings);
 
             load_settings ();
-            
+
             return widget;
         }
 
