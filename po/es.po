@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.alcadica.develop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-04 18:00+0100\n"
+"POT-Creation-Date: 2019-12-02 16:09+0100\n"
 "PO-Revision-Date: 2019-07-04 19:43+0100\n"
 "Last-Translator: iuninefrendor\n"
 "Language-Team: Spanish\n"
@@ -17,8 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/Application.vala:28 data/com.github.alcadica.develop.appdata.xml.in:8
-#: data/com.github.alcadica.develop.desktop.in:4
+#: src/Application.vala:28
 msgid "Develop"
 msgstr "Develop"
 
@@ -198,121 +197,3 @@ msgstr "Cancelar"
 #: src/Widgets/EntryWithLabel.vala:61
 msgid "Optional"
 msgstr "Opcional"
-
-#: data/com.github.alcadica.develop.appdata.xml.in:9
-msgid "Creates elementary OS apps and widgets"
-msgstr "Crear aplicaciones y widgets para elementary OS"
-
-#: data/com.github.alcadica.develop.appdata.xml.in:11
-msgid ""
-"A simple tool to help elementary OS developers to develop their own apps and "
-"widgets."
-msgstr ""
-"Una herramienta simple para ayudar a los desarrolladores de elementary OS a desarrollar sus propias aplicaciones"
-" y widgets."
-
-#: data/com.github.alcadica.develop.appdata.xml.in:14
-msgid ""
-"With this app you can scaffold an elementary OS App, a Switchboard Widget or "
-"a Wingpanel Indicator"
-msgstr ""
-"Con esta aplicación, puede crear una aplicación de elementary OS, un widget de Switchboard o "
-"un indicador de Wingpanel"
-
-#: data/com.github.alcadica.develop.appdata.xml.in:21
-msgid "Updates translations"
-msgstr "Actualización de traducciones"
-
-#: data/com.github.alcadica.develop.appdata.xml.in:23
-msgid "Updates translations files"
-msgstr "Actualización de los archivos de traducción"
-
-#: data/com.github.alcadica.develop.appdata.xml.in:24
-msgid "Adds French translations (@NathanBnm)"
-msgstr "Añadidas traducciones al francés"
-
-#: data/com.github.alcadica.develop.appdata.xml.in:31
-msgid "Publish the app on Juno"
-msgstr "Publicación de la aplicación para Juno"
-
-#: data/com.github.alcadica.develop.appdata.xml.in:38
-msgid ""
-"Fills generated README.md files with installing and compiling instructions"
-msgstr ""
-"Corregido el archivo README.md con las instrucciones de instalación y compilación"
-
-#: data/com.github.alcadica.develop.appdata.xml.in:45
-msgid ""
-"Adds a small disclaimer about user data consumption (they are not saved on a "
-"server)"
-msgstr ""
-"Agrega un pequeño descargo de responsabilidad sobre el consumo de datos del usuario (no se guardan en un"
-"servidor)"
-
-#: data/com.github.alcadica.develop.appdata.xml.in:52
-msgid "Fixes a small bug"
-msgstr "Corrección mayor de errores"
-
-#: data/com.github.alcadica.develop.appdata.xml.in:58
-msgid "New features:"
-msgstr "Nuevas funcionalidades:"
-
-#: data/com.github.alcadica.develop.appdata.xml.in:60
-msgid "Opens a folder on success"
-msgstr "Abre una carpeta al crear"
-
-#: data/com.github.alcadica.develop.appdata.xml.in:62
-msgid "Bug fixes:"
-msgstr "Corrección de errores:"
-
-#: data/com.github.alcadica.develop.appdata.xml.in:64
-msgid "Don't create folders in home directory"
-msgstr "No era posible crear carpetas en el directorio Home"
-
-#: data/com.github.alcadica.develop.appdata.xml.in:65
-msgid "Use \"office-contact\" instead of \"vcard\" icon"
-msgstr "Uso del icono \"office-contact\" en lugar de \"vcard\""
-
-#: data/com.github.alcadica.develop.appdata.xml.in:66
-msgid "Welcome View is too big"
-msgstr "La pantalla de bienvenida es más grande"
-
-#: data/com.github.alcadica.develop.appdata.xml.in:73
-msgid "Improves first run screen"
-msgstr "Mejoras en la pantalla de configuración"
-
-#: data/com.github.alcadica.develop.appdata.xml.in:79
-msgid "Features"
-msgstr "Funcionalidades"
-
-#: data/com.github.alcadica.develop.appdata.xml.in:81
-msgid "Creates elementary OS app template"
-msgstr "Crear la estructura de una aplicación de elementary OS"
-
-#: data/com.github.alcadica.develop.appdata.xml.in:82
-msgid "Creates elementary OS switchboard plug template"
-msgstr "Crear la estructura de un plugin de Switchboard de elementary OS"
-
-#: data/com.github.alcadica.develop.appdata.xml.in:83
-msgid "Creates elementary OS wingpanel indicator template"
-msgstr "Crear la estructura de un indicador Wingpanel de elementary OS"
-
-#: data/com.github.alcadica.develop.appdata.xml.in:120
-msgid "Alcadica"
-msgstr "Alcadica"
-
-#: data/com.github.alcadica.develop.desktop.in:5
-msgid "Create elementary OS apps"
-msgstr "Crea aplicaciones para elementary OS"
-
-#: data/com.github.alcadica.develop.desktop.in:6
-msgid "Develop App"
-msgstr "Develop App"
-
-#: data/com.github.alcadica.develop.desktop.in:8
-msgid "com.github.alcadica.develop"
-msgstr "com.github.alcadica.develop"
-
-#: data/com.github.alcadica.develop.desktop.in:11
-msgid "Develop;"
-msgstr "Develop;"
