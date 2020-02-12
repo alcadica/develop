@@ -62,3 +62,4 @@ sudo ninja com.github.alcadica.develop-update-po
 * [aimproxy](https://github.com/aimproxy) (contributor/portuguese translator)
 * [meisenzahl](https://github.com/meisenzahl) (for fixing the build system and preventing lots of headaches)
 * [maze-n](https://github.com/maze-n) (for UI tweaks)
+* [spidermonkdust](https://github.com/spidermonkdust) (for making templates passing Vala linter) 
