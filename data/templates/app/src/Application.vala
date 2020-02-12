@@ -26,8 +26,8 @@ namespace {{projectname}} {
     public class Application : Granite.Application {
 
         public Application () {
-            Object(
-                application_id: "{{execname}}", 
+            Object (
+                application_id: "{{execname}}",
                 flags: ApplicationFlags.FLAGS_NONE
             );
         }

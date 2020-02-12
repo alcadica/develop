@@ -19,7 +19,7 @@
 * Authored by: {{name}} <{{site}}>
  */
 
-namespace {{projectname}}.Backend { 
+namespace {{projectname}}.Backend {
     public class Settings : Granite.Services.Settings {
         public Settings () {
             base ("{{execname}}");

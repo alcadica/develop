@@ -30,7 +30,7 @@ public class {{projectname}}.Indicator : Wingpanel.Indicator {
 
     public override Gtk.Widget get_display_widget () {
         if (display_icon == null) {
-            
+            // TODO
         }
 
         return display_icon;
@@ -40,7 +40,7 @@ public class {{projectname}}.Indicator : Wingpanel.Indicator {
         if (main_grid == null) {
             main_grid = new Gtk.Grid ();
             main_grid.set_orientation (Gtk.Orientation.VERTICAL);
-            
+
             main_grid.show_all ();
         }
 
