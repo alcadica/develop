@@ -71,6 +71,7 @@ namespace Alcadica.Views {
 
                 service.root_dir_name = form_app.rdnn_name.text;
 
+                service.add_token ("email", settings.user_email);
                 service.add_token ("antispammail", settings.user_email.replace("@", "_AT_"));
                 service.add_token ("execname", form_app.rdnn_name.text);
                 service.add_token ("issue_tracker_url", string.join ("/", settings.user_github_url, projectname, "issues"));
@@ -98,6 +99,7 @@ namespace Alcadica.Views {
 
                 service.root_dir_name = form_switchboard.rdnn_name.text;
 
+                service.add_token ("email", settings.user_email);
                 service.add_token ("antispammail", settings.user_email.replace("@", "_AT_"));
                 service.add_token ("plugdisplayname", projectname);
                 service.add_token ("plugdescription", form_switchboard.plug_description.text);
@@ -150,6 +152,7 @@ namespace Alcadica.Views {
 
                 service.root_dir_name = form_wingpanel.rdnn_name.text;
 
+                service.add_token ("email", settings.user_email);
                 service.add_token ("antispammail", settings.user_email.replace("@", "_AT_"));
                 service.add_token ("execname", form_wingpanel.rdnn_name.text);
                 service.add_token ("issue_tracker_url", string.join ("/", settings.user_github_url, projectname, "issues"));
