@@ -1,12 +1,20 @@
-project ('{{execname}}', 'vala', 'c', version: '0.0.1')
+# Project name, programming language and version
+project (
+    '{{execname}}',
+    'vala', 'c',
+    version: '0.0.1'
+)
 
+# Translation module
+i18n = import ('i18n')
+
+# Project arguments
 add_project_arguments (
     '-DGETTEXT_PACKAGE="@0@"'.format (meson.project_name ()),
     language: 'c'
 )
 
-i18n = import ('i18n')
-
+# Listing dependencies
 dependencies = [
     dependency ('glib-2.0'),
     dependency ('gtk+-3.0')
@@ -14,6 +22,7 @@ dependencies = [
 
 subdir ('src')
 
+# Executable
 executable (
     meson.project_name (),
     sources,
