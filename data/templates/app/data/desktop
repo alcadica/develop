@@ -1,9 +1,9 @@
 [Desktop Entry]
 Type=Application
-Name=
-Comment=
-GenericName=
-Exec=@EXEC_NAME@ %U
+Name=Name
+Comment=Comment
+GenericName=GenericName
+Exec={{execname}} %U
 Icon={{execname}}
 Terminal=false
 Categories=Utility;GTK;Development;
