@@ -3,7 +3,7 @@ Develop
 
 [![Build Status](https://travis-ci.org/alcadica/develop.svg?branch=master)](https://travis-ci.org/alcadica/develop)
 
-A simple tool to help Elementary OS developers to develop their own apps and widgets.
+A simple tool to help elementary OS developers to develop their own apps and widgets.
 
 ![](./data/screenshots/screenshot-002.png)
 
@@ -57,9 +57,9 @@ sudo ninja com.github.alcadica.develop-update-po
 ## Contributors
 
 * [OctoD](https://github.com/octod) (author 🐧)
-* [NathanBnm](https://github.com/NathanBnm) (contributor/french translator)
-* [iuninefrendor](https://github.com/iuninefrendor) (contributor/spanish translator/build system)
-* [aimproxy](https://github.com/aimproxy) (contributor/portuguese translator)
+* [NathanBnm](https://github.com/NathanBnm) (contributor/French translator)
+* [iuninefrendor](https://github.com/iuninefrendor) (contributor/Spanish translator/build system)
+* [aimproxy](https://github.com/aimproxy) (contributor/Portuguese translator)
 * [meisenzahl](https://github.com/meisenzahl) (for fixing the build system and preventing lots of headaches)
 * [maze-n](https://github.com/maze-n) (for UI tweaks)
 * [spidermonkdust](https://github.com/spidermonkdust) (for making templates passing Vala linter) 
