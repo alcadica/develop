@@ -41,8 +41,6 @@ namespace Alcadica.Services {
             this.files = new List<TemplateFile> ();
             this.base_dir = base_dir;
             this.template_name = template_name;
-
-            this.add_token ("yearrange", new DateTime.now (new TimeZone.local ()).get_year ().to_string () + " - Today");
         }
 
         protected string get_shared_template_dir () {
@@ -117,6 +115,8 @@ namespace Alcadica.Services {
 
         public bool start () {
             this.on_init ();
+
+            this.add_token ("yearrange", new DateTime.now (new TimeZone.local ()).get_year ().to_string () + " - Today");
 
             if (this.create_project_root ()) {
                 bool directories = this.create_directories ();

@@ -16,35 +16,29 @@
 * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301 USA
 *
-* Authored by: {{name}} <{{site}}>
+* Authored by: {{name}} <{{email}}>
 */
-using Granite;
-using Granite.Widgets;
-using Gtk;
 
-namespace {{projectname}} {
-    public class Application : Granite.Application {
+public class Application : Gtk.Application {
 
-        public Application () {
-            Object (
-                application_id: "{{execname}}",
-                flags: ApplicationFlags.FLAGS_NONE
-            );
-        }
+    public Application () {
+        Object (
+            application_id: "{{execname}}",
+            flags: ApplicationFlags.FLAGS_NONE
+        );
+    }
 
-        protected override void activate () {
-            var window = new Gtk.ApplicationWindow (this);
-            var main = new Gtk.Grid ();
+    protected override void activate () {
+        var main_window = new Gtk.ApplicationWindow (this);
+        main_window.default_height = 300;
+        main_window.default_width = 300;
+        main_window.title = "{{projectname}}";
+        main_window.show_all ();
+    }
 
-            window.title = "{{projectname}}";
-            window.set_default_size (900, 640);
-            window.add (main);
-            window.show_all ();
-        }
-
-        public static int main (string[] args) {
-            var app = new {{projectname}}.Application ();
-            return app.run (args);
-        }
+    public static int main (string[] args) {
+        var app = new Application ();
+        return app.run (args);
     }
 }
+

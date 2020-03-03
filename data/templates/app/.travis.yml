@@ -1,10 +1,24 @@
+---
+
+language: node_js
+
+node_js:
+  - 10.17.0
+
 sudo: required
-language: generic
+
 services:
-- docker
+  - docker
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - libstdc++-5-dev
+
+install:
+  - npm i -g @elementaryos/houston
+
 script:
-- wget -O- https://raw.githubusercontent.com/harisvsulaiman/element-build/master/script.sh
-  | sh -
-branches: master
-except:
-- /^debian\/\d/
+  - houston ci

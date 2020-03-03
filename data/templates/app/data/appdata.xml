@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2018 {{name}} <{{email}}> -->
+<!-- Copyright 2020 {{name}} <{{email}}> -->
 <component type="desktop">
-  <id>{{execname}}.desktop</id>
+  <id>{{execname}}</id>
   <metadata_license>CC0-1.0</metadata_license>
-  <project_group>{{name}}</project_group>
   <project_license>GPL-3.0+</project_license>
-  <name></name>
-  <summary></summary>
-  <description></description>
-  <releases>
-    <release version="0.0.1" date="2018-05-05"/>
-  </releases>
+  <name>Your App's Name</name>
+  <summary>A Catchy Tagline</summary>
+  <description>
+    <p>A quick summary of your app's main selling points and features. Just a couple sentences per paragraph is best.</p>
+  </description>
   <provides>
     <binary>{{execname}}</binary>
   </provides>
+  <developer_name>{{name}}</developer_name>
+  <url type="homepage">{{site}}</url>
+  <url type="bugtracker">{{issue_tracker_url}}</url>
+  <url type="help">{{issue_tracker_url}}</url>
+  <screenshots>
+    <screenshot type="default">
+    </screenshot>
+  </screenshots>
   <content_rating type="oars-1.1">
     <content_attribute id="violence-cartoon">none</content_attribute>
     <content_attribute id="violence-fantasy">none</content_attribute>
@@ -43,13 +49,7 @@
     <content_attribute id="money-purchasing">none</content_attribute>
     <content_attribute id="money-gambling">none</content_attribute>
   </content_rating>
-  <developer_name>{{name}}</developer_name>
-  <url type="homepage">{{site}}</url>
-  <url type="bugtracker">{{issue_tracker_url}}</url>
-  <url type="help">{{issue_tracker_url}}</url>
-  <update_contact>{{antispammail}}</update_contact>
-  <screenshots>
-    <screenshot type="default">
-    </screenshot>
-  </screenshots>
+  <releases>
+    <rel8ease version="0.0.1" date="2020-01-01"/>
+  </releases>
 </component>
