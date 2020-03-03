@@ -21,39 +21,39 @@
 using Granite;
 using Gtk;
 
-namespace Alcadica.Views.Partials.Settings { 
-	public class UserDataSettings : SettingsBase {
-		public Forms.FormUserData form = new Forms.FormUserData ();
-		public HeaderLabel title = new HeaderLabel (_("User settings"));
+namespace Alcadica.Views.Partials.Settings {
+    public class UserDataSettings : SettingsBase {
+        public Forms.FormUserData form = new Forms.FormUserData ();
+        public HeaderLabel title = new HeaderLabel (_("User settings"));
 
-		construct {
-			Services.UserSettings settings = new Services.UserSettings ();
+        construct {
+            Services.UserSettings settings = new Services.UserSettings ();
 
-			title.set_xalign (0);
-			
-			this.add (title);
-			this.add (this.form);
+            title.set_xalign (0);
 
-			this.form.user_name.text = settings.user_name;	
-			this.form.user_email.text = settings.user_email;	
-			this.form.user_github_url.text = settings.user_github_url;	
-			this.form.user_website_url.text = settings.user_website_url;	
+            this.add (title);
+            this.add (this.form);
 
-			this.form.user_name.changed.connect (() => {
-				settings.user_name = this.form.user_name.text;
-			});
+            this.form.user_name.text = settings.user_name;
+            this.form.user_email.text = settings.user_email;
+            this.form.user_github_url.text = settings.user_github_url;
+            this.form.user_website_url.text = settings.user_website_url;
 
-			this.form.user_email.changed.connect (() => {
-				settings.user_email = this.form.user_email.text;
-			});
+            this.form.user_name.changed.connect (() => {
+                settings.user_name = this.form.user_name.text;
+            });
 
-			this.form.user_github_url.changed.connect (() => {
-				settings.user_github_url = this.form.user_github_url.text;
-			});
+            this.form.user_email.changed.connect (() => {
+                settings.user_email = this.form.user_email.text;
+            });
 
-			this.form.user_website_url.changed.connect (() => {
-				settings.user_website_url = this.form.user_website_url.text;
-			});
-		}
-	}
+            this.form.user_github_url.changed.connect (() => {
+                settings.user_github_url = this.form.user_github_url.text;
+            });
+
+            this.form.user_website_url.changed.connect (() => {
+                settings.user_website_url = this.form.user_website_url.text;
+            });
+        }
+    }
 }

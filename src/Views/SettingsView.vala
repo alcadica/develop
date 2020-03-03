@@ -24,28 +24,27 @@ using Alcadica.Views.Partials;
 using Alcadica.Widgets;
 
 namespace Alcadica.Views {
-    
     public class SettingsView : Paned {
-		public Stack stack_content = new Stack ();
-		public Box stack_menu = new Box (Orientation.VERTICAL, 0);
-		public Partials.Settings.UserDataSettings form_user = new Partials.Settings.UserDataSettings ();
+        public Stack stack_content = new Stack ();
+        public Box stack_menu = new Box (Orientation.VERTICAL, 0);
+        public Partials.Settings.UserDataSettings form_user = new Partials.Settings.UserDataSettings ();
 
-		construct {
-			ListBox listbox = new ListBox();
-			SettingItem button_form_user = new SettingItem (_("User settings"), _("Sets your personal developer data"), "office-contact");
+        construct {
+            ListBox listbox = new ListBox ();
+            SettingItem button_form_user = new SettingItem (_("User settings"), _("Sets your personal developer data"), "office-contact");
 
-			listbox.selection_mode = Gtk.SelectionMode.SINGLE;
-			
-			this.pack1 (this.stack_menu, true, true);
-			this.pack2 (this.stack_content, true, true);
-			this.set_position (220);
+            listbox.selection_mode = Gtk.SelectionMode.SINGLE;
 
-			this.stack_content.add (this.form_user);
-			this.stack_menu.add (listbox);
+            this.pack1 (this.stack_menu, true, true);
+            this.pack2 (this.stack_content, true, true);
+            this.set_position (220);
 
-			listbox.add(button_form_user);
+            this.stack_content.add (this.form_user);
+            this.stack_menu.add (listbox);
 
-			stack_content.margin = 10;
-		}
-	}
+            listbox.add (button_form_user);
+
+            stack_content.margin = 10;
+        }
+    }
 }

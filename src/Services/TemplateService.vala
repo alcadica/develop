@@ -22,8 +22,8 @@ using Alcadica.Entities.Template;
 using Alcadica.Services;
 using Granite.Services;
 
-namespace Alcadica.Services { 
-    public abstract class TemplateService : Object { 
+namespace Alcadica.Services {
+    public abstract class TemplateService : Object {
         public unowned List<TemplateFile> directories { get; set; }
         public unowned List<TemplateFile> files { get; set; }
         public unowned List<TemplateToken> tokens { get; set; }
@@ -36,7 +36,7 @@ namespace Alcadica.Services {
         protected abstract void on_file_write_end (TemplateFile file);
         public signal void on_creation_end (bool without_errors);
 
-        protected TemplateService(string template_name, string base_dir) {
+        protected TemplateService (string template_name, string base_dir) {
             this.directories = new List<TemplateFile> ();
             this.files = new List<TemplateFile> ();
             this.base_dir = base_dir;
@@ -53,7 +53,7 @@ namespace Alcadica.Services {
             this.directories.foreach (directory => {
                 debug ("Creating directory " + directory.path);
 
-                if (FileSystem.mkdir(directory.path)) {
+                if (FileSystem.mkdir (directory.path)) {
                     this.on_directory_write_end (directory);
                     count += 1;
                 }
@@ -77,7 +77,7 @@ namespace Alcadica.Services {
                 }
 
                 debug ("Writing file to " + file.path);
-                
+
                 if (FileSystem.write_file (file.path, result)) {
                     this.on_file_write_end (file);
                     count += 1;
@@ -92,16 +92,16 @@ namespace Alcadica.Services {
         }
 
         public uint add_file (string path, string content = "") {
-            TemplateFile directory = new TemplateFile();
-            TemplateFile file = new TemplateFile();
-            
+            TemplateFile directory = new TemplateFile ();
+            TemplateFile file = new TemplateFile ();
+
             directory.path = Path.build_filename (this.base_dir, Path.get_dirname (path));
-            file.file_type = TemplateFileType.Directory;
+            file.file_type = TemplateFileType.DIRECTORY;
 
             file.content = content;
             file.path = Path.build_filename (this.base_dir, path);
-            file.file_type = TemplateFileType.File;
-            
+            file.file_type = TemplateFileType.FILE;
+
             this.directories.append (directory);
             this.files.append (file);
 
@@ -124,12 +124,12 @@ namespace Alcadica.Services {
                 bool without_errors = directories && files;
 
                 this.on_creation_end (without_errors);
-                
+
                 return without_errors;
             } else {
                 this.on_creation_end (false);
             }
-            
+
             return false;
         }
     }

@@ -18,8 +18,8 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-namespace Alcadica.Entities.Template { 
-    public class TemplateFile : Object { 
+namespace Alcadica.Entities.Template {
+    public class TemplateFile : Object {
         public string content { get; set; }
         public string path { get; set; }
         public TemplateFileType file_type { get; set; }

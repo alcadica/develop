@@ -22,56 +22,56 @@ using Granite;
 using Gtk;
 
 namespace Alcadica.Widgets {
-	public class SwitchWithLabel : Grid { 
-		public Switch entry { get; set; }
-		public Label label { get; set; }
-		public signal void changed (bool is_active);
-		public bool active {
-			get {
-				return this.entry.active;
-			}
-			set {
-				this.entry.active = value;
-			}
-		}
-		public bool editable {
-			get {
-				return this.entry.get_sensitive ();
-			}
-			set {
-				this.entry.set_sensitive (value);
-			}
-		}
-		
-		public SwitchWithLabel (string entry_label) {
-			this.entry = new Switch ();
-			this.label = new Label (entry_label);
+    public class SwitchWithLabel : Grid {
+        public Switch entry { get; set; }
+        public Label label { get; set; }
+        public signal void changed (bool is_active);
+        public bool active {
+            get {
+                return this.entry.active;
+            }
+            set {
+                this.entry.active = value;
+            }
+        }
+        public bool editable {
+            get {
+                return this.entry.get_sensitive ();
+            }
+            set {
+                this.entry.set_sensitive (value);
+            }
+        }
 
-			this.label.set_xalign (0);
-			this.orientation = Orientation.HORIZONTAL;
-			this.row_spacing = 4;
+        public SwitchWithLabel (string entry_label) {
+            this.entry = new Switch ();
+            this.label = new Label (entry_label);
 
-			this.add (this.entry);
-			this.add (this.label);
-			this.set_expand (true);
+            this.label.set_xalign (0);
+            this.orientation = Orientation.HORIZONTAL;
+            this.row_spacing = 4;
 
-			this.entry.activate.connect (() => {
-				this.changed (this.entry.active);
-			});
-		}
+            this.add (this.entry);
+            this.add (this.label);
+            this.set_expand (true);
 
-		public void focusin () {
-			this.entry.grab_focus ();
-		}
+            this.entry.activate.connect (() => {
+                this.changed (this.entry.active);
+            });
+        }
 
-		public void set_expand (bool expand) {
-			this.expand = true;
-			this.entry.expand = expand;
-			this.label.expand = expand;
-		}
+        public void focusin () {
+            this.entry.grab_focus ();
+        }
 
-		public void set_xalign (int align) {
-			this.label.set_xalign (align);
-		}
-	}
+        public void set_expand (bool expand) {
+            this.expand = true;
+            this.entry.expand = expand;
+            this.label.expand = expand;
+        }
+
+        public void set_xalign (int align) {
+            this.label.set_xalign (align);
+        }
+    }
 }

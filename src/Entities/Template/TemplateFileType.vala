@@ -18,9 +18,9 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-namespace Alcadica.Entities.Template { 
+namespace Alcadica.Entities.Template {
     public enum TemplateFileType {
-        Directory,
-        File
-	}
+        DIRECTORY,
+        FILE
+    }
 }

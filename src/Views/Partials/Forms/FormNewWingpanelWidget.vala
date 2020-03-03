@@ -22,73 +22,73 @@ using Alcadica.Widgets;
 using Granite;
 using Gtk;
 
-namespace Alcadica.Views.Partials.Forms { 
-	public class FormNewWingpanelWidget : FormBase { 
-		public Button select_directory { get; set; }
-		public EntryWithLabel indicator_description { get; set; }
-		public EntryWithLabel project_name { get; set; }
-		public EntryWithLabel rdnn_name { get; set; } 
-		public HeaderLabel form_title { get; set; }
-		public string project_directory { get; set; }
+namespace Alcadica.Views.Partials.Forms {
+    public class FormNewWingpanelWidget : FormBase {
+        public Button select_directory { get; set; }
+        public EntryWithLabel indicator_description { get; set; }
+        public EntryWithLabel project_name { get; set; }
+        public EntryWithLabel rdnn_name { get; set; }
+        public HeaderLabel form_title { get; set; }
+        public string project_directory { get; set; }
 
-		construct {
-			var select_directory_text = _("Choose project folder");
-			var settings = new Services.UserSettings ();
-			string rdnn = new Services.RDNN (settings.user_github_url).to_string ();
-			
-			form_title = new HeaderLabel (_("Create a new Wingpanel Indicator"));
-			indicator_description = new EntryWithLabel (_("Indicator description"));
-			project_name = new EntryWithLabel (_("Indicator name"));
-			rdnn_name = new EntryWithLabel (_("RDNN name"));
-			select_directory = new Button.with_label (select_directory_text);
-			
-			project_directory = "";
+        construct {
+            var select_directory_text = _("Choose project folder");
+            var settings = new Services.UserSettings ();
+            string rdnn = new Services.RDNN (settings.user_github_url).to_string ();
 
-			indicator_description.entry.hide_icon = true;
+            form_title = new HeaderLabel (_("Create a new Wingpanel Indicator"));
+            indicator_description = new EntryWithLabel (_("Indicator description"));
+            project_name = new EntryWithLabel (_("Indicator name"));
+            rdnn_name = new EntryWithLabel (_("RDNN name"));
+            select_directory = new Button.with_label (select_directory_text);
 
-			add(form_title);
-			add(project_name);
-			add(indicator_description);
-			add(rdnn_name);
-			add(select_directory);
+            project_directory = "";
 
-			rdnn_name.entry.text = rdnn;
-			project_name.pattern = Alcadica.CommonRegEx.PROJECT_NAME;
+            indicator_description.entry.hide_icon = true;
 
-			select_directory.clicked.connect (() => {
-				project_directory = Services.FileSystem.choose_directory (select_directory_text);
-				validate ();
-			});
+            add (form_title);
+            add (project_name);
+            add (indicator_description);
+            add (rdnn_name);
+            add (select_directory);
 
-			project_name.changed.connect (() => {
-				validate();
-				if (project_name.text != "") {
-					rdnn_name.entry.text = rdnn + "." + project_name.text;
-				} else {
-					rdnn_name.entry.text = rdnn;
-				}
-			});
+            rdnn_name.entry.text = rdnn;
+            project_name.pattern = Alcadica.CommonRegEx.PROJECT_NAME;
 
-			focusin.connect (() => {
-				project_name.focusin ();
-			});
-		}
+            select_directory.clicked.connect (() => {
+                project_directory = Services.FileSystem.choose_directory (select_directory_text);
+                validate ();
+            });
 
-		public string get_full_directory () {
-			return Path.build_filename (project_directory, rdnn_name.entry.text);
-		}
+            project_name.changed.connect (() => {
+                validate ();
+                if (project_name.text != "") {
+                    rdnn_name.entry.text = rdnn + "." + project_name.text;
+                } else {
+                    rdnn_name.entry.text = rdnn;
+                }
+            });
 
-		public override void reset () {
-			is_valid = false;
-			rdnn_name.entry.text = "";
-			project_name.text = "";
-			indicator_description.text = "";
-			project_directory = "";
-		}
+            focusin.connect (() => {
+                project_name.focusin ();
+            });
+        }
 
-		public override void validate () {
-			this.is_valid = this.project_name.valid && this.project_directory != "";
-			this.on_validate ();
-		}
-	}
+        public string get_full_directory () {
+            return Path.build_filename (project_directory, rdnn_name.entry.text);
+        }
+
+        public override void reset () {
+            is_valid = false;
+            rdnn_name.entry.text = "";
+            project_name.text = "";
+            indicator_description.text = "";
+            project_directory = "";
+        }
+
+        public override void validate () {
+            this.is_valid = this.project_name.valid && this.project_directory != "";
+            this.on_validate ();
+        }
+    }
 }

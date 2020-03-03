@@ -18,7 +18,6 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-using Gtk;
 
 namespace Alcadica {
 
@@ -35,9 +34,9 @@ namespace Alcadica {
                 return _instance;
             }
         }
-        
+
         public Develop () {
-            Object(
+            Object (
                 application_id: APP_ID
             );
             Intl.setlocale (LocaleCategory.ALL, "");
@@ -54,9 +53,9 @@ namespace Alcadica {
             var settings = new Services.UserSettings ();
 
             Services.FileSystem.window = window;
-            
+
             window.set_titlebar (new Views.Partials.Window.HeaderBar ());
-            
+
             window.title = APP_NAME;
             window.add (main);
             window.show_all ();
