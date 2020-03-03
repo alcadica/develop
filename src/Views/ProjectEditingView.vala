@@ -23,7 +23,7 @@ using Gtk;
 using Alcadica.Views.Partials;
 using Alcadica.Services;
 
-namespace Alcadica.Views { 
+namespace Alcadica.Views {
     public class ProjectEditingView : Box {
 
         protected signal void on_reset ();
@@ -35,19 +35,19 @@ namespace Alcadica.Views {
         public signal void on_confirm ();
         public signal void on_undo ();
         public signal void on_template_creation_end (string directory);
-        
+
         construct {
             Services.ActionManager manager = Services.ActionManager.instance;
             Alcadica.Widgets.ActionBar actions = new Alcadica.Widgets.ActionBar ();
             Stack stack = new Stack ();
-            
+
             this.orientation = Orientation.VERTICAL;
 
             actions.disable_primary_action ();
             stack.add (form_app);
             stack.add (form_switchboard);
             stack.add (form_wingpanel);
-            
+
             this.set_halign (Align.CENTER);
             this.set_center_widget (stack);
             this.pack_end (actions);
@@ -72,7 +72,7 @@ namespace Alcadica.Views {
                 service.root_dir_name = form_app.rdnn_name.text;
 
                 service.add_token ("email", settings.user_email);
-                service.add_token ("antispammail", settings.user_email.replace("@", "_AT_"));
+                service.add_token ("antispammail", settings.user_email.replace ("@", "_AT_"));
                 service.add_token ("execname", form_app.rdnn_name.text);
                 service.add_token ("issue_tracker_url", string.join ("/", settings.user_github_url, projectname, "issues"));
                 service.add_token ("name", settings.user_name);
@@ -100,7 +100,7 @@ namespace Alcadica.Views {
                 service.root_dir_name = form_switchboard.rdnn_name.text;
 
                 service.add_token ("email", settings.user_email);
-                service.add_token ("antispammail", settings.user_email.replace("@", "_AT_"));
+                service.add_token ("antispammail", settings.user_email.replace ("@", "_AT_"));
                 service.add_token ("plugdisplayname", projectname);
                 service.add_token ("plugdescription", form_switchboard.plug_description.text);
                 service.add_token ("execname", form_switchboard.rdnn_name.text);
@@ -127,7 +127,7 @@ namespace Alcadica.Views {
                         category_id_enum = "Switchboard.Plug.Category.OTHER";
                     break;
                 }
-                
+
                 service.add_token ("plugincategoryid", category_id_enum);
                 service.add_token ("projectname", projectname);
                 service.add_token ("site", settings.user_website_url);
@@ -153,7 +153,7 @@ namespace Alcadica.Views {
                 service.root_dir_name = form_wingpanel.rdnn_name.text;
 
                 service.add_token ("email", settings.user_email);
-                service.add_token ("antispammail", settings.user_email.replace("@", "_AT_"));
+                service.add_token ("antispammail", settings.user_email.replace ("@", "_AT_"));
                 service.add_token ("execname", form_wingpanel.rdnn_name.text);
                 service.add_token ("issue_tracker_url", string.join ("/", settings.user_github_url, projectname, "issues"));
                 service.add_token ("name", settings.user_name);

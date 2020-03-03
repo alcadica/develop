@@ -22,12 +22,12 @@ using Granite;
 using Gtk;
 
 namespace Alcadica.Views.Partials {
-	public class SettingsBase : Box {
-		public Grid grid = new Grid ();
-		
-		construct {
-			this.orientation = Orientation.VERTICAL;
-			this.set_center_widget (grid);
-		}
-	}
+    public class SettingsBase : Box {
+        public Grid grid = new Grid ();
+
+        construct {
+            this.orientation = Orientation.VERTICAL;
+            this.set_center_widget (grid);
+        }
+    }
 }

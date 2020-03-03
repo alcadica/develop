@@ -19,45 +19,45 @@
 * Authored by: alcadica <github@alcadica.com>
 */
 namespace Alcadica.Services {
-	public class ActionManager : Object {
-		private static ActionManager _instance = null;
+    public class ActionManager : Object {
+        private static ActionManager _instance = null;
 
-		public static ActionManager instance {
-			get {
-				if (_instance == null) {
-					_instance = new ActionManager ();
-				}
-				return _instance;
-			}
-		}
+        public static ActionManager instance {
+            get {
+                if (_instance == null) {
+                    _instance = new ActionManager ();
+                }
+                return _instance;
+            }
+        }
 
-		public SimpleActionGroup action_group { get; construct; }
+        public SimpleActionGroup action_group { get; construct; }
 
-		private ActionManager () {
-			Object (
-				action_group: new SimpleActionGroup ()
-			);
-		}
+        private ActionManager () {
+            Object (
+                action_group: new SimpleActionGroup ()
+            );
+        }
 
-		public void add (string name) {
-			SimpleAction action = new SimpleAction (name, null);
-			this.action_group.add_action (action);
-		}
+        public void add (string name) {
+            SimpleAction action = new SimpleAction (name, null);
+            this.action_group.add_action (action);
+        }
 
-		public SimpleAction get_action (string name) {
-			if (!this.action_group.has_action (name)) {
-				this.add (name);
-			}
-			
-			return this.action_group.lookup_action (name) as SimpleAction;
-		}
+        public SimpleAction get_action (string name) {
+            if (!this.action_group.has_action (name)) {
+                this.add (name);
+            }
 
-		public void dispatch (string name) {
-			this.action_group.activate_action (name, null);
-		}
+            return this.action_group.lookup_action (name) as SimpleAction;
+        }
 
-		public void remove (string name) {
-			this.action_group.remove_action (name);
-		}
-	}
+        public void dispatch (string name) {
+            this.action_group.activate_action (name, null);
+        }
+
+        public void remove (string name) {
+            this.action_group.remove_action (name);
+        }
+    }
 }

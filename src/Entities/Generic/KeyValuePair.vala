@@ -18,14 +18,14 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-namespace Alcadica.Entities.Generic { 
+namespace Alcadica.Entities.Generic {
     public class KeyValuePair<TKey, TValue> : Object {
-		public TKey key { get; set; }
-		public TValue value { get; set; }
+        public TKey key { get; set; }
+        public TValue value { get; set; }
 
-		public KeyValuePair(TKey key, TValue value) {
-			this.key = key;
-			this.value = value;
-		}
-	}
+        public KeyValuePair (TKey key, TValue value) {
+            this.key = key;
+            this.value = value;
+        }
+    }
 }

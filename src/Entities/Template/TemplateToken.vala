@@ -18,17 +18,17 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-namespace Alcadica.Entities.Template { 
-    public class TemplateToken : Object { 
-		public static string delimiter_start = "{{";
-		public static string delimiter_end = "}}";
+namespace Alcadica.Entities.Template {
+    public class TemplateToken : Object {
+        public static string delimiter_start = "{{";
+        public static string delimiter_end = "}}";
 
-		public string token { get; set; }
-		public string token_value { get; set; }
+        public string token { get; set; }
+        public string token_value { get; set; }
 
-		public TemplateToken (string name, string token_value) {
-			this.token = TemplateToken.delimiter_start + name + TemplateToken.delimiter_end;
-			this.token_value = token_value;
-		}
-	}
+        public TemplateToken (string name, string token_value) {
+            this.token = TemplateToken.delimiter_start + name + TemplateToken.delimiter_end;
+            this.token_value = token_value;
+        }
+    }
 }

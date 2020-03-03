@@ -21,21 +21,21 @@
 using Granite;
 using Gtk;
 
-namespace Alcadica.Views.Partials.Forms { 
-	public abstract class FormBase : Grid { 
+namespace Alcadica.Views.Partials.Forms {
+    public abstract class FormBase : Grid {
 
-		public bool is_valid = false;
-		public signal void on_validate ();
-		public signal void focusin ();
-		public signal void submit ();
-		
-		construct {
-			this.column_homogeneous = true;
-			this.orientation = Orientation.VERTICAL;
-			this.row_spacing = 8;
-		}
+        public bool is_valid = false;
+        public signal void on_validate ();
+        public signal void focusin ();
+        public signal void submit ();
 
-		public abstract void reset ();
-		public abstract void validate ();
-	}
+        construct {
+            this.column_homogeneous = true;
+            this.orientation = Orientation.VERTICAL;
+            this.row_spacing = 8;
+        }
+
+        public abstract void reset ();
+        public abstract void validate ();
+    }
 }

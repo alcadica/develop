@@ -22,70 +22,70 @@ using Alcadica.Widgets;
 using Granite;
 using Gtk;
 
-namespace Alcadica.Widgets { 
-	public class ComboBoxWithLabelOption : Entities.Generic.KeyValuePair<int, string> {
-		public ComboBoxWithLabelOption (int key, string label) {
-			Object(key: key, value: label);
-		}
-	}
-	
-	public class ComboBoxWithLabel : Gtk.Grid {
-		public ComboBoxText combobox { get; set; }
-		public Gtk.Label label { get; set; }
-		public List<ComboBoxWithLabelOption> options = new List<ComboBoxWithLabelOption> ();
-		public signal void changed(int key);
+namespace Alcadica.Widgets {
+    public class ComboBoxWithLabelOption : Entities.Generic.KeyValuePair<int, string> {
+        public ComboBoxWithLabelOption (int key, string label) {
+            Object (key: key, value: label);
+        }
+    }
 
-		public int value {
-			get {
-				int index = this.combobox.get_active ();
-				return this.options.nth_data(index).key;
-			}
-			set {
-				foreach (var item in this.options) {
-					if (item.key == value) {
-						this.combobox.set_active (this.options.index (item));
-					}
-				}
-			}
-		}
+    public class ComboBoxWithLabel : Gtk.Grid {
+        public ComboBoxText combobox { get; set; }
+        public Gtk.Label label { get; set; }
+        public List<ComboBoxWithLabelOption> options = new List<ComboBoxWithLabelOption> ();
+        public signal void changed (int key);
 
-		public ComboBoxWithLabel (string entry_label) {
-			this.combobox = new ComboBoxText ();
-			this.label = new Label (entry_label);
-			this.label.set_xalign (0);
-			this.label.get_style_context ().add_class (Granite.STYLE_CLASS_PRIMARY_LABEL);
-			this.orientation = Gtk.Orientation.VERTICAL;
-			this.row_spacing = 0;
+        public int value {
+            get {
+                int index = this.combobox.get_active ();
+                return this.options.nth_data (index).key;
+            }
+            set {
+                foreach (var item in this.options) {
+                    if (item.key == value) {
+                        this.combobox.set_active (this.options.index (item));
+                    }
+                }
+            }
+        }
 
-			this.add (this.label);
-			this.add (this.combobox);
-			this.set_hexpand (true);
+        public ComboBoxWithLabel (string entry_label) {
+            this.combobox = new ComboBoxText ();
+            this.label = new Label (entry_label);
+            this.label.set_xalign (0);
+            this.label.get_style_context ().add_class (Granite.STYLE_CLASS_PRIMARY_LABEL);
+            this.orientation = Gtk.Orientation.VERTICAL;
+            this.row_spacing = 0;
 
-			this.label.margin_bottom = 4;
-			this.label.hexpand = true;
-			this.combobox.hexpand = true;
+            this.add (this.label);
+            this.add (this.combobox);
+            this.set_hexpand (true);
 
-			this.combobox.changed.connect (() => {
-				this.changed (this.value);
-			});
-		}
+            this.label.margin_bottom = 4;
+            this.label.hexpand = true;
+            this.combobox.hexpand = true;
 
-		public void add_option (int key, string option_label) {
-			ComboBoxWithLabelOption option = new ComboBoxWithLabelOption(key, option_label);
-			this.options.append (option);
-			this.combobox.append_text (option.value);
-		}
+            this.combobox.changed.connect (() => {
+                this.changed (this.value);
+            });
+        }
 
-		public ComboBoxWithLabelOption? get_option_by_value (int value) {
-			ComboBoxWithLabelOption? option = null;
-			
-			foreach (var item in this.options) {
-				if (item.key == value) {
-					option = item;
-				}
-			}
+        public void add_option (int key, string option_label) {
+            ComboBoxWithLabelOption option = new ComboBoxWithLabelOption (key, option_label);
+            this.options.append (option);
+            this.combobox.append_text (option.value);
+        }
 
-			return option;
-		}
-	}
+        public ComboBoxWithLabelOption? get_option_by_value (int value) {
+            ComboBoxWithLabelOption? option = null;
+
+            foreach (var item in this.options) {
+                if (item.key == value) {
+                    option = item;
+                }
+            }
+
+            return option;
+        }
+    }
 }

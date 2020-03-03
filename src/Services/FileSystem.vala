@@ -20,7 +20,7 @@
 */
 using Gtk;
 
-namespace Alcadica.Services { 
+namespace Alcadica.Services {
     public class FileSystem : GLib.Object {
 
         public static ApplicationWindow window { get; set; }
@@ -39,13 +39,13 @@ namespace Alcadica.Services {
         public static string choose_directory (string title) {
             return FileSystem.choose_directories (title).nth_data (0);
         }
-        
+
         public static List<string> choose_directories (string title) {
-            List<string> list = new List<string>();
+            List<string> list = new List<string> ();
 
             Gtk.FileChooserDialog chooser = new Gtk.FileChooserDialog (
-                title, 
-                FileSystem.window, 
+                title,
+                FileSystem.window,
                 FileChooserAction.SELECT_FOLDER,
                         "_Cancel",
                         Gtk.ResponseType.CANCEL,
@@ -71,20 +71,20 @@ namespace Alcadica.Services {
 
             return list;
         }
-        
+
         public static bool dir_exists (string path) {
             var file = File.new_for_path (path);
-        
+
             if (file.query_exists ()) {
                 return file.query_file_type (FileQueryInfoFlags.NOFOLLOW_SYMLINKS, null) == FileType.DIRECTORY;
             }
-        
+
             return false;
         }
-        
+
         public static bool file_exists (string path) {
             var file = File.new_for_path (path);
-        
+
             if (file.query_exists ()) {
                 switch (file.query_file_type (0)) {
                     case FileType.MOUNTABLE:
@@ -98,10 +98,10 @@ namespace Alcadica.Services {
                         return false;
                 }
             }
-        
+
             return false;
         }
-        
+
         public static bool mkdir (string path) {
             if (dir_exists (path)) {
                 return false;
@@ -143,7 +143,7 @@ namespace Alcadica.Services {
             }
 
             File newfile = File.new_for_path (path.replace (file.get_basename (), filename));
-            
+
             try {
                 return file.move (newfile, flags);
             } catch (Error error) {
@@ -156,14 +156,14 @@ namespace Alcadica.Services {
             if (file_exists (path)) {
                 return false;
             }
-            
+
             try {
                 File file = File.new_for_path (path);
                 var dos = new DataOutputStream (file.create (FileCreateFlags.REPLACE_DESTINATION));
 
                 uint8[] data = content.data;
                 long written = 0;
-                while (written < data.length) { 
+                while (written < data.length) {
                     written += dos.write (data[written:data.length]);
                 }
                 return true;

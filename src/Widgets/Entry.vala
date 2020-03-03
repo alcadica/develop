@@ -20,130 +20,130 @@
 */
 
 namespace Alcadica.Widgets {
-	public class Entry : Gtk.Entry { 
+    public class Entry : Gtk.Entry {
 
-		private bool _hide_icon = false;
-		
-		private bool _validity = true;
-		
-		public bool has_maxlength {
-			get {
-				return this.max_length.to_string () != "000000000000000";
-			}
-		}
-		public bool has_minlength {
-			get {
-				return this.min_length.to_string () != "000000000000000";
-			}
-		}
-		public bool has_pattern {
-			get {
-				return this.pattern != "" && this.pattern != null;
-			}
-		}
-		public bool hide_icon {
-			get {
-				return this._hide_icon;
-			}
-			set {
-				this._hide_icon = value;
-				this.assign_icon();
-			}
-		}
-		public bool invalid { 
-			get {
-				return !this._validity;
-			} 
-			set {
-				if (value != this._validity) {
-					this.on_validity_change ();
-				}
-				
-				this._validity = !value;
-				this.assign_icon ();
-			} 
-		}
-		public int min_length { get; set; }
-		public bool valid {
-			get {
-				return this._validity;
-			}
-			set {
-				if (value != this._validity) {
-					this.on_validity_change ();
-				}
-				
-				this._validity = value;
-				this.assign_icon ();
-			}
-		}
-		public bool should_validate {
-			get {
-				return this.has_pattern || this.has_maxlength || this.has_minlength;
-			}
-		}
-		public signal void on_invalid ();
-		public signal void on_valid ();
-		public signal void on_validity_change ();
-		public string pattern { get; set; }
+        private bool _hide_icon = false;
 
-		construct {
-			this.changed.connect (() => {
-				this.validate ();
-				if (this.valid) {
-					this.on_valid ();
-				} else {
-					this.on_invalid ();
-				}
-			});
-			
-			this.on_valid.connect (() => {
-				this.assign_icon ();
-			});
+        private bool _validity = true;
 
-			this.on_invalid.connect (() => {
-				this.assign_icon ();
-			});
-		}
+        public bool has_maxlength {
+            get {
+                return this.max_length.to_string () != "000000000000000";
+            }
+        }
+        public bool has_minlength {
+            get {
+                return this.min_length.to_string () != "000000000000000";
+            }
+        }
+        public bool has_pattern {
+            get {
+                return this.pattern != "" && this.pattern != null;
+            }
+        }
+        public bool hide_icon {
+            get {
+                return this._hide_icon;
+            }
+            set {
+                this._hide_icon = value;
+                this.assign_icon ();
+            }
+        }
+        public bool invalid {
+            get {
+                return !this._validity;
+            }
+            set {
+                if (value != this._validity) {
+                    this.on_validity_change ();
+                }
 
-		private void assign_icon () {
-			if (this._hide_icon) {
-				return;
-			}
-			
-			if (!this.should_validate) {
-				return;
-			}
-			
-			if (this.valid) {
-				this.secondary_icon_name = "selection-checked";
-			} else {
-				this.secondary_icon_name = "";
-			}
-		}
+                this._validity = !value;
+                this.assign_icon ();
+            }
+        }
+        public int min_length { get; set; }
+        public bool valid {
+            get {
+                return this._validity;
+            }
+            set {
+                if (value != this._validity) {
+                    this.on_validity_change ();
+                }
 
-		public void validate () {
-			if (!this.should_validate) {
-				this.valid = true;
-				return;
-			}
-			
-			string _pattern = this.pattern;
+                this._validity = value;
+                this.assign_icon ();
+            }
+        }
+        public bool should_validate {
+            get {
+                return this.has_pattern || this.has_maxlength || this.has_minlength;
+            }
+        }
+        public signal void on_invalid ();
+        public signal void on_valid ();
+        public signal void on_validity_change ();
+        public string pattern { get; set; }
 
-			if (!this.has_pattern) {
-				_pattern = ".";
-			}
-			
-			try {
-				Regex validation_regexp = new Regex (_pattern);
-				
-				if (validation_regexp != null) {
-					this.valid = validation_regexp.match (this.text);
-				}
+        construct {
+            this.changed.connect (() => {
+                this.validate ();
+                if (this.valid) {
+                    this.on_valid ();
+                } else {
+                    this.on_invalid ();
+                }
+            });
 
-			} catch (Error error) {
-				warning (error.message);
-			}
-		}
-	}
+            this.on_valid.connect (() => {
+                this.assign_icon ();
+            });
+
+            this.on_invalid.connect (() => {
+                this.assign_icon ();
+            });
+        }
+
+        private void assign_icon () {
+            if (this._hide_icon) {
+                return;
+            }
+
+            if (!this.should_validate) {
+                return;
+            }
+
+            if (this.valid) {
+                this.secondary_icon_name = "selection-checked";
+            } else {
+                this.secondary_icon_name = "";
+            }
+        }
+
+        public void validate () {
+            if (!this.should_validate) {
+                this.valid = true;
+                return;
+            }
+
+            string _pattern = this.pattern;
+
+            if (!this.has_pattern) {
+                _pattern = ".";
+            }
+
+            try {
+                Regex validation_regexp = new Regex (_pattern);
+
+                if (validation_regexp != null) {
+                    this.valid = validation_regexp.match (this.text);
+                }
+
+            } catch (Error error) {
+                warning (error.message);
+            }
+        }
+    }
 }

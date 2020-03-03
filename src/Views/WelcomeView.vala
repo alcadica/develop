@@ -21,8 +21,8 @@
 using Granite;
 using Gtk;
 
-namespace Alcadica.Views { 
-  public class WelcomeView : Granite.Widgets.Welcome { 
+namespace Alcadica.Views {
+  public class WelcomeView : Granite.Widgets.Welcome {
 
     public signal void app ();
     public signal void switchboard ();
