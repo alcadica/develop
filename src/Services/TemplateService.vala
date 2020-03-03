@@ -36,7 +36,7 @@ namespace Alcadica.Services {
         protected abstract void on_file_write_end (TemplateFile file);
         public signal void on_creation_end (bool without_errors);
 
-        public TemplateService(string template_name, string base_dir) {
+        protected TemplateService(string template_name, string base_dir) {
             this.directories = new List<TemplateFile> ();
             this.files = new List<TemplateFile> ();
             this.base_dir = base_dir;
