@@ -18,8 +18,6 @@
 *
 * Authored by: alcadica <github@alcadica.com>
 */
-using Granite;
-using Granite.Widgets;
 using Gtk;
 
 namespace Alcadica {
@@ -27,7 +25,7 @@ namespace Alcadica {
     public const string APP_ID = "com.github.alcadica.develop";
     public const string APP_NAME = (_("Develop"));
 
-    public class Develop : Granite.Application {
+    public class Develop : Gtk.Application {
         public static Develop _instance = null;
         public static Develop instance {
             get {
@@ -46,13 +44,7 @@ namespace Alcadica {
         }
 
         construct {
-            application_id = APP_ID;
-            app_launcher = APP_ID + ".desktop";
-            program_name = APP_NAME;
-
             flags |= ApplicationFlags.HANDLES_OPEN;
-
-            Granite.Services.Logger.initialize (APP_NAME);
         }
 
         protected override void activate () {
