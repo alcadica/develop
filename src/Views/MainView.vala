@@ -54,7 +54,11 @@ namespace Alcadica.Views {
 
             project_editing.on_template_creation_end.connect((path) => {
                 File directory = File.new_for_path (path);
-                Granite.Services.System.open_uri (directory.get_uri ());
+                try {
+                    AppInfo.launch_default_for_uri (directory.get_uri (), null);
+                } catch (Error e) {
+                    warning (e.message);
+                }
             });
 
             welcome.app.connect(() => {
