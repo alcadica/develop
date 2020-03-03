@@ -21,7 +21,7 @@
 
 namespace Alcadica.CommonRegEx { 
 	public const string PROJECT_NAME = "^[a-z\\-A-Z]+[a-z\\-A-Z0-9]+$";
-	public const string USER_NAME = "^[a-zA-Z]+[0-9]{0,}$";
+	public const string USER_NAME = "^([a-zA-Z]+[0-9\\s]{0,})+[^\\s]$";
 	public const string USER_EMAIL = "^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]? [0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]? [0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|([a-zA-Z0-9]+[\\w-]+\\.)+[a-zA-Z]{1}[a-zA-Z0-9-]{1,23})$";
 	public const string URL = "^https?://(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)$";
 }
