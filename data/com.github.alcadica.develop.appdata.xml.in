@@ -16,6 +16,15 @@
     </p>
   </description>
   <releases>
+      <release version="0.22.0" date="2020-05-04">
+        <description>
+          <p>Various improvements</p>
+          <ul>
+            <li>Adopts latest standards</li>
+            <li>Uses Native Gtk classes</li>
+          </ul>
+        </description>
+      </release>
       <release version="0.21.0" date="2020-01-15">
         <description>
           <p>UI improvements</p>
