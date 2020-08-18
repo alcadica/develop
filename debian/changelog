@@ -1,3 +1,9 @@
+com.github.alcadica.develop (0.23.0) xenial; urgency=low
+
+  * Adds Dutch translations
+
+  -- Paolo Roth <github@alcadica.com>  Tue, 18 Aug 2020 04:00:00 -0500
+
 com.github.alcadica.develop (0.22.0) xenial; urgency=low
 
   * Adopts latest standards
