@@ -1,0 +1,200 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.alcadica.develop package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.alcadica.develop\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-02 16:09+0100\n"
+"PO-Revision-Date: 2020-08-18 14:13+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.1\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: nl\n"
+
+#: src/Application.vala:28
+msgid "Develop"
+msgstr "Develop"
+
+#: src/Application.vala:82
+msgid "Preferences"
+msgstr "Voorkeuren"
+
+#: src/Views/Partials/Forms/FormNewApp.vala:34
+#: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:48
+#: src/Views/Partials/Forms/FormNewWingpanelWidget.vala:35
+msgid "Choose project folder"
+msgstr "Kies de projectmap"
+
+#: src/Views/Partials/Forms/FormNewApp.vala:38
+msgid "Create a new elementary App"
+msgstr "Maak een nieuwe elementary-toepassing"
+
+#: src/Views/Partials/Forms/FormNewApp.vala:39
+msgid "App name"
+msgstr "Appnaam"
+
+#: src/Views/Partials/Forms/FormNewApp.vala:40
+#: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:56
+#: src/Views/Partials/Forms/FormNewWingpanelWidget.vala:42
+msgid "RDNN name"
+msgstr "RDNN-naam"
+
+#: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:52
+msgid "Switchboard category"
+msgstr "Switchboard-categorie"
+
+#: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:53
+msgid "Create a new Switchboard Plug"
+msgstr "Maak een nieuwe Switchboard-plug"
+
+#: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:54
+msgid "Plug name"
+msgstr "Plugnaam"
+
+#: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:55
+msgid "Plug description"
+msgstr "Plugomschrijving"
+
+#: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:61
+msgid "Personal"
+msgstr "Persoonlijk"
+
+#: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:62
+msgid "Hardware"
+msgstr "Hardware"
+
+#: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:63
+msgid "Network"
+msgstr "Netwerk"
+
+#: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:64
+msgid "System"
+msgstr "Systeem"
+
+#: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:65
+msgid "Other"
+msgstr "Overig"
+
+#: src/Views/Partials/Forms/FormNewWingpanelWidget.vala:39
+msgid "Create a new Wingpanel Indicator"
+msgstr "Maak een nieuwe Wingpanel-indicator"
+
+#: src/Views/Partials/Forms/FormNewWingpanelWidget.vala:40
+msgid "Indicator description"
+msgstr "Indicatoromschrijving"
+
+#: src/Views/Partials/Forms/FormNewWingpanelWidget.vala:41
+msgid "Indicator name"
+msgstr "Indicatornaam"
+
+#: src/Views/Partials/Forms/FormUserData.vala:34
+msgid "Name:"
+msgstr "Naam:"
+
+#: src/Views/Partials/Forms/FormUserData.vala:34
+msgid "John Doe"
+msgstr "Jan Jansen"
+
+#: src/Views/Partials/Forms/FormUserData.vala:35
+msgid "Email:"
+msgstr "E-mailadres:"
+
+#: src/Views/Partials/Forms/FormUserData.vala:35
+msgid "myemail@gmail.com"
+msgstr "mijnemailadres@gmail.com"
+
+#: src/Views/Partials/Forms/FormUserData.vala:36
+msgid "Personal github address:"
+msgstr "Persoonlijk GitHub-adres:"
+
+#: src/Views/Partials/Forms/FormUserData.vala:36
+msgid "https://github.com/yourname"
+msgstr "https://github.com/mijnnaam"
+
+#: src/Views/Partials/Forms/FormUserData.vala:37
+msgid "Personal website:"
+msgstr "Persoonlijke website:"
+
+#: src/Views/Partials/Forms/FormUserData.vala:37
+msgid "https://www.mywebsite.com"
+msgstr "https://www.mijnwebsite.nl"
+
+#: src/Views/Partials/Settings/UserDataSettings.vala:27
+#: src/Views/SettingsView.vala:35
+msgid "User settings"
+msgstr "Gebruikersinstellingen"
+
+#: src/Views/Partials/Settings/UserDataSettingsFirstRun.vala:32
+msgid "First run setup"
+msgstr "Instelhulp"
+
+#: src/Views/Partials/Settings/UserDataSettingsFirstRun.vala:33
+msgid "Before proceeding I'd love to know more about you"
+msgstr "Voordat je doorgaat, wil ik wat meer over je te weten komen"
+
+#: src/Views/Partials/Settings/UserDataSettingsFirstRun.vala:34
+msgid "Your data will not be stored in a server"
+msgstr "Je gegevens worden niet opgeslagen op een server"
+
+#: src/Views/Partials/Settings/UserDataSettingsFirstRun.vala:54
+msgid "Save user data"
+msgstr "Gebruikersgegevens opslaan"
+
+#: src/Views/Partials/Window/HeaderBar.vala:28
+msgid "Back"
+msgstr "Terug"
+
+#: src/Views/SettingsView.vala:35
+msgid "Sets your personal developer data"
+msgstr "Stel je persoonlijke ontwikkelaarsgegevens in"
+
+#: src/Views/WelcomeView.vala:33
+msgid "Develop for elementary"
+msgstr "Ontwikkelen voor elementary"
+
+#: src/Views/WelcomeView.vala:34
+msgid "Choose what you wish to develop"
+msgstr "Geef aan wat je wilt ontwikkelen"
+
+#: src/Views/WelcomeView.vala:39
+msgid "App"
+msgstr "Toepassing"
+
+#: src/Views/WelcomeView.vala:39
+msgid "Create a new elementary OS application."
+msgstr "Maak een nieuwe elementary-toepassing."
+
+#: src/Views/WelcomeView.vala:40
+msgid "Switchboard plug"
+msgstr "Switchboard-plug"
+
+#: src/Views/WelcomeView.vala:40
+msgid "Create a new elementary OS switchboard plug."
+msgstr "Maak een nieuwe Switchboard-plug."
+
+#: src/Views/WelcomeView.vala:41
+msgid "Wingpanel indicator"
+msgstr "Wingpanel-indicator"
+
+#: src/Views/WelcomeView.vala:41
+msgid "Create a new elementary OS wingpanel indicator."
+msgstr "Maak een nieuwe Wingpanel-indicator."
+
+#: src/Widgets/ActionBar.vala:32
+msgid "Create"
+msgstr "Maken"
+
+#: src/Widgets/ActionBar.vala:33
+msgid "Undo"
+msgstr "Ongedaan maken"
+
+#: src/Widgets/EntryWithLabel.vala:61
+msgid "Optional"
+msgstr "Optioneel"
