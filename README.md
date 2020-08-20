@@ -64,4 +64,4 @@ sudo ninja com.github.alcadica.develop-update-po
 * [maze-n](https://github.com/maze-n) (for UI tweaks)
 * [spidermonkdust](https://github.com/spidermonkdust) (for making templates passing Vala linter) 
 * [ryonakano](https://github.com/ryonakano) (contributor)
-* [vistaus](https://github.com/vistaus)
+* [vistaus](https://github.com/vistaus) (contributor/Dutch translator)
