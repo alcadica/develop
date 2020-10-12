@@ -50,6 +50,6 @@
     <content_attribute id="money-gambling">none</content_attribute>
   </content_rating>
   <releases>
-    <rel8ease version="0.0.1" date="2020-01-01"/>
+    <release version="0.0.1" date="2020-01-01"/>
   </releases>
 </component>
