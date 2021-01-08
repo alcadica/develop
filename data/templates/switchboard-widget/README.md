@@ -4,7 +4,7 @@
 
 ```bash
 # install elementary-sdk, meson and libswitchboard
-sudo apt install elementary-sdk meson libswitchboard-2.0-dev 
+sudo apt install elementary-sdk meson libswitchboard-2.0-dev
 # clone repository
 git clone {{repourl}} {{projectname}}
 # cd to dir
@@ -25,8 +25,8 @@ pkill switchboard -9
 cd build
 
 # generates pot file
-sudo ninja {{projectname}}-pot
+ninja {{projectname}}-pot
 
 # to regenerate and propagate changes to every po file
-sudo ninja {{projectname}}-update-po
+ninja {{projectname}}-update-po
 ```

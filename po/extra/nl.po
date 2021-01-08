@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-02 16:09+0100\n"
+"POT-Creation-Date: 2021-01-08 21:04+0400\n"
 "PO-Revision-Date: 2020-08-18 14:18+0200\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: \n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.1\n"
-"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: nl\n"
 
 #: data/com.github.alcadica.develop.desktop.in:4
 #: data/com.github.alcadica.develop.appdata.xml.in:8
@@ -57,45 +57,74 @@ msgstr ""
 "indicator maken."
 
 #: data/com.github.alcadica.develop.appdata.xml.in:21
+msgid "I18n"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:23
+#, fuzzy
+msgid "Adds Dutch translations"
+msgstr "Vertalingen bijgewerkt"
+
+#: data/com.github.alcadica.develop.appdata.xml.in:29
+msgid "Various improvements"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:31
+msgid "Adopts latest standards"
+msgstr ""
+
 #: data/com.github.alcadica.develop.appdata.xml.in:32
-#: data/com.github.alcadica.develop.appdata.xml.in:43
+msgid "Uses Native Gtk classes"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:38
+msgid "UI improvements"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:40
+msgid "Improves UI"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:46
+#: data/com.github.alcadica.develop.appdata.xml.in:57
+#: data/com.github.alcadica.develop.appdata.xml.in:68
 msgid "Updates translations"
 msgstr "Vertalingen bijgewerkt"
 
-#: data/com.github.alcadica.develop.appdata.xml.in:23
-#: data/com.github.alcadica.develop.appdata.xml.in:34
-#: data/com.github.alcadica.develop.appdata.xml.in:45
+#: data/com.github.alcadica.develop.appdata.xml.in:48
+#: data/com.github.alcadica.develop.appdata.xml.in:59
+#: data/com.github.alcadica.develop.appdata.xml.in:70
 msgid "Updates translations files"
 msgstr "Vertaalbestanden bijgewerkt"
 
-#: data/com.github.alcadica.develop.appdata.xml.in:24
-#: data/com.github.alcadica.develop.appdata.xml.in:35
-#: data/com.github.alcadica.develop.appdata.xml.in:46
+#: data/com.github.alcadica.develop.appdata.xml.in:49
+#: data/com.github.alcadica.develop.appdata.xml.in:60
+#: data/com.github.alcadica.develop.appdata.xml.in:71
 msgid "Adds French translations (@NathanBnm)"
 msgstr "Franse vertaling, met dank aan @NathanBnm"
 
-#: data/com.github.alcadica.develop.appdata.xml.in:25
-#: data/com.github.alcadica.develop.appdata.xml.in:36
+#: data/com.github.alcadica.develop.appdata.xml.in:50
+#: data/com.github.alcadica.develop.appdata.xml.in:61
 msgid "Adds Spanish translations (@iuninefrendor)"
 msgstr "Spaanse vertaling, met dank aan @iuninefrendor"
 
-#: data/com.github.alcadica.develop.appdata.xml.in:26
-#: data/com.github.alcadica.develop.appdata.xml.in:37
+#: data/com.github.alcadica.develop.appdata.xml.in:51
+#: data/com.github.alcadica.develop.appdata.xml.in:62
 msgid "Adds Portuguese translations (@aimproxy)"
 msgstr "Portugese vertaling, met dank aan @aimproxy)"
 
-#: data/com.github.alcadica.develop.appdata.xml.in:53
+#: data/com.github.alcadica.develop.appdata.xml.in:78
 msgid "Publish the app on Juno"
 msgstr "Publiceren op Juno"
 
-#: data/com.github.alcadica.develop.appdata.xml.in:60
+#: data/com.github.alcadica.develop.appdata.xml.in:85
 msgid ""
 "Fills generated README.md files with installing and compiling instructions"
 msgstr ""
 "Voegt installatie- en compilatie-instructies toe aan gegenereerde README.md-"
 "bestanden"
 
-#: data/com.github.alcadica.develop.appdata.xml.in:67
+#: data/com.github.alcadica.develop.appdata.xml.in:92
 msgid ""
 "Adds a small disclaimer about user data consumption (they are not saved on a "
 "server)"
@@ -103,54 +132,54 @@ msgstr ""
 "Voegt een korte vrijwaring toe over het gebruik van gebruikersgegevens "
 "(welke niet worden opgeslagen op een server)"
 
-#: data/com.github.alcadica.develop.appdata.xml.in:74
+#: data/com.github.alcadica.develop.appdata.xml.in:99
 msgid "Fixes a small bug"
 msgstr "Kleine fout opgelost"
 
-#: data/com.github.alcadica.develop.appdata.xml.in:80
+#: data/com.github.alcadica.develop.appdata.xml.in:105
 msgid "New features:"
 msgstr "Nieuwe mogelijkheden:"
 
-#: data/com.github.alcadica.develop.appdata.xml.in:82
+#: data/com.github.alcadica.develop.appdata.xml.in:107
 msgid "Opens a folder on success"
 msgstr "Opent een map na voltooiing"
 
-#: data/com.github.alcadica.develop.appdata.xml.in:84
+#: data/com.github.alcadica.develop.appdata.xml.in:109
 msgid "Bug fixes:"
 msgstr "Opgeloste fouten:"
 
-#: data/com.github.alcadica.develop.appdata.xml.in:86
+#: data/com.github.alcadica.develop.appdata.xml.in:111
 msgid "Don't create folders in home directory"
 msgstr "Maak geen mappen aan in de persoonlijke map"
 
-#: data/com.github.alcadica.develop.appdata.xml.in:87
+#: data/com.github.alcadica.develop.appdata.xml.in:112
 msgid "Use \"office-contact\" instead of \"vcard\" icon"
 msgstr "Gebruik het pictogram \"office-contact\" in plaats van \"vcard\""
 
-#: data/com.github.alcadica.develop.appdata.xml.in:88
+#: data/com.github.alcadica.develop.appdata.xml.in:113
 msgid "Welcome View is too big"
 msgstr "Het welkomstscherm was te groot"
 
-#: data/com.github.alcadica.develop.appdata.xml.in:95
+#: data/com.github.alcadica.develop.appdata.xml.in:120
 msgid "Improves first run screen"
 msgstr "Instelhulp verbeterd"
 
-#: data/com.github.alcadica.develop.appdata.xml.in:101
+#: data/com.github.alcadica.develop.appdata.xml.in:126
 msgid "Features"
 msgstr "Kenmerken"
 
-#: data/com.github.alcadica.develop.appdata.xml.in:103
+#: data/com.github.alcadica.develop.appdata.xml.in:128
 msgid "Creates elementary OS app template"
 msgstr "Maak elementary OS-toepassingssjablonen"
 
-#: data/com.github.alcadica.develop.appdata.xml.in:104
+#: data/com.github.alcadica.develop.appdata.xml.in:129
 msgid "Creates elementary OS switchboard plug template"
 msgstr "Maak elementary OS-switchboardsjablonen"
 
-#: data/com.github.alcadica.develop.appdata.xml.in:105
+#: data/com.github.alcadica.develop.appdata.xml.in:130
 msgid "Creates elementary OS wingpanel indicator template"
 msgstr "Maak elementary OS-wingpanelsjablonen"
 
-#: data/com.github.alcadica.develop.appdata.xml.in:142
+#: data/com.github.alcadica.develop.appdata.xml.in:167
 msgid "Alcadica"
 msgstr "Alcadica"

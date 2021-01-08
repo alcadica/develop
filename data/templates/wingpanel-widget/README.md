@@ -25,8 +25,8 @@ pkill wingpanel -9
 cd build
 
 # generates pot file
-sudo ninja {{projectname}}-pot
+ninja {{projectname}}-pot
 
 # to regenerate and propagate changes to every po file
-sudo ninja {{projectname}}-update-po
+ninja {{projectname}}-update-po
 ```
