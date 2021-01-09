@@ -1,0 +1,177 @@
+# Russian translations for extra package.
+# Copyright (C) 2021 THE extra'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extra package.
+# Automatically generated, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-08 21:04+0400\n"
+"PO-Revision-Date: 2021-01-08 21:04+0400\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: data/com.github.alcadica.develop.desktop.in:4
+#: data/com.github.alcadica.develop.appdata.xml.in:8
+msgid "Develop"
+msgstr ""
+
+#: data/com.github.alcadica.develop.desktop.in:5
+msgid "Create apps and widgets"
+msgstr ""
+
+#: data/com.github.alcadica.develop.desktop.in:6
+msgid "Develop App"
+msgstr ""
+
+#: data/com.github.alcadica.develop.desktop.in:8
+msgid "com.github.alcadica.develop"
+msgstr ""
+
+#: data/com.github.alcadica.develop.desktop.in:11
+msgid "Develop;"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:9
+msgid "Creates easily apps and widgets"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:11
+msgid "A simple tool to help developers to develop their own apps and widgets."
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:14
+msgid ""
+"With this app you can scaffold an App, a Switchboard Widget or a Wingpanel "
+"Indicator"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:21
+msgid "I18n"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:23
+msgid "Adds Dutch translations"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:29
+msgid "Various improvements"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:31
+msgid "Adopts latest standards"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:32
+msgid "Uses Native Gtk classes"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:38
+msgid "UI improvements"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:40
+msgid "Improves UI"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:46
+#: data/com.github.alcadica.develop.appdata.xml.in:57
+#: data/com.github.alcadica.develop.appdata.xml.in:68
+msgid "Updates translations"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:48
+#: data/com.github.alcadica.develop.appdata.xml.in:59
+#: data/com.github.alcadica.develop.appdata.xml.in:70
+msgid "Updates translations files"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:49
+#: data/com.github.alcadica.develop.appdata.xml.in:60
+#: data/com.github.alcadica.develop.appdata.xml.in:71
+msgid "Adds French translations (@NathanBnm)"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:50
+#: data/com.github.alcadica.develop.appdata.xml.in:61
+msgid "Adds Spanish translations (@iuninefrendor)"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:51
+#: data/com.github.alcadica.develop.appdata.xml.in:62
+msgid "Adds Portuguese translations (@aimproxy)"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:78
+msgid "Publish the app on Juno"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:85
+msgid ""
+"Fills generated README.md files with installing and compiling instructions"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:92
+msgid ""
+"Adds a small disclaimer about user data consumption (they are not saved on a "
+"server)"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:99
+msgid "Fixes a small bug"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:105
+msgid "New features:"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:107
+msgid "Opens a folder on success"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:109
+msgid "Bug fixes:"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:111
+msgid "Don't create folders in home directory"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:112
+msgid "Use \"office-contact\" instead of \"vcard\" icon"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:113
+msgid "Welcome View is too big"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:120
+msgid "Improves first run screen"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:126
+msgid "Features"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:128
+msgid "Creates elementary OS app template"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:129
+msgid "Creates elementary OS switchboard plug template"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:130
+msgid "Creates elementary OS wingpanel indicator template"
+msgstr ""
+
+#: data/com.github.alcadica.develop.appdata.xml.in:167
+msgid "Alcadica"
+msgstr ""
