@@ -1,4 +1,4 @@
-# {{projectname}} 
+# {{projectname}}
 
 Adds your awesome app description here!
 
@@ -25,7 +25,7 @@ Ensure you have these dependencies installed
 ## Install, build and run
 
 ```bash
-# install elementary-sdk, meson and ninja 
+# install elementary-sdk, meson and ninja
 sudo apt install elementary-sdk meson ninja
 # clone repository
 git clone {{repository_url}} {{projectname}}
@@ -45,8 +45,8 @@ sudo ninja install && {{projectname}}
 cd build
 
 # generates pot file
-sudo ninja {{projectname}}-pot
+ninja {{projectname}}-pot
 
 # to regenerate and propagate changes to every po file
-sudo ninja {{projectname}}-update-po
+ninja {{projectname}}-update-po
 ```

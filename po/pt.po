@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.alcadica.develop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-02 16:09+0100\n"
+"POT-Creation-Date: 2021-01-08 21:03+0400\n"
 "PO-Revision-Date: 2019-03-19 18:28+0100\n"
 "Last-Translator: aimproxy\n"
 "Language-Team: Português\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/Application.vala:28
+#: src/Application.vala:25
 msgid "Develop"
 msgstr "Develop"
 
-#: src/Application.vala:82
+#: src/Application.vala:73
 msgid "Preferences"
 msgstr "Preferências"
 
@@ -126,7 +126,7 @@ msgid "https://www.mywebsite.com"
 msgstr "https://www.meusite.com"
 
 #: src/Views/Partials/Settings/UserDataSettings.vala:27
-#: src/Views/SettingsView.vala:35
+#: src/Views/SettingsView.vala:34
 msgid "User settings"
 msgstr "Configurações do utilizador"
 
@@ -150,7 +150,7 @@ msgstr "Salvar dados do utilizador"
 msgid "Back"
 msgstr "Retroceder"
 
-#: src/Views/SettingsView.vala:35
+#: src/Views/SettingsView.vala:34
 msgid "Sets your personal developer data"
 msgstr "Define seus dados pessoais de desenvolvedor"
 

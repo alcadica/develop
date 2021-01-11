@@ -1,21 +1,23 @@
-# Spanish translations for the com.github.alcadica.develop package.
-# Copyright (C) 2019 THE com.github.alcadica.develop'S COPYRIGHT HOLDER
+# Russian translations for com.github.alcadica.develop package.
+# Copyright (C) 2021 THE com.github.alcadica.develop'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.alcadica.develop package.
-# iuninefrendor, 2019.
+# Automatically generated, 2021.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.alcadica.develop\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-08 21:03+0400\n"
-"PO-Revision-Date: 2019-07-04 19:43+0100\n"
-"Last-Translator: iuninefrendor\n"
-"Language-Team: Spanish\n"
-"Language: es\n"
+"PO-Revision-Date: 2021-01-08 22:03+0400\n"
+"Last-Translator: Andrey Kultyapov <camellan@yandex.ru>\n"
+"Language-Team: none\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 2.2.3\n"
 
 #: src/Application.vala:25
 msgid "Develop"
@@ -23,177 +25,177 @@ msgstr "Develop"
 
 #: src/Application.vala:73
 msgid "Preferences"
-msgstr "Preferencias"
+msgstr "Настройки"
 
 #: src/Views/Partials/Forms/FormNewApp.vala:34
 #: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:48
 #: src/Views/Partials/Forms/FormNewWingpanelWidget.vala:35
 msgid "Choose project folder"
-msgstr "Seleccionar carpeta de proyecto"
+msgstr "Выберите папку проекта"
 
 #: src/Views/Partials/Forms/FormNewApp.vala:38
 msgid "Create a new elementary App"
-msgstr "Crear una nueva aplicación de elementary"
+msgstr "Создать новое приложение"
 
 #: src/Views/Partials/Forms/FormNewApp.vala:39
 msgid "App name"
-msgstr "Nombre de la Aplicación"
+msgstr "Название приложения"
 
 #: src/Views/Partials/Forms/FormNewApp.vala:40
 #: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:56
 #: src/Views/Partials/Forms/FormNewWingpanelWidget.vala:42
 msgid "RDNN name"
-msgstr "Nombre RDNN"
+msgstr "RDNN имя"
 
 #: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:52
 msgid "Switchboard category"
-msgstr "Categoría de Switchboard"
+msgstr "Категория параметров системы"
 
 #: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:53
 msgid "Create a new Switchboard Plug"
-msgstr "Crear un nuevo plugin de Switchboard"
+msgstr "Создать новый плагин для параметров системы"
 
 #: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:54
 msgid "Plug name"
-msgstr "Nombre del plugin"
+msgstr "Название плагина"
 
 #: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:55
 msgid "Plug description"
-msgstr "Descripción del plugin"
+msgstr "Описание"
 
 #: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:61
 msgid "Personal"
-msgstr "Personal"
+msgstr ""
 
 #: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:62
 msgid "Hardware"
-msgstr "Hardware"
+msgstr ""
 
 #: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:63
 msgid "Network"
-msgstr "Redes"
+msgstr ""
 
 #: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:64
 msgid "System"
-msgstr "Sistema"
+msgstr ""
 
 #: src/Views/Partials/Forms/FormNewSwitchboardWidget.vala:65
 msgid "Other"
-msgstr "Otros"
+msgstr ""
 
 #: src/Views/Partials/Forms/FormNewWingpanelWidget.vala:39
 msgid "Create a new Wingpanel Indicator"
-msgstr "Crear un nuevo indicador de Wingpanel"
+msgstr "Создать новый индикатор Wingpanel"
 
 #: src/Views/Partials/Forms/FormNewWingpanelWidget.vala:40
 msgid "Indicator description"
-msgstr "Descripción del indicador"
+msgstr "Описание"
 
 #: src/Views/Partials/Forms/FormNewWingpanelWidget.vala:41
 msgid "Indicator name"
-msgstr "Nombre del indicador"
+msgstr "Названия индикатора"
 
 #: src/Views/Partials/Forms/FormUserData.vala:34
 msgid "Name:"
-msgstr "Nombre:"
+msgstr "Имя:"
 
 #: src/Views/Partials/Forms/FormUserData.vala:34
 msgid "John Doe"
-msgstr "Juan Pérez"
+msgstr "John Doe"
 
 #: src/Views/Partials/Forms/FormUserData.vala:35
 msgid "Email:"
-msgstr "Correo:"
+msgstr "Электронная почта:"
 
 #: src/Views/Partials/Forms/FormUserData.vala:35
 msgid "myemail@gmail.com"
-msgstr "micorreo@gmail.com"
+msgstr "myemail@gmail.com"
 
 #: src/Views/Partials/Forms/FormUserData.vala:36
 msgid "Personal github address:"
-msgstr "Dirección personal de Github:"
+msgstr "Личный адрес на github:"
 
 #: src/Views/Partials/Forms/FormUserData.vala:36
 msgid "https://github.com/yourname"
-msgstr "https://github.com/tunombre"
+msgstr "https://github.com/yourname"
 
 #: src/Views/Partials/Forms/FormUserData.vala:37
 msgid "Personal website:"
-msgstr "Sitio web personal:"
+msgstr "Персональный сайт:"
 
 #: src/Views/Partials/Forms/FormUserData.vala:37
 msgid "https://www.mywebsite.com"
-msgstr "https://www.misitioweb.com"
+msgstr "https://www.mywebsite.com"
 
 #: src/Views/Partials/Settings/UserDataSettings.vala:27
 #: src/Views/SettingsView.vala:34
 msgid "User settings"
-msgstr "Configuración del usuario"
+msgstr "Личные данные"
 
 #: src/Views/Partials/Settings/UserDataSettingsFirstRun.vala:32
 msgid "First run setup"
-msgstr "Configuración"
+msgstr "Первый запуск"
 
 #: src/Views/Partials/Settings/UserDataSettingsFirstRun.vala:33
 msgid "Before proceeding I'd love to know more about you"
-msgstr "Antes de continuar, me gustaría conocer más de tí"
+msgstr "Прежде чем продолжить необходимо узнать о вас побольше"
 
 #: src/Views/Partials/Settings/UserDataSettingsFirstRun.vala:34
 msgid "Your data will not be stored in a server"
-msgstr "Tu información no se almacenará en ningún servidor"
+msgstr "Ваши данные будут храниться только на этом компьютере"
 
 #: src/Views/Partials/Settings/UserDataSettingsFirstRun.vala:54
 msgid "Save user data"
-msgstr "Guardar información de usuario"
+msgstr "Сохранить личные данные"
 
 #: src/Views/Partials/Window/HeaderBar.vala:28
 msgid "Back"
-msgstr "Atrás"
+msgstr "Назад"
 
 #: src/Views/SettingsView.vala:34
 msgid "Sets your personal developer data"
-msgstr "Define tu información de desarrollador"
+msgstr "Устанавливает ваши личные данные разработчика"
 
 #: src/Views/WelcomeView.vala:33
 msgid "Develop for elementary"
-msgstr "Desarrolla para elementary"
+msgstr "Develop для elementary OS"
 
 #: src/Views/WelcomeView.vala:34
 msgid "Choose what you wish to develop"
-msgstr "Elige lo que deseas desarrollar"
+msgstr "Выберите, что вы хотите создать"
 
 #: src/Views/WelcomeView.vala:39
 msgid "App"
-msgstr "Aplicación"
+msgstr "Приложение"
 
 #: src/Views/WelcomeView.vala:39
 msgid "Create a new elementary OS application."
-msgstr "Crear una nueva aplicación de elementary OS."
+msgstr "Создание нового приложения для elementary OS."
 
 #: src/Views/WelcomeView.vala:40
 msgid "Switchboard plug"
-msgstr "Plugin de Switchboard"
+msgstr "Плагин для параметров системы"
 
 #: src/Views/WelcomeView.vala:40
 msgid "Create a new elementary OS switchboard plug."
-msgstr "Crear un nuevo plugin de Switchboard."
+msgstr "Создание нового плагина для параметров системы elementary OS."
 
 #: src/Views/WelcomeView.vala:41
 msgid "Wingpanel indicator"
-msgstr "Indicador de Wingpanel"
+msgstr "Индикатор Wingpanel"
 
 #: src/Views/WelcomeView.vala:41
 msgid "Create a new elementary OS wingpanel indicator."
-msgstr "Crear un nuevo indicador de Wingppanel."
+msgstr "Создание нового индикатора Wingpanel."
 
 #: src/Widgets/ActionBar.vala:32
 msgid "Create"
-msgstr "Crear"
+msgstr "Создать"
 
 #: src/Widgets/ActionBar.vala:33
 msgid "Undo"
-msgstr "Cancelar"
+msgstr "Отменить"
 
 #: src/Widgets/EntryWithLabel.vala:61
 msgid "Optional"
-msgstr "Opcional"
+msgstr "Необязательный"
