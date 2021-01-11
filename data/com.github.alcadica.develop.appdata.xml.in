@@ -16,6 +16,14 @@
     </p>
   </description>
   <releases>
+      <release version="0.24.0" date="2021-01-11">
+        <description>
+          <p>I18n</p>
+          <ul>
+            <li>Adds Russian translations</li>
+          </ul>
+        </description>
+      </release>
       <release version="0.23.0" date="2020-08-18">
         <description>
           <p>I18n</p>

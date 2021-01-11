@@ -1,3 +1,9 @@
+com.github.alcadica.develop (0.24.0) xenial; urgency=low
+
+  * Adds Russian translations
+
+  -- Paolo Roth <github@alcadica.com>  Mon, 11 Jan 2021 04:00:00 -0500
+
 com.github.alcadica.develop (0.23.0) xenial; urgency=low
 
   * Adds Dutch translations
