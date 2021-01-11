@@ -65,3 +65,4 @@ sudo ninja com.github.alcadica.develop-update-po
 * [spidermonkdust](https://github.com/spidermonkdust) (for making templates passing Vala linter) 
 * [ryonakano](https://github.com/ryonakano) (contributor)
 * [vistaus](https://github.com/vistaus) (contributor/Dutch translator)
+* [camellan](https://github.com/camellan) (Russian translator)
